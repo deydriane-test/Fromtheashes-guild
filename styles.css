@@ -782,3 +782,35 @@ footer{font-size:11px}
   .ruleCards article{padding:19px 16px!important}
   .ruleCards strong.displayFont{font-size:25px!important}
 }
+
+
+/* Device class overrides: handles mobile browsers reporting desktop-width viewports */
+html.device-phone body{overflow-x:hidden}
+html.device-phone header{height:68px!important;padding:0 6vw!important}
+html.device-phone nav{display:none!important}
+html.device-phone .logo{width:170px!important;height:55px!important}
+html.device-phone .hero{min-height:720px!important;padding:125px 7vw 60px!important;display:flex!important;align-items:flex-start!important}
+html.device-phone .heroText{width:100%!important;max-width:100%!important;padding-top:72px;z-index:4!important}
+html.device-phone .hero h1.displayFont{font-size:clamp(48px,12vw,64px)!important;line-height:.86!important;max-width:100%!important}
+html.device-phone .heroArt{top:245px!important;right:-34vw!important;width:112vw!important;height:500px!important;opacity:.25!important;z-index:1!important}
+html.device-phone section{padding:78px 7vw!important}
+html.device-phone .intro,html.device-phone .sectionHead{display:block!important}
+html.device-phone section h2.displayFont,html.device-phone .recruit h2.displayFont{font-size:clamp(42px,10vw,56px)!important;line-height:.9!important}
+html.device-phone .eventCards,html.device-phone .leaders{display:grid!important;grid-template-columns:1fr!important;gap:14px!important}
+html.device-phone .ruleCards{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important}
+html.device-phone .eventCard{display:grid!important;grid-template-columns:26px 34px minmax(0,1fr)!important;gap:10px!important}
+html.device-phone .leaders{gap:12px!important}
+html.device-phone .leader{min-height:0!important;padding:21px 17px!important}
+html.device-phone .vibes{display:grid!important;grid-template-columns:1fr 1fr!important}
+html.device-phone .eventInfo h3.displayFont{font-size:27px!important}
+html.device-phone .leader h3.displayFont{font-size:31px!important}
+html.device-phone .ruleCards strong.displayFont{font-size:25px!important}
+@media(max-width:520px){
+ html.device-phone .logo{width:155px!important;height:52px!important}
+ html.device-phone .hero{min-height:700px!important}
+ html.device-phone .heroText{padding-top:62px}
+ html.device-phone .hero h1.displayFont{font-size:clamp(43px,11.5vw,56px)!important}
+ html.device-phone section{padding:70px 7vw!important}
+ html.device-phone section h2.displayFont,html.device-phone .recruit h2.displayFont{font-size:clamp(38px,9.2vw,50px)!important}
+ html.device-phone .vibes,html.device-phone .ruleCards{grid-template-columns:1fr!important}
+}
