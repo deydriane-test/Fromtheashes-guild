@@ -494,3 +494,291 @@ footer{font-size:11px}
   .ruleBanner{font-size:10px;line-height:1.6}
   .heroButtons{gap:10px}
 }
+
+
+/* =========================================================
+   DEVICE-SPECIFIC LAYOUTS
+   Desktop and phone are intentionally different compositions.
+   ========================================================= */
+
+/* ---------- DESKTOP / COMPUTER ---------- */
+@media(min-width:801px){
+  header{height:78px;padding:0 5vw}
+  .logo{width:min(220px,20vw)!important;height:62px!important}
+  nav{gap:30px}
+  .hero{
+    min-height:100vh;
+    padding:150px 7vw 100px;
+  }
+  .heroText{max-width:760px}
+  .hero h1.displayFont{
+    font-size:clamp(82px,9vw,138px)!important;
+    margin:28px 0 22px;
+  }
+  .heroArt{
+    right:-2vw!important;
+    top:4%!important;
+    width:min(58vw,820px)!important;
+    height:94vh!important;
+    opacity:.82!important;
+  }
+  .hero h2{font-size:clamp(23px,2.2vw,32px)!important}
+  .hero p{max-width:600px}
+  section{padding:125px 7vw}
+  .intro,.sectionHead{grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:7vw}
+  section h2.displayFont,.recruit h2.displayFont{
+    font-size:clamp(66px,7vw,112px)!important;
+  }
+  .eventCards{grid-template-columns:1fr 1fr}
+  .leaders{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .ruleCards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .vibes{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .eventCard{min-width:0}
+  .eventInfo h3.displayFont,.leader h3.displayFont,.ruleCards strong.displayFont{
+    font-size:clamp(25px,2vw,34px)!important;
+  }
+  .recruit{padding-top:145px;padding-bottom:145px}
+  footer{padding-left:7vw;padding-right:7vw}
+}
+
+/* ---------- PHONE ---------- */
+@media(max-width:800px){
+  header{
+    height:68px!important;
+    padding:0 6vw!important;
+  }
+  .logo{
+    width:170px!important;
+    height:55px!important;
+  }
+  .logo img{
+    width:100%!important;
+    height:55px!important;
+    object-fit:contain!important;
+  }
+  header .discord{
+    padding:12px 17px!important;
+    font-size:12px!important;
+  }
+
+  .hero{
+    min-height:720px!important;
+    padding:125px 7vw 60px!important;
+    display:flex!important;
+    align-items:flex-start!important;
+  }
+  .heroText{
+    width:100%!important;
+    max-width:100%!important;
+    padding-top:72px;
+  }
+  .hero .eyebrow{
+    font-size:11px!important;
+    letter-spacing:.16em!important;
+  }
+  .hero h1.displayFont{
+    font-size:clamp(48px,12vw,64px)!important;
+    line-height:.86!important;
+    margin:20px 0 22px!important;
+    max-width:100%!important;
+  }
+  .hero h2{
+    font-size:18px!important;
+    line-height:1.15!important;
+    margin-bottom:15px!important;
+  }
+  .hero p{
+    max-width:580px!important;
+    font-size:15px!important;
+    line-height:1.7!important;
+  }
+  .heroArt{
+    top:245px!important;
+    right:-34vw!important;
+    width:112vw!important;
+    height:500px!important;
+    opacity:.25!important;
+    z-index:1!important;
+  }
+  .phoenix{opacity:.32!important}
+  .heroText{z-index:4!important}
+  .heroSticker{display:none!important}
+  .heroButtons{
+    margin-top:24px!important;
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    align-items:center!important;
+  }
+
+  section{
+    padding:78px 7vw!important;
+  }
+  .eyebrow{
+    font-size:11px!important;
+    letter-spacing:.17em!important;
+  }
+  .intro,.sectionHead{
+    display:block!important;
+    margin-top:30px!important;
+  }
+  section h2.displayFont,.recruit h2.displayFont{
+    font-size:clamp(42px,10vw,56px)!important;
+    line-height:.9!important;
+    margin:0 0 30px!important;
+  }
+  .copy{max-width:100%!important}
+  .lead{
+    font-size:18px!important;
+    line-height:1.65!important;
+  }
+  .copy p{
+    font-size:15px!important;
+    line-height:1.7!important;
+  }
+
+  .vibes{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:0!important;
+    margin-top:42px!important;
+  }
+  .vibes div{
+    padding:20px 16px!important;
+    border-right:1px solid var(--line)!important;
+    border-bottom:1px solid var(--line)!important;
+  }
+  .vibes div:nth-child(2n){border-right:0!important}
+  .vibes div:nth-last-child(-n+2){border-bottom:0!important}
+  .vibes strong{font-size:17px!important}
+  .vibes small{font-size:12px!important}
+
+  .sectionHead .stickyNote{
+    margin-top:28px!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+  .stickyNote strong{font-size:38px!important}
+
+  .eventCards{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+    margin-top:32px!important;
+  }
+  .eventCard{
+    display:grid!important;
+    grid-template-columns:26px 34px minmax(0,1fr)!important;
+    gap:10px!important;
+    padding:19px 16px!important;
+  }
+  .eventInfo{min-width:0!important}
+  .eventInfo>span{
+    font-size:9px!important;
+    letter-spacing:.06em!important;
+  }
+  .eventInfo h3.displayFont{
+    font-size:27px!important;
+    line-height:.92!important;
+    margin:7px 0 9px!important;
+  }
+  .eventInfo p{
+    font-size:12px!important;
+    line-height:1.55!important;
+  }
+  .eventCard>b{display:none!important}
+  .smallNote{font-size:11px!important;line-height:1.55!important}
+
+  .leaders{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    margin-top:36px!important;
+  }
+  .leader{
+    min-height:0!important;
+    padding:21px 17px!important;
+  }
+  .leader h3.displayFont{
+    font-size:31px!important;
+    line-height:.92!important;
+    margin:15px 0 8px!important;
+  }
+  .leader p{font-size:12px!important}
+
+  .ruleCards{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:12px!important;
+  }
+  .ruleCards article{
+    min-height:0!important;
+    padding:20px 16px!important;
+  }
+  .ruleCards strong.displayFont{
+    font-size:25px!important;
+    line-height:.92!important;
+    margin:14px 0 8px!important;
+  }
+  .ruleCards p{
+    font-size:12px!important;
+    line-height:1.55!important;
+  }
+  .ruleBanner{
+    font-size:9px!important;
+    line-height:1.7!important;
+  }
+
+  .recruit h2.displayFont{margin-bottom:20px!important}
+  .recruit>p{
+    font-size:15px!important;
+    line-height:1.7!important;
+  }
+
+  footer{
+    padding:24px 7vw!important;
+    gap:8px!important;
+    font-size:10px!important;
+  }
+}
+
+/* ---------- SMALL PHONE ---------- */
+@media(max-width:520px){
+  header .discord{
+    padding:11px 14px!important;
+  }
+  .logo{width:155px!important;height:52px!important}
+  .logo img{height:52px!important}
+
+  .hero{
+    min-height:700px!important;
+    padding-left:7vw!important;
+    padding-right:7vw!important;
+  }
+  .heroText{padding-top:62px}
+  .hero h1.displayFont{
+    font-size:clamp(43px,11.5vw,56px)!important;
+    line-height:.88!important;
+  }
+  .hero h2{font-size:17px!important}
+  .heroButtons .btn,.heroButtons .ghost{
+    font-size:12px!important;
+    padding:11px 15px!important;
+  }
+  .heroArt{
+    top:255px!important;
+    right:-40vw!important;
+    width:120vw!important;
+    opacity:.21!important;
+  }
+
+  section{padding:70px 7vw!important}
+  section h2.displayFont,.recruit h2.displayFont{
+    font-size:clamp(38px,9.2vw,50px)!important;
+  }
+  .vibes,.ruleCards{grid-template-columns:1fr!important}
+  .vibes div,.vibes div:nth-child(2n){border-right:0!important;border-bottom:1px solid var(--line)!important}
+  .vibes div:last-child{border-bottom:0!important}
+  .ruleCards article{padding:19px 16px!important}
+  .ruleCards strong.displayFont{font-size:25px!important}
+}
