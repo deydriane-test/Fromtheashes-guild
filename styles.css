@@ -90,3 +90,31 @@ section{background:transparent!important;z-index:1}
 main{position:relative;z-index:1}
 footer{position:relative;z-index:1}
 header{z-index:5}
+
+
+/* Bottom-of-page fire: anchored to the actual footer, not the viewport */
+body:after{display:none!important}
+footer{position:relative;z-index:1;overflow:visible}
+footer:before{content:"";position:absolute;left:-8vw;right:-8vw;bottom:-20px;height:520px;pointer-events:none;z-index:-1;
+background:
+radial-gradient(ellipse 13% 72% at 5% 100%,rgba(255,91,18,.72),transparent 68%),
+radial-gradient(ellipse 11% 82% at 17% 100%,rgba(255,159,42,.54),transparent 70%),
+radial-gradient(ellipse 15% 76% at 30% 100%,rgba(255,70,8,.72),transparent 68%),
+radial-gradient(ellipse 12% 88% at 43% 100%,rgba(255,150,35,.50),transparent 70%),
+radial-gradient(ellipse 16% 80% at 57% 100%,rgba(255,70,8,.68),transparent 68%),
+radial-gradient(ellipse 12% 88% at 70% 100%,rgba(255,151,35,.50),transparent 70%),
+radial-gradient(ellipse 15% 76% at 84% 100%,rgba(255,72,8,.70),transparent 68%),
+radial-gradient(ellipse 11% 86% at 96% 100%,rgba(255,155,38,.50),transparent 70%),
+linear-gradient(180deg,transparent 0%,rgba(255,66,10,.10) 35%,rgba(255,55,8,.42) 100%);
+filter:blur(9px);opacity:.88;transform-origin:bottom center;
+animation:footerFire 4.5s ease-in-out infinite alternate}
+@keyframes footerFire{
+0%{transform:scaleY(.94) scaleX(.985);opacity:.72}
+35%{transform:scaleY(1.02) scaleX(1.01);opacity:.88}
+68%{transform:scaleY(.97) scaleX(.995);opacity:.80}
+100%{transform:scaleY(1.08) scaleX(1.015);opacity:.94}
+}
+@media(max-width:800px){
+ footer:before{height:390px;left:-14vw;right:-14vw;filter:blur(7px);animation-duration:5.5s}
+}
+@media(prefers-reduced-motion:reduce){footer:before{animation:none}}
