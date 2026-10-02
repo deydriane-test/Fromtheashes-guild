@@ -1,1 +1,9 @@
-window.GUILD_CONFIG={discordUrl:"",timezone:"America/Chicago",events:{raid:{day:"Saturday",time:"20:00",enabled:false},expedition:{day:"Sunday",time:"19:00",enabled:false}}};
+window.GUILD_CONFIG={
+ discordUrl:"",
+ timezone:"America/Chicago",
+ guild:{level:6,members:45,capacity:50,rank:5,master:"DeyDriane"},
+ events:{
+  raid:{day:"Sunday",time:"19:00",enabled:true},
+  expedition:{day:"Sunday",time:"19:00",enabled:true}
+ }
+};
