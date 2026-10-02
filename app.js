@@ -21,7 +21,7 @@ let ticking=false;
 function updateScroll(){
  const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
  const p=Math.min(1,Math.max(0,window.scrollY/max));
- root.style.setProperty("--scroll",p.toFixed(3)); root.style.setProperty("--accent",(11+p*12)+"%"); root.style.setProperty("--goldAccent",(4+p*5)+"%"); root.style.setProperty("--glowY",(20+p*55)+"%"); root.style.setProperty("--glowShift",(-p*10*window.innerHeight/100)+"px"); root.style.setProperty("--phoenixShift",(-p*18)+"px"); root.style.setProperty("--phoenixScale",(1+p*.035).toFixed(3));
+ root.style.setProperty("--scroll",p.toFixed(3)); root.style.setProperty("--accentOpacity",(0.11+p*0.12).toFixed(3)); root.style.setProperty("--goldOpacity",(0.04+p*0.05).toFixed(3)); root.style.setProperty("--glowY",(20+p*55)+"%"); root.style.setProperty("--glowShift",(-p*10*window.innerHeight/100)+"px"); root.style.setProperty("--phoenixShift",(-p*18)+"px"); root.style.setProperty("--phoenixScale",(1+p*.035).toFixed(3)); root.style.setProperty("--hue",(p*8)+"deg");
  if(header)header.classList.toggle("scrolled",window.scrollY>20);
  ticking=false;
 }
