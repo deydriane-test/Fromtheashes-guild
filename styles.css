@@ -157,3 +157,43 @@ body.pageActive .phoenixHalo{
     filter:saturate(1.35) contrast(1.08) brightness(1) drop-shadow(0 0 34px rgba(255,90,20,.42))!important;
   }
 }
+
+
+/* Warm edge glow that intensifies toward the footer */
+body:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:62%;
+  pointer-events:none;
+  z-index:0;
+  background:
+    linear-gradient(90deg,
+      rgba(255,55,8,.00) 0%,
+      rgba(255,55,8,.10) 4%,
+      rgba(255,82,12,.18) 9%,
+      transparent 18%,
+      transparent 82%,
+      rgba(255,82,12,.18) 91%,
+      rgba(255,55,8,.10) 96%,
+      rgba(255,55,8,.00) 100%);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,transparent 12%,rgba(0,0,0,.2) 38%,#000 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,transparent 12%,rgba(0,0,0,.2) 38%,#000 100%);
+}
+@media(max-width:800px){
+  body:after{
+    height:58%;
+    background:
+      linear-gradient(90deg,
+        rgba(255,55,8,0) 0%,
+        rgba(255,70,10,.08) 5%,
+        rgba(255,82,12,.13) 11%,
+        transparent 20%,
+        transparent 80%,
+        rgba(255,82,12,.13) 89%,
+        rgba(255,70,10,.08) 95%,
+        rgba(255,55,8,0) 100%);
+  }
+}
