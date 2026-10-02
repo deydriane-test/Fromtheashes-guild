@@ -978,3 +978,53 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
 }
 
 .accountMenuTrigger{display:flex;align-items:center;gap:5px}.accountMenuRole{opacity:.7;font-size:.85em}.accountMenuTrigger:hover .accountMenuRole{opacity:1}
+
+
+/* Desktop event readability */
+@media(min-width:801px){
+  .eventsSection .sectionHead{align-items:center}
+  .eventsSection .stickyNote{
+    min-width:360px;
+    padding:26px 32px;
+  }
+  .eventsSection .stickyNote span{
+    font-size:13px;
+    color:#3a1b0b;
+  }
+  .eventsSection .stickyNote strong{
+    font-size:52px;
+    color:#160d08;
+  }
+  .eventsSection .stickyNote small{
+    font-size:14px;
+    color:#3a1b0b;
+  }
+  .eventsSection .eventCard{
+    min-height:112px;
+    padding:25px 24px;
+  }
+  .eventsSection .eventInfo>span{
+    font-size:12px;
+    color:#ff7b3f;
+    letter-spacing:.12em;
+  }
+  .eventsSection .eventInfo h3{
+    font-size:32px;
+    margin:6px 0 8px;
+  }
+  .eventsSection .eventInfo p{
+    color:#b8adaf;
+    font-size:13px;
+  }
+  .eventsSection .eventCard>b{
+    font-size:34px;
+    color:#f3eee8;
+    min-width:72px;
+    text-align:right;
+    text-shadow:0 0 12px rgba(255,100,37,.18);
+  }
+  .eventsSection .smallNote{
+    color:#aaa0a0;
+    font-size:13px;
+  }
+}
