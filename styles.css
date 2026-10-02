@@ -426,3 +426,71 @@ section h2.displayFont,.recruit h2.displayFont{font-size:clamp(58px,8.8vw,128px)
     font-size:26px!important;
   }
 }
+
+
+/* Full-page typography and overflow polish */
+main,section,.heroText,.intro,.sectionHead,.copy,.eventCards,.eventCard,.eventInfo,.leaders,.leader,.ruleCards,.ruleCards article,.recruit{
+  min-width:0;
+}
+.displayFont{max-width:100%;overflow:visible!important}
+.displayGlyph{height:.68em!important;vertical-align:-.02em!important;flex:0 0 auto}
+.hero h1.displayFont{font-size:clamp(72px,9.5vw,132px)!important;line-height:.82!important}
+section h2.displayFont,.recruit h2.displayFont{font-size:clamp(62px,7.2vw,104px)!important;line-height:.88!important}
+.eventInfo h3.displayFont,.leader h3.displayFont,.ruleCards strong.displayFont{
+  font-size:clamp(25px,2.1vw,34px)!important;
+  line-height:.95!important;
+}
+.hero h2{font-size:clamp(21px,2.2vw,30px)!important}
+.hero p,.copy,.recruit>p{font-size:clamp(15px,1.25vw,18px);line-height:1.7}
+.lead{font-size:clamp(18px,1.5vw,21px)!important;line-height:1.65!important}
+.vibes strong{font-size:clamp(18px,1.5vw,21px)}
+.eventInfo p,.leader p,.ruleCards p{font-size:13px;line-height:1.6}
+.eventInfo,.leader,.ruleCards article{overflow:hidden}
+.ruleBanner{font-size:11px}
+footer{font-size:11px}
+
+@media(max-width:1050px){
+  section{padding-left:7vw;padding-right:7vw}
+  .hero h1.displayFont{font-size:clamp(64px,11vw,108px)!important}
+  section h2.displayFont,.recruit h2.displayFont{font-size:clamp(54px,8vw,82px)!important}
+  .leaders{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:800px){
+  section{padding:82px 7vw}
+  .hero{min-height:760px;padding:135px 7vw 65px!important}
+  .heroText{width:100%;max-width:620px}
+  .hero h1.displayFont{font-size:clamp(52px,13vw,76px)!important;line-height:.84!important}
+  section h2.displayFont,.recruit h2.displayFont{font-size:clamp(48px,10.5vw,68px)!important;line-height:.9!important}
+  .eventInfo h3.displayFont,.leader h3.displayFont,.ruleCards strong.displayFont{font-size:clamp(25px,7vw,34px)!important}
+  .hero h2{font-size:20px!important;line-height:1.15!important}
+  .hero p,.copy,.recruit>p{font-size:15px!important;line-height:1.7!important}
+  .lead{font-size:19px!important}
+  .vibes strong{font-size:19px}
+  .eventInfo p,.leader p,.ruleCards p{font-size:13px}
+  .intro,.sectionHead{gap:35px}
+  .eventCards{gap:14px}
+  .eventCard{padding:20px 17px}
+  .stickyNote{padding:18px 22px}
+  .stickyNote strong{font-size:38px}
+  .ruleCards{gap:12px}
+}
+@media(max-width:520px){
+  section{padding:76px 7vw}
+  .hero{min-height:720px;padding:128px 7vw 55px!important}
+  .hero h1.displayFont{font-size:clamp(46px,12vw,60px)!important}
+  section h2.displayFont,.recruit h2.displayFont{font-size:clamp(40px,9.5vw,54px)!important}
+  .eventInfo h3.displayFont,.leader h3.displayFont,.ruleCards strong.displayFont{font-size:26px!important}
+  .hero h2{font-size:18px!important}
+  .hero p,.copy,.recruit>p{font-size:15px!important}
+  .lead{font-size:18px!important}
+  .intro,.sectionHead{gap:28px}
+  .vibes,.ruleCards,.leaders{grid-template-columns:1fr}
+  .eventCard{grid-template-columns:26px 34px minmax(0,1fr);gap:10px}
+  .eventEmoji{font-size:25px}
+  .eventInfo>span{font-size:9px;letter-spacing:.07em}
+  .eventInfo p{font-size:12px}
+  .leader{padding:21px 17px}
+  .ruleCards article{padding:21px 18px;min-height:0}
+  .ruleBanner{font-size:10px;line-height:1.6}
+  .heroButtons{gap:10px}
+}
