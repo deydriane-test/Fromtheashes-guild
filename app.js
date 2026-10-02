@@ -28,3 +28,14 @@ document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
 
 
 
+
+
+let phoenixTimer;
+function wakePhoenix(){
+  document.body.classList.add("pageActive");
+  clearTimeout(phoenixTimer);
+  phoenixTimer=setTimeout(()=>document.body.classList.remove("pageActive"),700);
+}
+window.addEventListener("pointerdown",wakePhoenix,{passive:true});
+window.addEventListener("keydown",wakePhoenix,{passive:true});
+window.addEventListener("scroll",wakePhoenix,{passive:true});
