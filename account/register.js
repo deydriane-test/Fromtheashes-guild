@@ -11,3 +11,5 @@ status("CREATING YOUR ACCOUNT…");
 const {error}=await sb.auth.signUp({email,password,options:{data:{username,character_name:character,discord_id:discord},emailRedirectTo:"https://ftashes.com/account/#verified"}});
 if(error){status(error.message,"error");return}
 status("ACCOUNT CREATED. CHECK YOUR EMAIL TO CONFIRM IT. YOU START AS A RECRUIT AND YOUR CHARACTER IS PENDING APPROVAL.","success");$("signupForm").reset();$("passwordMatch").textContent="";$("passwordMatch").className="passwordMatch"};
+
+$("resendVerification").onclick=async()=>{const email=$("email").value.trim().toLowerCase();if(!email){status("ENTER YOUR EMAIL ADDRESS ABOVE FIRST.","error");$("email").focus();return}status("SENDING VERIFICATION EMAIL…");const {error}=await sb.auth.resend({type:"signup",email,options:{emailRedirectTo:"https://ftashes.com/account/#verified"}});if(error){status(error.message,"error");return}status("VERIFICATION EMAIL SENT. CHECK YOUR INBOX AND SPAM FOLDER.","success")};
