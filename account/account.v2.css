@@ -749,3 +749,14 @@
   .portalAuthCopy .portalAuthCard{max-width:100%!important}
   .portalAuthCopy .portalCardHead{max-width:100%!important}
 }
+
+
+/* Reference artwork proportions */
+.portalAuthCopy .discordAuthBtn{
+  width:min(455px,100%)!important;
+  height:116px!important;
+  min-height:116px!important;
+  background-size:100% 100%!important;
+}
+@media(max-width:900px){.portalAuthCopy .discordAuthBtn{height:clamp(88px,25.5vw,116px)!important;min-height:88px!important}}
+@media(max-width:520px){.portalAuthCopy .discordAuthBtn{height:clamp(74px,25.5vw,96px)!important;min-height:74px!important}}
