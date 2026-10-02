@@ -1,104 +1,40 @@
-const cfg=window.GUILD_CONFIG||{};
-const client=window.supabase?.createClient(cfg.supabase.url,cfg.supabase.publishableKey);
-const $=id=>document.getElementById(id);
-const loginPanel=$("loginPanel"),deniedPanel=$("deniedPanel"),dashboard=$("dashboard"),logoutBtn=$("logoutBtn"),adminEmail=$("adminEmail");
-
-function show(which){
- [loginPanel,deniedPanel,dashboard].forEach(x=>x.hidden=true);
- which.hidden=false;
-}
-
-async function isLeader(user){
- if(!user)return false;
- const {data,error}=await client.from("admin_leaders").select("email,display_name,active").eq("active",true).maybeSingle();
- if(error)return false;
- return !!data;
-}
-
+const c=window.GUILD_CONFIG||{};const client=window.supabase.createClient(c.supabase.url,c.supabase.publishableKey);const $=id=>document.getElementById(id);
+let me=null,role=null;
+function show(id){["loginPanel","deniedPanel","dashboard"].forEach(x=>$(x).hidden=x!==id);}
+function canAdmin(){return ["owner","site_mod","officer"].includes(role)}
+async function getProfile(user){const {data}=await client.from("profiles").select("id,username,role").eq("id",user.id).maybeSingle();return data}
 async function loadRoster(){
- const {data,error}=await client.from("roster")
-   .select("id,character_name,discord_name,approved,active,joined_at")
-   .order("approved",{ascending:true})
-   .order("joined_at",{ascending:false});
- const list=$("rosterAdminList");
- if(error){
-   list.innerHTML='<div class="adminEmpty">COULDN’T LOAD THE ROSTER.</div>';
-   return;
- }
- const pending=data.filter(x=>!x.approved).length;
- $("pendingCount").textContent=pending?pending+" PENDING APPROVAL":data.length+" ROSTER ENTRIES";
- if(!data.length){
-   list.innerHTML='<div class="adminEmpty">NO ROSTER ENTRIES YET.</div>';
-   return;
- }
+ const {data,error}=await client.from("roster").select("id,user_id,character_name,discord_id,approved,active,joined_at").order("approved",{ascending:true}).order("joined_at",{ascending:false});
+ const list=$("rosterAdminList");if(error){list.innerHTML='<div class="adminEmpty">COULDN’T LOAD THE PRIVATE ROSTER.</div>';return;}
+ $("roleBadge").textContent=role.replace("_"," ").toUpperCase();
+ $("adminIntro").textContent=role==="officer"?"You can view approved members and add/remove member tags.":role==="site_mod"?"You can manage the roster, remove members, and promote recruits up through Officer.":"You have full guild administration access.";
  list.innerHTML="";
- data.forEach(member=>{
-   const card=document.createElement("article");
-   card.className="rosterAdminCard"+(!member.approved?" pending":"")+(!member.active?" inactive":"");
-   const info=document.createElement("div");
-   const name=document.createElement("div");name.className="adminMemberName";name.textContent=member.character_name;
-   const meta=document.createElement("div");meta.className="adminMemberMeta";
-   meta.textContent=(member.discord_name?"DISCORD • "+member.discord_name+" • ":"")+(member.approved?(member.active?"ACTIVE":"INACTIVE"):"PENDING APPROVAL");
-   info.append(name,meta);
-   const actions=document.createElement("div");actions.className="adminActions";
-   if(!member.approved){
-     const b=document.createElement("button");b.className="adminAction approve";b.textContent="APPROVE";b.onclick=()=>updateMember(member.id,{approved:true});actions.appendChild(b);
-   }else{
-     const b=document.createElement("button");b.className="adminAction";b.textContent=member.active?"DEACTIVATE":"REACTIVATE";b.onclick=()=>updateMember(member.id,{active:!member.active});actions.appendChild(b);
-   }
-   const del=document.createElement("button");del.className="adminAction danger";del.textContent="REMOVE";del.onclick=()=>deleteMember(member.id,member.character_name);actions.appendChild(del);
-   card.append(info,actions);list.appendChild(card);
- });
-}
-
-async function updateMember(id,changes){
- const {error}=await client.from("roster").update(changes).eq("id",id);
- if(error){alert("Couldn’t update that roster entry.");return;}
- await loadRoster();
-}
-
-async function deleteMember(id,name){
- if(!confirm("Remove "+name+" from the roster?"))return;
- const {error}=await client.from("roster").delete().eq("id",id);
- if(error){alert("Couldn’t remove that roster entry.");return;}
- await loadRoster();
-}
-
-$("loginForm").addEventListener("submit",async e=>{
- e.preventDefault();
- const email=$("loginEmail").value.trim().toLowerCase();
- $("loginStatus").className="formStatus";
- $("loginStatus").textContent="SENDING LOGIN LINK…";
- const {error}=await client.auth.signInWithOtp({
-   email,
-   options:{emailRedirectTo:window.location.origin+"/admin/"}
- });
- if(error){
-   $("loginStatus").className="formStatus error";
-   $("loginStatus").textContent=error.message;
-   return;
+ if(!data?.length){list.innerHTML='<div class="adminEmpty">NO ROSTER ENTRIES YET.</div>';return;}
+ for(const m of data){
+  const card=document.createElement("article");card.className="rosterAdminCard"+(!m.approved?" pending":"")+(!m.active?" inactive":"");
+  const info=document.createElement("div");const name=document.createElement("div");name.className="adminMemberName";name.textContent=m.character_name;
+  const meta=document.createElement("div");meta.className="adminMemberMeta";meta.textContent=(m.discord_id?"DISCORD • "+m.discord_id+" • ":"")+(m.approved?(m.active?"ACTIVE":"INACTIVE"):"PENDING");
+  info.append(name,meta);
+  const actions=document.createElement("div");actions.className="adminActions";
+  if(role==="owner"||role==="site_mod"){
+   if(!m.approved){const b=document.createElement("button");b.className="adminAction approve";b.textContent="APPROVE";b.onclick=()=>updateRoster(m.id,{approved:true});actions.append(b);}
+   else{const b=document.createElement("button");b.className="adminAction";b.textContent=m.active?"DEACTIVATE":"REACTIVATE";b.onclick=()=>updateRoster(m.id,{active:!m.active});actions.append(b);}
+   const d=document.createElement("button");d.className="adminAction danger";d.textContent="REMOVE";d.onclick=()=>removeRoster(m.id,m.character_name);actions.append(d);
+  }
+  if(role==="officer"&&m.approved&&m.active){
+   const tag=document.createElement("button");tag.className="adminAction";tag.textContent="TAG MEMBER";tag.onclick=()=>addTag(m.id,m.character_name);actions.append(tag);
+  }
+  card.append(info,actions);list.append(card);
  }
- $("loginStatus").className="formStatus success";
- $("loginStatus").textContent="CHECK YOUR EMAIL FOR THE SIGN-IN LINK.";
-});
-
-logoutBtn.onclick=()=>client.auth.signOut();
-$("deniedLogout").onclick=()=>client.auth.signOut();
-
-async function boot(){
- if(!client){show(loginPanel);return;}
- const {data:{user}}=await client.auth.getUser();
- if(!user){show(loginPanel);return;}
- const leader=await isLeader(user);
- if(!leader){
-   adminEmail.textContent=user.email||"";
-   show(deniedPanel);
-   return;
- }
- adminEmail.textContent=user.email||"";
- logoutBtn.hidden=false;
- show(dashboard);
- await loadRoster();
 }
-client?.auth.onAuthStateChange(()=>boot());
-boot();
+async function updateRoster(id,changes){const {error}=await client.from("roster").update(changes).eq("id",id);if(error){alert("Couldn’t update that member.");return}loadRoster()}
+async function removeRoster(id,name){if(!confirm("Remove "+name+" from the roster?"))return;const {error}=await client.from("roster").delete().eq("id",id);if(error){alert("Couldn’t remove that member.");return}loadRoster()}
+async function addTag(rosterId,name){
+ const tag=prompt("Tag for "+name+" (example: Raid Lead, Crafter, Recruiter):");if(!tag?.trim())return;
+ const {error}=await client.from("member_tags").insert({roster_id:rosterId,tag:tag.trim(),created_by:me.id});
+ if(error){alert("Couldn’t add that tag.");return}alert("Tag added.");loadRoster();
+}
+$("loginForm").onsubmit=async e=>{e.preventDefault();$("loginStatus").textContent="LOGGING IN…";const {error}=await client.auth.signInWithPassword({email:$("loginEmail").value.trim().toLowerCase(),password:$("loginPassword").value});if(error){$("loginStatus").className="formStatus error";$("loginStatus").textContent=error.message;return}boot()};
+$("logoutBtn").onclick=()=>client.auth.signOut();
+async function boot(){const {data:{user}}=await client.auth.getUser();if(!user){show("loginPanel");return}me=user;const p=await getProfile(user);if(!p){show("deniedPanel");$("deniedText").textContent="Your account profile is not ready yet.";return}role=p.role;$("adminIdentity").textContent=p.username+" • "+role.replace("_"," ").toUpperCase();if(!canAdmin()){show("deniedPanel");return}show("dashboard");loadRoster()}
+client.auth.onAuthStateChange(()=>boot());boot();
