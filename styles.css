@@ -191,17 +191,23 @@ box-shadow:
 animation:emberFloatB 17s ease-in-out infinite}
 @keyframes emberFloatA{
 0%{transform:translate3d(-1vw,8px,0);opacity:0}
-8%{opacity:.9}
-35%{transform:translate3d(4vw,calc(var(--pageHeight) * -.25),0);opacity:.78}
-68%{transform:translate3d(-3vw,calc(var(--pageHeight) * -.62),0);opacity:.55}
-90%{transform:translate3d(5vw,calc(var(--pageHeight) * -.88),0);opacity:.18}
-100%{transform:translate3d(1vw,calc(var(--pageHeight) * -1.05),0);opacity:0}
+8%{transform:translate3d(1vw,calc(var(--pageHeight) * -.06),0);opacity:.9}
+20%{transform:translate3d(7vw,calc(var(--pageHeight) * -.18),0);opacity:.82}
+34%{transform:translate3d(-4vw,calc(var(--pageHeight) * -.31),0);opacity:.72}
+48%{transform:translate3d(5vw,calc(var(--pageHeight) * -.45),0);opacity:.64}
+63%{transform:translate3d(-7vw,calc(var(--pageHeight) * -.61),0);opacity:.52}
+77%{transform:translate3d(4vw,calc(var(--pageHeight) * -.76),0);opacity:.38}
+90%{transform:translate3d(-5vw,calc(var(--pageHeight) * -.9),0);opacity:.16}
+100%{transform:translate3d(2vw,calc(var(--pageHeight) * -1.05),0);opacity:0}
 }
 @keyframes emberFloatB{
 0%{transform:translate3d(2vw,10px,0);opacity:0}
-10%{opacity:.8}
-32%{transform:translate3d(-4vw,calc(var(--pageHeight) * -.22),0);opacity:.7}
-61%{transform:translate3d(6vw,calc(var(--pageHeight) * -.55),0);opacity:.48}
-84%{transform:translate3d(-5vw,calc(var(--pageHeight) * -.82),0);opacity:.16}
-100%{transform:translate3d(3vw,calc(var(--pageHeight) * -1.05),0);opacity:0}
+9%{transform:translate3d(-3vw,calc(var(--pageHeight) * -.07),0);opacity:.82}
+23%{transform:translate3d(-9vw,calc(var(--pageHeight) * -.2),0);opacity:.74}
+38%{transform:translate3d(3vw,calc(var(--pageHeight) * -.34),0);opacity:.66}
+53%{transform:translate3d(8vw,calc(var(--pageHeight) * -.5),0);opacity:.55}
+68%{transform:translate3d(-5vw,calc(var(--pageHeight) * -.66),0);opacity:.42}
+82%{transform:translate3d(-8vw,calc(var(--pageHeight) * -.81),0);opacity:.25}
+92%{transform:translate3d(5vw,calc(var(--pageHeight) * -.92),0);opacity:.12}
+100%{transform:translate3d(0,calc(var(--pageHeight) * -1.05),0);opacity:0}
 }
