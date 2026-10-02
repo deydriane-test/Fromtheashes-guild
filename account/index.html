@@ -3,5 +3,12 @@
 <title>FromTheAshes — My Account</title><link rel="stylesheet" href="../styles.v1.css"><link rel="stylesheet" href="account.v1.css"></head>
 <body class="adminPage"><div class="embers"></div><div class="scrollGlow"></div>
 <header class="adminHeader"><a class="logo" href="../">FROM<span>THE</span>ASHES</a><div class="adminHeaderRight"><a class="ghost" href="../">BACK TO GUILD</a></div></header>
-<main><script>window.location.replace("profile.html");</script><noscript><a href="profile.html">OPEN ACCOUNT</a></noscript></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="account.v2.js"></script></body></html>
+<main>
+<section id="accountPanel" class="accountPanel"><div class="eyebrow">YOUR ACCOUNT</div><h1 class="accountPageTitle">WELCOME, <i id="accountUsername">MEMBER.</i></h1><p id="accountRole"></p>
+<div class="accountInfoGrid"><div class="accountInfo"><span>EMAIL</span><strong id="accountEmail"></strong></div>
+<div class="accountInfo"><span>CHARACTER</span><strong id="accountCharacter"></strong></div>
+<div class="accountInfo"><span>DISCORD</span><strong id="accountDiscord"></strong></div>
+<div class="accountInfo"><span>ROSTER STATUS</span><strong id="accountStatus"></strong></div></div>
+<button id="accountLogout" class="ghost" type="button">LOG OUT</button></section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="account.v3.js"></script></body></html>
