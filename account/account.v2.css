@@ -709,3 +709,43 @@
     min-height:76px!important;
   }
 }
+
+
+/* ---------- KEEP AUTHENTICATION CONTENT WITH WELCOME COLUMN ---------- */
+.portalAuthGrid{
+  grid-template-columns:minmax(0,1fr)!important;
+}
+.portalAuthCopy{
+  max-width:760px!important;
+}
+.portalAuthCopy .portalAuthCard{
+  width:100%!important;
+  max-width:760px!important;
+  padding:0!important;
+  margin:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.portalAuthCopy .portalCardHead{
+  max-width:455px!important;
+  margin:0 0 10px!important;
+}
+.portalAuthCopy .discordAuthBtn{
+  display:block!important;
+  margin:0 0 14px!important;
+}
+.portalAuthCopy .portalAuthCard > p:not(.formStatus){
+  margin:0 0 12px!important;
+  color:#b4aaab!important;
+  font:400 17px/1.65 "Space Grotesk",sans-serif!important;
+}
+.portalAuthCopy .portalAuthFooter{
+  text-align:left!important;
+  margin-top:16px!important;
+}
+@media(max-width:900px){
+  .portalAuthCopy{max-width:100%!important}
+  .portalAuthCopy .portalAuthCard{max-width:100%!important}
+  .portalAuthCopy .portalCardHead{max-width:100%!important}
+}
