@@ -363,3 +363,28 @@ section h2.displayFont,.recruit h2.displayFont{font-size:clamp(58px,8.8vw,128px)
   .hero h1.displayFont{font-size:clamp(44px,14vw,70px)}
   section h2.displayFont,.recruit h2.displayFont{font-size:clamp(42px,12vw,66px)}
 }
+
+
+/* Final mobile hero cleanup */
+.displayFont i{white-space:nowrap!important;display:inline-flex!important;flex-wrap:nowrap!important}
+.hero h1.displayFont{white-space:nowrap!important}
+@media(max-width:800px){
+  .hero{min-height:760px;align-items:flex-start;padding-top:145px;padding-bottom:70px}
+  .heroText{width:100%;max-width:none}
+  .hero h1.displayFont{font-size:clamp(48px,14.5vw,76px)!important;line-height:.82!important;margin:22px 0 22px!important}
+  .hero h1.displayFont i{font-size:.92em!important}
+  .hero h2{font-size:20px!important;margin-bottom:16px!important}
+  .hero p{font-size:15px!important;line-height:1.65!important;max-width:560px}
+  .heroArt{top:250px!important;right:-32vw!important;width:108vw!important;height:510px!important;opacity:.28!important;z-index:1!important}
+  .heroText{z-index:3}
+  .logo{width:180px!important;height:58px!important}
+  .logo img{height:58px!important}
+}
+@media(max-width:520px){
+  .hero{min-height:760px;padding:135px 7vw 60px!important}
+  .hero h1.displayFont{font-size:clamp(47px,14.2vw,64px)!important}
+  .hero h1.displayFont i{font-size:.9em!important}
+  .heroArt{top:275px!important;right:-40vw!important;width:118vw!important;height:470px!important;opacity:.22!important}
+  .logo{width:170px!important;height:56px!important}
+  .logo img{height:56px!important}
+}
