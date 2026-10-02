@@ -1,6 +1,6 @@
 const c=window.GUILD_CONFIG||{};const client=window.supabase.createClient(c.supabase.url,c.supabase.publishableKey);const $=id=>document.getElementById(id);
 let me=null,role=null;
-function show(id){["loginPanel","deniedPanel","dashboard"].forEach(x=>$(x).hidden=x!==id);}
+function show(id){["accessPanel","dashboard"].forEach(x=>$(x).hidden=x!==id);}
 function canAdmin(){return ["owner","site_mod","officer"].includes(role)}
 async function getProfile(user){const {data}=await client.from("profiles").select("id,username,role").eq("id",user.id).maybeSingle();return data}
 async function loadRoster(){
@@ -47,7 +47,6 @@ async function addTag(rosterId,name){
  const {error}=await client.from("member_tags").insert({roster_id:rosterId,tag:tag.trim(),created_by:me.id});
  if(error){alert("Couldn’t add that tag.");return}alert("Tag added.");loadRoster();
 }
-$("loginForm").onsubmit=async e=>{e.preventDefault();$("loginStatus").textContent="LOGGING IN…";const {error}=await client.auth.signInWithPassword({email:$("loginEmail").value.trim().toLowerCase(),password:$("loginPassword").value});if(error){$("loginStatus").className="formStatus error";$("loginStatus").textContent=error.message;return}boot()};
 $("logoutBtn").onclick=()=>client.auth.signOut();
-async function boot(){const {data:{user}}=await client.auth.getUser();if(!user){show("loginPanel");return}me=user;const p=await getProfile(user);if(!p){show("deniedPanel");$("deniedText").textContent="Your account profile is not ready yet.";return}role=p.role;$("adminIdentity").textContent=p.username+" • "+role.replace("_"," ").toUpperCase();if(!canAdmin()){show("deniedPanel");return}show("dashboard");loadRoster()}
-client.auth.onAuthStateChange(()=>boot());boot();
+async function boot(){const {data:{user}}=await client.auth.getUser();if(!user){show("accessPanel");$("accessText").textContent="You must be signed in with a guild account to access administration.";return}me=user;const p=await getProfile(user);if(!p){show("accessPanel");$("accessText").textContent="Your account profile is not ready yet.";return}role=p.role;$("adminIdentity").textContent=p.username+" • "+role.replace("_"," ").toUpperCase();if(!canAdmin()){show("accessPanel");$("accessText").textContent="Your current guild role does not have administration access.";return}show("dashboard");await loadRoster()}
+client.auth.onAuthStateChange((event)=>{if(event==="SIGNED_OUT"||event==="SIGNED_IN")boot()});boot();
