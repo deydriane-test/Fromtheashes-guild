@@ -601,3 +601,43 @@
     min-height:76px!important;
   }
 }
+
+
+/* ---------- IMAGE BUTTON: REMOVE ALL LEGACY CSS ARTWORK ---------- */
+.portalAuthCard .discordAuthBtn::before{
+  content:none!important;
+  display:none!important;
+  width:0!important;
+  height:0!important;
+  min-width:0!important;
+  flex:0 0 0!important;
+  background:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  filter:none!important;
+  transform:none!important;
+}
+.portalAuthCard .discordAuthBtn::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.portalAuthCard .discordAuthBtn{
+  background-image:url("../assets/discord-button-default.svg")!important;
+  background-color:transparent!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border:0!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+}
+.portalAuthCard .discordAuthBtn:hover{
+  background-image:url("../assets/discord-button-hover.svg")!important;
+}
+.portalAuthCard .discordAuthBtn:active,
+.portalAuthCard .discordAuthBtn.discordStateActive{
+  background-image:url("../assets/discord-button-active.svg")!important;
+}
