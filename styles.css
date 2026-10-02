@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--bg:#0a0909;--paper:#121012;--card:#181518;--card2:#201b1e;--text:#f6efe8;--muted:#aaa0a0;--orange:#ff6425;--gold:#ffc46e;--pink:#e79b83;--line:#30282b;--green:#9bdd70;--scroll:0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090708;color:var(--text);font-family:"Space Grotesk",sans-serif;overflow-x:hidden;position:relative;}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(180deg,#080708 0%,#0b0809 13%,#12090a 32%,#1b0a0a 53%,#2b0b08 72%,#4a1008 88%,#7d1b08 100%);}
@@ -143,3 +143,17 @@ box-shadow:
 @media(max-width:800px){
  .embers:before,.embers:after{width:3px;height:3px}
 }
+
+
+/* RF Online-inspired typography: tall, technical and lighter than the previous block font */
+.logo,.hero h1,h2,.hero h2,nav a,.discord,.btn,.ghost,.eyebrow,
+.heroSticker span,.vibes strong,.eventInfo>span,.eventInfo h3,.eventCard>b,
+.leader span,.leader h3,.ruleCards span,.ruleCards strong,.ruleBanner,footer{
+  font-family:"Rajdhani",sans-serif;
+}
+.logo{font-weight:700;letter-spacing:.11em}
+nav a,.discord,.btn,.ghost,.eyebrow,.heroSticker span,.eventInfo>span,
+.leader span,.ruleCards span,.ruleBanner,footer{font-weight:700}
+.hero h1,h2{font-weight:700;letter-spacing:-.035em;line-height:.82}
+.hero h2{font-weight:600;letter-spacing:.10em}
+.eventInfo h3,.leader h3,.ruleCards strong{font-weight:700}
