@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FromTheAshes — Guild Account</title><link rel="stylesheet" href="../styles.css?v=24"><link rel="stylesheet" href="account.css?v=3"></head>
+<title>FromTheAshes — Guild Account</title><link rel="stylesheet" href="../styles.css?v=24"><link rel="stylesheet" href="account.css?v=4"></head>
 <body class="adminPage"><div class="embers"></div><div class="scrollGlow"></div>
 <header class="adminHeader"><a class="logo" href="../">FROM<span>THE</span>ASHES</a><div class="adminHeaderRight"><a class="ghost" href="../">BACK TO GUILD</a></div></header>
 <main class="accountLanding">
 <section class="accountHero">
 <div class="eyebrow">FROMTHEASHES • MEMBER PORTAL</div>
 <h1>WELCOME<br><i>BACK.</i></h1>
-<p>Guild accounts are private. Sign in to access your account, or create one if you're new. New accounts start as <b>RECRUIT</b> until leadership changes your role.</p>
+<p>Guild accounts are private. Sign in to access your account. New accounts start as <b>RECRUIT</b> until leadership changes your role.</p>
 <div class="authCard">
 <div class="authCardHead"><span id="authModeLabel">MEMBER SIGN IN</span><span class="authRule">FROMTHEASHES</span></div>
 <form id="loginForm" class="adminForm">
@@ -16,21 +16,13 @@
 <div class="authOptions"><button id="forgotPassword" type="button" class="textLink">FORGOT PASSWORD?</button></div>
 <button class="btn" type="submit">SIGN IN ↗</button><p id="loginStatus" class="formStatus" role="status"></p>
 </form>
-<form id="signupForm" class="adminForm" hidden>
-<label>USERNAME<input id="username" maxlength="32" required autocomplete="username" placeholder="Choose a unique username"></label>
-<label>EMAIL<input id="email" type="email" required autocomplete="email" placeholder="For login and recovery"></label>
-<label>PASSWORD<input id="password" type="password" minlength="8" required autocomplete="new-password" placeholder="At least 8 characters"></label>
-<label>CHARACTER NAME<input id="character" maxlength="40" required autocomplete="nickname" placeholder="Your RF Online Next character"></label>
-<label>DISCORD ID / USERNAME<input id="discord" maxlength="80" autocomplete="off" placeholder="Your Discord ID or @username"></label>
-<button class="btn" type="submit">CREATE ACCOUNT ↗</button><p id="signupStatus" class="formStatus" role="status"></p>
-</form>
 <form id="resetForm" class="adminForm" hidden>
 <label>EMAIL<input id="resetEmail" type="email" required autocomplete="email" placeholder="The email on your account"></label>
 <button class="btn" type="submit">SEND RESET LINK ↗</button><button id="backToLogin" type="button" class="ghost">BACK TO SIGN IN</button>
 <p id="resetStatus" class="formStatus" role="status"></p></form>
-<div class="authFooter"><span id="authPrompt">Don't have an account?</span> <button id="toggleSignup" class="textLink">SIGN UP</button></div>
+<div class="authFooter"><span id="authPrompt">Don't have an account?</span> <a class="textLink authLink" href="register.html">REGISTER</a></div>
 </div>
 </section>
 <section id="accountPanel" class="accountPanel" hidden><div class="eyebrow">YOUR ACCOUNT</div><h2>WELCOME, <i id="accountUsername">MEMBER.</i></h2><p id="accountRole"></p><div id="accountCharacter" class="accountCard"></div><button id="accountLogout" class="ghost">LOG OUT</button></section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.js?v=3"></script><script src="account.js?v=2"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.js?v=3"></script><script src="account.js?v=3"></script></body></html>
