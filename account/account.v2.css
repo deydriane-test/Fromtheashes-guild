@@ -262,3 +262,59 @@
  .portalLogo{width:250px!important;height:54px!important}
  .portalAuthMain{padding-top:124px!important}
 }
+
+
+/* ---------- MINIMAL DISCORD SIGN-IN ---------- */
+.portalAuthCard .discordAuthBtn{
+  width:auto!important;
+  min-height:58px!important;
+  margin:20px 0 4px!important;
+  padding:8px 2px!important;
+  display:inline-flex!important;
+  justify-content:flex-start!important;
+  gap:14px!important;
+  color:#f3eee8!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+  overflow:visible!important;
+  transform:none!important;
+  filter:none!important;
+}
+.portalAuthCard .discordAuthBtn:before{
+  width:46px!important;
+  height:46px!important;
+  flex:0 0 46px!important;
+  background:#ff6425!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.676 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.027c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.17 13.17 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.794 8.18 1.794 12.061 0a.074.074 0 0 1 .078.01c.12.099.246.197.372.291a.077.077 0 0 1-.007.128c-.598.35-1.222.649-1.873.892a.077.077 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.077.077 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.032-.029zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.095 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.095 2.157 2.419 0 1.334-.956 2.419-2.157 2.419z'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.676 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.027c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.17 13.17 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.794 8.18 1.794 12.061 0a.074.074 0 0 1 .078.01c.12.099.246.197.372.291a.077.077 0 0 1-.007.128c-.598.35-1.222.649-1.873.892a.077.077 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.077.077 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.032-.029zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.095 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.419 2.419z'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  filter:drop-shadow(0 0 7px #ff642577)!important;
+}
+.portalAuthCard .discordAuthBtn span{
+  font:800 16px "Rajdhani",sans-serif!important;
+  letter-spacing:.12em!important;
+  color:#f3eee8!important;
+}
+.portalAuthCard .discordAuthBtn:hover{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  transform:translateX(4px)!important;
+  filter:none!important;
+}
+.portalAuthCard .discordAuthBtn:hover:before{
+  transform:scale(1.08)!important;
+  filter:drop-shadow(0 0 13px #ff6425bb)!important;
+}
+.portalAuthCard .discordAuthBtn:hover span{color:#ff9b58!important}
+.portalAuthCard .discordAuthBtn:active,
+.portalAuthCard .discordAuthBtn.discordStateActive{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  transform:translateX(2px)!important;
+  filter:none!important;
+}
+.portalAuthCard .discordAuthBtn.discordStateActive:before{transform:scale(1.15)!important}
+@media(max-width:520px){.portalAuthCard .discordAuthBtn span{font-size:14px!important}.portalAuthCard .discordAuthBtn:before{width:40px!important;height:40px!important;flex-basis:40px!important}}
