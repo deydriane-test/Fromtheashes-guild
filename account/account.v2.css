@@ -760,3 +760,17 @@
 }
 @media(max-width:900px){.portalAuthCopy .discordAuthBtn{height:clamp(88px,25.5vw,116px)!important;min-height:88px!important}}
 @media(max-width:520px){.portalAuthCopy .discordAuthBtn{height:clamp(74px,25.5vw,96px)!important;min-height:74px!important}}
+
+
+/* ---------- EXACT GENERATED BUTTON ARTWORK ---------- */
+.portalAuthCopy .discordAuthBtn{
+  background-image:url("../assets/discord-button-exact.webp?v=1")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+}
+.portalAuthCopy .discordAuthBtn:hover,
+.portalAuthCopy .discordAuthBtn:active,
+.portalAuthCopy .discordAuthBtn.discordStateActive{
+  background-image:url("../assets/discord-button-exact.webp?v=1")!important;
+}
