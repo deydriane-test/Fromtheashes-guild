@@ -247,3 +247,41 @@ body:after{
 .hero h1 i,h2 i,.recruit h2 i{
   font-style:italic!important;
 }
+
+
+/* Header correction: preserve white words, texture only the former clear/outlined words */
+.hero h1,h2,.recruit h2,
+.rules h2,.about h2,.eventsSection h2,.leadership h2{
+  font-family:"Playfair Display",Georgia,serif!important;
+  font-weight:800!important;
+  font-style:normal!important;
+  color:#f4efe9!important;
+  -webkit-text-fill-color:#f4efe9!important;
+  -webkit-text-stroke:0!important;
+  letter-spacing:-.045em!important;
+  line-height:.84!important;
+  background:none!important;
+  text-shadow:none!important;
+}
+.hero h1 i,h2 i,.recruit h2 i{
+  font-family:"Playfair Display",Georgia,serif!important;
+  font-weight:800!important;
+  font-style:italic!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  -webkit-text-stroke:1px rgba(255,235,220,.68)!important;
+  background:
+    radial-gradient(circle at 16% 28%,rgba(255,178,65,.95) 0 2%,transparent 5%),
+    radial-gradient(circle at 72% 63%,rgba(255,79,14,.9) 0 3%,transparent 6%),
+    repeating-linear-gradient(108deg,
+      #171113 0 7px,
+      #522016 7px 11px,
+      #d44813 11px 14px,
+      #241315 14px 22px,
+      #ff7a1d 22px 24px,
+      #351719 24px 31px);
+  background-size:150px 150px,190px 190px,100% 100%;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  text-shadow:0 0 14px rgba(255,65,12,.12);
+}
