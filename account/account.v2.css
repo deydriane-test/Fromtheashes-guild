@@ -318,3 +318,75 @@
 }
 .portalAuthCard .discordAuthBtn.discordStateActive:before{transform:scale(1.15)!important}
 @media(max-width:520px){.portalAuthCard .discordAuthBtn span{font-size:14px!important}.portalAuthCard .discordAuthBtn:before{width:40px!important;height:40px!important;flex-basis:40px!important}}
+
+
+/* ---------- SSO: REMOVE AUTH CARD SHELL ---------- */
+.portalAuthCard{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:28px 0!important;
+}
+.portalCardHead{
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* Discord action uses the textured treatment, without restoring the outer card */
+.portalAuthCard .discordAuthBtn{
+  position:relative!important;
+  width:auto!important;
+  min-height:74px!important;
+  margin:20px 0 4px!important;
+  padding:0 30px 0 18px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:16px!important;
+  background:
+    linear-gradient(90deg,rgba(8,7,7,.86),rgba(18,10,8,.68)),
+    url("../phoenix.jpeg") center 52%/cover no-repeat!important;
+  border:1px solid rgba(255,100,37,.55)!important;
+  box-shadow:5px 5px 0 rgba(255,100,37,.18),0 0 24px rgba(255,100,37,.10),inset 0 0 24px rgba(255,100,37,.08)!important;
+  border-radius:0!important;
+  overflow:hidden!important;
+  transform:none!important;
+}
+.portalAuthCard .discordAuthBtn:after{
+  content:"";
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,120,55,.10) 45%,transparent 72%)!important;
+  opacity:.75!important;
+}
+.portalAuthCard .discordAuthBtn:before{
+  position:relative!important;
+  z-index:1!important;
+  width:46px!important;
+  height:46px!important;
+  flex:0 0 46px!important;
+  background:#ff6425!important;
+  filter:drop-shadow(0 0 8px rgba(255,100,37,.48))!important;
+}
+.portalAuthCard .discordAuthBtn span{position:relative!important;z-index:1!important}
+.portalAuthCard .discordAuthBtn:hover{
+  transform:translate(-2px,-2px)!important;
+  filter:brightness(1.10)!important;
+  border-color:#ff9b58!important;
+  box-shadow:7px 7px 0 rgba(255,100,37,.24),0 0 30px rgba(255,100,37,.18),inset 0 0 30px rgba(255,100,37,.12)!important;
+}
+.portalAuthCard .discordAuthBtn:active,
+.portalAuthCard .discordAuthBtn.discordStateActive{
+  transform:translate(2px,2px)!important;
+  box-shadow:2px 2px 0 rgba(255,100,37,.20),0 0 30px rgba(255,100,37,.22),inset 0 0 30px rgba(255,100,37,.14)!important;
+}
+.portalAuthFooter{display:block!important}
+
+@media(max-width:900px){
+ .portalAuthCard{padding:22px 0!important}
+}
+@media(max-width:520px){
+ .portalAuthCard{padding:19px 0!important}
+ .portalAuthCard .discordAuthBtn{min-height:64px!important;padding-right:20px!important}
+}
