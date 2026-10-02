@@ -62,3 +62,30 @@
 
 
 .accountInfoGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}.accountInfo{padding:18px;border:1px solid var(--line);background:var(--card);min-width:0}.accountInfo span{display:block;color:var(--orange);font:800 10px "Rajdhani",sans-serif;letter-spacing:.12em;margin-bottom:8px}.accountInfo strong{display:block;color:var(--text);font:600 15px "Space Grotesk",sans-serif;overflow-wrap:anywhere}.accountPanel .ghost{margin-top:4px}@media(max-width:600px){.accountInfoGrid{grid-template-columns:1fr}}
+
+/* Desktop auth redesign */
+@media(min-width:801px){
+ .accountLanding{min-height:calc(100vh - 70px);padding:90px 6vw 110px;display:flex;align-items:flex-start;justify-content:center}
+ .accountHero{width:min(980px,92vw)}
+ .accountHero h1{font-size:clamp(72px,8vw,118px);line-height:.82;margin:22px 0 20px}
+ .accountHero>p{max-width:760px;font-size:16px;margin-bottom:32px}
+ .authCard{padding:34px 38px;margin-top:0}
+ .authCardHead{font-size:13px;padding-bottom:20px}
+ .discordAuthBtn{width:100%!important;text-align:center;font-size:16px!important;padding:15px 22px!important;margin-top:22px}
+ .authDivider{display:flex;align-items:center;gap:14px;color:#6f6468;font:800 11px "Barlow Condensed";letter-spacing:.16em;margin:22px 0}
+ .authDivider:before,.authDivider:after{content:"";height:1px;background:var(--line);flex:1}
+ .authDivider span{flex:none}
+ .authCard .adminForm{grid-template-columns:1fr 1fr!important;gap:22px 24px!important}
+ .authCard .adminForm label{font-size:12px!important}
+ .authCard .adminForm label:nth-of-type(5){grid-column:1/-1}
+ .authCard .adminForm input{font-size:15px!important;min-height:50px}
+ .authCard .adminForm button.btn{grid-column:1/-1;width:100%!important;min-height:54px;font-size:15px}
+ .authOptions{grid-column:1/-1}
+ .authFooter{font-size:12px;margin-top:26px}
+}
+@media(max-width:800px){
+ .authDivider{display:flex;align-items:center;gap:10px;color:#6f6468;font:800 10px "Barlow Condensed";letter-spacing:.16em;margin:18px 0}
+ .authDivider:before,.authDivider:after{content:"";height:1px;background:var(--line);flex:1}
+ .authDivider span{flex:none}
+ .discordAuthBtn{width:100%!important;text-align:center}
+}
