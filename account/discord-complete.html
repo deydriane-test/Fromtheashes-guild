@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FromTheAshes — Finish Registration</title>
+<title>FromTheAshes — Discord SSO</title>
 <link rel="stylesheet" href="../styles.v2.css?v=20261002-portal">
 <link rel="stylesheet" href="account.v2.css?v=20261002-portal2">
 </head>
@@ -25,14 +25,14 @@
 </header>
 <main class="portalAuthMain">
   <section class="portalAuthHero">
-    <div class="portalEyebrow">FROMTHEASHES • DISCORD CONNECTED</div>
+    <div class="portalEyebrow">FROMTHEASHES • DISCORD SSO</div>
     <div class="portalAuthGrid">
       <div class="portalAuthCopy">
         <h1>ONE LAST<br><i>THING.</i></h1>
-        <p>Your Discord account is connected. Enter your RF Online Next character to finish your pending guild application.</p>
+        <p>Your Discord identity is verified. Enter your RF Online Next character to complete your guild application.</p>
       </div>
       <div class="portalAuthCard">
-        <div class="portalCardHead"><span>FINISH REGISTRATION</span><span>DISCORD CONNECTED</span></div>
+        <div class="portalCardHead"><span>GUILD APPLICATION</span><span>DISCORD CONNECTED</span></div>
         <div class="discordIdentity portalIdentity"><strong id="discordName">DISCORD</strong><small id="discordId"></small></div>
         <form id="discordCompleteForm" class="portalCharacterForm">
           <label>CHARACTER NAME<input id="character" maxlength="40" required autocomplete="nickname" placeholder="Your RF Online Next character"></label>
@@ -45,5 +45,5 @@
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../config.v1.js"></script>
-<script src="dc-complete.v1.js?v=20261002-portal"></script>
+<script src="dc-complete.v1.js?v=20261002-sso1"></script>
 </body></html>
