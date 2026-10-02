@@ -1,5 +1,5 @@
 window.GUILD_CONFIG={
- discordUrl:"",
+ discordUrl:"https://discord.gg/RMbMurbsug",
  timezone:"America/Chicago",
  guild:{master:"Deydriane"},
  events:{
