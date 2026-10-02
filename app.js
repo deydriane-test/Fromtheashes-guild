@@ -14,7 +14,7 @@ render("expedition",c.events?.expedition);
 const tz=document.getElementById("tz");
 if(tz)tz.textContent=(c.timezone||"America/Chicago")==="America/Chicago"?"CENTRAL TIME":c.timezone.toUpperCase();
 
-const displayGlyphs={A:[59,46],B:[52,35],C:[51,35],D:[52,35],E:[52,35],F:[52,35],G:[53,35],H:[50,35],I:[12,35],J:[34,35],K:[49,46],L:[42,35],M:[72,62],N:[68,72],O:[48,37],P:[48,49],Q:[49,38],R:[59,56],S:[47,37],T:[44,50],U:[46,37],V:[49,41],W:[57,45],X:[53,37],Y:[50,52],Z:[42,37]};
+const displayGlyphs={A:[59,35],B:[52,35],C:[51,35],D:[52,35],E:[52,35],F:[52,35],G:[53,35],H:[50,35],I:[12,35],J:[34,35],K:[49,35],L:[42,35],M:[56,35],N:[52,35],O:[48,35],P:[48,35],Q:[49,35],R:[52,35],S:[47,35],T:[44,35],U:[46,35],V:[49,35],W:[57,35],X:[53,35],Y:[50,35],Z:[42,35]};
 function renderDisplayFont(){
  document.querySelectorAll(".displayFont").forEach(root=>{
   if(root.dataset.displayRendered)return;
@@ -29,7 +29,7 @@ function renderDisplayFont(){
     if(box){
      const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
      svg.classList.add("displayGlyph");
-     svg.setAttribute("viewBox","0 0 "+box[0]+" "+box[1]);
+     svg.setAttribute("viewBox","0 0 "+box[0]+" 35");
      svg.setAttribute("aria-hidden","true");
      svg.style.height=".68em";
      svg.style.width="calc(.68em * "+(box[0]/box[1])+")";
