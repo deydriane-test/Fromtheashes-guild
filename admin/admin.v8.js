@@ -10,15 +10,7 @@ let me=null,role=null,content={guild:{},events:{},leadership:{}};
 
 function setAccess(message){const x=$("accessText");if(x)x.textContent=message}
 function showAdminLogin(showIt=true){const f=$("adminLoginForm");if(f)f.hidden=!showIt}
-async function signInAdmin(e){
- e.preventDefault();
- const status=$("adminLoginStatus");status.className="formStatus";status.textContent="SIGNING IN…";
- const email=$("adminLoginEmail").value.trim().toLowerCase(),password=$("adminLoginPassword").value;
- const {data,error}=await client.auth.signInWithPassword({email,password});
- if(error){status.className="formStatus error";status.textContent=error.message;return}
- status.className="formStatus success";status.textContent="SIGNED IN. LOADING ADMIN…";
- await boot();
-}
+async function signInAdmin(){const status=$("adminLoginStatus");status.className="formStatus";status.textContent="CONNECTING TO DISCORD…";const r=await client.auth.signInWithOAuth({provider:"discord",options:{redirectTo:window.location.origin+"/admin/",queryParams:{prompt:"none"}}});if(r.error){status.className="formStatus error";status.textContent=r.error.message}}
 function show(id){["accessPanel","dashboard"].forEach(x=>$(x).hidden=x!==id)}
 function canAdmin(){return ["owner","site_mod","officer"].includes(role)}
 function canEditContent(){return ["owner","site_mod"].includes(role)}
@@ -116,7 +108,7 @@ async function boot(){
   showAdminLogin(true);
  }
 }
-$("adminLoginForm")?.addEventListener("submit",signInAdmin);
+$("discordAdminLogin")?.addEventListener("click",signInAdmin);
 client.auth.onAuthStateChange((event)=>{
  if(event==="SIGNED_OUT")window.location.replace("../");
 });
