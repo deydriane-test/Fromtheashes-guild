@@ -1,0 +1,64 @@
+.accountTabs{display:flex;gap:8px;margin:28px 0 8px}.tab{border:1px solid var(--line);background:#0d0b0d;color:#8f8589;padding:10px 14px;font:700 11px "Rajdhani",sans-serif;letter-spacing:.08em;cursor:pointer}.tab.active{color:var(--gold);border-color:#ff6425aa}.accountCard{margin:28px 0;padding:22px;border:1px solid var(--line);background:var(--card);color:#aaa0a0;line-height:1.7}.adminHeaderRight a{text-decoration:none}
+.accountLanding{min-height:calc(100vh - 90px);display:grid;place-items:center;padding:80px 7vw}.accountHero{width:min(620px,100%)}.accountHero>p{color:#aaa0a0;line-height:1.75;margin:0 0 28px}.authCard{background:rgba(13,11,13,.9);border:1px solid var(--line);padding:28px;box-shadow:0 25px 80px #0008}.authCardHead{display:flex;justify-content:space-between;gap:15px;padding-bottom:16px;border-bottom:1px solid var(--line);color:var(--gold);font:800 11px "Rajdhani",sans-serif;letter-spacing:.12em}.authRule{color:#62595b}.authOptions{display:flex;justify-content:flex-end;margin-top:-4px}.textLink{border:0;background:none;padding:0;color:var(--gold);font:700 10px "Rajdhani",sans-serif;letter-spacing:.08em;cursor:pointer}.textLink:hover{color:var(--orange)}.authFooter{text-align:center;margin-top:22px;color:#81777a;font:600 11px "Rajdhani",sans-serif;letter-spacing:.05em}.authFooter .textLink{margin-left:5px}.accountPanel{max-width:800px;margin:0 auto;padding:150px 7vw}.accountPanel h2{font:800 clamp(50px,8vw,90px) "Playfair Display",Georgia,serif;color:#f4efe9;line-height:.9}.accountPanel h2 i{font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,235,220,.68)}@media(max-width:600px){.accountLanding{padding:50px 6vw}.authCard{padding:20px}.authCardHead{font-size:10px}}
+
+.authCard .adminForm[hidden]{display:none!important}
+.authCard .adminForm{display:grid!important;grid-template-columns:1fr!important;gap:16px!important}
+.authCard .adminForm label{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:7px!important;width:100%!important;box-sizing:border-box!important}
+.authCard .adminForm input{display:block!important;width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box!important;margin:0!important;padding:14px!important}
+.authCard .adminForm button.btn{width:auto!important;max-width:100%!important}
+@media(max-width:600px){
+ .adminHeader{padding:14px 6vw!important}
+ .adminHeader .logo{font-size:19px!important}
+ .adminHeaderRight .ghost{padding:11px 13px!important;font-size:10px!important}
+ .accountLanding{min-height:auto!important;padding:48px 6vw 70px!important;display:block!important}
+ .accountHero{width:100%!important}
+ .accountHero h1{font-size:52px!important;line-height:.9!important;margin:20px 0!important}
+ .accountHero>p{font-size:15px!important;line-height:1.6!important}
+ .authCard{padding:20px!important;margin-top:25px!important}
+ .authCardHead{font-size:9px!important}
+ .authCard .adminForm{gap:14px!important}
+ .authCard .adminForm label{font-size:11px!important}
+ .authCard .adminForm input{font-size:16px!important;min-height:48px!important}
+ .authCard .adminForm button.btn{width:100%!important;min-height:50px!important}
+ .authOptions{margin-top:0!important}
+}
+
+
+/* Dark member portal inputs */
+.authCard .adminForm input,
+.authCard .adminForm input[type="email"],
+.authCard .adminForm input[type="password"],
+.authCard .adminForm input[type="text"]{
+  background:#0d0b0d!important;
+  color:#f3eee8!important;
+  border:1px solid #30282b!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  color-scheme:dark;
+}
+.authCard .adminForm input::placeholder{color:#756d70!important;opacity:1!important}
+.authCard .adminForm input:focus{
+  background:#110e10!important;
+  border-color:#ff6425aa!important;
+  box-shadow:0 0 0 2px #ff64251c!important;
+  outline:none!important;
+}
+.authCard .adminForm input:-webkit-autofill,
+.authCard .adminForm input:-webkit-autofill:hover,
+.authCard .adminForm input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#f3eee8!important;
+  -webkit-box-shadow:0 0 0 1000px #0d0b0d inset!important;
+  box-shadow:0 0 0 1000px #0d0b0d inset!important;
+  border:1px solid #30282b!important;
+}
+
+.authFooter .authLink{text-decoration:none;display:inline-block}
+.passwordHint{margin:-4px 0 2px;color:#756d70;font:600 10px "Rajdhani",sans-serif;letter-spacing:.05em;line-height:1.5}
+.passwordMatch{min-height:16px;margin:-4px 0 2px;font:700 10px "Rajdhani",sans-serif;letter-spacing:.06em}
+.passwordMatch.good{color:#b9e890}.passwordMatch.bad{color:#ff8d7b}
+
+
+.recoveryModal[hidden]{display:none!important}.recoveryModal{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:22px}.recoveryBackdrop{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(5px)}.recoveryDialog{position:relative;z-index:1;width:min(520px,100%);padding:28px;background:#100d0f;border:1px solid #3b2b2e;box-shadow:0 30px 100px #000c}.recoveryClose{position:absolute;right:14px;top:9px;border:0;background:none;color:#aaa0a0;font-size:28px;cursor:pointer}.recoveryDialog h2{font-size:48px!important;margin:18px 0!important}.recoveryDialog p{color:#aaa0a0;line-height:1.6;font-size:13px}.recoveryLabel{display:grid;gap:7px;margin-top:20px;color:#d8cfca;font:700 11px "Rajdhani",sans-serif;letter-spacing:.11em}.recoveryLabel input{width:100%;padding:14px;background:#0d0b0d;color:#f3eee8;border:1px solid #30282b;outline:0;box-sizing:border-box}.recoveryLabel input:focus{border-color:#ff6425aa;box-shadow:0 0 0 2px #ff64251c}.recoveryActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.recoveryActions .btn,.recoveryActions .ghost{cursor:pointer}.recoveryActions .ghost{background:transparent}.recoveryDialog .formStatus{margin-top:14px}@media(max-width:520px){.recoveryDialog{padding:23px 20px}.recoveryActions{flex-direction:column}.recoveryActions .btn,.recoveryActions .ghost{width:100%;text-align:center}}
+
+
+.accountInfoGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}.accountInfo{padding:18px;border:1px solid var(--line);background:var(--card);min-width:0}.accountInfo span{display:block;color:var(--orange);font:800 10px "Rajdhani",sans-serif;letter-spacing:.12em;margin-bottom:8px}.accountInfo strong{display:block;color:var(--text);font:600 15px "Space Grotesk",sans-serif;overflow-wrap:anywhere}.accountPanel .ghost{margin-top:4px}@media(max-width:600px){.accountInfoGrid{grid-template-columns:1fr}}
