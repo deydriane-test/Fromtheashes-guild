@@ -17,24 +17,33 @@ const tz=document.getElementById("tz");
 if(tz)tz.textContent=(c.timezone||"America/Chicago")==="America/Chicago"?"CENTRAL TIME":c.timezone.toUpperCase();
 
 const root=document.documentElement,header=document.querySelector("header");
-let ticking=false;
-function updateScroll(){
- const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
- const p=Math.min(1,Math.max(0,window.scrollY/max));
- root.style.setProperty("--scroll",p.toFixed(3)); root.style.setProperty("--accentOpacity",(0.11+p*0.12).toFixed(3)); root.style.setProperty("--goldOpacity",(0.04+p*0.05).toFixed(3)); root.style.setProperty("--glowY",(20+p*55)+"%"); root.style.setProperty("--glowShift",(-p*10*window.innerHeight/100)+"px"); root.style.setProperty("--phoenixShift",(-p*18)+"px"); root.style.setProperty("--phoenixScale",(1+p*.035).toFixed(3)); root.style.setProperty("--hue",(p*8)+"deg");
- if(header)header.classList.toggle("scrolled",window.scrollY>20);
- ticking=false;
+const isMobile=matchMedia("(max-width:800px)").matches;
+if(!isMobile){
+ let ticking=false;
+ function updateScroll(){
+  const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+  const p=Math.min(1,Math.max(0,window.scrollY/max));
+  root.style.setProperty("--accentOpacity",(0.11+p*0.12).toFixed(3));
+  root.style.setProperty("--goldOpacity",(0.04+p*0.05).toFixed(3));
+  root.style.setProperty("--glowY",(20+p*55)+"%");
+  root.style.setProperty("--glowShift",(-p*10*window.innerHeight/100)+"px");
+  root.style.setProperty("--phoenixShift",(-p*18)+"px");
+  root.style.setProperty("--phoenixScale",(1+p*.035).toFixed(3));
+  root.style.setProperty("--hue",(p*8)+"deg");
+  if(header)header.classList.toggle("scrolled",window.scrollY>20);
+  ticking=false;
+ }
+ window.addEventListener("scroll",()=>{if(!ticking){requestAnimationFrame(updateScroll);ticking=true;}},{passive:true});
+ updateScroll();
 }
-window.addEventListener("scroll",()=>{if(!ticking){requestAnimationFrame(updateScroll);ticking=true;}},{passive:true});
-updateScroll();
 
 const art=document.querySelector(".hero");
-if(art && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+const canHover=matchMedia("(hover:hover) and (pointer:fine)").matches;
+if(art && canHover && !matchMedia("(prefers-reduced-motion: reduce)").matches){
  window.addEventListener("pointermove",e=>{
    const r=art.getBoundingClientRect();
-   const mx=e.clientX-r.left-r.width/2,my=e.clientY-r.top-r.height/2;
-   art.style.setProperty("--mx",mx+"px");
-   art.style.setProperty("--my",my+"px");
+   art.style.setProperty("--mx",(e.clientX-r.left-r.width/2)+"px");
+   art.style.setProperty("--my",(e.clientY-r.top-r.height/2)+"px");
  },{passive:true});
 }
 
@@ -43,7 +52,7 @@ const revealObserver=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
 
-if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+if(canHover && !matchMedia("(prefers-reduced-motion: reduce)").matches){
  document.querySelectorAll(".interactive").forEach(card=>{
    card.addEventListener("pointermove",e=>{
      const r=card.getBoundingClientRect();
