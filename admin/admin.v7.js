@@ -1,5 +1,5 @@
 const c=window.GUILD_CONFIG||{};
-const client=window.supabase?.createClient(c.supabase.url,c.publishableKey);
+const client=window.supabase?.createClient(c.supabase.url,c.supabase.publishableKey);
 if(!client){document.getElementById("accessText").textContent="SECURE LOGIN SERVICE DID NOT LOAD. PLEASE REFRESH.";throw new Error("Supabase client did not load");}
 const $=id=>document.getElementById(id);
 const adminAccountMenu=$("adminAccountMenu"),adminAccountTrigger=$("adminAccountTrigger"),adminAccountDropdown=$("adminAccountDropdown");
