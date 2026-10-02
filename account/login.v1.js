@@ -9,3 +9,6 @@ $("sendPasswordReset").onclick=async()=>{const email=$("recoveryEmail").value.tr
 $("sendUsername").onclick=async()=>{const email=$("recoveryEmail").value.trim().toLowerCase();if(!email){status("recoveryStatus","ENTER YOUR EMAIL ADDRESS.","error");return}status("recoveryStatus","SENDING USERNAME EMAIL…");try{const res=await fetch(c.supabase.url+"/functions/v1/send-username-reminder",{method:"POST",headers:{"Content-Type":"application/json",apikey:c.supabase.publishableKey},body:JSON.stringify({email})});const data=await res.json();if(!res.ok)throw new Error(data?.error||"Username email is not available yet.");status("recoveryStatus","IF THAT EMAIL HAS AN ACCOUNT, YOUR USERNAME HAS BEEN EMAILED.","success")}catch(err){status("recoveryStatus",err.message,"error")}};
 loginForm.onsubmit=async e=>{e.preventDefault();status("loginStatus","SIGNING IN…");const {error}=await sb.auth.signInWithPassword({email:$("loginEmail").value.trim().toLowerCase(),password:$("loginPassword").value});if(error){status("loginStatus",error.message,"error");return}window.location.href="../";};
 
+
+const discordLogin=$("discordLogin");
+discordLogin?.addEventListener("click",async()=>{const r=await sb.auth.signInWithOAuth({provider:"discord",options:{redirectTo:window.location.origin+"/account/discord-complete.html"}});if(r.error)status("loginStatus",r.error.message,"error");});
