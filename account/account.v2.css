@@ -390,3 +390,87 @@
  .portalAuthCard{padding:19px 0!important}
  .portalAuthCard .discordAuthBtn{min-height:64px!important;padding-right:20px!important}
 }
+
+
+/* ---------- TEMPLATE DISCORD BUTTON — MATCH REFERENCE ---------- */
+.portalAuthCard .discordAuthBtn{
+  width:455px!important;
+  max-width:100%!important;
+  height:104px!important;
+  min-height:104px!important;
+  box-sizing:border-box!important;
+  margin:20px 0 8px!important;
+  padding:0 28px 0 24px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:22px!important;
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,112,46,.62)!important;
+  border-radius:18px!important;
+  background:
+    radial-gradient(ellipse at 16% 50%,rgba(255,86,24,.34),transparent 23%),
+    radial-gradient(ellipse at 72% 30%,rgba(255,100,30,.18),transparent 30%),
+    linear-gradient(135deg,#171315 0%,#241917 38%,#100e10 68%,#201311 100%)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,173,111,.10),
+    inset 0 0 32px rgba(255,77,24,.12),
+    0 0 22px rgba(255,70,20,.10)!important;
+  transform:none!important;
+}
+.portalAuthCard .discordAuthBtn:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:-1!important;
+  opacity:.8!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(24deg,transparent 12%,rgba(255,87,28,.55) 12.4%,transparent 13%,transparent 39%,rgba(255,87,28,.28) 39.5%,transparent 40%),
+    linear-gradient(112deg,transparent 20%,rgba(255,105,35,.32) 20.5%,transparent 21%,transparent 63%,rgba(255,86,28,.45) 63.5%,transparent 64%),
+    linear-gradient(164deg,transparent 44%,rgba(255,116,50,.24) 44.5%,transparent 45%),
+    radial-gradient(ellipse at 50% 100%,rgba(255,69,20,.20),transparent 55%)!important;
+}
+.portalAuthCard .discordAuthBtn:before{
+  content:""!important;
+  position:relative!important;
+  z-index:2!important;
+  width:82px!important;
+  height:72px!important;
+  flex:0 0 82px!important;
+  background:#ff6425!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.676 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.027c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.17 13.17 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.794 8.18 1.794 12.061 0a.074.074 0 0 1 .078.01c.12.099.246.197.372.291a.077.077 0 0 1-.007.128c-.598.35-1.222.649-1.873.892a.077.077 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.077.077 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.032-.029zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.095 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.095 2.157 2.419 0 1.334-.956 2.419-2.157 2.419z'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.676 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.027c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106c3.928 1.794 8.18 1.794 12.061 0a.074.074 0 0 1 .078.01c.12.099.246.197.372.291a.077.077 0 0 1-.007.128c-.598.35-1.222.649-1.873.892a.077.077 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.077.077 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.032-.029zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176 1.095 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419s.956-2.419 2.157-2.419c1.21 0 2.176-1.095 2.157-2.419 0 1.334-.956 2.419-2.157 2.419z'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  filter:drop-shadow(0 0 10px rgba(255,91,32,.55))!important;
+}
+.portalAuthCard .discordAuthBtn span{
+  position:relative!important;
+  z-index:3!important;
+  font:800 22px "Rajdhani",sans-serif!important;
+  letter-spacing:.12em!important;
+  color:#f4eee8!important;
+  white-space:nowrap!important;
+}
+.portalAuthCard .discordAuthBtn:hover{
+  transform:translateY(-2px)!important;
+  filter:brightness(1.12)!important;
+  border-color:#ff9b58!important;
+  box-shadow:inset 0 0 0 1px rgba(255,200,150,.18),inset 0 0 38px rgba(255,77,24,.20),0 0 30px rgba(255,70,20,.22)!important;
+}
+.portalAuthCard .discordAuthBtn:active,
+.portalAuthCard .discordAuthBtn.discordStateActive{
+  transform:translateY(2px)!important;
+  filter:brightness(1.18)!important;
+}
+@media(max-width:900px){
+ .portalAuthCard .discordAuthBtn{width:min(455px,100%)!important;height:92px!important;min-height:92px!important}
+ .portalAuthCard .discordAuthBtn:before{width:68px!important;height:60px!important;flex-basis:68px!important}
+ .portalAuthCard .discordAuthBtn span{font-size:18px!important}
+}
+@media(max-width:520px){
+ .portalAuthCard .discordAuthBtn{height:78px!important;min-height:78px!important;padding:0 16px!important;gap:13px!important;border-radius:13px!important}
+ .portalAuthCard .discordAuthBtn:before{width:52px!important;height:48px!important;flex-basis:52px!important}
+ .portalAuthCard .discordAuthBtn span{font-size:14px!important;letter-spacing:.09em!important}
+}
