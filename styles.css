@@ -192,16 +192,16 @@ animation:emberFloatB 17s ease-in-out infinite}
 @keyframes emberFloatA{
 0%{transform:translate3d(-1vw,8px,0);opacity:0}
 8%{opacity:.9}
-35%{transform:translate3d(4vw,-25%,0);opacity:.78}
-68%{transform:translate3d(-3vw,-62%,0);opacity:.55}
-90%{transform:translate3d(5vw,-88%,0);opacity:.18}
-100%{transform:translate3d(1vw,-105%,0);opacity:0}
+35%{transform:translate3d(4vw,calc(var(--pageHeight) * -.25),0);opacity:.78}
+68%{transform:translate3d(-3vw,calc(var(--pageHeight) * -.62),0);opacity:.55}
+90%{transform:translate3d(5vw,calc(var(--pageHeight) * -.88),0);opacity:.18}
+100%{transform:translate3d(1vw,calc(var(--pageHeight) * -1.05),0);opacity:0}
 }
 @keyframes emberFloatB{
 0%{transform:translate3d(2vw,10px,0);opacity:0}
 10%{opacity:.8}
-32%{transform:translate3d(-4vw,-22%,0);opacity:.7}
-61%{transform:translate3d(6vw,-55%,0);opacity:.48}
-84%{transform:translate3d(-5vw,-82%,0);opacity:.16}
-100%{transform:translate3d(3vw,-105%,0);opacity:0}
+32%{transform:translate3d(-4vw,calc(var(--pageHeight) * -.22),0);opacity:.7}
+61%{transform:translate3d(6vw,calc(var(--pageHeight) * -.55),0);opacity:.48}
+84%{transform:translate3d(-5vw,calc(var(--pageHeight) * -.82),0);opacity:.16}
+100%{transform:translate3d(3vw,calc(var(--pageHeight) * -1.05),0);opacity:0}
 }
