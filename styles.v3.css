@@ -1028,3 +1028,42 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
     font-size:13px;
   }
 }
+
+
+/* Desktop sticky schedule card — compact and high-contrast */
+@media(min-width:801px){
+  .eventsSection .sectionHead{align-items:center}
+  .eventsSection .stickyNote{
+    justify-self:end;
+    align-self:center;
+    width:390px!important;
+    min-width:0!important;
+    max-width:100%;
+    padding:24px 30px!important;
+    background:#ffc46e!important;
+    color:#160d08!important;
+    transform:rotate(1.2deg);
+    box-shadow:8px 8px 0 #392217;
+  }
+  .eventsSection .stickyNote span{
+    display:block;
+    font-size:14px!important;
+    line-height:1.1;
+    color:#3a1b0b!important;
+    margin-bottom:7px;
+  }
+  .eventsSection .stickyNote strong{
+    display:block;
+    font-size:56px!important;
+    line-height:.95;
+    color:#160d08!important;
+    white-space:nowrap;
+  }
+  .eventsSection .stickyNote small{
+    display:block;
+    margin-top:8px;
+    font-size:15px!important;
+    line-height:1.1;
+    color:#3a1b0b!important;
+  }
+}
