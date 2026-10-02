@@ -62,3 +62,7 @@
 
 
 .accountInfoGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}.accountInfo{padding:18px;border:1px solid var(--line);background:var(--card);min-width:0}.accountInfo span{display:block;color:var(--orange);font:800 10px "Rajdhani",sans-serif;letter-spacing:.12em;margin-bottom:8px}.accountInfo strong{display:block;color:var(--text);font:600 15px "Space Grotesk",sans-serif;overflow-wrap:anywhere}.accountPanel .ghost{margin-top:4px}@media(max-width:600px){.accountInfoGrid{grid-template-columns:1fr}}
+
+/* Portal spacing for the phoenix masthead */
+@media(min-width:801px){.accountLanding{padding-top:135px!important}.authCard{margin-top:0}}
+@media(max-width:800px){.accountLanding{padding-top:105px!important}}
