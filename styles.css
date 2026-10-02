@@ -219,3 +219,31 @@ body:after{
   font-family:"Bebas Neue","Barlow Condensed",sans-serif!important;
   font-weight:400!important;
 }
+
+
+/* Molten cracked texture inside the serif display letters */
+.hero h1,h2,.recruit h2,
+.hero h1 i,h2 i,.recruit h2 i,
+.rules h2,.about h2,.eventsSection h2,.leadership h2{
+  font-family:"Playfair Display",Georgia,serif!important;
+  font-weight:800!important;
+  font-style:normal!important;
+  letter-spacing:-.045em!important;
+  line-height:.84!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  -webkit-text-stroke:1px rgba(255,225,205,.58)!important;
+  background:
+    radial-gradient(circle at 18% 24%,#ffb04a 0 2%,transparent 4%),
+    radial-gradient(circle at 73% 68%,#ff6a16 0 3%,transparent 5%),
+    radial-gradient(circle at 43% 45%,#d94712 0 2%,transparent 5%),
+    repeating-linear-gradient(112deg,rgba(255,119,24,.92) 0 3px,rgba(48,20,14,.98) 3px 9px,rgba(255,89,13,.78) 9px 12px,rgba(20,13,13,.98) 12px 19px),
+    linear-gradient(180deg,#ff9a38 0%,#9e2e12 32%,#241719 72%,#08090a 100%);
+  background-size:120px 120px,170px 170px,210px 210px,100% 100%,100% 100%;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  text-shadow:0 0 16px rgba(255,70,15,.10);
+}
+.hero h1 i,h2 i,.recruit h2 i{
+  font-style:italic!important;
+}
