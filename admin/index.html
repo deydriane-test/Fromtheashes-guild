@@ -3,7 +3,18 @@
 <title>FromTheAshes — Guild Admin</title><link rel="stylesheet" href="../styles.v1.css"><link rel="stylesheet" href="admin.v2.css"></head>
 <body class="adminPage"><div class="embers"></div><div class="scrollGlow"></div>
 <header class="adminHeader"><a class="logo" href="../">FROM<span>THE</span>ASHES</a>
-<div class="adminHeaderRight"><a class="adminHomeLink" href="../">← MAIN SITE</a><span id="adminIdentity"></span><button id="logoutBtn" class="ghost adminLogout">LOG OUT</button></div></header>
+<div class="adminHeaderRight">
+  <div class="accountMenu adminAccountMenu" id="adminAccountMenu">
+    <button class="accountMenuTrigger adminAccountTrigger" id="adminAccountTrigger" type="button" aria-expanded="false" aria-haspopup="true">
+      <span id="adminIdentity">MEMBER • RANK</span><span class="accountMenuChevron">⌄</span>
+    </button>
+    <div class="accountDropdown adminAccountDropdown" id="adminAccountDropdown" hidden>
+      <a href="../account/">ACCOUNT</a>
+      <a href="../">MAIN SITE</a>
+      <button id="logoutBtn" type="button">LOG OUT</button>
+    </div>
+  </div>
+</div></header>
 <main class="adminMain">
 <section id="accessPanel" class="adminPanel"><div class="eyebrow">GUILD ACCESS</div><h1>STAFF<br><i>ONLY.</i></h1><p id="accessText">Checking your guild permissions…</p><a class="btn" href="../account/login.html">SIGN IN ↗</a></section>
 <section id="dashboard" class="adminDashboard" hidden>
@@ -25,4 +36,4 @@
 </section>
 </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="admin.v3.js"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="admin.v4.js"></script></body></html>
