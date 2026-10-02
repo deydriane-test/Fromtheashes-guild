@@ -27,3 +27,8 @@ section{padding:110px 8vw;border-top:1px solid var(--line);position:relative}.ey
 @media(max-width:800px){nav{display:none}.hero{padding:120px 7vw 75px}.heroArt{right:-28vw;top:8%;width:100vw;height:82vh;opacity:.48}.heroText{max-width:650px}.heroSticker{right:7vw;top:18%;width:105px;height:105px}.hero:after{right:-55vw;bottom:-20vw;width:115vw;height:115vw}.intro,.sectionHead,.eventCards{grid-template-columns:1fr}.vibes,.ruleCards{grid-template-columns:1fr 1fr}.leaders{grid-template-columns:1fr 1fr}.stickyNote{width:max-content}.eventCard{grid-template-columns:30px 40px 1fr}.eventCard>b{display:none}footer{flex-direction:column;gap:10px}}
 @media(max-width:520px){.heroArt{right:-42vw;width:125vw;opacity:.34}.heroSticker{top:15%;right:6vw}.heroButtons{flex-direction:column;align-items:flex-start}.vibes,.ruleCards,.leaders{grid-template-columns:1fr}.vibes div{border-right:0;border-bottom:1px solid var(--line)}.vibes div:last-child{border-bottom:0}.leader{min-height:auto}.eventCard{grid-template-columns:28px 35px 1fr}section{padding:90px 7vw}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* Mobile-safe hero art: never leave a broken-image box dominating the page. */
+.heroArt.noPhoenix{display:none}
+@media(max-width:800px){.heroArt{top:18%;height:58vh;width:90vw;right:-22vw;opacity:.34}.heroText{z-index:4}.heroSticker{z-index:5}}
+@media(max-width:520px){.heroArt{top:22%;height:52vh;width:105vw;right:-30vw;opacity:.25}.heroSticker{z-index:5}}
