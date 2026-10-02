@@ -951,3 +951,28 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
 .accountLinks .signedInIdentity{color:var(--gold);font-weight:800}.headerLogout{border:0;background:none;color:#d8cfca;padding:0;font:700 11px "Rajdhani",sans-serif;letter-spacing:.1em;cursor:pointer}.headerLogout:hover{color:var(--orange)}
 @media(max-width:800px){header .accountLinks{gap:8px!important}.accountLinks .signedInIdentity{max-width:150px;overflow:hidden;text-overflow:ellipsis}.headerLogout{font-size:9px;letter-spacing:.08em;white-space:nowrap}}
 @media(max-width:520px){.accountLinks .signedInIdentity{max-width:105px}.headerLogout{font-size:8.5px}}
+
+
+/* Signed-in account menu */
+.accountLinks{position:relative;display:flex;align-items:center;justify-content:flex-end;min-width:0}
+.accountSignedOut{display:flex;align-items:center;gap:14px}
+.accountMenu{position:relative}
+.accountMenuTrigger{display:flex;align-items:center;gap:7px;border:0;background:none;color:var(--gold);padding:8px 0;font:800 11px "Rajdhani",sans-serif;letter-spacing:.09em;cursor:pointer;text-transform:uppercase}
+.accountMenuTrigger:hover{color:#fff}
+.accountMenuChevron{font-size:15px;line-height:.6;color:var(--orange);transition:transform .2s}
+.accountMenuTrigger[aria-expanded="true"] .accountMenuChevron{transform:rotate(180deg)}
+.accountDropdown{position:absolute;right:0;top:calc(100% + 9px);min-width:145px;background:#100d0f;border:1px solid #3b2b2e;box-shadow:0 18px 45px #000b;padding:6px;display:grid;z-index:20}
+.accountDropdown[hidden],.accountMenu[hidden]{display:none!important}
+.accountDropdown a,.accountDropdown button{display:block;width:100%;border:0;background:none;color:#d8cfca;padding:10px 11px;text-align:left;text-decoration:none;font:800 11px "Rajdhani",sans-serif;letter-spacing:.09em;cursor:pointer}
+.accountDropdown a:hover,.accountDropdown button:hover{background:#21191c;color:var(--gold)}
+.accountDropdown button{border-top:1px solid #30282b;margin-top:3px}
+@media(max-width:800px){
+ header .accountLinks{min-width:0}
+ .accountSignedOut{gap:8px}
+ .accountMenuTrigger{font-size:10px}
+ .accountDropdown{right:-4px}
+}
+@media(max-width:520px){
+ .accountMenuTrigger{font-size:9px;max-width:120px}
+ .accountMenuTrigger #accountMenuName{max-width:85px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
