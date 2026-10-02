@@ -50,3 +50,8 @@
   box-shadow:0 0 0 1000px #0d0b0d inset!important;
   border:1px solid #30282b!important;
 }
+
+.authFooter .authLink{text-decoration:none;display:inline-block}
+.passwordHint{margin:-4px 0 2px;color:#756d70;font:600 10px "Rajdhani",sans-serif;letter-spacing:.05em;line-height:1.5}
+.passwordMatch{min-height:16px;margin:-4px 0 2px;font:700 10px "Rajdhani",sans-serif;letter-spacing:.06em}
+.passwordMatch.good{color:#b9e890}.passwordMatch.bad{color:#ff8d7b}
