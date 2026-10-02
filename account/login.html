@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FromTheAshes — Sign In</title>
+<title>FromTheAshes — Discord SSO</title>
 <link rel="stylesheet" href="../styles.v2.css?v=20261002-portal">
 <link rel="stylesheet" href="account.v2.css?v=20261002-portal2">
 </head>
@@ -29,18 +29,18 @@
     <div class="portalAuthGrid">
       <div class="portalAuthCopy">
         <h1>WELCOME<br><i>BACK.</i></h1>
-        <p>Sign in to your FromTheAshes account using the Discord account connected to your guild identity.</p>
+        <p>Use Discord SSO to securely access your FromTheAshes account.</p>
       </div>
       <div class="portalAuthCard">
         <div class="portalCardHead"><span>DISCORD AUTHENTICATION</span><span>SECURE LOGIN</span></div>
-        <button id="discordLogin" class="discordAuthBtn" type="button"><span>SIGN IN WITH DISCORD ↗</span></button>
+        <button id="discordLogin" class="discordAuthBtn" type="button"><span>CONTINUE WITH DISCORD ↗</span></button>
         <p id="loginStatus" class="formStatus" role="status"></p>
-        <div class="portalAuthFooter">New to FromTheAshes? <a href="register.html">APPLY TO THE GUILD ↗</a></div>
+        
       </div>
     </div>
   </section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../config.v1.js"></script>
-<script src="login.v1.js?v=20261002-portal"></script>
+<script src="login.v1.js?v=20261002-sso1"></script>
 </body></html>
