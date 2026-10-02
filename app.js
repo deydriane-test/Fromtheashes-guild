@@ -25,3 +25,12 @@ const revealObserver=new IntersectionObserver(entries=>{
  });
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+
+
+// Set the ember travel distance from the actual document height.
+// Runs only on load and resize; no per-scroll work.
+function setPageHeight(){
+ document.documentElement.style.setProperty("--pageHeight",document.documentElement.scrollHeight+"px");
+}
+setPageHeight();
+window.addEventListener("resize",setPageHeight,{passive:true});
