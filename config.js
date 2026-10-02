@@ -1,0 +1,1 @@
+window.GUILD_CONFIG={discordUrl:"",timezone:"America/Chicago",events:{raid:{day:"Saturday",time:"20:00",enabled:false},expedition:{day:"Sunday",time:"19:00",enabled:false}}};
