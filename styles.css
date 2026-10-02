@@ -157,3 +157,14 @@ nav a,.discord,.btn,.ghost,.eyebrow,.heroSticker span,.eventInfo>span,
 .hero h1,h2{font-weight:700;letter-spacing:-.035em;line-height:.82}
 .hero h2{font-weight:600;letter-spacing:.10em}
 .eventInfo h3,.leader h3,.ruleCards strong{font-weight:700}
+
+
+/* Hero cleanup and stronger phoenix presence */
+.heroArt{opacity:.92}
+.phoenix{opacity:.72!important;filter:saturate(1.28) contrast(1.08) brightness(.96) drop-shadow(0 0 32px rgba(255,80,15,.32))!important}
+@media(max-width:800px){.heroArt{opacity:.62}.phoenix{opacity:.58!important;filter:saturate(1.2) contrast(1.04) brightness(.88) drop-shadow(0 0 28px rgba(255,80,15,.28))!important}}
+
+/* Dense, scattered ember field */
+.embers:before,.embers:after{width:3px;height:3px}
+.embers:before{left:0;bottom:0;box-shadow:4vw -9vh var(--gold),11vw -24vh var(--orange),18vw -5vh var(--gold),25vw -38vh var(--orange),32vw -16vh var(--gold),39vw -54vh var(--orange),46vw -11vh var(--gold),53vw -31vh var(--orange),60vw -62vh var(--gold),67vw -19vh var(--orange),74vw -45vh var(--gold),81vw -8vh var(--orange),88vw -36vh var(--gold),95vw -58vh var(--orange),8vw -70vh var(--gold),21vw -61vh var(--orange),34vw -78vh var(--gold),48vw -72vh var(--orange),63vw -84vh var(--gold),77vw -69vh var(--orange),91vw -76vh var(--gold),15vw -91vh var(--orange),28vw -87vh var(--gold),43vw -96vh var(--orange),57vw -90vh var(--gold),72vw -102vh var(--orange),86vw -94vh var(--gold),98vw -88vh var(--orange);animation:emberRise 12s linear infinite}
+.embers:after{left:0;bottom:0;box-shadow:7vw -18vh var(--orange),14vw -43vh var(--gold),23vw -29vh var(--orange),30vw -67vh var(--gold),37vw -8vh var(--orange),44vw -48vh var(--gold),51vw -22vh var(--orange),58vw -76vh var(--gold),65vw -34vh var(--orange),72vw -57vh var(--gold),79vw -14vh var(--orange),86vw -49vh var(--gold),93vw -27vh var(--orange),3vw -63vh var(--gold),17vw -74vh var(--orange),27vw -95vh var(--gold),40vw -83vh var(--orange),55vw -97vh var(--gold),69vw -87vh var(--orange),83vw -104vh var(--gold),97vw -71vh var(--orange);animation:emberRise 17s linear infinite reverse}
