@@ -34,3 +34,32 @@ function wakePhoenix(){
 window.addEventListener("pointerdown",wakePhoenix,{passive:true});
 window.addEventListener("keydown",wakePhoenix,{passive:true});
 window.addEventListener("scroll",wakePhoenix,{passive:true});
+
+
+const appSupabase=window.supabase?.createClient(c.supabase.url,c.supabase.publishableKey);
+const accountLinks=document.getElementById("accountLinks");
+function formatRole(role){return (role||"member").replace("_"," ").toUpperCase()}
+async function renderSignedInHeader(user){
+ if(!accountLinks||!user)return;
+ const {data:profile}=await appSupabase.from("profiles").select("username,role").eq("id",user.id).maybeSingle();
+ if(!profile)return;
+ accountLinks.innerHTML="";
+ const identity=document.createElement("a");identity.className="signedInIdentity";identity.href="account/";identity.textContent=(profile.username||"MEMBER").toUpperCase()+" • "+formatRole(profile.role);
+ const account=document.createElement("a");account.href="account/";account.textContent="ACCOUNT";
+ const logout=document.createElement("button");logout.type="button";logout.className="headerLogout";logout.textContent="LOG OUT";
+ logout.onclick=async()=>{await appSupabase.auth.signOut()};
+ accountLinks.append(identity,account,logout);
+}
+function renderSignedOutHeader(){
+ if(!accountLinks)return;
+ accountLinks.innerHTML='<a href="account/register.html">SIGN UP</a><a href="account/#signin">SIGN IN</a>';
+}
+async function syncHomeAuth(){
+ const {data:{user}}=await appSupabase.auth.getUser();
+ if(user)renderSignedInHeader(user);else renderSignedOutHeader();
+}
+appSupabase.auth.onAuthStateChange((event,session)=>{
+ if(event==="SIGNED_OUT") renderSignedOutHeader();
+ else if(session?.user) renderSignedInHeader(session.user);
+});
+syncHomeAuth();
