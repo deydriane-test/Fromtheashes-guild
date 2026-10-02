@@ -62,20 +62,6 @@ section{background:transparent!important;z-index:1}
 header{z-index:5}
 footer{position:relative;z-index:1;overflow:visible}
 
-/* Individual document-bottom embers */
-.embers{position:absolute!important;top:0;left:0;right:0;bottom:0;height:auto!important;pointer-events:none;z-index:2;overflow:visible}
-.emberParticle{position:absolute;left:var(--startX);bottom:0;width:var(--size);height:var(--size);border-radius:50%;background:var(--emberColor);box-shadow:0 0 5px var(--emberColor);opacity:0;animation:emberJourney var(--duration) linear var(--delay) infinite;will-change:transform,opacity}
-@keyframes emberJourney{
-0%{transform:translate3d(0,0,0);opacity:0}
-7%{opacity:var(--peak)}
-25%{transform:translate3d(calc(var(--x1) * 1px),calc(var(--travel) * -.25),0);opacity:var(--peak)}
-48%{transform:translate3d(calc(var(--x2) * 1px),calc(var(--travel) * -.48),0);opacity:calc(var(--peak) * .82)}
-70%{transform:translate3d(calc(var(--x3) * 1px),calc(var(--travel) * -.70),0);opacity:calc(var(--peak) * .58)}
-88%{transform:translate3d(calc(var(--x4) * 1px),calc(var(--travel) * -.88),0);opacity:.16}
-100%{transform:translate3d(calc(var(--x5) * 1px),calc(var(--travel) * -1.04),0);opacity:0}
-}
-@media(max-width:800px){.emberParticle{box-shadow:0 0 4px var(--emberColor)}}
-@media(prefers-reduced-motion:reduce){.emberParticle{animation:none;opacity:var(--peak);transform:none}}
 /* Actual bottom-of-page fire: narrow flame shapes, gently drifting */
 footer:before{content:"";position:absolute;left:0;right:0;bottom:-8px;height:230px;pointer-events:none;z-index:-1;
 background:
@@ -129,30 +115,6 @@ filter:blur(5px);opacity:.7;animation:flameDrift 5.5s ease-in-out infinite alter
 html{background:#050506!important}
 body{background:#050506!important}
 
-/* More embers, still lightweight: additional particles in the two existing streams */
-.embers:before{
-box-shadow:
-55px -10px var(--gold),110px -42px var(--orange),175px -4px var(--gold),240px -72px var(--orange),
-305px -20px var(--gold),370px -96px var(--orange),435px -35px var(--gold),500px -125px var(--orange),
-565px -12px var(--gold),630px -78px var(--orange),695px -28px var(--gold),760px -112px var(--orange),
-825px -8px var(--gold),890px -66px var(--orange),955px -36px var(--gold),1020px -105px var(--orange),
-1085px -18px var(--gold),1150px -88px var(--orange),1215px -42px var(--gold),1280px -118px var(--orange),
-1345px -25px var(--gold),1410px -76px var(--orange),1475px -14px var(--gold),1540px -102px var(--orange);
-}
-.embers:after{
-box-shadow:
-35px -28px var(--orange),100px -6px var(--gold),165px -62px var(--orange),230px -18px var(--gold),
-295px -90px var(--orange),360px -34px var(--gold),425px -108px var(--orange),490px -12px var(--gold),
-555px -72px var(--orange),620px -26px var(--gold),685px -118px var(--orange),750px -46px var(--gold),
-815px -92px var(--orange),880px -20px var(--gold),945px -82px var(--orange),1010px -32px var(--gold),
-1075px -126px var(--orange),1140px -54px var(--gold),1205px -98px var(--orange),1270px -16px var(--gold),
-1335px -70px var(--orange),1400px -38px var(--gold),1465px -112px var(--orange);
-}
-@media(max-width:800px){
- .embers:before,.embers:after{width:3px;height:3px}
-}
-
-
 /* RF Online-inspired typography: tall, technical and lighter than the previous block font */
 .logo,.hero h1,h2,.hero h2,nav a,.discord,.btn,.ghost,.eyebrow,
 .heroSticker span,.vibes strong,.eventInfo>span,.eventInfo h3,.eventCard>b,
@@ -171,55 +133,6 @@ nav a,.discord,.btn,.ghost,.eyebrow,.heroSticker span,.eventInfo>span,
 .heroArt{opacity:.92}
 .phoenix{opacity:.72!important;filter:saturate(1.28) contrast(1.08) brightness(.96) drop-shadow(0 0 32px rgba(255,80,15,.32))!important}
 @media(max-width:800px){.heroArt{opacity:.62}.phoenix{opacity:.58!important;filter:saturate(1.2) contrast(1.04) brightness(.88) drop-shadow(0 0 28px rgba(255,80,15,.28))!important}}
-
-/* Document-bottom ember field: rises from the actual page bottom and disappears above */
-.embers{position:absolute!important;left:0;right:0;top:0;height:100%;overflow:visible;pointer-events:none;z-index:2}
-.embers:before,.embers:after{content:"";position:absolute;bottom:0;width:3px;height:3px;border-radius:50%;background:var(--gold);will-change:transform,opacity}
-.embers:before{
-left:0;
-box-shadow:
-4vw 0 var(--gold),11vw -12vh var(--orange),18vw -3vh var(--gold),25vw -20vh var(--orange),
-32vw -8vh var(--gold),39vw -28vh var(--orange),46vw -5vh var(--gold),53vw -16vh var(--orange),
-60vw -34vh var(--gold),67vw -10vh var(--orange),74vw -25vh var(--gold),81vw -4vh var(--orange),
-88vw -19vh var(--gold),95vw -31vh var(--orange),8vw -39vh var(--gold),21vw -34vh var(--orange),
-34vw -45vh var(--gold),48vw -41vh var(--orange),63vw -48vh var(--gold),77vw -38vh var(--orange),
-91vw -43vh var(--gold),15vw -54vh var(--orange),28vw -51vh var(--gold),43vw -58vh var(--orange),
-57vw -55vh var(--gold),72vw -64vh var(--orange),86vw -59vh var(--gold),98vw -53vh var(--orange);
-animation:emberFloatA 13s ease-in-out infinite}
-.embers:after{
-left:0;
-background:var(--orange);
-box-shadow:
-7vw -8vh var(--orange),14vw -26vh var(--gold),23vw -17vh var(--orange),30vw -40vh var(--gold),
-37vw -5vh var(--orange),44vw -30vh var(--gold),51vw -13vh var(--orange),58vw -46vh var(--gold),
-65vw -21vh var(--orange),72vw -35vh var(--gold),79vw -9vh var(--orange),86vw -29vh var(--gold),
-93vw -18vh var(--orange),3vw -37vh var(--gold),17vw -43vh var(--orange),27vw -57vh var(--gold),
-40vw -49vh var(--orange),55vw -61vh var(--gold),69vw -53vh var(--orange),83vw -66vh var(--gold),
-97vw -45vh var(--orange);
-animation:emberFloatB 17s ease-in-out infinite}
-@keyframes emberFloatA{
-0%{transform:translate3d(-1vw,8px,0);opacity:0}
-8%{transform:translate3d(2vw,calc(var(--pageHeight) * -.07),0);opacity:.9}
-20%{transform:translate3d(10vw,calc(var(--pageHeight) * -.18),0);opacity:.84}
-34%{transform:translate3d(-7vw,calc(var(--pageHeight) * -.29),0);opacity:.76}
-48%{transform:translate3d(9vw,calc(var(--pageHeight) * -.41),0);opacity:.66}
-63%{transform:translate3d(-10vw,calc(var(--pageHeight) * -.54),0);opacity:.54}
-77%{transform:translate3d(8vw,calc(var(--pageHeight) * -.68),0);opacity:.4}
-90%{transform:translate3d(-8vw,calc(var(--pageHeight) * -.82),0);opacity:.18}
-100%{transform:translate3d(4vw,calc(var(--pageHeight) * -.94),0);opacity:0}
-}
-@keyframes emberFloatB{
-0%{transform:translate3d(2vw,10px,0);opacity:0}
-9%{transform:translate3d(-5vw,calc(var(--pageHeight) * -.08),0);opacity:.82}
-23%{transform:translate3d(-12vw,calc(var(--pageHeight) * -.2),0);opacity:.75}
-38%{transform:translate3d(8vw,calc(var(--pageHeight) * -.32),0);opacity:.67}
-53%{transform:translate3d(13vw,calc(var(--pageHeight) * -.45),0);opacity:.56}
-68%{transform:translate3d(-9vw,calc(var(--pageHeight) * -.59),0);opacity:.43}
-82%{transform:translate3d(-13vw,calc(var(--pageHeight) * -.73),0);opacity:.27}
-92%{transform:translate3d(8vw,calc(var(--pageHeight) * -.84),0);opacity:.12}
-100%{transform:translate3d(-2vw,calc(var(--pageHeight) * -.94),0);opacity:0}
-}
-
 
 /* Serif display typography for major headers */
 .hero h1,h2{font-family:"Playfair Display",Georgia,serif!important;font-weight:800;letter-spacing:-.045em;line-height:.84}
