@@ -38,28 +38,66 @@ window.addEventListener("scroll",wakePhoenix,{passive:true});
 
 const appSupabase=window.supabase?.createClient(c.supabase.url,c.supabase.publishableKey);
 const accountLinks=document.getElementById("accountLinks");
+const accountSignedOut=accountLinks?.querySelector(".accountSignedOut");
+const accountMenu=document.getElementById("accountMenu");
+const accountMenuTrigger=document.getElementById("accountMenuTrigger");
+const accountDropdown=document.getElementById("accountDropdown");
+const accountMenuName=document.getElementById("accountMenuName");
+const adminMenuLink=document.getElementById("adminMenuLink");
+const headerLogout=document.getElementById("headerLogout");
+
 function formatRole(role){return (role||"member").replace("_"," ").toUpperCase()}
+
+function closeAccountMenu(){
+ if(!accountDropdown||!accountMenuTrigger)return;
+ accountDropdown.hidden=true;
+ accountMenuTrigger.setAttribute("aria-expanded","false");
+}
+
+accountMenuTrigger?.addEventListener("click",e=>{
+ e.stopPropagation();
+ const open=!accountDropdown.hidden;
+ accountDropdown.hidden=open;
+ accountMenuTrigger.setAttribute("aria-expanded",String(!open));
+});
+
+document.addEventListener("click",e=>{
+ if(accountMenu&&!accountMenu.contains(e.target))closeAccountMenu();
+});
+
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape")closeAccountMenu();
+});
+
 async function renderSignedInHeader(user){
  if(!accountLinks||!user)return;
  const {data:profile}=await appSupabase.from("profiles").select("username,role").eq("id",user.id).maybeSingle();
  if(!profile)return;
- accountLinks.innerHTML="";
- const identity=document.createElement("a");identity.className="signedInIdentity";identity.href="account/";identity.textContent=(profile.username||"MEMBER").toUpperCase()+" • "+formatRole(profile.role);
- const account=document.createElement("a");account.href="account/";account.textContent="ACCOUNT";
- const logout=document.createElement("button");logout.type="button";logout.className="headerLogout";logout.textContent="LOG OUT";
- logout.onclick=async()=>{await appSupabase.auth.signOut()};
- accountLinks.append(identity,account,logout);
+ if(accountSignedOut)accountSignedOut.hidden=true;
+ if(accountMenu)accountMenu.hidden=false;
+ if(accountMenuName)accountMenuName.textContent=(profile.username||"MEMBER").toUpperCase();
+ if(adminMenuLink)adminMenuLink.hidden=!["owner","site_mod","officer"].includes(profile.role);
+ closeAccountMenu();
 }
+
 function renderSignedOutHeader(){
- if(!accountLinks)return;
- accountLinks.innerHTML='<a href="account/register.html">SIGN UP</a><a href="account/#signin">SIGN IN</a>';
+ if(accountSignedOut)accountSignedOut.hidden=false;
+ if(accountMenu)accountMenu.hidden=true;
+ closeAccountMenu();
 }
-async function syncHomeAuth(){
- const {data:{user}}=await appSupabase.auth.getUser();
- if(user)renderSignedInHeader(user);else renderSignedOutHeader();
-}
+
+headerLogout?.addEventListener("click",async()=>{
+ closeAccountMenu();
+ await appSupabase.auth.signOut();
+});
+
 appSupabase.auth.onAuthStateChange((event,session)=>{
- if(event==="SIGNED_OUT") renderSignedOutHeader();
- else if(session?.user) renderSignedInHeader(session.user);
+ if(event==="SIGNED_OUT")renderSignedOutHeader();
+ else if(session?.user)renderSignedInHeader(session.user);
 });
 syncHomeAuth();
+
+async function syncHomeAuth(){
+ const {data:{user}}=await appSupabase.auth.getUser();
+ if(user)await renderSignedInHeader(user);else renderSignedOutHeader();
+}
