@@ -870,3 +870,16 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
   section h2,.recruit h2{font-size:clamp(38px,9vw,50px)!important}
   .eventInfo h3,.leader h3,.ruleCards strong{font-size:25px!important}
 }
+
+
+/* Leadership rank crowns */
+.leaderRole{display:flex!important;align-items:center!important;gap:7px!important;min-height:25px}
+.rankCrown{display:inline-block!important;width:22px!important;height:18px!important;object-fit:contain!important;object-position:center!important;flex:0 0 22px!important;vertical-align:middle!important;filter:drop-shadow(0 0 4px rgba(255,120,30,.25))}
+.gmCrown{filter:drop-shadow(0 0 5px rgba(255,168,42,.38))!important}
+.viceCrown{filter:drop-shadow(0 0 5px rgba(70,165,255,.32))!important}
+.leader:hover .gmCrown{filter:drop-shadow(0 0 8px rgba(255,168,42,.65))!important}
+.leader:hover .viceCrown{filter:drop-shadow(0 0 8px rgba(70,165,255,.58))!important}
+@media(max-width:520px){
+  .leaderRole{gap:6px!important}
+  .rankCrown{width:20px!important;height:17px!important;flex-basis:20px!important}
+}
