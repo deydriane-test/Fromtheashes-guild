@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FromTheAshes — Guild Admin</title><link rel="stylesheet" href="../styles.v1.css"><link rel="stylesheet" href="admin.v2.css"></head>
+<body class="adminPage"><div class="embers"></div><div class="scrollGlow"></div>
+<header class="adminHeader"><a class="logo" href="../">FROM<span>THE</span>ASHES</a>
+<div class="adminHeaderRight"><a class="adminHomeLink" href="../">← MAIN SITE</a><span id="adminIdentity"></span><button id="logoutBtn" class="ghost adminLogout">LOG OUT</button></div></header>
+<main class="adminMain">
+<section id="accessPanel" class="adminPanel"><div class="eyebrow">GUILD ACCESS</div><h1>STAFF<br><i>ONLY.</i></h1><p id="accessText">Checking your guild permissions…</p><a class="btn" href="../account/login.html">SIGN IN ↗</a></section>
+<section id="dashboard" class="adminDashboard" hidden>
+<div class="adminTop"><div><div class="eyebrow">FROMTHEASHES • GUILD ADMIN</div><h1>THE<br><i>CLUBHOUSE.</i></h1></div><div class="adminRole" id="roleBadge"></div></div>
+<nav class="adminTabs"><button class="adminTab active" data-tab="roster">ROSTER</button><button class="adminTab" data-tab="content" id="contentTab" hidden>SITE CONTENT</button></nav>
+<section id="rosterTab" class="adminTabPanel"><p id="adminIntro" class="adminIntro"></p><div id="rosterAdminList" class="rosterAdminList"></div></section>
+<section id="contentTabPanel" class="adminTabPanel" hidden>
+<div class="contentIntro"><div class="eyebrow">EDIT THE PUBLIC SITE</div><h2>KEEP THE<br><i>CLUBHOUSE FRESH.</i></h2><p>Changes here update the information members see on the main guild page.</p></div>
+<form id="contentForm" class="contentForm">
+<div class="contentGroup"><h3>GUILD NOTICE</h3><label>ANNOUNCEMENT<textarea id="announcement" rows="3" placeholder="Example: Elysium moved to 8:55 PM this Sunday."></textarea></label><label>ACTIVITY RULE<input id="activityRule" maxlength="120"></label><label>DISCORD URL<input id="discordUrl" type="url"></label></div>
+<div class="contentGroup"><h3>EVENT SCHEDULE</h3><div class="scheduleGrid">
+<label>RAID DAY<input id="raidDay"></label><label>RAID TIME<input id="raidTime" placeholder="7:00 PM CT"></label>
+<label>EXPEDITION DAY<input id="expeditionDay"></label><label>EXPEDITION TIME<input id="expeditionTime" placeholder="7:00 PM CT"></label>
+<label>ELYSIUM DAY<input id="elysiumDay"></label><label>ELYSIUM TIME<input id="elysiumTime" placeholder="8:55 PM CT"></label>
+</div></div>
+<div class="contentGroup"><h3>LEADERSHIP BIOS</h3><div id="leaderEditors" class="leaderEditors"></div></div>
+<div class="contentActions"><button class="btn" type="submit">SAVE SITE CONTENT ↗</button><span id="contentStatus" class="formStatus"></span></div>
+</form>
+</section>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="admin.v2.js"></script></body></html>
