@@ -32,3 +32,21 @@ section{padding:110px 8vw;border-top:1px solid var(--line);position:relative}.ey
 .heroArt.noPhoenix{display:none}
 @media(max-width:800px){.heroArt{top:18%;height:58vh;width:90vw;right:-22vw;opacity:.34}.heroText{z-index:4}.heroSticker{z-index:5}}
 @media(max-width:520px){.heroArt{top:22%;height:52vh;width:105vw;right:-30vw;opacity:.25}.heroSticker{z-index:5}}
+
+/* Performance tuning for phones and tablets. Keep the visual style, remove GPU-heavy effects. */
+@media(max-width:800px){
+ body{transition:none;background:var(--bg)}
+ body:before,.scrollGlow,.embers{display:none}
+ header{backdrop-filter:none;-webkit-backdrop-filter:none;background:#0a0909f5}
+ header.scrolled{box-shadow:none}
+ .phoenix{filter:saturate(1.1) contrast(1.03) brightness(.9);transition:none;transform:none}
+ .phoenixHalo{filter:none;animation:none}
+ .heroSticker{animation:none}
+ .stickyNote{animation:none}
+ .reveal{transition:opacity .35s ease,transform .35s ease}
+ .interactive{transition:none}
+}
+@media(max-width:520px){
+ .phoenix{filter:saturate(1.05) brightness(.9);mix-blend-mode:normal;opacity:.22}
+ .heroSticker{box-shadow:5px 5px 0 #4c2113}
+}
