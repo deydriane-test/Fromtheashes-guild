@@ -883,3 +883,29 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
   .leaderRole{gap:6px!important}
   .rankCrown{width:20px!important;height:17px!important;flex-basis:20px!important}
 }
+
+
+/* Roster + signup */
+.rosterSection,.signupSection{background:transparent}
+.rosterHead,.signupHead{align-items:start}
+.rosterIntro,.signupIntro{align-self:center;max-width:620px;color:#aaa0a0;line-height:1.75}
+.rosterIntro p,.signupIntro>p{margin:0 0 18px}
+.rosterCount{font:700 11px "Rajdhani",sans-serif;letter-spacing:.14em;color:var(--orange)}
+.rosterList{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:45px}
+.rosterMember{background:var(--card);border:1px solid var(--line);padding:20px 18px;min-height:105px;position:relative}
+.rosterMember:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);opacity:.7}
+.rosterMemberName{font:800 24px "Playfair Display",Georgia,serif;color:var(--text);margin:0 0 6px}
+.rosterMemberDiscord{font:600 11px "Rajdhani",sans-serif;letter-spacing:.08em;color:#80777a}
+.rosterEmpty{grid-column:1/-1;border:1px dashed #5a4648;padding:28px;color:#81777a;font:700 12px "Rajdhani",sans-serif;letter-spacing:.1em;text-align:center}
+.signupForm{display:grid;gap:13px}
+.signupForm label{display:grid;gap:6px;color:#d8cfca;font:700 11px "Rajdhani",sans-serif;letter-spacing:.11em}
+.signupForm label span{color:#776d70;font-weight:500}
+.signupForm input{width:100%;padding:13px 14px;border:1px solid var(--line);background:#0d0b0d;color:var(--text);font:500 14px "Space Grotesk",sans-serif;outline:none}
+.signupForm input:focus{border-color:#ff6425aa;box-shadow:0 0 0 2px #ff64251c}
+.signupForm button{justify-self:start;border:0;cursor:pointer;margin-top:4px}
+.formStatus{min-height:18px;margin:0;color:var(--gold);font-size:12px}
+.formStatus.error{color:#ff8d7b}
+.formStatus.success{color:#b9e890}
+@media(max-width:1050px){.rosterList{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.rosterList{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.rosterList{grid-template-columns:1fr}.rosterMember{min-height:auto}}
