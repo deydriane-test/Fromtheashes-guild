@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FromTheAshes — Leader Admin</title>
+<link rel="stylesheet" href="../styles.css?v=24">
+<link rel="stylesheet" href="admin.css?v=1">
+</head>
+<body class="adminPage">
+<div class="embers"></div>
+<header class="adminHeader">
+  <a class="logo" href="../">FROM<span>THE</span>ASHES</a>
+  <div class="adminHeaderRight">
+    <span id="adminEmail"></span>
+    <button id="logoutBtn" class="ghost adminLogout" hidden>LOG OUT</button>
+  </div>
+</header>
+
+<main class="adminMain">
+  <section id="loginPanel" class="adminPanel">
+    <div class="eyebrow">LEADER ACCESS</div>
+    <h1>THE<br><i>CLUBHOUSE.</i></h1>
+    <p>Enter an email that has been added to the <b>admin_leaders</b> table. We’ll email you a one-time sign-in link.</p>
+    <form id="loginForm" class="adminForm">
+      <label>LEADER EMAIL<input id="loginEmail" type="email" required autocomplete="email" placeholder="leader@example.com"></label>
+      <button class="btn" type="submit">SEND LOGIN LINK ↗</button>
+      <p id="loginStatus" class="formStatus" role="status"></p>
+    </form>
+  </section>
+
+  <section id="deniedPanel" class="adminPanel" hidden>
+    <div class="eyebrow">ACCESS DENIED</div>
+    <h1>NOT ON<br><i>THE LIST.</i></h1>
+    <p>This email is not currently active in <b>admin_leaders</b>. Add it there first, then sign in again.</p>
+    <button id="deniedLogout" class="ghost">SIGN OUT</button>
+  </section>
+
+  <section id="dashboard" class="adminDashboard" hidden>
+    <div class="adminTitleRow">
+      <div>
+        <div class="eyebrow">FROMTHEASHES • LEADER ADMIN</div>
+        <h1>THE<br><i>ROSTER.</i></h1>
+      </div>
+      <div id="pendingCount" class="pendingCount">LOADING…</div>
+    </div>
+    <p class="adminIntro">Approve new signups, deactivate members, or remove entries. Admin access itself is controlled separately by the <b>admin_leaders</b> database table.</p>
+    <div id="rosterAdminList" class="rosterAdminList"></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../config.js?v=3"></script>
+<script src="admin.js?v=1"></script>
+</body>
+</html>
