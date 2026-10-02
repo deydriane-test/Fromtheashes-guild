@@ -814,3 +814,59 @@ html.device-phone .ruleCards strong.displayFont{font-size:25px!important}
  html.device-phone section h2.displayFont,html.device-phone .recruit h2.displayFont{font-size:clamp(38px,9.2vw,50px)!important}
  html.device-phone .vibes,html.device-phone .ruleCards{grid-template-columns:1fr!important}
 }
+
+/* =========================================================
+   FINAL SERIF TYPOGRAPHY
+   Clean, readable serif display with off-white + orange accents.
+   ========================================================= */
+body{font-family:"Space Grotesk",sans-serif!important;color:#f3eee8!important}
+.hero h1,h2,.recruit h2,.rules h2,.about h2,.eventsSection h2,.leadership h2{
+  font-family:"Bodoni Moda","Playfair Display",Georgia,serif!important;
+  font-weight:600!important;
+  font-style:normal!important;
+  letter-spacing:-.035em!important;
+  line-height:.9!important;
+  color:#f3eee8!important;
+  -webkit-text-fill-color:#f3eee8!important;
+  -webkit-text-stroke:0!important;
+  background:none!important;
+  text-shadow:0 0 20px rgba(255,92,24,.08);
+}
+.hero h1 i,h2 i,.recruit h2 i{
+  font-family:"Bodoni Moda","Playfair Display",Georgia,serif!important;
+  font-style:italic!important;
+  font-weight:600!important;
+  color:#ff6a28!important;
+  -webkit-text-fill-color:#ff6a28!important;
+  -webkit-text-stroke:0!important;
+}
+.hero h1{font-size:clamp(70px,9vw,132px)!important;line-height:.84!important}
+section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88!important}
+.hero h2{
+  font-family:"Rajdhani",sans-serif!important;
+  color:#ffc46e!important;
+  font-weight:600!important;
+  letter-spacing:.1em!important;
+}
+.eventInfo h3,.leader h3,.ruleCards strong{
+  font-family:"Bodoni Moda","Playfair Display",Georgia,serif!important;
+  font-weight:600!important;
+  color:#f3eee8!important;
+  line-height:1!important;
+}
+.logo img{
+  mix-blend-mode:normal!important;
+  filter:drop-shadow(0 0 8px rgba(255,106,40,.20))!important;
+}
+.displayGlyph{display:none!important}
+
+@media(max-width:800px){
+  .hero h1{font-size:clamp(48px,13vw,70px)!important;line-height:.88!important}
+  section h2,.recruit h2{font-size:clamp(42px,10vw,58px)!important;line-height:.92!important}
+  .eventInfo h3,.leader h3,.ruleCards strong{font-size:clamp(24px,7vw,32px)!important}
+}
+@media(max-width:520px){
+  .hero h1{font-size:clamp(44px,12vw,58px)!important}
+  section h2,.recruit h2{font-size:clamp(38px,9vw,50px)!important}
+  .eventInfo h3,.leader h3,.ruleCards strong{font-size:25px!important}
+}
