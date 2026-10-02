@@ -321,3 +321,10 @@ body:after{
 .hero h1 i,h2 i,.recruit h2 i{
   font-style:normal!important;
 }
+
+
+/* Guild crest in the site header */
+.logo{display:flex;align-items:center;width:min(190px,24vw);height:56px;overflow:visible}
+.logo img{display:block;width:100%;height:auto;max-height:56px;object-fit:contain;object-position:left center}
+@media(max-width:800px){.logo{width:155px;height:52px}.logo img{max-height:52px}}
+@media(max-width:520px){.logo{width:138px;height:48px}.logo img{max-height:48px}}
