@@ -1,0 +1,37 @@
+.adminPage{min-height:100vh}
+.adminHeader{position:sticky;top:0}
+.adminHeader .logo{font-family:"Playfair Display",Georgia,serif;font-size:22px}
+.adminHeader .logo span{color:var(--orange)}
+.adminHeaderRight{display:flex;align-items:center;gap:12px;color:#8f8589;font:700 11px "Rajdhani",sans-serif;letter-spacing:.08em}
+.adminLogout{padding:9px 13px;background:transparent!important;color:#ddd!important}
+.adminMain{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:120px 7vw 80px}
+.adminPanel{max-width:620px;padding:50px 0}
+.adminPanel h1,.adminDashboard h1{font:800 clamp(62px,9vw,112px) "Playfair Display",Georgia,serif;line-height:.82;color:#f4efe9;margin:25px 0 18px}
+.adminPanel h1 i,.adminDashboard h1 i{color:transparent;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px rgba(255,235,220,.68);font-style:italic}
+.adminPanel>p,.adminIntro{color:#aaa0a0;line-height:1.75;max-width:680px}
+.adminForm{display:grid;gap:14px;margin-top:30px}
+.adminForm label{display:grid;gap:7px;color:#d8cfca;font:700 11px "Rajdhani",sans-serif;letter-spacing:.11em}
+.adminForm input{padding:14px;border:1px solid var(--line);background:#0d0b0d;color:var(--text);font:500 15px "Space Grotesk",sans-serif;outline:0}
+.adminForm input:focus{border-color:#ff6425aa;box-shadow:0 0 0 2px #ff64251c}
+.adminForm button{justify-self:start;border:0;cursor:pointer}
+.adminTitleRow{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.pendingCount{font:800 13px "Rajdhani",sans-serif;letter-spacing:.12em;color:var(--orange);padding-bottom:10px}
+.rosterAdminList{display:grid;gap:10px;margin-top:35px}
+.rosterAdminCard{background:var(--card);border:1px solid var(--line);padding:18px 20px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.rosterAdminCard.pending{border-left:3px solid var(--gold)}
+.rosterAdminCard.inactive{opacity:.58}
+.adminMemberName{font:800 23px "Playfair Display",Georgia,serif;color:var(--text)}
+.adminMemberMeta{font:600 11px "Rajdhani",sans-serif;letter-spacing:.08em;color:#81777a;margin-top:5px}
+.adminActions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.adminAction{border:1px solid var(--line);background:#0d0b0d;color:#eee;padding:9px 12px;font:700 11px "Rajdhani",sans-serif;letter-spacing:.08em;cursor:pointer}
+.adminAction:hover{border-color:#ff6425aa;color:var(--gold)}
+.adminAction.approve{border-color:#7ca35e66;color:#b9e890}
+.adminAction.danger{color:#ff9a88}
+.adminEmpty{border:1px dashed #5a4648;padding:30px;text-align:center;color:#81777a;font:700 12px "Rajdhani",sans-serif;letter-spacing:.1em}
+@media(max-width:650px){
+ .adminMain{padding:105px 7vw 60px}
+ .adminHeaderRight #adminEmail{display:none}
+ .adminTitleRow{align-items:start;flex-direction:column}
+ .rosterAdminCard{grid-template-columns:1fr}
+ .adminActions{justify-content:flex-start}
+}
