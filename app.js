@@ -31,7 +31,8 @@ function renderDisplayFont(){
      svg.classList.add("displayGlyph");
      svg.setAttribute("viewBox","0 0 "+box[0]+" "+box[1]);
      svg.setAttribute("aria-hidden","true");
-     svg.style.width="calc(1em * "+(box[0]/box[1])+")";
+     svg.style.height=".68em";
+     svg.style.width="calc(.68em * "+(box[0]/box[1])+")";
      svg.innerHTML='<use href="assets/display-font.svg#'+key+'"></use>';
      frag.appendChild(svg);
     }else frag.appendChild(document.createTextNode(ch));
