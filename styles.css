@@ -164,7 +164,44 @@ nav a,.discord,.btn,.ghost,.eyebrow,.heroSticker span,.eventInfo>span,
 .phoenix{opacity:.72!important;filter:saturate(1.28) contrast(1.08) brightness(.96) drop-shadow(0 0 32px rgba(255,80,15,.32))!important}
 @media(max-width:800px){.heroArt{opacity:.62}.phoenix{opacity:.58!important;filter:saturate(1.2) contrast(1.04) brightness(.88) drop-shadow(0 0 28px rgba(255,80,15,.28))!important}}
 
-/* Dense, scattered ember field */
-.embers:before,.embers:after{width:3px;height:3px}
-.embers:before{left:0;bottom:0;box-shadow:4vw -9vh var(--gold),11vw -24vh var(--orange),18vw -5vh var(--gold),25vw -38vh var(--orange),32vw -16vh var(--gold),39vw -54vh var(--orange),46vw -11vh var(--gold),53vw -31vh var(--orange),60vw -62vh var(--gold),67vw -19vh var(--orange),74vw -45vh var(--gold),81vw -8vh var(--orange),88vw -36vh var(--gold),95vw -58vh var(--orange),8vw -70vh var(--gold),21vw -61vh var(--orange),34vw -78vh var(--gold),48vw -72vh var(--orange),63vw -84vh var(--gold),77vw -69vh var(--orange),91vw -76vh var(--gold),15vw -91vh var(--orange),28vw -87vh var(--gold),43vw -96vh var(--orange),57vw -90vh var(--gold),72vw -102vh var(--orange),86vw -94vh var(--gold),98vw -88vh var(--orange);animation:emberRise 12s linear infinite}
-.embers:after{left:0;bottom:0;box-shadow:7vw -18vh var(--orange),14vw -43vh var(--gold),23vw -29vh var(--orange),30vw -67vh var(--gold),37vw -8vh var(--orange),44vw -48vh var(--gold),51vw -22vh var(--orange),58vw -76vh var(--gold),65vw -34vh var(--orange),72vw -57vh var(--gold),79vw -14vh var(--orange),86vw -49vh var(--gold),93vw -27vh var(--orange),3vw -63vh var(--gold),17vw -74vh var(--orange),27vw -95vh var(--gold),40vw -83vh var(--orange),55vw -97vh var(--gold),69vw -87vh var(--orange),83vw -104vh var(--gold),97vw -71vh var(--orange);animation:emberRise 17s linear infinite reverse}
+/* Document-bottom ember field: rises from the actual page bottom and disappears above */
+.embers{position:absolute!important;left:0;right:0;top:0;height:100%;overflow:visible;pointer-events:none;z-index:2}
+.embers:before,.embers:after{content:"";position:absolute;bottom:0;width:3px;height:3px;border-radius:50%;background:var(--gold);will-change:transform,opacity}
+.embers:before{
+left:0;
+box-shadow:
+4vw 0 var(--gold),11vw -12vh var(--orange),18vw -3vh var(--gold),25vw -20vh var(--orange),
+32vw -8vh var(--gold),39vw -28vh var(--orange),46vw -5vh var(--gold),53vw -16vh var(--orange),
+60vw -34vh var(--gold),67vw -10vh var(--orange),74vw -25vh var(--gold),81vw -4vh var(--orange),
+88vw -19vh var(--gold),95vw -31vh var(--orange),8vw -39vh var(--gold),21vw -34vh var(--orange),
+34vw -45vh var(--gold),48vw -41vh var(--orange),63vw -48vh var(--gold),77vw -38vh var(--orange),
+91vw -43vh var(--gold),15vw -54vh var(--orange),28vw -51vh var(--gold),43vw -58vh var(--orange),
+57vw -55vh var(--gold),72vw -64vh var(--orange),86vw -59vh var(--gold),98vw -53vh var(--orange);
+animation:emberFloatA 13s ease-in-out infinite}
+.embers:after{
+left:0;
+background:var(--orange);
+box-shadow:
+7vw -8vh var(--orange),14vw -26vh var(--gold),23vw -17vh var(--orange),30vw -40vh var(--gold),
+37vw -5vh var(--orange),44vw -30vh var(--gold),51vw -13vh var(--orange),58vw -46vh var(--gold),
+65vw -21vh var(--orange),72vw -35vh var(--gold),79vw -9vh var(--orange),86vw -29vh var(--gold),
+93vw -18vh var(--orange),3vw -37vh var(--gold),17vw -43vh var(--orange),27vw -57vh var(--gold),
+40vw -49vh var(--orange),55vw -61vh var(--gold),69vw -53vh var(--orange),83vw -66vh var(--gold),
+97vw -45vh var(--orange);
+animation:emberFloatB 17s ease-in-out infinite}
+@keyframes emberFloatA{
+0%{transform:translate3d(-1vw,8px,0);opacity:0}
+8%{opacity:.9}
+35%{transform:translate3d(4vw,-25%,0);opacity:.78}
+68%{transform:translate3d(-3vw,-62%,0);opacity:.55}
+90%{transform:translate3d(5vw,-88%,0);opacity:.18}
+100%{transform:translate3d(1vw,-105%,0);opacity:0}
+}
+@keyframes emberFloatB{
+0%{transform:translate3d(2vw,10px,0);opacity:0}
+10%{opacity:.8}
+32%{transform:translate3d(-4vw,-22%,0);opacity:.7}
+61%{transform:translate3d(6vw,-55%,0);opacity:.48}
+84%{transform:translate3d(-5vw,-82%,0);opacity:.16}
+100%{transform:translate3d(3vw,-105%,0);opacity:0}
+}
