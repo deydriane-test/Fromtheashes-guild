@@ -764,7 +764,7 @@
 
 /* ---------- EXACT GENERATED BUTTON ARTWORK ---------- */
 .portalAuthCopy .discordAuthBtn{
-  background-image:url("../assets/discord-button-exact.webp?v=1")!important;
+  background-image:url("../assets/discord-button-exact.png?v=2")!important;
   background-repeat:no-repeat!important;
   background-position:center!important;
   background-size:100% 100%!important;
@@ -772,5 +772,5 @@
 .portalAuthCopy .discordAuthBtn:hover,
 .portalAuthCopy .discordAuthBtn:active,
 .portalAuthCopy .discordAuthBtn.discordStateActive{
-  background-image:url("../assets/discord-button-exact.webp?v=1")!important;
+  background-image:url("../assets/discord-button-exact.png?v=2")!important;
 }
