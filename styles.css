@@ -911,3 +911,38 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
 @media(max-width:520px){.rosterList{grid-template-columns:1fr}.rosterMember{min-height:auto}}
 
 .accountLinks{display:flex;align-items:center;gap:14px;margin-left:auto}.accountLinks a{color:#d8cfca;text-decoration:none;font:700 11px "Rajdhani",sans-serif;letter-spacing:.1em}.accountLinks a:first-child{color:var(--gold)}.accountLinks a:hover{color:var(--orange)}@media(max-width:800px){.accountLinks{gap:8px}.accountLinks a{font-size:10px}}
+
+
+/* Mobile header: compact account links with breathing room before Discord */
+@media(max-width:800px){
+  header .accountLinks{
+    gap:7px!important;
+    margin-left:auto!important;
+    margin-right:12px!important;
+  }
+  header .accountLinks a{
+    font-size:9px!important;
+    letter-spacing:.09em!important;
+    white-space:nowrap!important;
+  }
+  header .discord{
+    margin-left:0!important;
+    padding:11px 14px!important;
+    font-size:11px!important;
+    white-space:nowrap!important;
+  }
+}
+@media(max-width:520px){
+  header .accountLinks{
+    gap:6px!important;
+    margin-right:10px!important;
+  }
+  header .accountLinks a{
+    font-size:8.5px!important;
+    letter-spacing:.08em!important;
+  }
+  header .discord{
+    padding:10px 12px!important;
+    font-size:10px!important;
+  }
+}
