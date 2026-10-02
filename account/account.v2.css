@@ -93,3 +93,54 @@
 /* Portal spacing for the phoenix masthead */
 @media(min-width:801px){.accountLanding{padding-top:135px!important}.authCard{margin-top:0}}
 @media(max-width:800px){.accountLanding{padding-top:105px!important}}
+
+
+/* =========================================================
+   AUTH PORTAL — matches the current FromTheAshes masthead
+   ========================================================= */
+.portalAuthPage{min-height:100vh;background:#070606!important;color:var(--text);overflow-x:hidden}
+.portalAuthPage:before{z-index:0}
+.portalHeader{position:relative!important;top:auto!important;left:auto!important;right:auto!important;height:148px!important;padding:0!important;display:block!important;background:#080707!important;border-bottom:1px solid #ff64254d!important;z-index:20!important;box-shadow:0 8px 28px #0009!important;backdrop-filter:none!important}
+.portalMasthead{height:98px;position:relative;overflow:hidden;display:flex;align-items:center;padding:0 3vw;background:linear-gradient(90deg,rgba(3,3,3,.78),rgba(3,3,3,.30) 58%,rgba(3,3,3,.42)),url("../phoenix.jpeg") center 45%/cover no-repeat}
+.portalMasthead:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.48))}
+.portalMastheadGlow{position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(255,93,25,.20),transparent 42%);pointer-events:none}
+.portalLogo{position:relative;z-index:2;display:flex;width:min(390px,29vw);height:82px;align-items:center}
+.portalLogo img{width:100%;height:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 3px 7px #000) drop-shadow(0 0 9px #ff64252e)}
+.portalNav{height:50px;display:flex;align-items:stretch;padding:0 3vw;background:rgba(8,8,8,.97);border-top:1px solid #30282b}
+.portalNav a{display:flex;align-items:center;gap:10px;padding:0 27px;color:#b8afb0;text-decoration:none;border-right:1px solid transparent;font:600 15px "Space Grotesk",sans-serif;letter-spacing:.01em;transition:.18s}
+.portalNav a:hover{color:#f6efe8;background:#121012}
+.portalNav a:first-child{border-left:1px solid #30282b}
+.portalNav a span{font:600 14px "Space Grotesk",sans-serif}
+.portalNavSpacer{flex:1}
+.portalNav .portalNavDiscord{color:var(--orange);font:800 12px "Rajdhani",sans-serif;letter-spacing:.12em;border-left:1px solid #30282b}
+.portalAuthMain{position:relative;z-index:1;min-height:calc(100vh - 148px);padding:58px 3vw 90px;background:linear-gradient(180deg,rgba(8,7,7,.25),rgba(28,8,7,.50)),url("../phoenix.jpeg") center top/cover fixed no-repeat}
+.portalAuthHero{max-width:1500px;margin:0 auto}
+.portalEyebrow{color:var(--orange);font:800 12px "Rajdhani",sans-serif;letter-spacing:.17em;margin:8px 0 15px}
+.portalAuthGrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);gap:36px;align-items:start}
+.portalAuthCopy{padding:18px 0 0 1vw}
+.portalAuthCopy h1{font:600 clamp(72px,7vw,112px) "Bodoni Moda",Georgia,serif;line-height:.82;letter-spacing:-.04em;color:#f3eee8;margin:0 0 20px}
+.portalAuthCopy h1 i{font-style:italic;color:var(--orange)}
+.portalAuthCopy p{max-width:610px;color:#b4aaab;font:400 17px/1.65 "Space Grotesk",sans-serif}
+.portalAuthCard{background:rgba(12,11,12,.92);border:1px solid #3b2b2e;padding:28px 32px;box-shadow:0 24px 65px #000b}
+.portalCardHead{display:flex;justify-content:space-between;gap:20px;padding:0 0 17px;border-bottom:1px solid #30282b;color:var(--gold);font:800 11px "Rajdhani",sans-serif;letter-spacing:.13em}
+.portalCardHead span:last-child{color:#6f6669}
+.portalAuthCard .discordAuthBtn{width:100%!important;margin:20px 0 4px!important;min-height:78px!important;border-radius:0!important}
+.portalAuthFooter{text-align:center;margin-top:24px;color:#756d70;font:600 11px "Rajdhani",sans-serif;letter-spacing:.06em}
+.portalAuthFooter a{color:var(--gold);text-decoration:none}
+.portalAuthFooter a:hover{color:var(--orange)}
+.portalIdentity{margin:20px 0 18px;padding:16px 17px;background:#100e10;border:1px solid #30282b;display:grid;gap:5px}
+.portalIdentity strong{font:700 17px "Space Grotesk",sans-serif;color:#f3eee8;overflow-wrap:anywhere}
+.portalIdentity small{font:600 10px "Rajdhani",sans-serif;color:#7d7477;letter-spacing:.08em}
+.portalCharacterForm{display:grid;gap:13px}
+.portalCharacterForm label{display:grid;gap:7px;color:#d8cfca;font:800 11px "Rajdhani",sans-serif;letter-spacing:.11em}
+.portalCharacterForm input{width:100%;box-sizing:border-box;padding:14px;background:#0d0b0d;color:#f3eee8;border:1px solid #30282b;outline:0;font:500 15px "Space Grotesk",sans-serif}
+.portalCharacterForm input:focus{border-color:#ff6425aa;box-shadow:0 0 0 2px #ff64251c}
+.portalSubmit{width:100%!important;margin-top:4px!important;text-align:center}
+@media(max-width:900px){
+ .portalHeader{height:126px!important}.portalMasthead{height:80px;padding:0 5vw}.portalLogo{width:min(270px,55vw);height:66px}.portalNav{height:46px;overflow-x:auto;padding:0 3vw}.portalNav a{padding:0 15px;font-size:12px;white-space:nowrap}.portalNav a span{font-size:11px}.portalNav .portalNavSpacer{display:none}
+ .portalAuthMain{padding:42px 5vw 70px}.portalAuthGrid{grid-template-columns:1fr;gap:24px}.portalAuthCopy{padding:0}.portalAuthCopy h1{font-size:clamp(58px,12vw,88px)}.portalAuthCard{padding:22px}
+}
+@media(max-width:520px){
+ .portalHeader{height:116px!important}.portalMasthead{height:70px}.portalLogo{width:210px;height:58px}.portalNav{height:46px}.portalNav a{padding:0 11px;gap:5px}.portalNav a span{font-size:10px}.portalNavDiscord{display:none!important}
+ .portalAuthMain{padding:34px 5vw 55px}.portalEyebrow{font-size:10px}.portalAuthCopy h1{font-size:54px}.portalAuthCopy p{font-size:14px}.portalAuthCard{padding:19px 18px}.portalCardHead{font-size:9px}.portalAuthCard .discordAuthBtn{min-height:64px!important}
+}
