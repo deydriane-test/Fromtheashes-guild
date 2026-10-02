@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Bebas+Neue&family=Playfair+Display:wght@600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--bg:#0a0909;--paper:#121012;--card:#181518;--card2:#201b1e;--text:#f6efe8;--muted:#aaa0a0;--orange:#ff6425;--gold:#ffc46e;--pink:#e79b83;--line:#30282b;--green:#9bdd70;--scroll:0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090708;color:var(--text);font-family:"Space Grotesk",sans-serif;overflow-x:hidden;position:relative;}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(180deg,#080708 0%,#0b0809 13%,#12090a 32%,#1b0a0a 53%,#2b0b08 72%,#4a1008 88%,#7d1b08 100%);}
@@ -196,4 +196,26 @@ body:after{
         rgba(255,70,10,.08) 95%,
         rgba(255,55,8,0) 100%);
   }
+}
+
+
+/* FROM THE ASHES display lettering — tall, condensed, heavy */
+.hero h1,h2,.recruit h2{
+  font-family:"Bebas Neue","Barlow Condensed",sans-serif!important;
+  font-weight:400!important;
+  letter-spacing:.015em!important;
+  line-height:.86!important;
+  color:#f4eee9!important;
+  -webkit-text-stroke:0!important;
+  text-shadow:0 0 18px rgba(255,72,15,.08);
+}
+.hero h1 i,h2 i,.recruit h2 i{
+  font-family:"Bebas Neue","Barlow Condensed",sans-serif!important;
+  font-style:normal!important;
+  color:#f4eee9!important;
+  -webkit-text-stroke:0!important;
+}
+.rules h2,.about h2,.eventsSection h2,.leadership h2{
+  font-family:"Bebas Neue","Barlow Condensed",sans-serif!important;
+  font-weight:400!important;
 }
