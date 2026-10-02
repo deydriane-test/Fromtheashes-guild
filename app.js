@@ -29,7 +29,7 @@ if(!isMobile){
   root.style.setProperty("--glowShift",(-p*10*window.innerHeight/100)+"px");
   root.style.setProperty("--phoenixShift",(-p*18)+"px");
   root.style.setProperty("--phoenixScale",(1+p*.035).toFixed(3));
-  root.style.setProperty("--hue",(p*8)+"deg");
+  root.style.setProperty("--hue",(p*28)+"deg");
   if(header)header.classList.toggle("scrolled",window.scrollY>20);
   ticking=false;
  }
