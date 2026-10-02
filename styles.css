@@ -909,3 +909,5 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
 @media(max-width:1050px){.rosterList{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:800px){.rosterList{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.rosterList{grid-template-columns:1fr}.rosterMember{min-height:auto}}
+
+.accountLinks{display:flex;align-items:center;gap:14px;margin-left:auto}.accountLinks a{color:#d8cfca;text-decoration:none;font:700 11px "Rajdhani",sans-serif;letter-spacing:.1em}.accountLinks a:first-child{color:var(--gold)}.accountLinks a:hover{color:var(--orange)}@media(max-width:800px){.accountLinks{gap:8px}.accountLinks a{font-size:10px}}
