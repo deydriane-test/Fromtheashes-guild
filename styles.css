@@ -138,3 +138,22 @@ nav a,.discord,.btn,.ghost,.eyebrow,.heroSticker span,.eventInfo>span,
 .hero h1,h2{font-family:"Playfair Display",Georgia,serif!important;font-weight:800;letter-spacing:-.045em;line-height:.84}
 .hero h1 i,h2 i{font-family:"Playfair Display",Georgia,serif;font-style:italic}
 .hero h2{font-family:"Rajdhani",sans-serif!important;font-weight:600}
+
+
+/* Phoenix reacts to page interaction */
+.phoenix{transition:filter .35s ease,opacity .35s ease,transform .35s ease!important}
+body.pageActive .phoenix{
+  opacity:.94!important;
+  filter:saturate(1.5) contrast(1.12) brightness(1.08) drop-shadow(0 0 48px rgba(255,90,20,.52)) drop-shadow(0 0 90px rgba(255,55,10,.22))!important;
+  transform:scale(1.018)!important;
+}
+body.pageActive .phoenixHalo{
+  opacity:1;
+  transform:scale(1.08);
+}
+@media(max-width:800px){
+  body.pageActive .phoenix{
+    opacity:.72!important;
+    filter:saturate(1.35) contrast(1.08) brightness(1) drop-shadow(0 0 34px rgba(255,90,20,.42))!important;
+  }
+}
