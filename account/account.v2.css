@@ -774,3 +774,56 @@
 .portalAuthCopy .discordAuthBtn.discordStateActive{
   background-image:url("../assets/discord-button-exact.png?v=2")!important;
 }
+
+
+/* ---------- FINAL: RENDER GENERATED DISCORD ART AS IMG ---------- */
+.portalAuthCopy .portalAuthCard .discordAuthBtn{
+  width:min(455px,100%)!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0 0 14px!important;
+  padding:0!important;
+  display:block!important;
+  position:relative!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  transform:none!important;
+  filter:none!important;
+  line-height:0!important;
+  cursor:pointer!important;
+}
+.portalAuthCopy .portalAuthCard .discordAuthBtn::before,
+.portalAuthCopy .portalAuthCard .discordAuthBtn::after{
+  content:none!important;
+  display:none!important;
+}
+.portalAuthCopy .portalAuthCard .discordAuthBtn img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  object-fit:fill!important;
+}
+.portalAuthCopy .portalAuthCard .discordAuthBtn span{
+  display:none!important;
+}
+.portalAuthCopy .portalAuthCard .discordAuthBtn:hover,
+.portalAuthCopy .portalAuthCard .discordAuthBtn:active,
+.portalAuthCopy .portalAuthCard .discordAuthBtn.discordStateActive{
+  background-image:none!important;
+  transform:none!important;
+  filter:none!important;
+  box-shadow:none!important;
+}
+@media(max-width:520px){
+  .portalAuthCopy .portalAuthCard .discordAuthBtn{
+    width:100%!important;
+  }
+}
