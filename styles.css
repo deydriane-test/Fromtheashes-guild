@@ -118,3 +118,31 @@ animation:footerFire 4.5s ease-in-out infinite alternate}
  footer:before{height:390px;left:-14vw;right:-14vw;filter:blur(7px);animation-duration:5.5s}
 }
 @media(prefers-reduced-motion:reduce){footer:before{animation:none}}
+
+
+/* Refined fire: subtle page heat + distinct flame tongues at the true bottom */
+body:before{background:linear-gradient(180deg,#050506 0%,#080708 24%,#0d0809 48%,#150908 70%,#210a08 86%,#300d08 100%)!important}
+footer:before{height:230px!important;left:0!important;right:0!important;bottom:-8px!important;filter:blur(7px)!important;opacity:.78!important;
+background:
+radial-gradient(ellipse 5% 92% at 4% 100%,rgba(255,86,12,.82),transparent 70%),
+radial-gradient(ellipse 4% 68% at 11% 100%,rgba(255,163,48,.68),transparent 72%),
+radial-gradient(ellipse 6% 100% at 19% 100%,rgba(255,68,8,.88),transparent 70%),
+radial-gradient(ellipse 4% 74% at 28% 100%,rgba(255,145,32,.68),transparent 72%),
+radial-gradient(ellipse 7% 96% at 38% 100%,rgba(255,76,9,.84),transparent 70%),
+radial-gradient(ellipse 4% 70% at 47% 100%,rgba(255,168,42,.65),transparent 72%),
+radial-gradient(ellipse 6% 102% at 57% 100%,rgba(255,65,7,.88),transparent 70%),
+radial-gradient(ellipse 4% 72% at 67% 100%,rgba(255,150,34,.67),transparent 72%),
+radial-gradient(ellipse 7% 94% at 77% 100%,rgba(255,70,8,.86),transparent 70%),
+radial-gradient(ellipse 4% 70% at 87% 100%,rgba(255,160,38,.66),transparent 72%),
+radial-gradient(ellipse 6% 92% at 96% 100%,rgba(255,76,9,.84),transparent 70%);
+animation:flameFlicker 2.8s ease-in-out infinite alternate}
+@keyframes flameFlicker{
+0%{transform:scaleY(.88) translateX(-1%);opacity:.66}
+25%{transform:scaleY(1.04) translateX(1%);opacity:.82}
+50%{transform:scaleY(.94) translateX(-.5%);opacity:.72}
+75%{transform:scaleY(1.09) translateX(.7%);opacity:.86}
+100%{transform:scaleY(.91) translateX(-.8%);opacity:.70}
+}
+@media(max-width:800px){
+ footer:before{height:175px!important;filter:blur(6px)!important}
+}
