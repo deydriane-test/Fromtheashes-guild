@@ -538,3 +538,66 @@
  .portalAuthCard .discordAuthBtn:before{width:52px!important;height:48px!important;flex-basis:52px!important}
  .portalAuthCard .discordAuthBtn span{font-size:14px!important}
 }
+
+
+/* ---------- FINAL IMAGE-BASED DISCORD BUTTON STATES ---------- */
+/* Generated artwork replaces the previous CSS approximation. */
+.portalAuthCard .discordAuthBtn{
+  width:min(455px,100%)!important;
+  height:123px!important;
+  min-height:123px!important;
+  margin:20px 0 8px!important;
+  padding:0!important;
+  display:block!important;
+  position:relative!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:url("../assets/discord-button-default.svg")!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+  box-shadow:none!important;
+  transform:none!important;
+  filter:none!important;
+  cursor:pointer!important;
+}
+.portalAuthCard .discordAuthBtn span{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+.portalAuthCard .discordAuthBtn:hover{
+  background-image:url("../assets/discord-button-hover.svg")!important;
+  transform:none!important;
+  filter:none!important;
+  box-shadow:none!important;
+}
+.portalAuthCard .discordAuthBtn:active,
+.portalAuthCard .discordAuthBtn.discordStateActive{
+  background-image:url("../assets/discord-button-active.svg")!important;
+  transform:none!important;
+  filter:none!important;
+  box-shadow:none!important;
+}
+@media(max-width:900px){
+  .portalAuthCard .discordAuthBtn{
+    width:min(455px,100%)!important;
+    height:clamp(90px,27vw,123px)!important;
+    min-height:90px!important;
+  }
+}
+@media(max-width:520px){
+  .portalAuthCard .discordAuthBtn{
+    width:100%!important;
+    height:clamp(76px,27vw,100px)!important;
+    min-height:76px!important;
+  }
+}
