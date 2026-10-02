@@ -842,3 +842,32 @@
     min-height:76px!important;
   }
 }
+
+
+/* ---------- FORCE VISIBLE GENERATED DISCORD IMAGE ---------- */
+.portalAuthCard .discordAuthBtn{
+  width:min(455px,100%)!important;
+  height:auto!important;
+  min-height:0!important;
+  display:block!important;
+  padding:0!important;
+  margin:0 0 14px!important;
+  background:none!important;
+  border:0!important;
+  overflow:visible!important;
+  line-height:0!important;
+}
+.portalAuthCard .discordAuthBtn img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:320 / 77!important;
+  object-fit:fill!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+}
+.portalAuthCard .discordAuthBtn span{display:none!important}
+@media(max-width:520px){
+  .portalAuthCard .discordAuthBtn{width:100%!important}
+}
