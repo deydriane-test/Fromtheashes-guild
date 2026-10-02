@@ -1,2 +1,23 @@
 .accountTabs{display:flex;gap:8px;margin:28px 0 8px}.tab{border:1px solid var(--line);background:#0d0b0d;color:#8f8589;padding:10px 14px;font:700 11px "Rajdhani",sans-serif;letter-spacing:.08em;cursor:pointer}.tab.active{color:var(--gold);border-color:#ff6425aa}.accountCard{margin:28px 0;padding:22px;border:1px solid var(--line);background:var(--card);color:#aaa0a0;line-height:1.7}.adminHeaderRight a{text-decoration:none}
 .accountLanding{min-height:calc(100vh - 90px);display:grid;place-items:center;padding:80px 7vw}.accountHero{width:min(620px,100%)}.accountHero>p{color:#aaa0a0;line-height:1.75;margin:0 0 28px}.authCard{background:rgba(13,11,13,.9);border:1px solid var(--line);padding:28px;box-shadow:0 25px 80px #0008}.authCardHead{display:flex;justify-content:space-between;gap:15px;padding-bottom:16px;border-bottom:1px solid var(--line);color:var(--gold);font:800 11px "Rajdhani",sans-serif;letter-spacing:.12em}.authRule{color:#62595b}.authOptions{display:flex;justify-content:flex-end;margin-top:-4px}.textLink{border:0;background:none;padding:0;color:var(--gold);font:700 10px "Rajdhani",sans-serif;letter-spacing:.08em;cursor:pointer}.textLink:hover{color:var(--orange)}.authFooter{text-align:center;margin-top:22px;color:#81777a;font:600 11px "Rajdhani",sans-serif;letter-spacing:.05em}.authFooter .textLink{margin-left:5px}.accountPanel{max-width:800px;margin:0 auto;padding:150px 7vw}.accountPanel h2{font:800 clamp(50px,8vw,90px) "Playfair Display",Georgia,serif;color:#f4efe9;line-height:.9}.accountPanel h2 i{font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,235,220,.68)}@media(max-width:600px){.accountLanding{padding:50px 6vw}.authCard{padding:20px}.authCardHead{font-size:10px}}
+
+.authCard .adminForm{display:grid!important;grid-template-columns:1fr!important;gap:16px!important}
+.authCard .adminForm label{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:7px!important;width:100%!important;box-sizing:border-box!important}
+.authCard .adminForm input{display:block!important;width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box!important;margin:0!important;padding:14px!important}
+.authCard .adminForm button.btn{width:auto!important;max-width:100%!important}
+@media(max-width:600px){
+ .adminHeader{padding:14px 6vw!important}
+ .adminHeader .logo{font-size:19px!important}
+ .adminHeaderRight .ghost{padding:11px 13px!important;font-size:10px!important}
+ .accountLanding{min-height:auto!important;padding:48px 6vw 70px!important;display:block!important}
+ .accountHero{width:100%!important}
+ .accountHero h1{font-size:52px!important;line-height:.9!important;margin:20px 0!important}
+ .accountHero>p{font-size:15px!important;line-height:1.6!important}
+ .authCard{padding:20px!important;margin-top:25px!important}
+ .authCardHead{font-size:9px!important}
+ .authCard .adminForm{gap:14px!important}
+ .authCard .adminForm label{font-size:11px!important}
+ .authCard .adminForm input{font-size:16px!important;min-height:48px!important}
+ .authCard .adminForm button.btn{width:100%!important;min-height:50px!important}
+ .authOptions{margin-top:0!important}
+}
