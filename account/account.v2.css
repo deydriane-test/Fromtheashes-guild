@@ -89,3 +89,7 @@
  .authDivider span{flex:none}
  .discordAuthBtn{width:100%!important;text-align:center}
 }
+
+/* Portal spacing for the phoenix masthead */
+@media(min-width:801px){.accountLanding{padding-top:135px!important}.authCard{margin-top:0}}
+@media(max-width:800px){.accountLanding{padding-top:105px!important}}
