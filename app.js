@@ -18,7 +18,7 @@ if(tz)tz.textContent=(c.timezone||"America/Chicago")==="America/Chicago"?"CENTRA
 
 const root=document.documentElement,header=document.querySelector("header");
 const isMobile=matchMedia("(max-width:800px)").matches;
-if(!isMobile){
+{
  let ticking=false;
  function updateScroll(){
   const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
@@ -29,7 +29,7 @@ if(!isMobile){
   root.style.setProperty("--glowShift",(-p*10*window.innerHeight/100)+"px");
   root.style.setProperty("--phoenixShift",(-p*18)+"px");
   root.style.setProperty("--phoenixScale",(1+p*.035).toFixed(3));
-  root.style.setProperty("--hue",(p*28)+"deg");
+  root.style.setProperty("--hue",(p*28)+"deg"); root.style.setProperty("--pageHue",(12+p*28).toFixed(1));
   if(header)header.classList.toggle("scrolled",window.scrollY>20);
   ticking=false;
  }
