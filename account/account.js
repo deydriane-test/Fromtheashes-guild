@@ -1,17 +1,24 @@
-const c=window.GUILD_CONFIG||{};const sb=window.supabase?.createClient(c.supabase.url,c.supabase.publishableKey);const $=id=>document.getElementById(id);
-const loginForm=$("loginForm"),resetForm=$("resetForm"),accountPanel=$("accountPanel"),recoveryModal=$("recoveryModal");
-function status(id,msg,type=""){const x=$(id);x.className="formStatus"+(type?" "+type:"");x.textContent=msg}
-function showLogin(){loginForm.hidden=false;resetForm.hidden=true;$("authModeLabel").textContent="MEMBER SIGN IN";$("authPrompt").textContent="Don't have an account?"}
-function showReset(){loginForm.hidden=true;resetForm.hidden=false;$("authModeLabel").textContent="RESET PASSWORD";$("authPrompt").textContent="Remember your password?"}
-function openRecovery(){recoveryModal.hidden=false;$("recoveryEmail").focus();status("recoveryStatus","")}
-function closeRecovery(){recoveryModal.hidden=true}
-$("forgotAccount").onclick=openRecovery;$("closeRecovery").onclick=closeRecovery;$("recoveryBackdrop").onclick=closeRecovery;
+const c=window.GUILD_CONFIG||{};
+const sb=window.supabase?.createClient(c.supabase.url,c.publishableKey);
+const $=id=>document.getElementById(id);
 
-$("sendPasswordReset").onclick=async()=>{const email=$("recoveryEmail").value.trim().toLowerCase();if(!email){status("recoveryStatus","ENTER YOUR EMAIL ADDRESS.","error");return}status("recoveryStatus","SENDING PASSWORD RESET EMAIL…");const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+"/account/"});if(error){status("recoveryStatus",error.message,"error");return}status("recoveryStatus","IF THAT EMAIL HAS AN ACCOUNT, A PASSWORD RESET EMAIL HAS BEEN SENT.","success")};
-$("sendUsername").onclick=async()=>{const email=$("recoveryEmail").value.trim().toLowerCase();if(!email){status("recoveryStatus","ENTER YOUR EMAIL ADDRESS.","error");return}status("recoveryStatus","SENDING USERNAME EMAIL…");try{const res=await fetch(c.supabase.url+"/functions/v1/send-username-reminder",{method:"POST",headers:{"Content-Type":"application/json",apikey:c.supabase.publishableKey},body:JSON.stringify({email})});const data=await res.json();if(!res.ok)throw new Error(data?.error||"Username email is not available yet.");status("recoveryStatus","IF THAT EMAIL HAS AN ACCOUNT, YOUR USERNAME HAS BEEN EMAILED.","success")}catch(err){status("recoveryStatus",err.message,"error")}};
-loginForm.onsubmit=async e=>{e.preventDefault();status("loginStatus","SIGNING IN…");const {error}=await sb.auth.signInWithPassword({email:$("loginEmail").value.trim().toLowerCase(),password:$("loginPassword").value});if(error){status("loginStatus",error.message,"error");return}window.location.href="../";};
-resetForm.onsubmit=async e=>{e.preventDefault();status("resetStatus","SENDING RESET LINK…");const {error}=await sb.auth.resetPasswordForEmail($("resetEmail").value.trim().toLowerCase(),{redirectTo:window.location.origin+"/account/"});if(error){status("resetStatus",error.message,"error");return}status("resetStatus","CHECK YOUR EMAIL FOR THE PASSWORD RESET LINK.","success")};
-async function loadAccount(user){if(!user){accountPanel.hidden=true;document.querySelector(".accountLanding").hidden=false;showLogin();closeRecovery();return}const {data:profile,error}=await sb.from("profiles").select("username,role,created_at").eq("id",user.id).maybeSingle();if(error){status("loginStatus","ACCOUNT PROFILE COULD NOT BE LOADED. PLEASE TRY AGAIN.","error");return}if(!profile){status("loginStatus","ACCOUNT PROFILE NOT FOUND. PLEASE CONTACT GUILD LEADERSHIP.","error");return}const {data:roster}=await sb.from("roster").select("character_name,discord_id,approved,active,joined_at").eq("user_id",user.id).maybeSingle();document.querySelector(".accountLanding").hidden=true;accountPanel.hidden=false;$("accountUsername").textContent=(profile.username||"MEMBER").toUpperCase()+".";$("accountRole").textContent="CURRENT ACCESS: "+profile.role.replace("_"," ").toUpperCase()+".";$("accountEmail").textContent=user.email||"";$("accountCharacter").textContent=roster?.character_name||"No character submitted.";$("accountDiscord").textContent=roster?.discord_id||"Not provided.";$("accountStatus").textContent=roster?(roster.approved?(roster.active?"APPROVED • ACTIVE":"APPROVED • INACTIVE"):"PENDING LEADERSHIP APPROVAL"):"NO ROSTER ENTRY";}
-async function boot(){const {data:{user}}=await sb.auth.getUser();await loadAccount(user)}
-$("accountLogout").onclick=async()=>{await sb.auth.signOut();await loadAccount(null)};
-boot();if(location.hash==="#signin")showLogin();
+async function loadAccount(user){
+ if(!user){window.location.href="login.html";return}
+ const {data:profile,error}=await sb.from("profiles").select("username,role").eq("id",user.id).maybeSingle();
+ if(error||!profile){document.body.innerHTML='<main style="padding:120px 8vw;color:#f6efe8"><h1>ACCOUNT ERROR</h1><p>We could not load your guild profile.</p></main>';return}
+ const {data:roster}=await sb.from("roster").select("character_name,discord_id,approved,active").eq("user_id",user.id).maybeSingle();
+ $("accountUsername").textContent=(profile.username||"MEMBER").toUpperCase()+".";
+ $("accountRole").textContent="CURRENT ACCESS: "+profile.role.replace("_"," ").toUpperCase()+".";
+ $("accountEmail").textContent=user.email||"";
+ $("accountCharacter").textContent=roster?.character_name||"No character submitted.";
+ $("accountDiscord").textContent=roster?.discord_id||"Not provided.";
+ $("accountStatus").textContent=roster?(roster.approved?(roster.active?"APPROVED • ACTIVE":"APPROVED • INACTIVE"):"PENDING LEADERSHIP APPROVAL"):"NO ROSTER ENTRY";
+}
+
+$("accountLogout").onclick=async()=>{await sb.auth.signOut();window.location.href="../";};
+
+async function boot(){
+ const {data:{user}}=await sb.auth.getUser();
+ await loadAccount(user);
+}
+boot();
