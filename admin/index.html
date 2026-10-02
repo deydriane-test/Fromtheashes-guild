@@ -16,7 +16,16 @@
   </div>
 </div></header>
 <main class="adminMain">
-<section id="accessPanel" class="adminPanel"><div class="eyebrow">GUILD ACCESS</div><h1>STAFF<br><i>ONLY.</i></h1><p id="accessText">Checking your guild permissions…</p><a class="btn" href="../account/login.html">SIGN IN ↗</a></section>
+<section id="accessPanel" class="adminPanel">
+<div class="eyebrow">GUILD ACCESS</div><h1>STAFF<br><i>ONLY.</i></h1>
+<p id="accessText">Checking your guild permissions…</p>
+<form id="adminLoginForm" class="adminLoginForm" hidden>
+<label>EMAIL<input id="adminLoginEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+<label>PASSWORD<input id="adminLoginPassword" type="password" autocomplete="current-password" placeholder="Your password" required></label>
+<button class="btn" type="submit">SIGN IN ↗</button>
+<div id="adminLoginStatus" class="formStatus"></div>
+</form>
+</section>
 <section id="dashboard" class="adminDashboard" hidden>
 <div class="adminTop"><div><div class="eyebrow">FROMTHEASHES • GUILD ADMIN</div><h1>THE<br><i>CLUBHOUSE.</i></h1></div><div class="adminRole" id="roleBadge"></div></div>
 <nav class="adminTabs"><button class="adminTab active" data-tab="roster">ROSTER</button><button class="adminTab" data-tab="content" id="contentTab" hidden>SITE CONTENT</button></nav>
