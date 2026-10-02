@@ -144,3 +144,51 @@
  .portalHeader{height:116px!important}.portalMasthead{height:70px}.portalLogo{width:210px;height:58px}.portalNav{height:46px}.portalNav a{padding:0 11px;gap:5px}.portalNav a span{font-size:10px}.portalNavDiscord{display:none!important}
  .portalAuthMain{padding:34px 5vw 55px}.portalEyebrow{font-size:10px}.portalAuthCopy h1{font-size:54px}.portalAuthCopy p{font-size:14px}.portalAuthCard{padding:19px 18px}.portalCardHead{font-size:9px}.portalAuthCard .discordAuthBtn{min-height:64px!important}
 }
+
+
+/* ---------- AUTH FULL-PHOENIX BACKDROP ----------
+   The phoenix artwork is used once as the page backdrop.
+   Do not repeat/crop it into a separate upper banner. */
+.portalAuthPage{background:#070606!important}
+.portalHeader{
+  position:absolute!important;
+  top:0!important;left:0!important;right:0!important;
+  height:100px!important;
+  background:transparent!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+}
+.portalMasthead{
+  height:58px!important;
+  background:rgba(5,5,6,.56)!important;
+  border-bottom:1px solid rgba(255,100,37,.20);
+}
+.portalMasthead:before,.portalMastheadGlow{display:none!important}
+.portalLogo{height:52px!important}
+.portalNav{
+  height:42px!important;
+  background:rgba(5,5,6,.88)!important;
+  border-top:1px solid rgba(255,255,255,.07)!important;
+  border-bottom:1px solid rgba(255,100,37,.22)!important;
+}
+.portalAuthMain{
+  min-height:100vh!important;
+  padding-top:145px!important;
+  background:
+    linear-gradient(180deg,rgba(4,5,7,.20),rgba(5,5,7,.38)),
+    url("../phoenix.jpeg") center top/cover fixed no-repeat!important;
+}
+@media(max-width:900px){
+  .portalHeader{height:92px!important}
+  .portalMasthead{height:52px!important}
+  .portalNav{height:40px!important}
+  .portalAuthMain{padding-top:122px!important}
+}
+@media(max-width:520px){
+  .portalHeader{height:84px!important}
+  .portalMasthead{height:48px!important}
+  .portalLogo{height:44px!important}
+  .portalNav{height:36px!important}
+  .portalAuthMain{padding-top:108px!important}
+}
