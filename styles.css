@@ -388,3 +388,19 @@ section h2.displayFont,.recruit h2.displayFont{font-size:clamp(58px,8.8vw,128px)
   .logo{width:170px!important;height:56px!important}
   .logo img{height:56px!important}
 }
+
+
+/* Legibility pass: keep the custom angular alphabet, but size it like display type rather than a full-width logo */
+.displayFont{max-width:100%;overflow:visible!important}
+.displayFont i{display:block!important;white-space:normal!important}
+.hero h1.displayFont{white-space:normal!important}
+@media(max-width:800px){
+  .hero h1.displayFont{font-size:clamp(42px,12vw,62px)!important;line-height:.88!important}
+  section h2.displayFont,.recruit h2.displayFont{font-size:clamp(38px,10vw,58px)!important;line-height:.9!important}
+  .eventInfo h3.displayFont,.leader h3.displayFont,.ruleCards strong.displayFont{font-size:clamp(28px,8vw,42px)!important}
+}
+@media(max-width:520px){
+  .hero h1.displayFont{font-size:clamp(40px,11.5vw,52px)!important}
+  section h2.displayFont,.recruit h2.displayFont{font-size:clamp(36px,9.5vw,50px)!important}
+  .eventInfo h3.displayFont,.leader h3.displayFont,.ruleCards strong.displayFont{font-size:clamp(26px,7.5vw,36px)!important}
+}
