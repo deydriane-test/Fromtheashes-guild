@@ -62,12 +62,20 @@ section{background:transparent!important;z-index:1}
 header{z-index:5}
 footer{position:relative;z-index:1;overflow:visible}
 
-/* Two lightweight ember streams */
-.embers{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
-.embers:before,.embers:after{content:"";position:absolute;bottom:-6px;left:8%;width:4px;height:4px;border-radius:50%;background:var(--gold);box-shadow:90px 0 var(--orange),190px -12px var(--gold),310px -4px var(--orange),440px -16px var(--gold),570px -2px var(--orange),700px -14px var(--gold),840px -5px var(--orange),980px -18px var(--gold),1120px -3px var(--orange);animation:emberRise 12s linear infinite}
-.embers:after{left:27%;animation-duration:16s;animation-delay:-7s;box-shadow:70px -6px var(--gold),220px -16px var(--orange),390px -2px var(--gold),540px -14px var(--orange),690px -5px var(--gold),850px -18px var(--orange),1000px -7px var(--gold)}
-@keyframes emberRise{0%{transform:translate3d(0,12px,0);opacity:0}10%{opacity:.8}55%{opacity:.45}100%{transform:translate3d(65px,-105vh,0);opacity:0}}
-
+/* Individual document-bottom embers */
+.embers{position:absolute!important;top:0;left:0;right:0;bottom:0;height:auto!important;pointer-events:none;z-index:2;overflow:visible}
+.emberParticle{position:absolute;left:var(--startX);bottom:0;width:var(--size);height:var(--size);border-radius:50%;background:var(--emberColor);box-shadow:0 0 5px var(--emberColor);opacity:0;animation:emberJourney var(--duration) linear var(--delay) infinite;will-change:transform,opacity}
+@keyframes emberJourney{
+0%{transform:translate3d(0,0,0);opacity:0}
+7%{opacity:var(--peak)}
+25%{transform:translate3d(calc(var(--x1) * 1px),calc(var(--travel) * -.25),0);opacity:var(--peak)}
+48%{transform:translate3d(calc(var(--x2) * 1px),calc(var(--travel) * -.48),0);opacity:calc(var(--peak) * .82)}
+70%{transform:translate3d(calc(var(--x3) * 1px),calc(var(--travel) * -.70),0);opacity:calc(var(--peak) * .58)}
+88%{transform:translate3d(calc(var(--x4) * 1px),calc(var(--travel) * -.88),0);opacity:.16}
+100%{transform:translate3d(calc(var(--x5) * 1px),calc(var(--travel) * -1.04),0);opacity:0}
+}
+@media(max-width:800px){.emberParticle{box-shadow:0 0 4px var(--emberColor)}}
+@media(prefers-reduced-motion:reduce){.emberParticle{animation:none;opacity:var(--peak);transform:none}}
 /* Actual bottom-of-page fire: narrow flame shapes, gently drifting */
 footer:before{content:"";position:absolute;left:0;right:0;bottom:-8px;height:230px;pointer-events:none;z-index:-1;
 background:
