@@ -328,3 +328,38 @@ body:after{
 .logo img{display:block;width:100%;height:auto;max-height:56px;object-fit:contain;object-position:left center}
 @media(max-width:800px){.logo{width:155px;height:52px}.logo img{max-height:52px}}
 @media(max-width:520px){.logo{width:138px;height:48px}.logo img{max-height:48px}}
+
+
+/* Exact custom display lettering reconstructed from the earlier approved font specimen */
+.displayFont{
+  font-family:"Space Grotesk",sans-serif!important;
+  color:#f4efe9!important;
+  -webkit-text-fill-color:initial!important;
+  -webkit-text-stroke:0!important;
+  letter-spacing:0!important;
+  line-height:.82!important;
+}
+.displayGlyph{
+  display:inline-block;
+  height:1em;
+  width:auto;
+  overflow:visible;
+  vertical-align:-.08em;
+  color:inherit;
+}
+.displayFont i{color:inherit!important;font-style:normal!important}
+.hero h1.displayFont{font-size:clamp(62px,10vw,142px);font-weight:400!important}
+section h2.displayFont,.recruit h2.displayFont{font-size:clamp(58px,8.8vw,128px);font-weight:400!important}
+.eventInfo h3.displayFont,.leader h3.displayFont,.ruleCards strong.displayFont{font-weight:400!important}
+.logo{display:flex!important;align-items:center!important;width:min(205px,26vw)!important;height:58px!important;overflow:visible!important}
+.logo img{display:block!important;width:100%!important;height:100%!important;max-height:none!important;object-fit:contain!important;object-position:left center!important;mix-blend-mode:screen;filter:drop-shadow(0 0 8px rgba(255,90,20,.22))}
+@media(max-width:800px){
+  .logo{width:168px!important;height:54px!important}
+  .hero h1.displayFont{font-size:clamp(52px,13vw,92px)}
+  section h2.displayFont,.recruit h2.displayFont{font-size:clamp(50px,11vw,82px)}
+}
+@media(max-width:520px){
+  .logo{width:145px!important;height:50px!important}
+  .hero h1.displayFont{font-size:clamp(44px,14vw,70px)}
+  section h2.displayFont,.recruit h2.displayFont{font-size:clamp(42px,12vw,66px)}
+}
