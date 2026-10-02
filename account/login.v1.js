@@ -11,4 +11,4 @@ loginForm.onsubmit=async e=>{e.preventDefault();status("loginStatus","SIGNING IN
 
 
 const discordLogin=$("discordLogin");
-discordLogin?.addEventListener("click",async()=>{const r=await sb.auth.signInWithOAuth({provider:"discord",options:{redirectTo:window.location.origin+"/account/discord-complete.html"}});if(r.error)status("loginStatus",r.error.message,"error");});
+discordLogin?.addEventListener("click",async()=>{const r=await sb.auth.signInWithOAuth({provider:"discord",options:{redirectTo:window.location.origin+"/account/discord-complete.html",queryParams:{prompt:"none"}}});if(r.error)status("loginStatus",r.error.message,"error");});
