@@ -1067,3 +1067,17 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
     color:#3a1b0b!important;
   }
 }
+
+
+/* Make the desktop schedule label unmistakable */
+@media(min-width:801px){
+  .eventsSection .stickyNote span{
+    font-family:"Barlow Condensed",sans-serif!important;
+    font-weight:900!important;
+    font-size:17px!important;
+    letter-spacing:.14em!important;
+    color:#160d08!important;
+    text-shadow:none!important;
+    opacity:1!important;
+  }
+}
