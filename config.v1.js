@@ -1,0 +1,13 @@
+window.GUILD_CONFIG={
+ discordUrl:"https://discord.gg/RMbMurbsug",
+ timezone:"America/Chicago",
+ guild:{master:"Deydriane"},
+ events:{
+  raid:{day:"Sunday",time:"19:00",enabled:true},
+  expedition:{day:"Sunday",time:"19:00",enabled:true}
+ },
+ supabase:{
+  url:"https://txehouifckrcfimlnefl.supabase.co",
+  publishableKey:"sb_publishable_WZ97N25Ir2CunhTEeoWfTA_cFcikASJ"
+ }
+};
