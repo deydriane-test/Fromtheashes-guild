@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FromTheAshes — Finish Registration</title><link rel="stylesheet" href="../styles.v2.css"><link rel="stylesheet" href="account.v2.css"></head>
+<body class="adminPage"><div class="embers"></div><div class="scrollGlow"></div>
+<header class="adminHeader"><a class="logo" href="../">FROM<span>THE</span>ASHES</a></header>
+<main class="accountLanding"><section class="accountHero">
+<div class="eyebrow">FROMTHEASHES • DISCORD</div><h1>ONE LAST<br><i>THING.</i></h1>
+<p>Your Discord account is connected. Enter your RF Online Next character so we can create your pending guild application.</p>
+<div class="authCard"><div class="authCardHead"><span>FINISH REGISTRATION</span><span class="authRule">DISCORD CONNECTED</span></div>
+<form id="discordCompleteForm" class="adminForm"><div class="discordIdentity"><strong id="discordName">DISCORD</strong><small id="discordEmail"></small></div>
+<label>CHARACTER NAME<input id="character" maxlength="40" required autocomplete="nickname" placeholder="Your RF Online Next character"></label>
+<button class="btn" type="submit">JOIN THE GUILD ↗</button><p id="completeStatus" class="formStatus" role="status"></p></form></div>
+</section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="discord-complete.v1.js"></script></body></html>
