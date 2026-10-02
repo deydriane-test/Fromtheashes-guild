@@ -8,6 +8,6 @@ if(!passwordPattern.test(password)){status("PASSWORD MUST BE 10+ CHARACTERS AND 
 if(password!==passwordConfirm){checkMatch();status("PASSWORDS DO NOT MATCH.","error");return}
 if(username.length<3){status("USERNAME MUST BE AT LEAST 3 CHARACTERS.","error");return}
 status("CREATING YOUR ACCOUNT…");
-const {error}=await sb.auth.signUp({email,password,options:{data:{username,character_name:character,discord_id:discord}}});
+const {error}=await sb.auth.signUp({email,password,options:{data:{username,character_name:character,discord_id:discord},emailRedirectTo:"https://ftashes.com/account/#verified"}});
 if(error){status(error.message,"error");return}
 status("ACCOUNT CREATED. CHECK YOUR EMAIL TO CONFIRM IT. YOU START AS A RECRUIT AND YOUR CHARACTER IS PENDING APPROVAL.","success");$("signupForm").reset();$("passwordMatch").textContent="";$("passwordMatch").className="passwordMatch"};
