@@ -192,3 +192,73 @@
   .portalNav{height:36px!important}
   .portalAuthMain{padding-top:108px!important}
 }
+
+
+/* ---------- FINAL AUTH HEADER POSITION ---------- */
+.portalHeader{
+  height:112px!important;
+  display:block!important;
+  overflow:visible!important;
+}
+.portalNav{
+  position:absolute!important;
+  top:0!important;left:0!important;right:0!important;
+  height:42px!important;
+  z-index:6!important;
+}
+.portalMasthead{
+  position:absolute!important;
+  top:42px!important;left:0!important;right:0!important;
+  height:70px!important;
+  padding:0 3vw!important;
+  align-items:center!important;
+  background:rgba(5,5,6,.42)!important;
+  border-bottom:1px solid rgba(255,100,37,.20)!important;
+}
+.portalLogo{
+  width:min(440px,34vw)!important;
+  height:68px!important;
+  transform:translateY(4px)!important;
+}
+.portalLogo img{filter:drop-shadow(0 4px 8px #000) drop-shadow(0 0 12px #ff642540)!important}
+.portalAuthMain{padding-top:157px!important}
+
+/* Discord button: the template's default / hover / active visual states */
+.portalAuthCard .discordAuthBtn{
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background-position .16s ease,filter .16s ease!important;
+  cursor:pointer!important;
+}
+.portalAuthCard .discordAuthBtn:hover{
+  transform:translate(-2px,-2px)!important;
+  filter:brightness(1.12)!important;
+  border-color:#ff9b58!important;
+  box-shadow:8px 8px 0 #3b1b10,0 0 28px #ff642544,inset 0 0 34px #ff642522!important;
+}
+.portalAuthCard .discordAuthBtn:active,
+.portalAuthCard .discordAuthBtn.discordStateActive{
+  transform:translate(3px,3px)!important;
+  filter:brightness(1.25)!important;
+  border-color:#ffb277!important;
+  box-shadow:2px 2px 0 #3b1b10,0 0 34px #ff642566,inset 0 0 40px #ff642533!important;
+}
+.portalAuthCard .discordAuthBtn.discordStateActive:before{
+  transform:scale(1.08) rotate(-4deg)!important;
+  filter:drop-shadow(0 0 11px #ff9b58)!important;
+}
+.portalAuthCard .discordAuthBtn.discordStateHover:before{
+  transform:scale(1.04) rotate(3deg)!important;
+}
+@media(max-width:900px){
+ .portalHeader{height:102px!important}
+ .portalMasthead{top:40px!important;height:62px!important}
+ .portalNav{height:40px!important}
+ .portalLogo{width:min(330px,62vw)!important;height:60px!important}
+ .portalAuthMain{padding-top:137px!important}
+}
+@media(max-width:520px){
+ .portalHeader{height:94px!important}
+ .portalNav{height:36px!important}
+ .portalMasthead{top:36px!important;height:58px!important}
+ .portalLogo{width:250px!important;height:54px!important}
+ .portalAuthMain{padding-top:124px!important}
+}
