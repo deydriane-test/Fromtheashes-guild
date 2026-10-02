@@ -1,1 +1,46 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FromTheAshes — Sign In</title><link rel="stylesheet" href="../styles.v2.css?v=20261002-discord"><link rel="stylesheet" href="account.v2.css?v=20261002-discord"></head><body class="adminPage"><div class="embers"></div><div class="scrollGlow"></div><header class="adminHeader"><a class="logo" href="../" aria-label="FromTheAshes"><img src="../assets/Ashes.png?v=15" alt="FromTheAshes guild logo"></a></header><main class="accountLanding"><section class="accountHero"><div class="eyebrow">FROMTHEASHES • ACCOUNT</div><h1>SIGN <i>IN.</i></h1><p>Connect your Discord account to access your guild account.</p><div class="authCard"><div class="authCardHead"><span>DISCORD AUTHENTICATION</span><span class="authRule">SECURE LOGIN</span></div><button id="discordLogin" class="btn" type="button">CONTINUE WITH DISCORD ↗</button><p id="loginStatus" class="formStatus" role="status"></p></div></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="login.v1.js?v=20261002-oauthfix1"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FromTheAshes — Sign In</title>
+<link rel="stylesheet" href="../styles.v2.css?v=20261002-portal">
+<link rel="stylesheet" href="account.v2.css?v=20261002-portal2">
+</head>
+<body class="portalAuthPage">
+<div class="embers"></div><div class="scrollGlow"></div>
+<header class="portalHeader">
+  <div class="portalMasthead">
+    <a class="portalLogo" href="../" aria-label="FromTheAshes"><img src="../assets/Ashes.png?v=16" alt="FromTheAshes guild logo"></a>
+    <div class="portalMastheadGlow"></div>
+  </div>
+  <nav class="portalNav" aria-label="Primary navigation">
+    <a href="../">⌂ <span>HOME</span></a>
+    <a href="../roster.html">♟ <span>ROSTER</span></a>
+    <a href="register.html">▣ <span>APPLY</span></a>
+    <a href="../events.html">▦ <span>EVENTS</span></a>
+    <a href="../resources.html">▤ <span>RESOURCES</span></a>
+    <div class="portalNavSpacer"></div>
+    <a class="portalNavDiscord" href="https://discord.gg/RMbMurbsug">DISCORD ↗</a>
+  </nav>
+</header>
+<main class="portalAuthMain">
+  <section class="portalAuthHero">
+    <div class="portalEyebrow">FROMTHEASHES • ACCOUNT</div>
+    <div class="portalAuthGrid">
+      <div class="portalAuthCopy">
+        <h1>WELCOME<br><i>BACK.</i></h1>
+        <p>Sign in to your FromTheAshes account using the Discord account connected to your guild identity.</p>
+      </div>
+      <div class="portalAuthCard">
+        <div class="portalCardHead"><span>DISCORD AUTHENTICATION</span><span>SECURE LOGIN</span></div>
+        <button id="discordLogin" class="discordAuthBtn" type="button"><span>CONTINUE WITH DISCORD ↗</span></button>
+        <p id="loginStatus" class="formStatus" role="status"></p>
+        <div class="portalAuthFooter">New to FromTheAshes? <a href="register.html">APPLY TO THE GUILD ↗</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../config.v1.js"></script>
+<script src="login.v1.js?v=20261002-portal"></script>
+</body></html>
