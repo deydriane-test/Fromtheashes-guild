@@ -21,3 +21,32 @@
  .authCard .adminForm button.btn{width:100%!important;min-height:50px!important}
  .authOptions{margin-top:0!important}
 }
+
+
+/* Dark member portal inputs */
+.authCard .adminForm input,
+.authCard .adminForm input[type="email"],
+.authCard .adminForm input[type="password"],
+.authCard .adminForm input[type="text"]{
+  background:#0d0b0d!important;
+  color:#f3eee8!important;
+  border:1px solid #30282b!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  color-scheme:dark;
+}
+.authCard .adminForm input::placeholder{color:#756d70!important;opacity:1!important}
+.authCard .adminForm input:focus{
+  background:#110e10!important;
+  border-color:#ff6425aa!important;
+  box-shadow:0 0 0 2px #ff64251c!important;
+  outline:none!important;
+}
+.authCard .adminForm input:-webkit-autofill,
+.authCard .adminForm input:-webkit-autofill:hover,
+.authCard .adminForm input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#f3eee8!important;
+  -webkit-box-shadow:0 0 0 1000px #0d0b0d inset!important;
+  box-shadow:0 0 0 1000px #0d0b0d inset!important;
+  border:1px solid #30282b!important;
+}
