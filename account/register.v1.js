@@ -13,3 +13,6 @@ if(error){status(error.message,"error");return}
 status("ACCOUNT CREATED. CHECK YOUR EMAIL TO CONFIRM IT. YOU START AS A RECRUIT AND YOUR CHARACTER IS PENDING APPROVAL.","success");$("signupForm").reset();$("passwordMatch").textContent="";$("passwordMatch").className="passwordMatch"};
 
 $("resendVerification").onclick=async()=>{const email=$("email").value.trim().toLowerCase();if(!email){status("ENTER YOUR EMAIL ADDRESS ABOVE FIRST.","error");$("email").focus();return}status("SENDING VERIFICATION EMAIL…");const {error}=await sb.auth.resend({type:"signup",email,options:{emailRedirectTo:"https://ftashes.com/account/#verified"}});if(error){status(error.message,"error");return}status("VERIFICATION EMAIL SENT. CHECK YOUR INBOX AND SPAM FOLDER.","success")};
+
+const discordRegister=$("discordRegister");
+discordRegister?.addEventListener("click",async()=>{const character=$("character").value.trim();if(character.length<2){status("signupStatus","ENTER YOUR CHARACTER NAME FIRST, THEN CONTINUE WITH DISCORD.","error");$("character").focus();return}sessionStorage.setItem("discordCharacter",character);status("signupStatus","CONNECTING TO DISCORD…");const r=await sb.auth.signInWithOAuth({provider:"discord",options:{redirectTo:window.location.origin+"/account/discord-complete.html"}});if(r.error)status("signupStatus",r.error.message,"error");});
