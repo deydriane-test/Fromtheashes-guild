@@ -1033,3 +1033,22 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
  .discordAuthBtn{min-height:62px!important;gap:11px!important}
  .discordAuthBtn:before{width:48px;height:48px;flex-basis:48px}
 }
+
+
+/* Final portal header correction */
+.adminHeader{
+  height:82px!important;
+  min-height:82px!important;
+  overflow:visible!important;
+  z-index:50!important;
+  background-position:center 48%!important;
+  background-size:cover!important;
+}
+.adminHeader:after{z-index:0!important;pointer-events:none!important}
+.adminHeader .logo,.adminHeaderRight{position:relative;z-index:3!important}
+.adminHeaderRight{position:relative;z-index:10!important}
+.adminAccountMenu,.adminAccountDropdown{z-index:20!important}
+.adminAccountDropdown{position:absolute!important}
+@media(max-width:800px){
+  .adminHeader{height:76px!important;min-height:76px!important;background-position:center 48%!important}
+}
