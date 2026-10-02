@@ -35,3 +35,4 @@
  .rosterAdminCard{grid-template-columns:1fr}
  .adminActions{justify-content:flex-start}
 }
+.roleSelect{padding:9px;background:#0d0b0d;color:#eee;border:1px solid var(--line);font:700 11px "Rajdhani",sans-serif;letter-spacing:.06em}.roleSelect:focus{outline:none;border-color:#ff6425aa}
