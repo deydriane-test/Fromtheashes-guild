@@ -1,3 +1,7 @@
+const isPhone=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||("ontouchstart" in window && Math.min(screen.width,screen.height)<900);
+document.documentElement.classList.toggle("device-phone",isPhone);
+document.documentElement.classList.toggle("device-computer",!isPhone);
+
 const c=window.GUILD_CONFIG||{};
 for(const id of ["discordTop","discordHero","discordRecruit"]){
  const a=document.getElementById(id);
