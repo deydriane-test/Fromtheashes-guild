@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="styles.css?v=23">
+<link rel="stylesheet" href="styles.css?v=24">
 </head>
 <body>
 <div class="embers"></div>
@@ -106,6 +106,21 @@
   </div>
 </section>
 
+
+<section id="roster" class="rosterSection reveal">
+  <div class="eyebrow">04 / THE ROSTER</div>
+  <div class="sectionHead rosterHead">
+    <h2>WHO'S<br><i>WITH US.</i></h2>
+    <div class="rosterIntro">
+      <p>Signed up through the site? Once a leader approves you, you'll show up here. No spreadsheets. No mystery.</p>
+      <div id="rosterCount" class="rosterCount">LOADING ROSTER…</div>
+    </div>
+  </div>
+  <div id="rosterList" class="rosterList">
+    <div class="rosterEmpty">LOADING ROSTER…</div>
+  </div>
+</section>
+
 <section id="rules" class="rules reveal">
   <div class="eyebrow">04 / BEFORE YOU JOIN THE PARTY</div>
   <h2>THE<br><i>GROUND RULES.</i></h2>
@@ -118,8 +133,25 @@
   <div class="ruleBanner">CURRENT GUILD NOTICE <b>•</b> RAID / EXPEDITION SUNDAY 19:00 CT <b>•</b> 2-DAY INACTIVITY RULE <b>•</b> ACTIVE DISCORD</div>
 </section>
 
+
+<section id="signup" class="signupSection reveal">
+  <div class="eyebrow">05 / JOIN FROM HERE</div>
+  <div class="sectionHead signupHead">
+    <h2>PUT YOUR<br><i>NAME DOWN.</i></h2>
+    <div class="signupIntro">
+      <p>Drop your in-game name and Discord name below. A leader will approve the signup and add you to the public roster.</p>
+      <form id="rosterSignup" class="signupForm">
+        <label>CHARACTER NAME<input id="signupCharacter" name="character_name" maxlength="40" required autocomplete="nickname" placeholder="Your RF Online Next name"></label>
+        <label>DISCORD NAME <span>(OPTIONAL)</span><input id="signupDiscord" name="discord_name" maxlength="80" autocomplete="off" placeholder="@yourname"></label>
+        <button class="btn" type="submit">SIGN UP FOR THE ROSTER ↗</button>
+        <p id="signupStatus" class="formStatus" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section id="recruit" class="recruit reveal">
-  <div class="eyebrow">05 / COME HANG OUT</div>
+  <div class="eyebrow">06 / COME HANG OUT</div>
   <h2>YOU LOOK LIKE<br><i>OUR KIND OF TROUBLE.</i></h2>
   <p>We're building a guild where people can play, progress, help each other, and have a good time without turning a video game into a second job.</p>
   <a class="btn" id="discordRecruit" href="#">ENTER THE DISCORD ↗</a>
@@ -127,6 +159,6 @@
 </main>
 
 <footer><span>🔥 FROM<span>THE</span>ASHES</span><span>RF ONLINE NEXT • COMMUNITY GUILD</span><span>© 2026</span></footer>
-<script src="config.js?v=2"></script><script src="app.js?v=10"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js?v=3"></script><script src="app.js?v=11"></script>
 </body>
 </html>
