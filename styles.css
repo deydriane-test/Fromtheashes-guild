@@ -955,7 +955,7 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
 
 /* Signed-in account menu */
 .accountLinks{position:relative;display:flex;align-items:center;justify-content:flex-end;min-width:0}
-.accountSignedOut{display:flex;align-items:center;gap:14px}
+.accountSignedOut{display:flex;align-items:center;gap:14px}.accountSignedOut[hidden]{display:none!important}
 .accountMenu{position:relative}
 .accountMenuTrigger{display:flex;align-items:center;gap:7px;border:0;background:none;color:var(--gold);padding:8px 0;font:800 11px "Rajdhani",sans-serif;letter-spacing:.09em;cursor:pointer;text-transform:uppercase}
 .accountMenuTrigger:hover{color:#fff}
