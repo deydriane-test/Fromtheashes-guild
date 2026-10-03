@@ -3506,3 +3506,110 @@ main{
     height:40px!important;
   }
 }
+
+
+/* =========================================================
+   MOBILE V3 NAV — native controls, independent of desktop assets
+   ========================================================= */
+@media(max-width:700px){
+  .exactNavBar,
+  .templateNav,
+  .templateTab,
+  .templateDiscordCta{
+    display:none!important;
+  }
+
+  .mobilePrimaryNav{
+    position:relative;
+    z-index:25;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
+    padding:8px 10px 10px;
+    background:
+      linear-gradient(180deg,rgba(9,13,17,.98),rgba(5,8,11,.98));
+    border-top:1px solid #7b4724;
+    border-bottom:1px solid #6b3b1c;
+    box-shadow:
+      inset 0 1px 0 rgba(255,138,58,.08),
+      0 8px 20px #0009;
+  }
+
+  .mobileNavItem{
+    position:relative;
+    min-width:0;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    padding:0 7px;
+    text-decoration:none;
+    color:#d8dde1;
+    font:700 10px "Rajdhani",sans-serif;
+    letter-spacing:.10em;
+    white-space:nowrap;
+    background:
+      linear-gradient(180deg,rgba(18,24,29,.98),rgba(8,12,16,.98));
+    border:1px solid #38424a;
+    clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px),0 7px);
+    box-shadow:
+      inset 0 0 0 1px #0d1114,
+      inset 0 0 12px rgba(55,114,151,.05);
+  }
+
+  .mobileNavItem:before,
+  .mobileNavItem:after{
+    content:"";
+    position:absolute;
+    left:18%;
+    right:18%;
+    height:1px;
+    pointer-events:none;
+    background:linear-gradient(90deg,transparent,#70411f,transparent);
+  }
+  .mobileNavItem:before{top:2px}
+  .mobileNavItem:after{bottom:2px}
+
+  .mobileNavItem.active{
+    color:#ffe5bd;
+    border-color:#c66a28;
+    background:
+      linear-gradient(180deg,rgba(49,27,13,.98),rgba(14,12,11,.98));
+    box-shadow:
+      inset 0 0 0 1px #2b180d,
+      inset 0 0 16px rgba(255,108,33,.18),
+      0 0 11px rgba(255,100,26,.25);
+  }
+
+  .mobileNavItem.discord{
+    color:#f2e9df;
+    border-color:#82502d;
+    background:
+      linear-gradient(180deg,rgba(30,21,16,.98),rgba(10,11,13,.98));
+  }
+
+  .mobileNavIcon{
+    flex:0 0 auto;
+    color:#f0f3f5;
+    font-size:13px;
+    line-height:1;
+    opacity:.95;
+  }
+  .mobileNavItem.active .mobileNavIcon{color:#ffbc72}
+
+  .mobileNavItem:active{
+    transform:translateY(1px);
+    filter:brightness(1.1);
+  }
+}
+
+@media(max-width:360px){
+  .mobilePrimaryNav{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .mobileNavItem{
+    height:40px;
+    font-size:9px;
+  }
+}
