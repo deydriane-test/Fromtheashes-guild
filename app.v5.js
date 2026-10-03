@@ -148,7 +148,7 @@ const accountPresenceText=document.getElementById("accountPresenceText");
 const adminMenuLink=document.getElementById("adminMenuLink");
 const headerLogout=document.getElementById("headerLogout");
 
-const AVATAR_ROOT="assets/FromTheAshes_Exact_Site_Asset_Pack/";
+const AVATAR_ROOT="assets/avatars/";
 let presenceChannel=null;
 let presenceUserId=null;
 
