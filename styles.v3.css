@@ -2187,3 +2187,133 @@ main{
   color:#ffd38d!important;
   font-size:19px!important;
 }
+
+/* =========================================================
+   NAV RESET — do not use malformed generated nav raster assets
+   ========================================================= */
+.exactNavBar{
+  height:68px!important;
+  min-height:68px!important;
+  padding:0 38px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:24px!important;
+  overflow:visible!important;
+  background:
+    linear-gradient(180deg,#0b1014 0%,#080c0f 55%,#06090b 100%)!important;
+  border-top:1px solid #50301a!important;
+  border-bottom:1px solid #342114!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.025),0 5px 18px rgba(0,0,0,.5)!important;
+}
+.cleanNav{
+  height:68px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  padding:0!important;
+}
+.cleanNav a{
+  position:relative!important;
+  width:auto!important;
+  min-width:142px!important;
+  height:52px!important;
+  padding:0 24px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  box-sizing:border-box!important;
+  color:#d5d7d9!important;
+  font:700 14px "Rajdhani",sans-serif!important;
+  letter-spacing:.09em!important;
+  text-decoration:none!important;
+  white-space:nowrap!important;
+  background:
+    linear-gradient(180deg,#17191b 0%,#0b0d0f 56%,#08090b 100%)!important;
+  border:1px solid #49311f!important;
+  clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px)!important;
+  box-shadow:
+    inset 0 0 0 1px #090a0b,
+    inset 0 1px rgba(255,255,255,.025)!important;
+  filter:none!important;
+}
+.cleanNav a:before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:16px!important;
+  right:16px!important;
+  bottom:0!important;
+  height:2px!important;
+  background:linear-gradient(90deg,transparent,#7d3b16,transparent)!important;
+  opacity:.55!important;
+}
+.cleanNav a:hover{
+  color:#ffe7c6!important;
+  border-color:#875028!important;
+  background:linear-gradient(180deg,#21170f 0%,#100d0a 58%,#090a0b 100%)!important;
+  box-shadow:inset 0 0 14px rgba(255,104,27,.08),0 0 10px rgba(255,93,20,.08)!important;
+}
+.cleanNav a.active{
+  color:#ffe0ad!important;
+  border-color:#bd6a2b!important;
+  background:linear-gradient(180deg,#2a190e 0%,#120d09 58%,#090a0b 100%)!important;
+  box-shadow:
+    inset 0 0 18px rgba(255,105,25,.12),
+    0 0 12px rgba(255,92,17,.14)!important;
+}
+.cleanNav a.active:before{
+  background:linear-gradient(90deg,transparent,#ff671c 20%,#ffc06b 50%,#ff671c 80%,transparent)!important;
+  opacity:1!important;
+  box-shadow:0 0 8px rgba(255,99,24,.8)!important;
+}
+.cleanNavIcon{font-size:18px!important;color:currentColor!important}
+
+.cleanDiscordCta{
+  position:relative!important;
+  flex:0 0 260px!important;
+  width:260px!important;
+  min-width:260px!important;
+  height:52px!important;
+  margin:0!important;
+  padding:0 28px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  color:#ffe0ad!important;
+  font:800 13px "Rajdhani",sans-serif!important;
+  letter-spacing:.08em!important;
+  text-decoration:none!important;
+  background:linear-gradient(180deg,#28170d,#100c09 62%,#090a0b)!important;
+  border:1px solid #b96628!important;
+  clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px)!important;
+  box-shadow:inset 0 0 18px rgba(255,104,27,.12),0 0 12px rgba(255,91,19,.13)!important;
+}
+.cleanDiscordCta:before{
+  content:""!important;
+  position:absolute!important;
+  left:18%!important;right:18%!important;bottom:0!important;height:2px!important;
+  background:linear-gradient(90deg,transparent,#ff6b20,#ffc26e,#ff6b20,transparent)!important;
+  box-shadow:0 0 8px rgba(255,104,27,.7)!important;
+}
+.cleanDiscordCta:hover{
+  color:#fff0d5!important;
+  border-color:#e38339!important;
+  background:linear-gradient(180deg,#351c0e,#140e09 62%,#090a0b)!important;
+}
+@media(max-width:1400px){
+  .exactNavBar{padding:0 24px!important}
+  .cleanNav{gap:6px!important}
+  .cleanNav a{min-width:120px!important;padding:0 16px!important;font-size:13px!important}
+  .cleanDiscordCta{flex-basis:220px!important;width:220px!important;min-width:220px!important}
+}
+@media(max-width:1050px){
+  .cleanNav a{min-width:105px!important;padding:0 12px!important;font-size:12px!important}
+  .cleanDiscordCta{flex-basis:190px!important;width:190px!important;min-width:190px!important}
+}
+@media(max-width:900px){
+  .cleanNav a{display:none!important}
+  .cleanNav a.active{display:flex!important;min-width:115px!important}
+}
