@@ -1,0 +1,30 @@
+{
+  "project": "From The Ashes",
+  "target": "ftashes.com homepage matching approved sci-fi mockup",
+  "usage_rule": "Use files from web/ individually. Never use source sheets as CSS backgrounds or UI controls.",
+  "recommended_paths": {
+    "header_background": "web/backgrounds/header-city-bg.webp",
+    "hero_background": "web/backgrounds/hero-rf-battle-bg.webp",
+    "brand_lockup": "web/branding/from-the-ashes-lockup.png",
+    "cta_join": "web/buttons/join-discord-large.png",
+    "cta_learn": "web/buttons/learn-more.png",
+    "event_cards": [
+      "web/events/guild-raid.png",
+      "web/events/guild-expedition.png",
+      "web/events/elysium.png"
+    ],
+    "feature_tiles": [
+      "web/features/raiding.png",
+      "web/features/community.png",
+      "web/features/events.png",
+      "web/features/growth.png"
+    ],
+    "lower_panels": [
+      "web/panels/guild-news.png",
+      "web/panels/featured-gallery.png",
+      "web/panels/discord-community.png"
+    ],
+    "nav": "web/navigation/",
+    "gallery": "web/backgrounds/gallery-main.webp"
+  }
+}
