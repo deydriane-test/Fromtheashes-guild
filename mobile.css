@@ -4178,3 +4178,66 @@ main{
     background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
   }
 }
+
+
+/* =========================================================
+   MOBILE V9 — class-driven menu, no legacy NAV inheritance
+   ========================================================= */
+@media(max-width:700px){
+  .mobileMenuPanel{
+    display:none!important;
+    position:fixed!important;
+    top:150px!important;
+    left:10px!important;
+    right:10px!important;
+    width:auto!important;
+    padding:8px!important;
+    z-index:18000!important;
+    background:#070b0ff8!important;
+    border:1px solid #704526!important;
+    box-shadow:0 18px 38px #000e!important;
+  }
+
+  .mobileMenuPanel.is-open{
+    display:block!important;
+  }
+
+  .mobileMenuLinks{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:7px!important;
+  }
+
+  .mobileMenuLinks>a{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:auto!important;
+    min-width:0!important;
+    height:40px!important;
+    margin:0!important;
+    padding:0 10px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    color:#ddd8d2!important;
+    text-decoration:none!important;
+    transform:none!important;
+    font:800 10px "Rajdhani",sans-serif!important;
+    letter-spacing:.10em!important;
+    background:linear-gradient(180deg,#12181d,#090d11)!important;
+    border:1px solid #303941!important;
+    box-shadow:none!important;
+  }
+
+  .mobileMenuLinks>a:first-child{
+    color:#ffe1b8!important;
+    border-color:#bb682e!important;
+    background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
+  }
+}
+
+@media(max-width:360px){
+  .mobileMenuLinks{
+    grid-template-columns:1fr!important;
+  }
+}
