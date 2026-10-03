@@ -142,8 +142,54 @@ const accountMenuTrigger=document.getElementById("accountMenuTrigger");
 const accountDropdown=document.getElementById("accountDropdown");
 const accountMenuName=document.getElementById("accountMenuName");
 const accountMenuRole=document.getElementById("accountMenuRole");
+const accountAvatar=document.getElementById("accountAvatar");
+const accountPresenceDot=document.getElementById("accountPresenceDot");
+const accountPresenceText=document.getElementById("accountPresenceText");
 const adminMenuLink=document.getElementById("adminMenuLink");
 const headerLogout=document.getElementById("headerLogout");
+
+const AVATAR_ROOT="assets/FromTheAshes_Exact_Site_Asset_Pack/";
+let presenceChannel=null;
+let presenceUserId=null;
+
+function avatarSrc(id){return AVATAR_ROOT+(id||"avatar-001")+".webp"}
+function setPresenceState(state){
+  const online=state==="online";
+  if(accountPresenceText)accountPresenceText.textContent=online?"ONLINE":state==="connecting"?"CONNECTING":"OFFLINE";
+  if(accountPresenceDot){
+    accountPresenceDot.classList.toggle("online",online);
+    accountPresenceDot.classList.toggle("connecting",state==="connecting");
+  }
+}
+async function stopPresence(){
+  if(!presenceChannel)return;
+  try{await presenceChannel.untrack()}catch(_){}
+  try{await appSupabase.removeChannel(presenceChannel)}catch(_){}
+  presenceChannel=null;presenceUserId=null;setPresenceState("offline");
+}
+async function startPresence(user,characterName,avatarId){
+  if(!appSupabase||!user)return;
+  if(presenceChannel&&presenceUserId===user.id)return;
+  await stopPresence();
+  presenceUserId=user.id;
+  setPresenceState("connecting");
+  presenceChannel=appSupabase.channel("guild-presence",{
+    config:{presence:{key:user.id}}
+  });
+  presenceChannel.subscribe(async status=>{
+    if(status==="SUBSCRIBED"){
+      const result=await presenceChannel.track({
+        user_id:user.id,
+        character_name:characterName||"MEMBER",
+        avatar_id:avatarId||"avatar-001",
+        online_at:new Date().toISOString()
+      });
+      setPresenceState(result==="ok"?"online":"online");
+    }else if(status==="CHANNEL_ERROR"||status==="TIMED_OUT"||status==="CLOSED"){
+      setPresenceState("offline");
+    }
+  });
+}
 
 function formatRole(role){return(role||"member").replace("_"," ").toUpperCase()}
 function closeAccountMenu(){
@@ -162,16 +208,25 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAccountMenu();}
 
 async function renderSignedInHeader(user){
   if(!accountLinks||!user)return;
-  const {data:profile}=await appSupabase.from("profiles").select("username,role").eq("id",user.id).maybeSingle();
+  const [profileResult,rosterResult]=await Promise.all([
+    appSupabase.from("profiles").select("username,role,avatar_id").eq("id",user.id).maybeSingle(),
+    appSupabase.from("roster").select("character_name").eq("user_id",user.id).maybeSingle()
+  ]);
+  const profile=profileResult.data;
   if(!profile)return;
+  const characterName=rosterResult.data?.character_name||profile.username||"MEMBER";
+  const avatarId=profile.avatar_id||"avatar-001";
   if(accountSignedOut)accountSignedOut.hidden=true;
   if(accountMenu)accountMenu.hidden=false;
-  if(accountMenuName)accountMenuName.textContent=(profile.username||"MEMBER").toUpperCase();
-  if(accountMenuRole)accountMenuRole.textContent=" • "+formatRole(profile.role);
+  if(accountMenuName)accountMenuName.textContent=characterName.toUpperCase();
+  if(accountMenuRole)accountMenuRole.textContent=formatRole(profile.role);
+  if(accountAvatar){accountAvatar.src=avatarSrc(avatarId);accountAvatar.alt=characterName+" avatar"}
   if(adminMenuLink)adminMenuLink.hidden=!["owner","site_mod","officer"].includes(profile.role);
   closeAccountMenu();
+  startPresence(user,characterName,avatarId);
 }
 function renderSignedOutHeader(){
+  stopPresence();
   if(accountSignedOut)accountSignedOut.hidden=false;
   if(accountMenu)accountMenu.hidden=true;
   closeAccountMenu();
@@ -225,5 +280,6 @@ if(appSupabase){
     else if(session?.user)renderSignedInHeader(session.user);
   });
 }
+window.addEventListener("beforeunload",()=>{try{presenceChannel?.untrack()}catch(_){}});
 syncHomeAuth();
 loadPublicContent();
