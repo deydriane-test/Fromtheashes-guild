@@ -5,7 +5,7 @@ document.documentElement.classList.toggle("device-computer",!isPhone);
 const c=window.GUILD_CONFIG||{};
 const SOURCE_TZ=c.timezone||"America/Chicago";
 
-for(const id of ["discordTop","discordHero","discordRecruit"]){
+for(const id of ["discordTop","discordHero","discordRecruit","discordRecruitBottom"]){
   const a=document.getElementById(id);
   if(a)a.href=c.discordUrl||"#recruit";
 }
@@ -193,7 +193,7 @@ async function loadPublicContent(){
 
   const guild=sections.guild||{};
   if(guild.discord){
-    for(const id of ["discordTop","discordHero","discordRecruit"]){
+    for(const id of ["discordTop","discordHero","discordRecruit","discordRecruitBottom"]){
       const a=document.getElementById(id);if(a)a.href=guild.discord;
     }
   }
