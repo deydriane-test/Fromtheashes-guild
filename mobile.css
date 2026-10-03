@@ -3613,3 +3613,123 @@ main{
     font-size:9px;
   }
 }
+
+
+/* =========================================================
+   MOBILE V4 NAV — compact dropdown menu
+   ========================================================= */
+@media(max-width:700px){
+  .mobilePrimaryNav{display:none!important}
+
+  .mobileNavDropdown{
+    position:relative;
+    z-index:35;
+    margin:0;
+    padding:7px 10px 9px;
+    background:
+      linear-gradient(180deg,rgba(8,12,16,.98),rgba(5,8,11,.98));
+    border-top:1px solid #7b4724;
+    border-bottom:1px solid #6b3b1c;
+    box-shadow:0 8px 20px #0009;
+  }
+
+  .mobileNavDropdown>summary{
+    list-style:none;
+  }
+  .mobileNavDropdown>summary::-webkit-details-marker{
+    display:none;
+  }
+
+  .mobileNavSummary{
+    position:relative;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:0 16px;
+    cursor:pointer;
+    color:#f1e8df;
+    font:800 11px "Rajdhani",sans-serif;
+    letter-spacing:.15em;
+    background:
+      linear-gradient(180deg,rgba(30,20,14,.98),rgba(10,11,13,.98));
+    border:1px solid #9a5727;
+    clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);
+    box-shadow:
+      inset 0 0 0 1px #26170e,
+      inset 0 0 16px rgba(255,105,31,.12);
+  }
+
+  .mobileNavSummaryIcon{
+    color:#ffb46f;
+    font-size:16px;
+    line-height:1;
+  }
+
+  .mobileNavSummaryChevron{
+    position:absolute;
+    right:18px;
+    color:#ff8a35;
+    font-size:16px;
+    transition:transform .16s ease;
+  }
+
+  .mobileNavDropdown[open] .mobileNavSummaryChevron{
+    transform:rotate(180deg);
+  }
+
+  .mobileNavMenu{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+    margin-top:8px;
+    padding:8px;
+    background:#080c10f5;
+    border:1px solid #4a392d;
+    box-shadow:0 14px 34px #000c;
+  }
+
+  .mobileNavMenuItem{
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:9px;
+    padding:0 12px;
+    text-decoration:none;
+    color:#d7dce0;
+    font:700 10px "Rajdhani",sans-serif;
+    letter-spacing:.10em;
+    background:linear-gradient(180deg,#12181d,#090d11);
+    border:1px solid #303a42;
+    clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px),0 7px);
+  }
+
+  .mobileNavMenuItem span{
+    color:#f0f3f5;
+    font-size:13px;
+  }
+
+  .mobileNavMenuItem.active{
+    color:#ffe1b7;
+    border-color:#bf6b2e;
+    background:linear-gradient(180deg,#2d1b10,#0d0c0c);
+  }
+
+  .mobileNavMenuItem.discord{
+    color:#ffd7aa;
+    border-color:#83502d;
+  }
+
+  .mobileNavMenuItem:active{
+    transform:translateY(1px);
+    filter:brightness(1.08);
+  }
+}
+
+@media(max-width:360px){
+  .mobileNavMenu{
+    grid-template-columns:1fr;
+  }
+}
