@@ -127,3 +127,22 @@
 .portalSecureLogin{width:min(455px,100%);text-align:center;color:#8a8183;font:800 10px "Rajdhani",sans-serif;letter-spacing:.18em}
 .portalAuthCard .formStatus{text-align:center!important;margin:10px auto 0!important}
 @media(max-width:520px){.portalAuthMain{padding-left:18px!important;padding-right:18px!important}.portalAuthCopy h1{text-align:center!important}.portalSecureLogin{font-size:9px}}
+
+/* Final header / hero polish */
+.portalHeader{height:96px!important}
+.portalNav{height:40px!important;justify-content:center!important;padding:0 24px!important}
+.portalNavSpacer{display:none!important}
+.portalNav a{padding:0 22px!important}
+.portalNavDiscord{margin-left:28px!important}
+.portalMasthead{top:40px!important;height:56px!important;justify-content:center!important;padding:0 24px!important;background:rgba(5,5,6,.34)!important}
+.portalLogo{width:min(330px,38vw)!important;height:52px!important;transform:none!important}
+.portalLogo img{object-position:center!important}
+.portalAuthMain{padding-top:132px!important}
+.portalAuthHero{width:min(720px,100%)!important;max-width:720px!important}
+.portalEyebrow{margin:0 0 18px!important}
+.portalAuthCopy{padding:0!important}
+.portalAuthCopy h1{font-size:clamp(76px,8vw,118px)!important;line-height:.9!important;letter-spacing:-.045em!important;margin:0 0 28px!important}
+.portalAuthCard .discordAuthBtn{width:min(500px,100%)!important}
+.portalSecureLogin{width:min(500px,100%)!important;margin-top:2px!important}
+@media(max-width:900px){.portalHeader{height:84px!important}.portalNav{height:36px!important;padding:0 8px!important}.portalNav a{padding:0 11px!important}.portalNavDiscord{margin-left:8px!important}.portalMasthead{top:36px!important;height:48px!important}.portalLogo{width:min(260px,55vw)!important;height:44px!important}.portalAuthMain{padding-top:112px!important}.portalAuthCopy h1{font-size:clamp(60px,13vw,90px)!important}}
+@media(max-width:520px){.portalNavDiscord{display:none!important}.portalAuthCopy h1{font-size:56px!important;margin-bottom:22px!important}.portalAuthCard .discordAuthBtn{width:100%!important}}
