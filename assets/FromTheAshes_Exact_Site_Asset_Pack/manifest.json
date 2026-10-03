@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "source_style": "approved From The Ashes template navigation",
+  "navbar": {
+    "file": "navbar/navbar-bg.png",
+    "pixel_size": [
+      2150,
+      147
+    ]
+  },
+  "tabs": {
+    "pixel_size": [
+      326,
+      129
+    ],
+    "items": [
+      "home",
+      "roster",
+      "events",
+      "gallery",
+      "about"
+    ],
+    "states": [
+      "default",
+      "hover",
+      "active"
+    ],
+    "pattern": "tabs/{item}-{state}.png"
+  },
+  "discord_cta": {
+    "pixel_size": [
+      501,
+      138
+    ],
+    "states": [
+      "default",
+      "hover",
+      "active"
+    ],
+    "pattern": "discord/join-discord-{state}.png"
+  },
+  "icons": {
+    "pixel_size": [
+      118,
+      113
+    ],
+    "items": [
+      "home",
+      "roster",
+      "events",
+      "gallery",
+      "about",
+      "discord"
+    ],
+    "states": [
+      "default",
+      "active"
+    ],
+    "pattern": "icons/{item}-{state}.png"
+  }
+}

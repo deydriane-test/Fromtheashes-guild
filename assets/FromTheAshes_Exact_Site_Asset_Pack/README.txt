@@ -1,20 +1,30 @@
-FROM THE ASHES — AVATAR + PROFILE FRAME PACK
+FROM THE ASHES — TEMPLATE NAVIGATION ASSET PACK
 
-Upload this folder under your existing site asset directory.
+This pack contains INDIVIDUAL transparent PNG assets cropped from the approved
+navigation style.
 
-avatars/
-  avatar-001.webp through avatar-044.webp
-  Individual portrait-only avatar images. These do NOT contain the orange tile frame.
+navbar/
+  navbar-bg.png
 
-ui/
-  profile-account-frame.png
-  Empty account/profile frame. Character name, role, online status, dropdown arrow,
-  and selected avatar should be rendered dynamically by the website.
+tabs/
+  home-default.png / home-hover.png / home-active.png
+  roster-default.png / roster-hover.png / roster-active.png
+  events-default.png / events-hover.png / events-active.png
+  gallery-default.png / gallery-hover.png / gallery-active.png
+  about-default.png / about-hover.png / about-active.png
 
-avatars.json
-  Stable avatar IDs and filenames for the Account avatar picker/database.
+discord/
+  join-discord-default.png
+  join-discord-hover.png
+  join-discord-active.png
+
+icons/
+  Individual HOME / ROSTER / EVENTS / GALLERY / ABOUT / DISCORD icons
+  in default and active states.
 
 IMPORTANT:
-Do not use the original avatar contact sheet on the website.
-Store the selected avatar ID (for example avatar-017) in the member profile and
-render the corresponding individual file.
+- Every navigation tab state uses the exact same canvas dimensions.
+- All Discord button states use the exact same canvas dimensions.
+- Do not use the original source sheet on the website.
+- These are intended to be used at their native aspect ratios, not stretched
+  into long thin strips.
