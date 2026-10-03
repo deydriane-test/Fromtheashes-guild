@@ -1782,3 +1782,30 @@ main{padding-top:208px!important}
   .assetFeatureStrip{grid-template-columns:1fr!important}
   .assetHeroButton img{height:48px}
 }
+
+
+/* Header lockup correction: override legacy .brandLockup img sizing */
+.exactBrandBar .exactBrandLockup img.exactBrandImage{
+  width:min(760px,60vw)!important;
+  height:auto!important;
+  max-width:none!important;
+  max-height:122px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  display:block!important;
+}
+.exactBrandBar .exactBrandLockup{
+  width:min(800px,64vw)!important;
+  max-width:none!important;
+  min-width:0!important;
+  overflow:visible!important;
+}
+@media(max-width:1200px){
+  .exactBrandBar .exactBrandLockup img.exactBrandImage{width:min(620px,58vw)!important;max-height:110px!important}
+}
+@media(max-width:800px){
+  .exactBrandBar .exactBrandLockup img.exactBrandImage{width:min(390px,68vw)!important;max-height:64px!important}
+}
+@media(max-width:520px){
+  .exactBrandBar .exactBrandLockup img.exactBrandImage{width:min(280px,66vw)!important;max-height:58px!important}
+}
