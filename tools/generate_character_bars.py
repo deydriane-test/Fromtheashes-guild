@@ -73,18 +73,25 @@ def crop_avatar_source(img: Image.Image, inset: list[float]) -> Image.Image:
     return img.crop(box)
 
 
-def cover(img: Image.Image, target_size: tuple[int, int], focus_y: float = 0.46) -> Image.Image:
-    """Resize/crop like CSS object-fit:cover with controllable vertical focus."""
+def cover(
+    img: Image.Image,
+    target_size: tuple[int, int],
+    focus_x: float = 0.50,
+    focus_y: float = 0.46,
+) -> Image.Image:
+    """Resize/crop like object-fit:cover with independent X/Y focal points."""
     tw, th = target_size
     iw, ih = img.size
     scale = max(tw / iw, th / ih)
     nw, nh = max(1, round(iw * scale)), max(1, round(ih * scale))
     img = img.resize((nw, nh), RESAMPLE)
 
-    left = max(0, (nw - tw) // 2)
+    overflow_x = max(0, nw - tw)
     overflow_y = max(0, nh - th)
-    top = round(overflow_y * max(0.0, min(1.0, focus_y)))
-    top = min(top, overflow_y)
+    fx = max(0.0, min(1.0, focus_x))
+    fy = max(0.0, min(1.0, focus_y))
+    left = min(overflow_x, round(overflow_x * fx))
+    top = min(overflow_y, round(overflow_y * fy))
     return img.crop((left, top, left + tw, top + th))
 
 
@@ -162,14 +169,20 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
     x1, y1, x2, y2 = slot
     sw, sh = x2 - x1, y2 - y1
 
-    avatar = crop_avatar_source(
-        avatar,
-        style.get("avatar_source_inset", [0.10, 0.10, 0.10, 0.10])
+    # Avatar crop metadata is independent from the bar style so one adjustment
+    # fixes that portrait across every current/future character bar.
+    avatar_rules = config_avatar_rules = style.get("_avatar_rules", {})
+    override = avatar_rules.get(avatar_path.stem, {})
+    source_inset = override.get(
+        "source_inset",
+        style.get("avatar_source_inset", [0.04, 0.04, 0.04, 0.04])
     )
+    avatar = crop_avatar_source(avatar, source_inset)
     portrait = cover(
         avatar,
         (sw, sh),
-        float(style.get("avatar_focus_y", 0.42))
+        float(override.get("focus_x", style.get("avatar_focus_x", 0.50))),
+        float(override.get("focus_y", style.get("avatar_focus_y", 0.46))),
     )
 
     # Portrait sits BEHIND the transparent frame. The frame itself becomes
@@ -214,7 +227,10 @@ def main():
         raise SystemExit(f"No matching bar style: {args.style}")
 
     outputs = []
+    avatar_rules = config.get("avatar_overrides", {})
     for style in styles:
+        style = dict(style)
+        style["_avatar_rules"] = avatar_rules
         frame_path = ROOT / style["frame"]
         if not frame_path.exists():
             raise SystemExit(f"Missing frame asset: {frame_path}")
