@@ -2468,3 +2468,96 @@ main{
   .templateTab.tabHome{display:block!important;width:120px!important;flex-basis:120px!important;height:48px!important}
   .templateDiscordCta{width:175px!important;flex-basis:175px!important;height:48px!important}
 }
+
+
+/* =========================================================
+   FIX FLATTENED NAV ASSET NAME COLLISIONS
+   GitHub renamed full tab PNGs because icon PNGs had same names.
+   The suffixed files below are the full labeled navigation tabs.
+   ========================================================= */
+.templateTab{
+  width:170px!important;
+  height:67px!important;
+  flex:0 0 170px!important;
+  background-size:contain!important;
+}
+.tabHome{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-default%20%287%29.png")!important;
+}
+.tabHome:hover{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-hover.png")!important;
+}
+.tabHome.active{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-active%20%283%29.png")!important;
+}
+
+.tabRoster{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-default%20%2810%29.png")!important;
+}
+.tabRoster:hover{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-hover.png")!important;
+}
+.tabRoster.active{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-active%20%288%29.png")!important;
+}
+
+.tabEvents{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-default%20%281%29.png")!important;
+}
+.tabEvents:hover{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-hover.png")!important;
+}
+.tabEvents.active{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-active%20%284%29.png")!important;
+}
+
+.tabGallery{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-default%20%286%29.png")!important;
+}
+.tabGallery:hover{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-hover.png")!important;
+}
+.tabGallery.active{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-active%20%285%29.png")!important;
+}
+
+.tabAbout{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-default%20%282%29.png")!important;
+}
+.tabAbout:hover{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-hover.png")!important;
+}
+.tabAbout.active{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-active%20%289%29.png")!important;
+}
+
+.exactNavBar{
+  min-height:78px!important;
+  height:78px!important;
+}
+.templateNav{
+  min-height:78px!important;
+  height:78px!important;
+  gap:5px!important;
+}
+.templateDiscordLink{
+  width:165px!important;
+  height:60px!important;
+  flex:0 0 165px!important;
+}
+.templateDiscordCta{
+  width:245px!important;
+  height:68px!important;
+  flex:0 0 245px!important;
+}
+
+@media(max-width:1450px){
+  .templateTab{width:145px!important;height:57px!important;flex-basis:145px!important}
+  .templateDiscordLink{width:142px!important;height:55px!important;flex-basis:142px!important}
+  .templateDiscordCta{width:215px!important;height:59px!important;flex-basis:215px!important}
+}
+@media(max-width:1180px){
+  .templateTab{width:122px!important;height:48px!important;flex-basis:122px!important}
+  .templateDiscordLink{width:120px!important;height:48px!important;flex-basis:120px!important}
+  .templateDiscordCta{width:190px!important;height:52px!important;flex-basis:190px!important}
+}
