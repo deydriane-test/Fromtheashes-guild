@@ -1,17 +1,51 @@
-FROM THE ASHES — APPROVED WEBSITE UI ASSET PACK
+FROM THE ASHES — PRODUCTION ASSET LAYOUT
 
-This pack preserves the approved website design direction.
+LIVE / PRODUCTION
+-----------------
+assets/brand/
+  Guild logos and branding.
 
-Visual language:
-Dark charcoal/gunmetal, subtle technical/hex texture, restrained amber-orange illumination,
-sharp sci-fi geometry, clean website layouts. Avoid game-HUD styling.
+assets/auth/
+  Discord SSO/login artwork.
 
-Folders:
-approved_sources      untouched source sheets
-website_reference     overall website visual direction
-navigation_controls   navigation/icons/control references
-panels_cards          section, content and roster-card references
+assets/backgrounds/
+  Website background art.
 
-Integration rule:
-Crop/export individual components to transparent assets at their intended proportions.
-Do not use or stretch an entire source sheet as a website button/control.
+assets/navigation/
+  Desktop/mobile navigation artwork and button states.
+
+assets/features/
+  Home-page feature cards.
+
+assets/panels/
+  Guild News / Gallery / Discord panels.
+
+assets/thumbnails/
+  Event and content thumbnails.
+
+assets/avatars/
+  Source avatar portraits (avatar-001.webp through avatar-044.webp)
+  and avatar metadata.
+
+assets/ui/
+  Shared UI frames such as the account/profile frame.
+
+assets/roles/
+  Rank/leadership icons.
+
+assets/character-bars/styles/
+  Empty character-bar style shells (bar-001.webp, bar-002.webp, etc.).
+
+assets/character-bars/generated/
+  AUTO-GENERATED avatar + bar composites.
+  Do not edit these by hand. The GitHub Action regenerates them.
+
+ARCHIVE / SOURCE
+----------------
+assets/archive/FromTheAshes_Exact_Site_Asset_Pack/
+  Original source/reference asset pack retained for backup and future design work.
+
+UPLOAD RULE
+-----------
+New production assets should go into the matching folder above.
+Do not add new live assets to the archive folder.
