@@ -2739,7 +2739,7 @@ main{
   z-index:10000!important;
 }
 .templateTab.tabHome.active{
-  transform:translateY(-3px)!important;
+  transform:translateY(0)!important;
 }
 
 /* Explicitly restore the approved site artwork. */
