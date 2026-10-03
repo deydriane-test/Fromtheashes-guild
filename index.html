@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="styles.v3.css?v=20261003-sci2">
+<link rel="stylesheet" href="styles.v3.css?v=20261003-sci3">
 </head>
 <body>
 <div class="embers"></div>
@@ -44,10 +44,9 @@
 </header>
 
 <main>
-<section class="hero">
+<section class="hero mockHero">
   <div class="heroArt" aria-hidden="true">
-    <div class="phoenixHalo"></div>
-    <img src="https://raw.githubusercontent.com/deydriane-test/Fromtheashes-guild/main/phoenix.jpeg" alt="" class="phoenix" onerror="this.style.display='none';this.parentElement.classList.add('noPhoenix')">
+    <img src="https://raw.githubusercontent.com/deydriane-test/Fromtheashes-guild/main/phoenix.jpeg" alt="" class="phoenix">
   </div>
   <div class="heroGrid">
     <div class="heroText">
@@ -59,116 +58,107 @@
         <a class="ghost" href="#about">LEARN MORE →</a>
       </div>
     </div>
-    <div class="heroEventPanel" aria-label="Upcoming guild events">
+
+    <aside class="heroEventPanel">
       <div class="panelTitle"><span>▣ UPCOMING EVENTS</span><a href="#events">VIEW ALL →</a></div>
-      <div class="heroEventRow raidRow"><span class="eventDot"></span><div><small>GUILD RAID</small><strong>RF ONLINE NEXT</strong><em id="heroRaidMeta">SUNDAY • LOCAL TIME</em></div></div>
-      <div class="heroEventRow expeditionRow"><span class="eventDot"></span><div><small>GUILD EXPEDITION</small><strong>RF ONLINE NEXT</strong><em id="heroExpeditionMeta">SUNDAY • LOCAL TIME</em></div></div>
-      <div class="heroEventRow elysiumRow"><span class="eventDot"></span><div><small>ELYSIUM</small><strong>RF ONLINE NEXT</strong><em id="heroElysiumMeta">SUNDAY • LOCAL TIME</em></div></div>
-    </div>
+      <div class="heroEventRow raidRow">
+        <span class="eventDot"></span>
+        <div><small>GUILD RAID</small><strong>RF ONLINE NEXT</strong><em id="heroRaidMeta">SUNDAY • LOCAL TIME</em></div>
+      </div>
+      <div class="heroEventRow expeditionRow">
+        <span class="eventDot"></span>
+        <div><small>GUILD EXPEDITION</small><strong>RF ONLINE NEXT</strong><em id="heroExpeditionMeta">SUNDAY • LOCAL TIME</em></div>
+      </div>
+      <div class="heroEventRow elysiumRow">
+        <span class="eventDot"></span>
+        <div><small>ELYSIUM</small><strong>RF ONLINE NEXT</strong><em id="heroElysiumMeta">SUNDAY • LOCAL TIME</em></div>
+      </div>
+    </aside>
   </div>
 </section>
 
-<section id="announcement" class="siteAnnouncement reveal" hidden><div class="eyebrow">GUILD ANNOUNCEMENT</div><p id="announcementText"></p></section>
-
-<section id="about" class="about reveal">
-  <div class="eyebrow">01 / WHO WE ARE</div>
-  <div class="intro">
-    <div><h2>NO THRONES.<br><i>JUST PEOPLE.</i></h2></div>
-    <div class="copy">
-      <p class="lead">FromTheAshes was built by players who wanted a guild that actually felt like a community.</p>
-      <p>Leadership is here to organize things, answer questions, help members, and take responsibility when something goes wrong. We're serious about the guild — we're just not interested in acting like a corporation.</p>
-      <p>Play hard. Help your people. Communicate. Don't be a jerk. Pretty simple.</p>
-    </div>
-  </div>
-  <div class="vibes featureStrip">
-    <div class="interactive"><span>⚔</span><strong>RAIDING</strong><small>Progress together.</small></div>
-    <div class="interactive"><span>◉</span><strong>COMMUNITY</strong><small>More than just a game.</small></div>
-    <div class="interactive"><span>▣</span><strong>EVENTS</strong><small>Always something to do.</small></div>
-    <div class="interactive"><span>✦</span><strong>MULTI-GAME</strong><small>Different worlds. Same community.</small></div>
-  </div>
+<section class="homeFeatureStrip">
+  <article><span>⚔</span><div><strong>RAIDING</strong><small>Progress together</small></div></article>
+  <article><span>◉</span><div><strong>COMMUNITY</strong><small>More than just a game</small></div></article>
+  <article><span>▣</span><div><strong>EVENTS</strong><small>Always something to do</small></div></article>
+  <article><span>✦</span><div><strong>MULTI-GAME</strong><small>Different worlds, same community</small></div></article>
 </section>
 
-<section id="events" class="eventsSection reveal">
-  <div class="eyebrow">02 / GUILD NIGHTS</div>
-  <div class="sectionHead">
-    <h2>WHEN WE<br><i>GET TOGETHER.</i></h2>
-    <div class="stickyNote"><span id="stickyEventDay">📌 SUNDAY NIGHT</span><strong id="stickyEventTime">7:00 PM</strong><small id="stickyEventZone">Your local time</small></div>
-  </div>
-  <div class="eventCards">
-    <article class="eventCard raid interactive">
-      <div class="eventNumber">01</div><div class="eventEmoji">⚔️</div>
-      <div class="eventInfo"><span id="raidMeta">EVERY SUNDAY • 7:00 PM CT</span><h3>GUILD RAID</h3><p>Show up, hit things, work together, collect the rewards.</p></div><b id="raid">7:00 PM</b>
-    </article>
-    <article class="eventCard expedition interactive">
-      <div class="eventNumber">02</div><div class="eventEmoji">🔥</div>
-      <div class="eventInfo"><span id="expeditionMeta">EVERY SUNDAY • 7:00 PM CT</span><h3>GUILD EXPEDITION</h3><p>Bring your build, your crew, and your willingness to improvise.</p></div><b id="expedition">7:00 PM</b>
-    </article>
-    <article class="eventCard elysium interactive">
-      <div class="eventNumber">03</div><div class="eventEmoji">✨</div>
-      <div class="eventInfo"><span id="elysiumMeta">EVERY SUNDAY • 8:55 PM CT</span><h3>ELYSIUM</h3><p>Guild endgame time. Bring your crew and be ready to roll.</p></div><b id="elysium">20:55</b>
-    </article>
-  </div>
-  <p class="smallNote">Event times are shown in your local time. Any changes will be announced to the guild.</p>
+<section id="announcement" class="siteAnnouncement homeNotice" hidden>
+  <div class="eyebrow">GUILD ANNOUNCEMENT</div>
+  <p id="announcementText"></p>
+</section>
+
+<section class="homePanels">
+  <article class="homePanel" id="about">
+    <div class="homePanelHead"><span>◈ WHO WE ARE</span></div>
+    <h2>NO THRONES.<br><i>JUST PEOPLE.</i></h2>
+    <p>From The Ashes was built by players who wanted a guild that actually felt like a community.</p>
+    <p>Leadership is here to organize, help, and take responsibility when something goes wrong. We take the guild seriously without pretending a game is a corporation.</p>
+  </article>
+
+  <article class="homePanel eventsPanel" id="events">
+    <div class="homePanelHead"><span>▣ GUILD EVENTS</span><small id="stickyEventZone">YOUR LOCAL TIME</small></div>
+    <div class="compactEvent">
+      <span class="compactType raidType">RAID</span>
+      <div><strong>GUILD RAID</strong><small id="raidMeta">SUNDAY • 7:00 PM CT</small></div>
+      <b id="raid">7:00 PM</b>
+    </div>
+    <div class="compactEvent">
+      <span class="compactType expeditionType">EXPEDITION</span>
+      <div><strong>GUILD EXPEDITION</strong><small id="expeditionMeta">SUNDAY • 7:00 PM CT</small></div>
+      <b id="expedition">7:00 PM</b>
+    </div>
+    <div class="compactEvent">
+      <span class="compactType elysiumType">ELYSIUM</span>
+      <div><strong>ELYSIUM</strong><small id="elysiumMeta">SUNDAY • 8:55 PM CT</small></div>
+      <b id="elysium">8:55 PM</b>
+    </div>
+  </article>
+
+  <article class="homePanel discordPanel">
+    <div class="homePanelHead"><span>☁ DISCORD</span></div>
+    <h3>THE GUILD LIVES HERE.</h3>
+    <p>Announcements, event coordination, memes, build help, and the day-to-day community all happen in Discord.</p>
+    <a class="panelDiscordBtn" id="discordRecruit" href="#recruit">JOIN THE COMMUNITY →</a>
+  </article>
 </section>
 
 <section id="leadership" class="leadership reveal">
-  <div class="eyebrow">03 / THE PEOPLE RUNNING THE PLACE</div>
+  <div class="eyebrow">LEADERSHIP</div>
   <div class="sectionHead">
     <h2>THE<br><i>CREW.</i></h2>
-    <p class="copy">These are the people keeping the wheels on. Leadership is shared, approachable, and accountable to the guild.</p>
+    <p class="copy">Approachable leadership, shared responsibility, and people who actually play with the guild.</p>
   </div>
   <div class="leaders">
-    <article class="leader boss interactive">
-      <span class="leaderRole"><img class="rankCrown gmCrown" src="assets/crown-gm.svg" alt=""> GUILD MASTER</span>
-      <h3>Deydriane</h3>
-      <p>Best leader. Definitely not biased. Questionable memory, surprisingly early bedtime.</p>
-    </article>
-    <article class="leader interactive">
-      <span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span>
-      <h3>Aveo</h3>
-      <p>First to join this experiment. Quiet enough that we’re not entirely sure he knows he’s leadership.</p>
-    </article>
-    <article class="leader interactive">
-      <span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span>
-      <h3>KK779</h3>
-      <p>Knows everyone, talks to everyone, and can probably convince you that joining the guild was your idea. Also collects an alarming amount of data for research purposes.</p>
-    </article>
-    <article class="leader interactive">
-      <span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span>
-      <h3>SaintlyDevil</h3>
-      <p>Back hurts. Memory fails. Sitting down is easy—getting back up is the real boss fight. However, he still shows up for raid.</p>
-    </article>
-    <article class="leader interactive">
-      <span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span>
-      <h3>Draeconia</h3>
-      <p>Professional meme dealer, amateur gamer. Never misses a chance to drop a GIF. Frequently misses everything in League.</p>
-    </article>
+    <article class="leader boss interactive"><span class="leaderRole"><img class="rankCrown gmCrown" src="assets/crown-gm.svg" alt=""> GUILD MASTER</span><h3>Deydriane</h3><p>Best leader. Definitely not biased. Questionable memory, surprisingly early bedtime.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>Aveo</h3><p>First to join this experiment. Quiet enough that we’re not entirely sure he knows he’s leadership.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>KK779</h3><p>Knows everyone, talks to everyone, and can probably convince you that joining the guild was your idea.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>SaintlyDevil</h3><p>Back hurts. Memory fails. Still shows up for raid.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>Draeconia</h3><p>Professional meme dealer, amateur gamer. Never misses a chance to drop a GIF.</p></article>
   </div>
 </section>
-
 
 <section id="rules" class="rules reveal">
-  <div class="eyebrow">04 / BEFORE YOU JOIN THE PARTY</div>
-  <h2>THE<br><i>GROUND RULES.</i></h2>
+  <div class="eyebrow">GROUND RULES</div>
+  <h2>KEEP IT<br><i>SIMPLE.</i></h2>
   <div class="ruleCards">
-    <article class="interactive"><span>01</span><strong>BE ACTIVE</strong><p>Our current activity rule is <b>2 days inactive</b> without communication. If life happens, just let us know.</p></article>
-    <article class="interactive"><span>02</span><strong>USE DISCORD</strong><p>Keep up with guild announcements, schedules, and communication through our active Discord.</p></article>
-    <article class="interactive"><span>03</span><strong>SHOW UP</strong><p>Guild Raid and Guild Expedition are <b>Sunday at 7:00 PM Central</b>. Join when you can.</p></article>
-    <article class="interactive"><span>04</span><strong>DON'T BE A DICK</strong><p>Respect the people you're playing with. Help when you can. Leave the drama at the door.</p></article>
+    <article><span>01</span><strong>BE ACTIVE</strong><p>If life happens, communicate. Otherwise stay involved.</p></article>
+    <article><span>02</span><strong>USE DISCORD</strong><p>Guild communication and event coordination live there.</p></article>
+    <article><span>03</span><strong>SHOW UP</strong><p>Join guild content when you can and support the group.</p></article>
+    <article><span>04</span><strong>DON'T BE A DICK</strong><p>Respect the people you play with and leave drama at the door.</p></article>
   </div>
-  <div class="ruleBanner">CURRENT GUILD NOTICE <b>•</b> RAID / EXPEDITION SUNDAY 19:00 CT <b>•</b> 2-DAY INACTIVITY RULE <b>•</b> ACTIVE DISCORD</div>
 </section>
 
-
 <section id="recruit" class="recruit reveal">
-  <div class="eyebrow">05 / COME HANG OUT</div>
+  <div class="eyebrow">COME HANG OUT</div>
   <h2>YOU LOOK LIKE<br><i>OUR KIND OF TROUBLE.</i></h2>
-  <p>We're building a guild where people can play, progress, help each other, and have a good time without turning a video game into a second job.</p>
-  <a class="btn" id="discordRecruit" href="#">ENTER THE DISCORD ↗</a>
+  <p>Play, progress, help each other, and have a good time without turning a game into a second job.</p>
+  <a class="btn" id="discordRecruitBottom" href="#">ENTER THE DISCORD →</a>
 </section>
 </main>
 
 <footer><span>FROM THE ASHES</span><span>RF ONLINE NEXT • MULTI-GAME COMMUNITY</span><span>© 2026</span></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-sci2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-sci3"></script>
 </body>
 </html>
