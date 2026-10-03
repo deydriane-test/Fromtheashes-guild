@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FromTheAshes — Discord SSO</title>
+<title>From The Ashes — Discord SSO</title>
 <link rel="stylesheet" href="../styles.v2.css?v=20261002-portal">
-<link rel="stylesheet" href="account.v2.css?v=20261002-portal2">
+<link rel="stylesheet" href="account.v2.css?v=20261003-complete1">
 </head>
-<body class="portalAuthPage">
+<body class="portalAuthPage portalCompletePage">
 <div class="embers"></div><div class="scrollGlow"></div>
 <header class="portalHeader">
   <div class="portalMasthead">
-    <a class="portalLogo" href="../" aria-label="FromTheAshes"><img src="../assets/Ashes.png?v=16" alt="FromTheAshes guild logo"></a>
+    <a class="portalLogo" href="../" aria-label="From The Ashes"><img src="../assets/Ashes.png?v=16" alt="From The Ashes guild logo"></a>
     <div class="portalMastheadGlow"></div>
   </div>
   <nav class="portalNav" aria-label="Primary navigation">
@@ -25,7 +25,7 @@
 </header>
 <main class="portalAuthMain">
   <section class="portalAuthHero">
-    <div class="portalEyebrow">FROMTHEASHES • DISCORD SSO</div>
+    <div class="portalEyebrow">FROM THE ASHES • DISCORD SSO</div>
     <div class="portalAuthGrid">
       <div class="portalAuthCopy">
         <h1>ONE LAST<br><i>THING.</i></h1>
@@ -35,7 +35,7 @@
         <div class="portalCardHead"><span>GUILD APPLICATION</span><span>DISCORD CONNECTED</span></div>
         <div class="discordIdentity portalIdentity"><strong id="discordName">DISCORD</strong><small id="discordId"></small></div>
         <form id="discordCompleteForm" class="portalCharacterForm">
-          <label>CHARACTER NAME<input id="character" maxlength="40" required autocomplete="nickname" placeholder="Your RF Online Next character"></label>
+          <label><span>CHARACTER NAME</span><input id="character" maxlength="40" required autocomplete="nickname" placeholder="Your RF Online Next character"></label>
           <button class="btn portalSubmit" type="submit">JOIN THE GUILD ↗</button>
           <p id="completeStatus" class="formStatus" role="status"></p>
         </form>
@@ -45,5 +45,5 @@
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../config.v1.js"></script>
-<script src="dc-complete.v1.js?v=20261002-sso1"></script>
+<script src="dc-complete.v1.js?v=20261003-session2"></script>
 </body></html>
