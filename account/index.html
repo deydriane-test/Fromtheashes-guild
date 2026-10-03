@@ -4,59 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>From The Ashes — My Account</title>
-<link rel="stylesheet" href="../styles.v1.css?v=20261002-discord">
-<link rel="stylesheet" href="account.v1.css?v=20261003-avatar1">
+<style>
+html,body{margin:0;min-height:100%;background:#07090c;color:#f3eee8;font-family:system-ui,sans-serif}
+body{display:grid;place-items:center}
+.routeStatus{opacity:.75;font-size:13px;letter-spacing:.08em}
+</style>
+<script>
+(function(){
+  var params=new URLSearchParams(location.search);
+  var forced=params.get("view");
+  var mobile=forced==="mobile" || (forced!=="desktop" && matchMedia("(max-width: 700px)").matches);
+  params.delete("view");
+  var query=params.toString();
+  var target=mobile?"mobile.html":"desktop.html";
+  location.replace(target+(query?"?"+query:"")+location.hash);
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url=desktop.html"></noscript>
 </head>
-<body class="adminPage accountProfilePage">
-<div class="embers"></div><div class="scrollGlow"></div>
-<header class="adminHeader">
-  <a class="logo" href="../" aria-label="From The Ashes"><img src="../assets/Ashes.png?v=15" alt="From The Ashes guild logo"></a>
-  <div class="adminHeaderRight"><a class="ghost" href="../">BACK TO GUILD</a></div>
-</header>
-<main>
-<section id="accountPanel" class="accountPanel">
-  <p id="accountError" class="formStatus error" hidden></p>
-  <div class="eyebrow">YOUR ACCOUNT</div>
-  <h1 class="accountPageTitle">WELCOME, <i id="accountUsername">MEMBER.</i></h1>
-  <p id="accountRole"></p>
-
-  <div class="accountInfoGrid">
-    <div class="accountInfo"><span>CHARACTER</span><strong id="accountCharacter"></strong></div>
-    <div class="accountInfo"><span>DISCORD</span><strong id="accountDiscord"></strong></div>
-    <div class="accountInfo"><span>ROSTER STATUS</span><strong id="accountStatus"></strong></div>
-  </div>
-
-  <section class="avatarSettings" aria-labelledby="avatarSettingsTitle">
-    <div class="avatarSettingsHead">
-      <div>
-        <span class="eyebrow">PROFILE AVATAR</span>
-        <h2 id="avatarSettingsTitle">CHOOSE YOUR CHARACTER.</h2>
-      </div>
-      <p>This avatar appears in your character bar around the guild site.</p>
-    </div>
-
-    <div class="avatarPreview">
-      <img id="avatarPreviewImage" src="../assets/FromTheAshes_Exact_Site_Asset_Pack/avatar-001.webp" alt="Selected avatar">
-      <div class="avatarPreviewCopy">
-        <span>SELECTED</span>
-        <strong id="avatarPreviewLabel">AVATAR 001</strong>
-        <small id="avatarCurrentLabel">CURRENT AVATAR</small>
-      </div>
-    </div>
-
-    <div id="avatarGrid" class="avatarGrid" role="list" aria-label="Available avatars"></div>
-
-    <div class="avatarActions">
-      <button id="saveAvatar" class="btn avatarSaveBtn" type="button" disabled>SAVE AVATAR</button>
-      <span id="avatarSaveStatus" class="avatarSaveStatus" aria-live="polite"></span>
-    </div>
-  </section>
-
-  <button id="accountLogout" class="ghost" type="button">LOG OUT</button>
-</section>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../config.v1.js"></script>
-<script src="account.v4.js?v=20261003-avatar1"></script>
-</body>
+<body><div class="routeStatus">LOADING ACCOUNT…</div></body>
 </html>
