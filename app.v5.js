@@ -92,6 +92,18 @@ function renderAllEvents(events){
   renderEvent("raid",events?.raid);
   renderEvent("expedition",events?.expedition);
   renderEvent("elysium",events?.elysium);
+
+  const heroMap=[
+    ["heroRaidMeta",events?.raid],
+    ["heroExpeditionMeta",events?.expedition],
+    ["heroElysiumMeta",events?.elysium]
+  ];
+  heroMap.forEach(([id,event])=>{
+    const el=document.getElementById(id);
+    const local=formatLocalEvent(event);
+    if(el&&local)el.textContent=local.weekday.toUpperCase()+" • "+local.time+" "+local.zone;
+  });
+
   const primary=formatLocalEvent(events?.raid||events?.expedition||events?.elysium);
   const stickyDay=document.getElementById("stickyEventDay");
   const stickyTime=document.getElementById("stickyEventTime");
