@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="styles.v3.css?v=20261003-navbarspace1">
+<link rel="stylesheet" href="styles.v3.css?v=20261003-characterbar1">
 </head>
 <body>
 <div class="embers"></div>
@@ -22,8 +22,19 @@
     <div class="accountLinks" id="accountLinks">
       <span class="accountSignedOut"><a href="account/login.html">SIGN IN</a></span>
       <div class="accountMenu" id="accountMenu" hidden>
-        <button class="accountMenuTrigger" id="accountMenuTrigger" type="button" aria-expanded="false" aria-haspopup="true">
-          <span id="accountMenuName">MEMBER</span><span class="accountMenuRole" id="accountMenuRole"></span><span class="accountMenuChevron">⌄</span>
+        <button class="accountMenuTrigger characterBarTrigger" id="accountMenuTrigger" type="button" aria-expanded="false" aria-haspopup="true">
+          <span class="characterAvatarSlot">
+            <img id="accountAvatar" src="assets/FromTheAshes_Exact_Site_Asset_Pack/avatar-001.webp" alt="">
+          </span>
+          <span class="characterBarCopy">
+            <strong id="accountMenuName">MEMBER</strong>
+            <span class="characterBarMeta">
+              <span class="presenceDot" id="accountPresenceDot"></span>
+              <span id="accountPresenceText">CONNECTING</span>
+              <span class="accountMenuRole" id="accountMenuRole"></span>
+            </span>
+          </span>
+          <span class="accountMenuChevron">⌄</span>
         </button>
         <div class="accountDropdown" id="accountDropdown" hidden>
           <a href="account/">ACCOUNT</a>
@@ -152,6 +163,6 @@
 </main>
 
 <footer><span>FROM THE ASHES</span><span>RF ONLINE NEXT • MULTI-GAME COMMUNITY</span><span>© 2026</span></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-pack1"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-characterbar1"></script>
 </body>
 </html>
