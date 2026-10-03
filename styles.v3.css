@@ -1871,3 +1871,124 @@ main{padding-top:208px!important}
   .liveBrandMark{width:54px!important;height:50px!important}
   .liveBrandText strong{font-size:20px!important}
 }
+
+
+/* Header alignment + remove baked canvas appearance from UI image assets */
+.exactBrandBar{
+  padding:0 4vw!important;
+  align-items:center!important;
+}
+.liveBrandLockup{
+  transform:translateY(2px)!important;
+}
+.liveBrandMark{
+  width:118px!important;
+  height:108px!important;
+}
+.liveBrandText strong{
+  font-size:clamp(44px,4vw,68px)!important;
+}
+.liveBrandText small{
+  font-size:12px!important;
+  letter-spacing:.21em!important;
+}
+
+/* Mask/crop the black canvas around the generated UI assets */
+.assetNavLink,
+.assetDiscordNav,
+.assetHeroButton,
+.assetFeatureStrip a,
+.assetPanelLink{
+  overflow:hidden!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.assetNavLink img,
+.assetDiscordNav img,
+.assetHeroButton img,
+.assetFeatureStrip img,
+.assetPanelLink img{
+  display:block!important;
+  background:transparent!important;
+}
+
+/* Navigation sheets have extra black margins: crop them tighter */
+.assetNavLink{
+  height:58px!important;
+}
+.assetNavLink img{
+  height:72px!important;
+  width:auto!important;
+  max-width:none!important;
+  transform:scale(1.18)!important;
+  transform-origin:center!important;
+}
+.assetDiscordNav{
+  height:52px!important;
+}
+.assetDiscordNav img{
+  height:66px!important;
+  width:auto!important;
+  max-width:none!important;
+  transform:scale(1.12)!important;
+}
+
+/* Hero buttons */
+.assetHeroButton{
+  height:64px!important;
+}
+.assetHeroButton img{
+  height:78px!important;
+  width:auto!important;
+  max-width:none!important;
+  transform:scale(1.08)!important;
+}
+
+/* Feature tiles: crop top/bottom black canvas */
+.assetFeatureStrip a{
+  height:136px!important;
+}
+.assetFeatureStrip img{
+  width:100%!important;
+  height:auto!important;
+  min-height:158px!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transform:scale(1.06)!important;
+}
+
+/* Lower panels: show frame edge-to-edge without sheet canvas */
+.assetPanelLink{
+  aspect-ratio:auto!important;
+}
+.assetPanelLink img{
+  width:100%!important;
+  height:auto!important;
+  transform:scale(1.035)!important;
+  transform-origin:center top!important;
+}
+
+/* Fine tune banner spacing */
+.exactBrandBar{
+  min-height:132px!important;
+}
+.exactNavBar{
+  min-height:68px!important;
+}
+main{
+  padding-top:200px!important;
+}
+
+@media(max-width:1200px){
+  .liveBrandMark{width:102px!important;height:94px!important}
+  .liveBrandText strong{font-size:42px!important}
+  .assetNavLink img{transform:scale(1.12)!important}
+}
+@media(max-width:800px){
+  .exactBrandBar{padding:0 5vw!important}
+  .liveBrandMark{width:60px!important;height:56px!important}
+  .liveBrandText strong{font-size:24px!important}
+  .assetFeatureStrip a{height:auto!important}
+  .assetFeatureStrip img{min-height:0!important;transform:none!important}
+  .assetPanelLink img{transform:none!important}
+}
