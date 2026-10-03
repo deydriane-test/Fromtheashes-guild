@@ -5,7 +5,7 @@
   "styles": [
     {
       "id": "bar-001",
-      "frame": "assets/character-bars/styles/bar-001.webp",
+      "frame": "assets/bar-001.webp",
       "output_width": 1024,
       "avatar_slot": [
         0.0557,
