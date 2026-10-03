@@ -37,7 +37,11 @@ function buildAvatarGrid(){
     btn.setAttribute("role","listitem");btn.setAttribute("aria-label","Select "+avatarLabel(id));
     btn.setAttribute("aria-pressed","false");
     const img=document.createElement("img");
-    img.src=avatarSrc(id);img.alt="";img.loading="lazy";img.decoding="async";
+    img.src=avatarSrc(id);img.alt="";img.loading="eager";img.decoding="async";img.fetchPriority="low";
+    img.addEventListener("error",function retryAvatar(){
+      img.removeEventListener("error",retryAvatar);
+      img.src=avatarSrc(id)+"?v=2";
+    });
     btn.append(img);
     btn.addEventListener("click",()=>{selectedAvatar=id;setSaveStatus("");syncAvatarSelection()});
     grid.append(btn);
