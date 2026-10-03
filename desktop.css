@@ -3430,3 +3430,56 @@ main{
 .exactBrandBar .accountMenu .characterBarTrigger:focus-visible{
   filter:brightness(1.06)!important;
 }
+
+
+/* =========================================================
+   CHARACTER BAR AVATAR ALIGNMENT V3
+   Fit portrait cleanly inside the left frame cutout.
+   ========================================================= */
+.exactBrandBar .characterBarTrigger{
+  padding-left:23px!important;
+}
+
+.exactBrandBar .characterAvatarSlot{
+  width:66px!important;
+  height:66px!important;
+  flex:0 0 66px!important;
+  margin-left:1px!important;
+  transform:translateY(2px)!important;
+  overflow:hidden!important;
+  background:#070a0d!important;
+  clip-path:polygon(14% 0,86% 0,100% 14%,100% 86%,86% 100%,14% 100%,0 86%,0 14%)!important;
+}
+
+.exactBrandBar .characterAvatarSlot img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 42%!important;
+  transform:scale(1.03)!important;
+  transform-origin:center!important;
+}
+
+.exactBrandBar .characterBarCopy{
+  margin-left:2px!important;
+}
+
+@media(max-width:1500px){
+  .exactBrandBar .characterBarTrigger{padding-left:20px!important}
+  .exactBrandBar .characterAvatarSlot{
+    width:58px!important;
+    height:58px!important;
+    flex-basis:58px!important;
+    transform:translateY(1px)!important;
+  }
+}
+
+@media(max-width:1050px){
+  .exactBrandBar .characterBarTrigger{padding-left:17px!important}
+  .exactBrandBar .characterAvatarSlot{
+    width:46px!important;
+    height:46px!important;
+    flex-basis:46px!important;
+    transform:none!important;
+  }
+}
