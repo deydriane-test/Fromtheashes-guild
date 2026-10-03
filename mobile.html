@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="mobile.css?v=20261003-mobile-menu6">
+<link rel="stylesheet" href="mobile.css?v=20261003-mobile-menu7">
 </head>
 <body>
 <div class="embers"></div>
@@ -19,13 +19,7 @@
         <small>RF ONLINE NEXT • MULTI-GAME COMMUNITY</small>
       </span>
     </a>
-    <div class="mobileHeaderControls">
-    <button class="mobileMenuButton" id="mobileMenuButton" type="button" aria-expanded="false" aria-controls="mobileMenuPanel">
-      <span class="mobileMenuGlyph">☰</span>
-      <span>MENU</span>
-    </button>
-  </div>
-    <div class="accountLinks" id="accountLinks">
+      <div class="accountLinks" id="accountLinks">
       <span class="accountSignedOut"><a href="account/login.html">SIGN IN</a></span>
       <div class="accountMenu" id="accountMenu" hidden>
         <button class="accountMenuTrigger characterBarTrigger" id="accountMenuTrigger" type="button" aria-expanded="false" aria-haspopup="true">
@@ -172,29 +166,48 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-characterbar1"></script>
 <script>
 (function(){
-  var btn=document.getElementById("mobileMenuButton");
-  var panel=document.getElementById("mobileMenuPanel");
-  if(!btn||!panel)return;
+  var menuBtn=document.getElementById("mobileMenuButton");
+  var menuPanel=document.getElementById("mobileMenuPanel");
+  var accountBtn=document.getElementById("accountMenuTrigger");
+  var accountDropdown=document.getElementById("accountDropdown");
 
-  function closeMenu(){
-    panel.hidden=true;
-    btn.setAttribute("aria-expanded","false");
+  function closeMobileMenu(){
+    if(!menuPanel||!menuBtn)return;
+    menuPanel.hidden=true;
+    menuBtn.setAttribute("aria-expanded","false");
   }
 
-  btn.addEventListener("click",function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    var willOpen=panel.hidden;
-    panel.hidden=!willOpen;
-    btn.setAttribute("aria-expanded",String(willOpen));
-  });
+  function closeAccountMenuMobile(){
+    if(!accountDropdown||!accountBtn)return;
+    accountDropdown.hidden=true;
+    accountBtn.setAttribute("aria-expanded","false");
+  }
 
-  panel.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click",closeMenu);
-  });
+  if(menuBtn&&menuPanel){
+    menuBtn.addEventListener("click",function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var opening=menuPanel.hidden;
+      closeAccountMenuMobile();
+      menuPanel.hidden=!opening;
+      menuBtn.setAttribute("aria-expanded",String(opening));
+    });
+
+    menuPanel.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click",closeMobileMenu);
+    });
+  }
+
+  if(accountBtn){
+    accountBtn.addEventListener("click",function(){
+      closeMobileMenu();
+    },true);
+  }
 
   document.addEventListener("click",function(e){
-    if(!panel.hidden && !panel.contains(e.target) && !btn.contains(e.target))closeMenu();
+    if(menuPanel&&!menuPanel.hidden&&!menuPanel.contains(e.target)&&!menuBtn.contains(e.target)){
+      closeMobileMenu();
+    }
   });
 })();
 </script>
