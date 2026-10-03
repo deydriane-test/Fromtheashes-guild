@@ -2884,3 +2884,186 @@ main{
 .templateDiscordCta{
   align-self:center!important;
 }
+
+
+/* =========================================================
+   LIVE CHARACTER / ACCOUNT BAR
+   ========================================================= */
+.exactBrandBar .accountLinks{
+  min-width:420px!important;
+  display:flex!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+  overflow:visible!important;
+}
+.accountMenu{overflow:visible!important}
+.characterBarTrigger{
+  position:relative!important;
+  width:410px!important;
+  height:92px!important;
+  min-width:410px!important;
+  padding:0 36px 0 15px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:16px!important;
+  border:0!important;
+  background:
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png") center/100% 100% no-repeat!important;
+  box-shadow:none!important;
+  color:#f0ebe5!important;
+  text-transform:none!important;
+  cursor:pointer!important;
+  overflow:visible!important;
+}
+.characterBarTrigger:hover{
+  filter:brightness(1.08)!important;
+  background:
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png") center/100% 100% no-repeat!important;
+}
+.characterAvatarSlot{
+  width:76px!important;
+  height:76px!important;
+  flex:0 0 76px!important;
+  display:block!important;
+  position:relative!important;
+  overflow:hidden!important;
+  background:#080b0e!important;
+  clip-path:polygon(15% 0,85% 0,100% 15%,100% 85%,85% 100%,15% 100%,0 85%,0 15%)!important;
+}
+.characterAvatarSlot img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.characterBarCopy{
+  min-width:0!important;
+  flex:1!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:5px!important;
+  padding-top:1px!important;
+}
+.characterBarCopy strong{
+  max-width:215px!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  color:#eeeae5!important;
+  font:700 20px "Rajdhani",sans-serif!important;
+  letter-spacing:.11em!important;
+  line-height:1!important;
+}
+.characterBarMeta{
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  min-width:0!important;
+  color:#99a1a7!important;
+  font:700 10px "Rajdhani",sans-serif!important;
+  letter-spacing:.10em!important;
+  line-height:1!important;
+}
+.presenceDot{
+  width:9px!important;
+  height:9px!important;
+  flex:0 0 9px!important;
+  border-radius:50%!important;
+  background:#626a70!important;
+  box-shadow:0 0 0 2px #090c0f!important;
+}
+.presenceDot.connecting{
+  background:#e9a33f!important;
+  box-shadow:0 0 8px #ff9a2caa!important;
+}
+.presenceDot.online{
+  background:#20e77b!important;
+  box-shadow:0 0 9px #20e77bcc!important;
+}
+.characterBarMeta .accountMenuRole{
+  margin-left:5px!important;
+  padding-left:9px!important;
+  border-left:1px solid #4b3b31!important;
+  color:#d69a66!important;
+  opacity:.95!important;
+  font-size:10px!important;
+}
+.characterBarTrigger .accountMenuChevron{
+  position:absolute!important;
+  right:25px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  color:#ff8a35!important;
+  font-size:17px!important;
+  line-height:1!important;
+}
+.characterBarTrigger[aria-expanded="true"] .accountMenuChevron{
+  transform:translateY(-50%) rotate(180deg)!important;
+}
+.exactBrandBar .accountDropdown{
+  top:calc(100% - 5px)!important;
+  right:20px!important;
+  min-width:220px!important;
+  z-index:10000!important;
+  padding:7px!important;
+  background:#080c10f2!important;
+  border:1px solid #5b402c!important;
+  box-shadow:0 18px 45px #000d,0 0 18px #ff6d271a!important;
+}
+.exactBrandBar .accountDropdown a,
+.exactBrandBar .accountDropdown button{
+  padding:12px 13px!important;
+  color:#ddd8d2!important;
+  font-size:12px!important;
+}
+.exactBrandBar .accountDropdown a:hover,
+.exactBrandBar .accountDropdown button:hover{
+  color:#ffd3a4!important;
+  background:#1b120d!important;
+}
+
+@media(max-width:1500px){
+  .exactBrandBar .accountLinks{min-width:350px!important}
+  .characterBarTrigger{
+    width:350px!important;
+    min-width:350px!important;
+    height:78px!important;
+    padding-left:12px!important;
+    padding-right:31px!important;
+    gap:13px!important;
+  }
+  .characterAvatarSlot{width:64px!important;height:64px!important;flex-basis:64px!important}
+  .characterBarCopy strong{font-size:17px!important;max-width:180px!important}
+  .characterBarMeta{font-size:9px!important;gap:5px!important}
+  .characterBarMeta .accountMenuRole{font-size:9px!important}
+}
+@media(max-width:1050px){
+  .exactBrandBar .accountLinks{min-width:260px!important}
+  .characterBarTrigger{
+    width:260px!important;
+    min-width:260px!important;
+    height:64px!important;
+    padding-left:9px!important;
+    padding-right:27px!important;
+    gap:10px!important;
+  }
+  .characterAvatarSlot{width:50px!important;height:50px!important;flex-basis:50px!important}
+  .characterBarCopy strong{font-size:14px!important;max-width:125px!important}
+  .characterBarMeta .accountMenuRole{display:none!important}
+  .characterBarTrigger .accountMenuChevron{right:17px!important}
+}
+@media(max-width:700px){
+  .exactBrandBar .accountLinks{min-width:0!important}
+  .characterBarTrigger{
+    width:190px!important;
+    min-width:190px!important;
+    height:54px!important;
+    padding-right:22px!important;
+  }
+  .characterAvatarSlot{width:42px!important;height:42px!important;flex-basis:42px!important}
+  .characterBarCopy strong{font-size:12px!important;max-width:90px!important}
+  .characterBarMeta{font-size:8px!important}
+  .characterBarTrigger .accountMenuChevron{right:12px!important;font-size:14px!important}
+}
