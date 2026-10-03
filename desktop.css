@@ -3404,3 +3404,29 @@ main{
   transform:scale(1.16)!important;
   transform-origin:center!important;
 }
+
+
+/* =========================================================
+   CHARACTER BAR STATE LOCK
+   Keep the approved frame visible in every interaction state.
+   ========================================================= */
+.exactBrandBar .accountMenu .characterBarTrigger,
+.exactBrandBar .accountMenu .characterBarTrigger:hover,
+.exactBrandBar .accountMenu .characterBarTrigger:focus,
+.exactBrandBar .accountMenu .characterBarTrigger:focus-visible,
+.exactBrandBar .accountMenu .characterBarTrigger[aria-expanded="true"]{
+  background:
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png")
+    center / 100% 100% no-repeat!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+.exactBrandBar .accountMenu .characterBarTrigger{
+  filter:none!important;
+}
+
+.exactBrandBar .accountMenu .characterBarTrigger:hover,
+.exactBrandBar .accountMenu .characterBarTrigger:focus-visible{
+  filter:brightness(1.06)!important;
+}
