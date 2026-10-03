@@ -1,0 +1,25 @@
+{
+  "avatar_directory": "assets/FromTheAshes_Exact_Site_Asset_Pack",
+  "output_directory": "assets/character-bars/generated",
+  "webp_quality": 86,
+  "styles": [
+    {
+      "id": "bar-001",
+      "frame": "assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png",
+      "output_width": 1024,
+      "avatar_slot": [0.020, 0.105, 0.185, 0.790],
+      "avatar_source_inset": [0.105, 0.105, 0.105, 0.105],
+      "avatar_focus_y": 0.42,
+      "slot_corner_cut": 0.145,
+      "slot_border_width": 0.030,
+      "slot_border_outer": [255, 103, 18, 255],
+      "slot_border_inner": [255, 190, 76, 255],
+      "slot_glow": {
+        "enabled": true,
+        "width": 0.060,
+        "blur": 0.055,
+        "color": [255, 87, 10, 175]
+      }
+    }
+  ]
+}
