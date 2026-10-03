@@ -14,6 +14,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: character-bar-generator
+  cancel-in-progress: true
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -81,4 +85,6 @@ jobs:
             exit 0
           fi
           git commit -m "Generate character bar composites"
-          git push
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
