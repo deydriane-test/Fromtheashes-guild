@@ -1,0 +1,137 @@
+/* One raster composite keeps the portrait and frame aligned at every size. */
+.exactBrandBar .accountLinks {
+  min-width:0!important;
+}
+.exactBrandBar .accountMenu .characterBarTrigger,
+.exactBrandBar .accountMenu .characterBarTrigger:hover,
+.exactBrandBar .accountMenu .characterBarTrigger:focus,
+.exactBrandBar .accountMenu .characterBarTrigger[aria-expanded="true"] {
+  position:relative!important;
+  width:clamp(260px,29vw,410px)!important;
+  min-width:0!important;
+  height:auto!important;
+  aspect-ratio:1024/260;
+  display:block!important;
+  padding:0!important;
+  gap:0!important;
+  background:none!important;
+  border:0!important;
+  clip-path:none!important;
+  box-shadow:none!important;
+}
+.exactBrandBar .accountMenu .characterBarTrigger:focus-visible {
+  outline:2px solid #ff9e50!important;
+  outline-offset:3px!important;
+}
+.characterBarArtwork {
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+}
+.exactBrandBar .characterAvatarSlot {display:none!important}
+.exactBrandBar .characterBarCopy {
+  position:absolute!important;
+  left:28%!important;
+  right:9%!important;
+  top:24%!important;
+  bottom:24%!important;
+  margin:0!important;
+  padding:0!important;
+  gap:5px!important;
+}
+.exactBrandBar .characterBarCopy strong {
+  max-width:100%!important;
+  font-size:clamp(14px,1.35vw,20px)!important;
+}
+.exactBrandBar .characterBarTrigger .accountMenuChevron {right:5%!important}
+
+/* Account selection previews use precisely the same asset as the header. */
+.avatarPreview {
+  position:relative!important;
+  display:block!important;
+  width:min(590px,100%)!important;
+  height:auto!important;
+  min-height:0!important;
+  aspect-ratio:1024/260;
+  padding:0!important;
+  background:none!important;
+  overflow:visible!important;
+}
+.avatarPreview > img {
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:contain!important;
+  transform:none!important;
+  clip-path:none!important;
+  background:none!important;
+  padding:0!important;
+}
+.avatarPreviewCopy {
+  position:absolute;
+  left:28%;
+  right:8%;
+  top:50%;
+  transform:translateY(-50%);
+  gap:3px!important;
+}
+.avatarPreviewCopy strong {font-size:clamp(15px,3vw,24px)!important;line-height:1.1}
+.avatarPreviewCopy span,
+.avatarPreviewCopy small {font-size:clamp(8px,1.5vw,10px)!important;line-height:1.1}
+.avatarChoice {
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  clip-path:none!important;
+  overflow:visible!important;
+}
+.avatarChoice img {
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:contain!important;
+  transform:none!important;
+}
+.avatarChoice.selected {box-shadow:none!important}
+.avatarChoice.selected img {filter:brightness(1.08) drop-shadow(0 0 4px #ff812988)}
+.avatarChoice:focus-visible {outline:2px solid #ff9e50;outline-offset:2px}
+.avatarChoice.selected:after {width:18px;height:18px;right:2px;bottom:2px;font-size:12px}
+
+/* The existing phone layout keeps its compact avatar control. */
+@media(max-width:700px) {
+  .exactBrandBar .accountMenu .characterBarTrigger,
+  .exactBrandBar .accountMenu .characterBarTrigger:hover,
+  .exactBrandBar .accountMenu .characterBarTrigger:focus,
+  .exactBrandBar .accountMenu .characterBarTrigger[aria-expanded="true"] {
+    width:44px!important;
+    min-width:44px!important;
+    height:44px!important;
+    aspect-ratio:1;
+  }
+  .exactBrandBar .characterBarArtwork {display:none}
+  .exactBrandBar .characterAvatarSlot {
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+    clip-path:none!important;
+    background:none!important;
+  }
+  .exactBrandBar .characterAvatarSlot img {
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+    transform:none!important;
+  }
+  .exactBrandBar .characterBarCopy,
+  .exactBrandBar .characterBarTrigger .accountMenuChevron {display:none!important}
+}

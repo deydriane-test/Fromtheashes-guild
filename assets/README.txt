@@ -25,7 +25,11 @@ assets/thumbnails/
 
 assets/avatars/
   Source avatar portraits (avatar-001.webp through avatar-044.webp)
-  and avatar metadata.
+  and avatar metadata. Originals stay available for future styles.
+
+assets/avatars/generated/
+  AUTO-GENERATED, consistently framed thumbnails and compact phone avatars.
+  Use these for the account picker. Do not edit these by hand.
 
 assets/ui/
   Shared UI frames such as the account/profile frame.

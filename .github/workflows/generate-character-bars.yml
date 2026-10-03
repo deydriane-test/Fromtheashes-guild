@@ -36,38 +36,13 @@ jobs:
       - name: Generate avatar and bar combinations
         run: python tools/generate_character_bars.py --clean
 
-      - name: Create preview sheet
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          from PIL import Image, ImageDraw
-          root = Path("assets/character-bars/generated/bar-001")
-          picks = ["avatar-001.webp","avatar-005.webp","avatar-010.webp","avatar-021.webp","avatar-030.webp","avatar-044.webp"]
-          images = [Image.open(root / p).convert("RGBA") for p in picks if (root/p).exists()]
-          if not images:
-              raise SystemExit("No preview images generated")
-          thumb_w = 900
-          thumbs = []
-          for img in images:
-              h = round(img.height * thumb_w / img.width)
-              thumbs.append(img.resize((thumb_w,h), Image.Resampling.LANCZOS))
-          gap = 24
-          canvas = Image.new("RGBA",(thumb_w,max(1,sum(i.height for i in thumbs)+gap*(len(thumbs)-1))),(7,9,12,255))
-          y=0
-          for img in thumbs:
-              canvas.alpha_composite(img,(0,y))
-              y += img.height + gap
-          out = Path("assets/character-bars/generated/bar-001-preview.webp")
-          canvas.convert("RGB").save(out,"WEBP",quality=88,method=6)
-          print(out)
-          PY
-
       - name: Upload generated preview artifact
         uses: actions/upload-artifact@v4
         with:
           name: character-bar-previews
           path: |
-            assets/character-bars/generated/bar-001-preview.webp
+            assets/character-bars/generated/*-preview.webp
+            assets/avatars/generated/preview.webp
             assets/character-bars/generated/bar-001/avatar-001.webp
             assets/character-bars/generated/bar-001/avatar-005.webp
             assets/character-bars/generated/bar-001/avatar-010.webp
@@ -79,7 +54,7 @@ jobs:
         run: |
           git config user.name "From The Ashes Asset Bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/character-bars/generated
+          git add assets/character-bars/generated assets/avatars/generated
           if git diff --cached --quiet; then
             echo "Generated assets are already current."
             exit 0

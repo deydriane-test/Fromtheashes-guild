@@ -4241,36 +4241,3 @@ main{
     grid-template-columns:1fr!important;
   }
 }
-
-
-/* Avatar files have their own frame; preserve the full portrait asset. */
-.characterAvatarSlot{
-  clip-path:none!important;
-  overflow:hidden!important;
-  background:transparent!important;
-}
-.characterAvatarSlot img{
-  object-fit:contain!important;
-  object-position:center!important;
-  background:transparent!important;
-}
-
-
-/* =========================================================
-   CHARACTER BAR AVATAR FIT V2
-   Crop the portrait out of the framed avatar source so it sits
-   correctly inside the separate account/profile frame.
-   ========================================================= */
-.characterAvatarSlot{
-  overflow:hidden!important;
-  background:#070a0d!important;
-  clip-path:polygon(14% 0,86% 0,100% 14%,100% 86%,86% 100%,14% 100%,0 86%,0 14%)!important;
-}
-.characterAvatarSlot img{
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:center 40%!important;
-  transform:scale(1.16)!important;
-  transform-origin:center!important;
-}

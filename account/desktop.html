@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>From The Ashes — My Account</title>
 <link rel="stylesheet" href="../styles.v1.css?v=20261002-discord">
-<link rel="stylesheet" href="account.desktop.css?v=20261003-assets1">
+<link rel="stylesheet" href="account.desktop.css?v=20261003-bars4">
+<link rel="stylesheet" href="../character-bars.css?v=20261003-bars4">
 </head>
 <body class="adminPage accountProfilePage">
 <div class="embers"></div><div class="scrollGlow"></div>
@@ -36,7 +37,7 @@
     </div>
 
     <div class="avatarPreview">
-      <img id="avatarPreviewImage" src="../assets/avatars/avatar-001.webp" alt="Selected avatar">
+      <img id="avatarPreviewImage" src="../assets/character-bars/generated/bar-001/avatar-001.webp?v=20261003-bars4" alt="Selected avatar">
       <div class="avatarPreviewCopy">
         <span>SELECTED</span>
         <strong id="avatarPreviewLabel">AVATAR 001</strong>
@@ -44,7 +45,7 @@
       </div>
     </div>
 
-    <div id="avatarGrid" class="avatarGrid" role="list" aria-label="Available avatars"></div>
+    <div id="avatarGrid" class="avatarGrid" role="group" aria-label="Available avatars"></div>
 
     <div class="avatarActions">
       <button id="saveAvatar" class="btn avatarSaveBtn" type="button" disabled>SAVE AVATAR</button>
@@ -57,6 +58,6 @@
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../config.v1.js"></script>
-<script src="account.v4.js?v=20261003-assets1"></script>
+<script src="account.v4.js?v=20261003-bars4"></script>
 </body>
 </html>

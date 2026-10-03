@@ -148,11 +148,16 @@ const accountPresenceText=document.getElementById("accountPresenceText");
 const adminMenuLink=document.getElementById("adminMenuLink");
 const headerLogout=document.getElementById("headerLogout");
 
-const AVATAR_ROOT="assets/avatars/";
+const AVATAR_ROOT="assets/avatars/generated/";
+const BAR_ROOT="assets/character-bars/generated/bar-001/";
+const ASSET_VERSION="20261003-bars4";
+const accountBarArtwork=document.getElementById("accountBarArtwork");
 let presenceChannel=null;
 let presenceUserId=null;
 
-function avatarSrc(id){return AVATAR_ROOT+(id||"avatar-001")+".webp"}
+function validAvatar(id){return /^avatar-\d{3}$/.test(id)&&Number(id.slice(7))>=1&&Number(id.slice(7))<=44?id:"avatar-001"}
+function avatarSrc(id){return AVATAR_ROOT+validAvatar(id)+".webp?v="+ASSET_VERSION}
+function barSrc(id){return BAR_ROOT+validAvatar(id)+".webp?v="+ASSET_VERSION}
 function setPresenceState(state){
   const online=state==="online";
   if(accountPresenceText)accountPresenceText.textContent=online?"ONLINE":state==="connecting"?"CONNECTING":"OFFLINE";
@@ -215,12 +220,13 @@ async function renderSignedInHeader(user){
   const profile=profileResult.data;
   if(!profile)return;
   const characterName=rosterResult.data?.character_name||profile.username||"MEMBER";
-  const avatarId=profile.avatar_id||"avatar-001";
+  const avatarId=validAvatar(profile.avatar_id);
   if(accountSignedOut)accountSignedOut.hidden=true;
   if(accountMenu)accountMenu.hidden=false;
   if(accountMenuName)accountMenuName.textContent=characterName.toUpperCase();
   if(accountMenuRole)accountMenuRole.textContent=formatRole(profile.role);
   if(accountAvatar){accountAvatar.src=avatarSrc(avatarId);accountAvatar.alt=characterName+" avatar"}
+  if(accountBarArtwork)accountBarArtwork.src=barSrc(avatarId);
   if(adminMenuLink)adminMenuLink.hidden=!["owner","site_mod","officer"].includes(profile.role);
   closeAccountMenu();
   startPresence(user,characterName,avatarId);

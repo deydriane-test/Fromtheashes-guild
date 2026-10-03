@@ -15,12 +15,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import shutil
 from pathlib import Path
 from typing import Iterable
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageOps, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = ROOT / "character-bars.json"
@@ -110,51 +109,8 @@ def octagon_mask(size: tuple[int, int], cut: float) -> Image.Image:
     return mask
 
 
-def glow_layer(size, poly, width, color, blur):
-    layer = Image.new("RGBA", size, (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer)
-    d.line(poly + [poly[0]], fill=color, width=width, joint="curve")
-    return layer.filter(ImageFilter.GaussianBlur(blur))
-
-
-def draw_slot_border(canvas: Image.Image, box, style: dict):
-    x1, y1, x2, y2 = box
-    w, h = x2 - x1, y2 - y1
-    cut = round(min(w, h) * style.get("slot_corner_cut", 0.14))
-    poly = [
-        (x1 + cut, y1), (x2 - cut, y1), (x2, y1 + cut), (x2, y2 - cut),
-        (x2 - cut, y2), (x1 + cut, y2), (x1, y2 - cut), (x1, y1 + cut),
-    ]
-
-    glow = style.get("slot_glow", {})
-    if glow.get("enabled", True):
-        g = glow_layer(
-            canvas.size,
-            poly,
-            max(1, round(min(w, h) * glow.get("width", 0.055))),
-            tuple(glow.get("color", [255, 101, 22, 190])),
-            max(1, round(min(w, h) * glow.get("blur", 0.055))),
-        )
-        canvas.alpha_composite(g)
-
-    d = ImageDraw.Draw(canvas)
-    outer = tuple(style.get("slot_border_outer", [255, 111, 28, 255]))
-    inner = tuple(style.get("slot_border_inner", [255, 183, 74, 255]))
-    ow = max(1, round(min(w, h) * style.get("slot_border_width", 0.032)))
-    iw = max(1, round(ow * 0.42))
-    d.line(poly + [poly[0]], fill=outer, width=ow, joint="curve")
-
-    pad = max(2, ow + 1)
-    ix1, iy1, ix2, iy2 = x1 + pad, y1 + pad, x2 - pad, y2 - pad
-    ic = max(2, cut - pad // 2)
-    ipoly = [
-        (ix1 + ic, iy1), (ix2 - ic, iy1), (ix2, iy1 + ic), (ix2, iy2 - ic),
-        (ix2 - ic, iy2), (ix1 + ic, iy2), (ix1, iy2 - ic), (ix1, iy1 + ic),
-    ]
-    d.line(ipoly + [ipoly[0]], fill=inner, width=iw, joint="curve")
-
-
-def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
+def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int,
+              thumbnail_root: Path | None = None):
     frame_path = ROOT / style["frame"]
     frame = Image.open(frame_path).convert("RGBA")
     avatar = Image.open(avatar_path).convert("RGBA")
@@ -175,6 +131,9 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
         "source_inset",
         style.get("avatar_source_inset", [0.04, 0.04, 0.04, 0.04])
     )
+    # Later source tiles include a blank strip / part of the preceding tile.
+    # Trim that first, then remove the thumbnail's own decorative border.
+    avatar = crop_avatar_source(avatar, override.get("tile_inset", [0, 0, 0, 0]))
     avatar = crop_avatar_source(avatar, source_inset)
     portrait = cover(
         avatar,
@@ -183,8 +142,30 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
         float(override.get("focus_y", style.get("avatar_focus_y", 0.46))),
     )
 
+    # The portrait must never become an opaque square outside the opening.
+    mask = octagon_mask((sw, sh), style.get("slot_corner_cut", 0.22))
+    portrait.putalpha(ImageChops.multiply(portrait.getchannel("A"), mask))
     canvas.alpha_composite(portrait, (x1, y1))
     canvas.alpha_composite(frame)
+
+    # Use the same fully framed portrait for the grid and compact phone header.
+    # Original individual avatars remain untouched for future styles.
+    if thumbnail_root is not None:
+        thumbnail_root.mkdir(parents=True, exist_ok=True)
+        icon = canvas.copy()
+        if "icon_polygon" in style:
+            icon_mask = Image.new("L", canvas.size, 0)
+            ImageDraw.Draw(icon_mask).polygon(
+                [(round(x * canvas.width), round(y * canvas.height))
+                 for x, y in style["icon_polygon"]], fill=255)
+            icon.putalpha(ImageChops.multiply(icon.getchannel("A"), icon_mask))
+        icon = icon.crop(normalized_box(canvas.size, style["icon_crop"]))
+        icon = ImageOps.pad(icon, (256, 256), method=RESAMPLE, color=(0, 0, 0, 0))
+        icon.save(thumbnail_root / f"{avatar_path.stem}.webp", "WEBP",
+                  quality=quality, method=6, exact=True)
+
+    if "output_crop" in style:
+        canvas = canvas.crop(normalized_box(canvas.size, style["output_crop"]))
 
     out_dir = output_root / style["id"]
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -199,19 +180,48 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
     return out_path
 
 
-from PIL import ImageChops
+def create_previews(output_root: Path, styles: list[dict], thumbnail_root: Path):
+    picks = ["avatar-001", "avatar-005", "avatar-010", "avatar-021", "avatar-026", "avatar-044"]
+    for style in styles:
+        paths = [output_root / style["id"] / f"{avatar}.webp" for avatar in picks]
+        images = [Image.open(p).convert("RGBA") for p in paths if p.exists()]
+        if not images:
+            continue
+        height = round(images[0].height * 900 / images[0].width)
+        sheet = Image.new("RGBA", (900, (height + 24) * len(images)), (7, 9, 12, 255))
+        for i, img in enumerate(images):
+            sheet.alpha_composite(img.resize((900, height), RESAMPLE), (0, i * (height + 24)))
+        sheet.convert("RGB").save(output_root / f'{style["id"]}-preview.webp',
+                                  "WEBP", quality=88, method=6)
+
+    thumbnails = sorted(thumbnail_root.glob("avatar-*.webp"))
+    if thumbnails:
+        cell, columns = 140, 8
+        sheet = Image.new("RGB", (cell * columns, 160 * ((len(thumbnails) + columns - 1) // columns)), (7, 9, 12))
+        draw = ImageDraw.Draw(sheet)
+        for i, path in enumerate(thumbnails):
+            x, y = (i % columns) * cell, (i // columns) * 160
+            img = Image.open(path).convert("RGBA").resize((cell, cell), RESAMPLE)
+            sheet.paste(img, (x, y), img)
+            draw.text((x + 38, y + cell + 4), path.stem, fill=(220, 220, 220))
+        sheet.save(thumbnail_root / "preview.webp", "WEBP", quality=88, method=6)
 
 
 def main():
     args = parse_args()
+    if args.clean and (args.style or args.avatar):
+        raise SystemExit("--clean requires a full build; omit it for a single avatar/style.")
     config = load_config(args.config)
 
     avatar_dir = ROOT / config["avatar_directory"]
     output_root = ROOT / config["output_directory"]
+    thumbnail_root = ROOT / config["thumbnail_directory"]
     quality = int(config.get("webp_quality", 86))
 
     if args.clean and output_root.exists():
         shutil.rmtree(output_root)
+    if args.clean and thumbnail_root.exists():
+        shutil.rmtree(thumbnail_root)
 
     avatars = list(iter_avatars(avatar_dir, args.avatar))
     if not avatars:
@@ -223,6 +233,7 @@ def main():
 
     outputs = []
     avatar_rules = config.get("avatar_overrides", {})
+    thumbnail_style = config["styles"][0]["id"]
     for style in styles:
         style = dict(style)
         style["_avatar_rules"] = avatar_rules
@@ -230,18 +241,26 @@ def main():
         if not frame_path.exists():
             raise SystemExit(f"Missing frame asset: {frame_path}")
         for avatar in avatars:
-            outputs.append(build_one(avatar, style, output_root, quality))
+            outputs.append(build_one(avatar, style, output_root, quality,
+                                     thumbnail_root if style["id"] == thumbnail_style else None))
 
     manifest = {
-        "avatar_count": len(avatars),
-        "style_count": len(styles),
-        "generated_count": len(outputs),
-        "styles": [s["id"] for s in styles],
-        "files": [str(p.relative_to(ROOT)).replace("\\", "/") for p in outputs],
+        "generator_version": config.get("generator_version", 4),
+        "avatar_count": len(list(iter_avatars(avatar_dir, None))),
+        "style_count": len(config["styles"]),
+        "styles": [s["id"] for s in config["styles"]],
+        "files": [str(p.relative_to(ROOT)).replace("\\", "/")
+                  for p in sorted(output_root.glob("bar-*/avatar-*.webp"))],
+        "thumbnails": [str(p.relative_to(ROOT)).replace("\\", "/")
+                       for p in sorted(thumbnail_root.glob("avatar-*.webp"))],
     }
+    manifest["generated_count"] = len(manifest["files"])
     output_root.mkdir(parents=True, exist_ok=True)
     with (output_root / "manifest.json").open("w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
+        f.write("\n")
+
+    create_previews(output_root, styles, thumbnail_root)
 
     print(f"Generated {len(outputs)} character-bar composites.")
     for p in outputs[:8]:

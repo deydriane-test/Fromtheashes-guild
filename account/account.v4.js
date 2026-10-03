@@ -2,13 +2,17 @@ const c=window.GUILD_CONFIG||{};
 const sb=window.supabase?.createClient(c.supabase?.url||"",c.supabase?.publishableKey||"");
 const $=id=>document.getElementById(id);
 const AVATAR_COUNT=44;
-const AVATAR_ROOT="../assets/avatars/";
+const AVATAR_ROOT="../assets/avatars/generated/";
+const BAR_ROOT="../assets/character-bars/generated/bar-001/";
+const ASSET_VERSION="20261003-bars4";
 let currentAvatar="avatar-001";
 let selectedAvatar="avatar-001";
 let currentUser=null;
 
 function avatarId(n){return "avatar-"+String(n).padStart(3,"0")}
-function avatarSrc(id){return AVATAR_ROOT+(id||"avatar-001")+".webp"}
+function validAvatar(id){return /^avatar-\d{3}$/.test(id)&&Number(id.slice(7))>=1&&Number(id.slice(7))<=AVATAR_COUNT?id:"avatar-001"}
+function avatarSrc(id){return AVATAR_ROOT+validAvatar(id)+".webp?v="+ASSET_VERSION}
+function barSrc(id){return BAR_ROOT+validAvatar(id)+".webp?v="+ASSET_VERSION}
 function avatarLabel(id){return (id||"avatar-001").replace("avatar-","AVATAR ")}
 function showError(message){const x=$("accountError");if(x){x.hidden=false;x.textContent=message}}
 function setSaveStatus(message,type=""){
@@ -16,7 +20,7 @@ function setSaveStatus(message,type=""){
   x.textContent=message||"";x.className="avatarSaveStatus"+(type?" "+type:"");
 }
 function syncAvatarSelection(){
-  $("avatarPreviewImage").src=avatarSrc(selectedAvatar);
+  $("avatarPreviewImage").src=barSrc(selectedAvatar);
   $("avatarPreviewLabel").textContent=avatarLabel(selectedAvatar);
   $("avatarCurrentLabel").textContent=selectedAvatar===currentAvatar?"CURRENT AVATAR":"NEW SELECTION";
   document.querySelectorAll(".avatarChoice").forEach(btn=>{
@@ -34,13 +38,13 @@ function buildAvatarGrid(){
     const id=avatarId(i);
     const btn=document.createElement("button");
     btn.type="button";btn.className="avatarChoice";btn.dataset.avatar=id;
-    btn.setAttribute("role","listitem");btn.setAttribute("aria-label","Select "+avatarLabel(id));
+    btn.setAttribute("aria-label","Select "+avatarLabel(id));
     btn.setAttribute("aria-pressed","false");
     const img=document.createElement("img");
     img.src=avatarSrc(id);img.alt="";img.loading="eager";img.decoding="sync";img.fetchPriority="high";
     img.addEventListener("error",function retryAvatar(){
       img.removeEventListener("error",retryAvatar);
-      img.src=avatarSrc(id)+"?v=2";
+      img.src=avatarSrc("avatar-001");
     });
     img.style.visibility="visible";
     img.style.opacity="1";
@@ -94,7 +98,7 @@ async function boot(){
     $("accountCharacter").textContent=roster?.character_name||"No character submitted.";
     $("accountStatus").textContent=roster?(roster.approved?(roster.active?"APPROVED • ACTIVE":"APPROVED • INACTIVE"):"PENDING LEADERSHIP APPROVAL"):"NO ROSTER ENTRY";
 
-    currentAvatar=profile.avatar_id||"avatar-001";
+    currentAvatar=validAvatar(profile.avatar_id);
     selectedAvatar=currentAvatar;
     buildAvatarGrid();
     syncAvatarSelection();
