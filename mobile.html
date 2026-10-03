@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="mobile.css?v=20261003-mobile-menu8">
+<link rel="stylesheet" href="mobile.css?v=20261003-mobile-menu9">
 </head>
 <body>
 <div class="embers"></div>
@@ -48,15 +48,15 @@
     </div>
   </div>
   </header>
-<div class="mobileMenuPanel" id="mobileMenuPanel" hidden>
-  <nav aria-label="Primary">
+<div class="mobileMenuPanel" id="mobileMenuPanel" aria-hidden="true">
+  <div class="mobileMenuLinks" role="navigation" aria-label="Primary">
     <a href="#">HOME</a>
     <a href="#roster">ROSTER</a>
     <a href="#events">EVENTS</a>
     <a href="#gallery">GALLERY</a>
     <a href="#about">ABOUT</a>
     <a id="discordTop" href="#recruit">DISCORD</a>
-  </nav>
+  </div>
 </div>
 <section class="exactHero">
   <div class="exactHeroBg" aria-hidden="true"></div>
@@ -174,26 +174,31 @@
   var accountBtn=document.getElementById("accountMenuTrigger");
   var accountDropdown=document.getElementById("accountDropdown");
 
+  function menuIsOpen(){
+    return menuPanel && menuPanel.classList.contains("is-open");
+  }
+
   function closeMobileMenu(){
     if(!menuPanel||!menuBtn)return;
-    menuPanel.hidden=true;
+    menuPanel.classList.remove("is-open");
+    menuPanel.setAttribute("aria-hidden","true");
     menuBtn.setAttribute("aria-expanded","false");
   }
 
-  function closeAccountMenuMobile(){
-    if(!accountDropdown||!accountBtn)return;
-    accountDropdown.hidden=true;
-    accountBtn.setAttribute("aria-expanded","false");
+  function openMobileMenu(){
+    if(!menuPanel||!menuBtn)return;
+    if(accountDropdown)accountDropdown.hidden=true;
+    if(accountBtn)accountBtn.setAttribute("aria-expanded","false");
+    menuPanel.classList.add("is-open");
+    menuPanel.setAttribute("aria-hidden","false");
+    menuBtn.setAttribute("aria-expanded","true");
   }
 
   if(menuBtn&&menuPanel){
     menuBtn.addEventListener("click",function(e){
       e.preventDefault();
       e.stopPropagation();
-      var opening=menuPanel.hidden;
-      closeAccountMenuMobile();
-      menuPanel.hidden=!opening;
-      menuBtn.setAttribute("aria-expanded",String(opening));
+      if(menuIsOpen())closeMobileMenu();else openMobileMenu();
     });
 
     menuPanel.querySelectorAll("a").forEach(function(link){
@@ -202,13 +207,11 @@
   }
 
   if(accountBtn){
-    accountBtn.addEventListener("click",function(){
-      closeMobileMenu();
-    },true);
+    accountBtn.addEventListener("click",closeMobileMenu,true);
   }
 
   document.addEventListener("click",function(e){
-    if(menuPanel&&!menuPanel.hidden&&!menuPanel.contains(e.target)&&!menuBtn.contains(e.target)){
+    if(menuIsOpen()&&!menuPanel.contains(e.target)&&!menuBtn.contains(e.target)){
       closeMobileMenu();
     }
   });
