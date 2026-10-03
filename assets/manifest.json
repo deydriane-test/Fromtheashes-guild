@@ -1,0 +1,30 @@
+{
+  "project": "From The Ashes",
+  "approved": {
+    "Discord SSO": "D",
+    "Primary action": "A (future use)",
+    "Text input": "B",
+    "Dropdown": "B",
+    "Checkbox/radio/toggle": "A",
+    "Modal": "C",
+    "Notification": "B",
+    "Progress/loading": "A",
+    "Large CTA": "C",
+    "Navigation": "approved lower-glow sci-fi family",
+    "Website UI": "dark charcoal/gunmetal + restrained orange sci-fi edging",
+    "Section/card frame": "approved restrained frame",
+    "Roster/member card": "Option 2"
+  },
+  "note": "Source/reference sheets only. Extract individual controls before website use; never stretch a full sheet into a component.",
+  "included_files": [
+    "a_clean_high_detail_fantasy_game_ui_asset_sheet_o.png",
+    "a_high_detail_sci_fi_futuristic_game_ui_kit_on_a_d.png",
+    "a_dramatic_high_detail_sci_fi_futuristic_ui_gui_d.png",
+    "a_dark_sci_fi_ui_icon_set_on_a_black_charcoal_back.png",
+    "a_wide_high_resolution_dark_ui_design_mockup_for.png",
+    "a_clean_dark_ui_kit_website_component_assets_layou.png",
+    "a_high_resolution_ui_ux_design_style_guide_compo.png",
+    "a_clean_high_resolution_ui_component_kit_desi.png",
+    "a_clean_high_resolution_ui_graphic_design_kit_moc.png"
+  ]
+}
