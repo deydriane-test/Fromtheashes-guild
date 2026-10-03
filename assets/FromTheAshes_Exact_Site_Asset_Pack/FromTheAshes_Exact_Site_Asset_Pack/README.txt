@@ -1,25 +1,15 @@
-FROM THE ASHES — EXACT SITE ASSET PACK
+From The Ashes - Nav + Discord Asset Pack
 
-This pack is built for the approved ftashes.com mockup.
+Included PNG assets (all transparent RGBA):
+- navbar-bg.png              -> long background strip for the top navigation bar
+- nav-tab-default.png        -> inactive/default navigation tab frame
+- nav-tab-active.png         -> active/highlighted navigation tab frame
+- discord-button-default.png -> default Discord CTA button
+- discord-button-hover.png   -> hover Discord CTA button
+- discord-button-active.png  -> pressed/active Discord CTA button
 
-IMPORTANT:
-- Use assets under web/ as individual website assets.
-- Do NOT point CSS at the source sheets in source/.
-- source/ exists only for future editing/reference.
-- Large backgrounds include optimized WebP versions.
-- PNG versions are kept where useful for quality or transparency-style compositing.
-
-Suggested repo location:
-  assets/fta-site/
-
-Primary mapping:
-  Header art: web/backgrounds/header-city-bg.webp
-  Hero art: web/backgrounds/hero-rf-battle-bg.webp
-  Logo/brand lockup: web/branding/from-the-ashes-lockup.png
-  Join Discord CTA: web/buttons/join-discord-large.png
-  Learn More CTA: web/buttons/learn-more.png
-  Event cards: web/events/
-  Feature tiles: web/features/
-  Guild News / Gallery / Discord: web/panels/
-  Nav controls: web/navigation/
-  Gallery main art: web/backgrounds/gallery-main.webp
+Recommended usage:
+- Keep text and member names in HTML/CSS, not baked into the images.
+- Keep the user profile/name/status live from your database.
+- Use CSS background-size: contain or 100% 100% depending on your layout.
+- These are transparent PNG components intended to sit over the site background.
