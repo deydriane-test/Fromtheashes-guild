@@ -2839,3 +2839,8 @@ main{
 .accountDropdown{
   z-index:10000!important;
 }
+
+/* HOME active asset optical alignment */
+.templateTab.tabHome.active{
+  transform:translateY(4px)!important;
+}
