@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const AVATAR_COUNT=44;
 const AVATAR_ROOT="../assets/avatars/generated/";
 const BAR_ROOT="../assets/character-bars/generated/bar-001/";
-const ASSET_VERSION="20261003-bars4";
+const ASSET_VERSION="20261003-bars5";
 let currentAvatar="avatar-001";
 let selectedAvatar="avatar-001";
 let currentUser=null;

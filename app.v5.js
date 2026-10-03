@@ -150,7 +150,7 @@ const headerLogout=document.getElementById("headerLogout");
 
 const AVATAR_ROOT="assets/avatars/generated/";
 const BAR_ROOT="assets/character-bars/generated/bar-001/";
-const ASSET_VERSION="20261003-bars4";
+const ASSET_VERSION="20261003-bars5";
 const accountBarArtwork=document.getElementById("accountBarArtwork");
 let presenceChannel=null;
 let presenceUserId=null;
