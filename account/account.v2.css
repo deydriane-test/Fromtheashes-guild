@@ -175,3 +175,45 @@
   .portalAuthMain{padding-left:48px!important;padding-right:48px!important}
   .portalAuthHero{max-width:720px!important}
 }
+
+/* Ultrawide correction: preserve the original phoenix crop and enlarge the UI as a unit */
+@media (min-width:2200px){
+  .portalAuthMain{
+    background-position:center top!important;
+    background-size:cover!important;
+    background-attachment:fixed!important;
+    align-items:flex-start!important;
+    padding-top:180px!important;
+  }
+  .portalAuthHero{
+    width:900px!important;
+    max-width:900px!important;
+    transform:none!important;
+  }
+  .portalAuthCopy{width:900px!important}
+  .portalEyebrow{font-size:16px!important;margin-bottom:24px!important}
+  .portalAuthCopy h1{font-size:150px!important;margin-bottom:36px!important}
+  .portalAuthCard .discordAuthBtn{width:680px!important}
+  .portalSecureLogin{width:680px!important;font-size:14px!important}
+  .portalNav{height:56px!important}
+  .portalNav a{font-size:18px!important;padding:0 30px!important}
+  .portalNav a span{font-size:17px!important}
+  .portalMasthead{top:56px!important;height:86px!important}
+  .portalHeader{height:142px!important}
+  .portalLogo{width:420px!important;height:80px!important}
+}
+@media (min-width:3600px){
+  .portalAuthMain{padding-top:220px!important}
+  .portalAuthHero{width:1080px!important;max-width:1080px!important}
+  .portalAuthCopy{width:1080px!important}
+  .portalEyebrow{font-size:20px!important;margin-bottom:28px!important}
+  .portalAuthCopy h1{font-size:184px!important;margin-bottom:42px!important}
+  .portalAuthCard .discordAuthBtn{width:820px!important}
+  .portalSecureLogin{width:820px!important;font-size:17px!important}
+  .portalNav{height:68px!important}
+  .portalNav a{font-size:22px!important;padding:0 38px!important}
+  .portalNav a span{font-size:21px!important}
+  .portalMasthead{top:68px!important;height:104px!important}
+  .portalHeader{height:172px!important}
+  .portalLogo{width:500px!important;height:96px!important}
+}
