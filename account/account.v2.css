@@ -876,3 +876,32 @@
 .portalAuthCard .discordAuthBtn img{
   clip-path:inset(3px 4px 3px 4px round 18px)!important;
 }
+
+/* ---------- PREMIUM DISCORD BUTTON ---------- */
+.portalAuthCard .discordAuthBtn{
+  width:min(455px,100%)!important;
+  height:auto!important;
+  aspect-ratio:535 / 127!important;
+  margin:0 0 14px!important;
+  padding:0!important;
+  display:block!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:visible!important;
+  box-shadow:none!important;
+  line-height:0!important;
+}
+.portalAuthCard .discordAuthBtn img{
+  width:100%!important;
+  height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  clip-path:none!important;
+}
+.portalAuthCard .discordAuthBtn:hover img{filter:brightness(1.08)!important}
+.portalAuthCard .discordAuthBtn:active img,
+.portalAuthCard .discordAuthBtn.discordStateActive img{
+  filter:brightness(.92)!important;
+  transform:translateY(1px)!important;
+}
