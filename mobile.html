@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="mobile.css?v=20261003-mobile-dropdown2">
+<link rel="stylesheet" href="mobile.css?v=20261003-mobile-menu6">
 </head>
 <body>
 <div class="embers"></div>
@@ -19,6 +19,12 @@
         <small>RF ONLINE NEXT • MULTI-GAME COMMUNITY</small>
       </span>
     </a>
+    <div class="mobileHeaderControls">
+    <button class="mobileMenuButton" id="mobileMenuButton" type="button" aria-expanded="false" aria-controls="mobileMenuPanel">
+      <span class="mobileMenuGlyph">☰</span>
+      <span>MENU</span>
+    </button>
+  </div>
     <div class="accountLinks" id="accountLinks">
       <span class="accountSignedOut"><a href="account/login.html">SIGN IN</a></span>
       <div class="accountMenu" id="accountMenu" hidden>
@@ -44,22 +50,17 @@
       </div>
     </div>
   </div>
-  <div class="mobileNavDropdown" id="mobileNavDropdown">
-    <button class="mobileNavSummary" id="mobileNavToggle" type="button" aria-expanded="false" aria-controls="mobileNavMenu">
-      <span class="mobileNavSummaryIcon">☰</span>
-      <span class="mobileNavSummaryLabel">MENU</span>
-      <span class="mobileNavSummaryChevron">⌄</span>
-    </button>
-    <nav class="mobileNavMenu" id="mobileNavMenu" aria-label="Primary" hidden>
-      <a class="mobileNavMenuItem active" href="#"><span>⌂</span>HOME</a>
-      <a class="mobileNavMenuItem" href="#roster"><span>◆</span>ROSTER</a>
-      <a class="mobileNavMenuItem" href="#events"><span>▣</span>EVENTS</a>
-      <a class="mobileNavMenuItem" href="#gallery"><span>▧</span>GALLERY</a>
-      <a class="mobileNavMenuItem" href="#about"><span>◇</span>ABOUT</a>
-      <a class="mobileNavMenuItem discord" id="discordTop" href="#recruit"><span>●</span>DISCORD</a>
-    </nav>
-  </div>
-</header>
+  </header>
+<div class="mobileMenuPanel" id="mobileMenuPanel" hidden>
+  <nav aria-label="Primary">
+    <a href="#">HOME</a>
+    <a href="#roster">ROSTER</a>
+    <a href="#events">EVENTS</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#about">ABOUT</a>
+    <a id="discordTop" href="#recruit">DISCORD</a>
+  </nav>
+</div>
 <section class="exactHero">
   <div class="exactHeroBg" aria-hidden="true"></div>
   <div class="exactHeroLeft">
@@ -171,33 +172,29 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-characterbar1"></script>
 <script>
 (function(){
-  var wrap=document.getElementById("mobileNavDropdown");
-  var toggle=document.getElementById("mobileNavToggle");
-  var menu=document.getElementById("mobileNavMenu");
-  if(!wrap||!toggle||!menu)return;
+  var btn=document.getElementById("mobileMenuButton");
+  var panel=document.getElementById("mobileMenuPanel");
+  if(!btn||!panel)return;
 
   function closeMenu(){
-    menu.hidden=true;
-    wrap.classList.remove("open");
-    toggle.setAttribute("aria-expanded","false");
-  }
-  function openMenu(){
-    menu.hidden=false;
-    wrap.classList.add("open");
-    toggle.setAttribute("aria-expanded","true");
+    panel.hidden=true;
+    btn.setAttribute("aria-expanded","false");
   }
 
-  toggle.addEventListener("click",function(e){
+  btn.addEventListener("click",function(e){
+    e.preventDefault();
     e.stopPropagation();
-    if(menu.hidden)openMenu();else closeMenu();
+    var willOpen=panel.hidden;
+    panel.hidden=!willOpen;
+    btn.setAttribute("aria-expanded",String(willOpen));
   });
 
-  menu.querySelectorAll("a").forEach(function(link){
+  panel.querySelectorAll("a").forEach(function(link){
     link.addEventListener("click",closeMenu);
   });
 
   document.addEventListener("click",function(e){
-    if(!wrap.contains(e.target))closeMenu();
+    if(!panel.hidden && !panel.contains(e.target) && !btn.contains(e.target))closeMenu();
   });
 })();
 </script>
