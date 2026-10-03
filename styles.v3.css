@@ -2866,3 +2866,21 @@ main{
   background-repeat:no-repeat!important;
   background-size:100% 100%!important;
 }
+
+/* FINAL NAVBAR VERTICAL SPACING */
+.exactNavBar{
+  min-height:88px!important;
+  height:88px!important;
+  padding-top:6px!important;
+  padding-bottom:6px!important;
+}
+.templateNav{
+  min-height:76px!important;
+  height:76px!important;
+}
+.templateTab{
+  align-self:center!important;
+}
+.templateDiscordCta{
+  align-self:center!important;
+}
