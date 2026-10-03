@@ -2789,7 +2789,10 @@ main{
     radial-gradient(circle at 16% 17%,rgba(255,111,35,.08),transparent 26%),
     linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.10));
 }
-.topScene > .siteHeader,
+.topScene > .siteHeader{
+  position:relative!important;
+  z-index:10!important;
+}
 .topScene > .exactHero{
   position:relative!important;
   z-index:1!important;
@@ -3809,412 +3812,115 @@ main{
 }
 
 
-/* =========================================================
-   MOBILE V6 — compact header menu
-   ========================================================= */
+/* Mobile controls and dropdowns share the header's stacking context. */
 @media(max-width:700px){
-  .mobileNavDropdown,
-  .mobilePrimaryNav{
-    display:none!important;
+  html.device-phone .siteHeader.exactHeader{
+    height:auto!important;
+    min-height:68px!important;
+    padding:0!important;
   }
-
   .exactBrandBar{
     display:grid!important;
-    grid-template-columns:minmax(0,1fr) auto auto!important;
+    grid-template-columns:minmax(0,1fr) 44px 44px!important;
     align-items:center!important;
-    gap:8px!important;
-    height:68px!important;
-    min-height:68px!important;
-    padding:7px 10px!important;
-  }
-
-  .liveBrandLockup{
-    min-width:0!important;
-    max-width:none!important;
-  }
-
-  .mobileHeaderControls{
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-  }
-
-  .mobileMenuButton{
-    height:38px!important;
-    min-width:78px!important;
-    padding:0 10px!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:6px!important;
-    appearance:none!important;
-    -webkit-appearance:none!important;
-    border:1px solid #8e5429!important;
-    border-radius:0!important;
-    background:linear-gradient(180deg,#21160f,#0b0d10)!important;
-    color:#efe8df!important;
-    font:800 9px "Rajdhani",sans-serif!important;
-    letter-spacing:.10em!important;
-    clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;
-    box-shadow:inset 0 0 10px rgba(255,112,36,.08)!important;
-  }
-
-  .mobileMenuGlyph{
-    color:#ffae64!important;
-    font-size:13px!important;
-    line-height:1!important;
-  }
-
-  .exactBrandBar .accountLinks{
-    width:44px!important;
-    min-width:44px!important;
-    max-width:44px!important;
-    flex-basis:44px!important;
-  }
-  .characterBarTrigger{
-    width:44px!important;
-    min-width:44px!important;
-    height:44px!important;
-  }
-  .characterAvatarSlot{
-    width:38px!important;
-    height:38px!important;
-    flex-basis:38px!important;
-  }
-
-  .mobileMenuPanel{
-    position:absolute!important;
-    top:68px!important;
-    left:10px!important;
-    right:10px!important;
-    z-index:1000!important;
-    padding:8px!important;
-    background:#070b0ff7!important;
-    border:1px solid #664126!important;
-    box-shadow:0 16px 32px #000d!important;
-  }
-  .mobileMenuPanel[hidden]{
-    display:none!important;
-  }
-  .mobileMenuPanel nav{
-    display:grid!important;
-    grid-template-columns:1fr 1fr!important;
     gap:7px!important;
-  }
-  .mobileMenuPanel a{
-    height:38px!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    text-decoration:none!important;
-    color:#ddd8d2!important;
-    font:800 10px "Rajdhani",sans-serif!important;
-    letter-spacing:.10em!important;
-    background:linear-gradient(180deg,#12181d,#090d11)!important;
-    border:1px solid #303941!important;
-    clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;
-  }
-  .mobileMenuPanel a:first-child{
-    color:#ffe1b8!important;
-    border-color:#b9672c!important;
-    background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
-  }
-}
-
-@media(max-width:360px){
-  .liveBrandText strong{font-size:16px!important}
-  .mobileMenuButton{
-    min-width:70px!important;
-    padding:0 8px!important;
-  }
-  .mobileMenuPanel nav{
-    grid-template-columns:1fr!important;
-  }
-}
-
-
-/* =========================================================
-   MOBILE V7 — separate MENU and ACCOUNT dropdowns
-   ========================================================= */
-@media(max-width:700px){
-  .exactBrandBar{
-    display:flex!important;
-    align-items:center!important;
-    justify-content:space-between!important;
-    gap:8px!important;
     height:68px!important;
     min-height:68px!important;
     padding:7px 10px!important;
   }
-
   .liveBrandLockup{
-    flex:1 1 auto!important;
+    width:100%!important;
     min-width:0!important;
-    max-width:calc(100% - 52px)!important;
+    max-width:100%!important;
+    overflow:hidden!important;
   }
-
+  .liveBrandText{
+    flex:1 1 0!important;
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  .liveBrandText strong{font-size:clamp(16px,4.1vw,20px)!important;}
+  .mobileHeaderControls,
+  .mobileMenuStrip,
+  .mobileNavDropdown,
+  .mobilePrimaryNav{display:none!important}
   .exactBrandBar .accountLinks{
-    flex:0 0 44px!important;
     width:44px!important;
     min-width:44px!important;
     max-width:44px!important;
-    margin-left:auto!important;
+    margin:0!important;
   }
-
-  .mobileHeaderControls{display:none!important}
-
-  .mobileMenuStrip{
-    display:flex!important;
-    align-items:center!important;
-    justify-content:flex-start!important;
-    height:44px!important;
-    padding:3px 10px 5px!important;
-    background:transparent!important;
-  }
-
+  .mobileMenuButton,
+  .exactBrandBar .accountMenuTrigger,
+  .mobileMenuPanel a,
+  .exactBrandBar .accountDropdown a,
+  .exactBrandBar .accountDropdown button{-webkit-tap-highlight-color:transparent;}
   .mobileMenuButton{
     position:relative!important;
-    width:112px!important;
-    min-width:112px!important;
-    height:34px!important;
-    padding:0 28px 0 10px!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:flex-start!important;
-    gap:7px!important;
-    background:linear-gradient(180deg,#21160f,#0b0d10)!important;
-    border:1px solid #8e5429!important;
-    color:#efe8df!important;
-    font:800 9px "Rajdhani",sans-serif!important;
-    letter-spacing:.11em!important;
-    clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;
-    box-shadow:inset 0 0 10px rgba(255,112,36,.08)!important;
-  }
-
-  .mobileMenuCaret{
-    position:absolute!important;
-    right:10px!important;
-    color:#ff8a35!important;
-    font-size:13px!important;
-    transition:transform .16s ease!important;
-  }
-  .mobileMenuButton[aria-expanded="true"] .mobileMenuCaret{
-    transform:rotate(180deg)!important;
-  }
-
-  .mobileMenuPanel{
-    position:absolute!important;
-    top:112px!important;
-    left:10px!important;
-    width:min(250px,calc(100vw - 20px))!important;
-    right:auto!important;
-    z-index:15000!important;
-    padding:7px!important;
-    background:#070b0ff8!important;
-    border:1px solid #664126!important;
-    box-shadow:0 16px 32px #000d!important;
-  }
-  .mobileMenuPanel[hidden]{
-    display:none!important;
-  }
-
-  .mobileMenuLinks{
-    display:grid!important;
-    grid-template-columns:1fr 1fr!important;
-    gap:6px!important;
-  }
-
-  .mobileMenuLinks>a{
-    display:flex!important;
-    visibility:visible!important;
-    opacity:1!important;
-    min-width:0!important;
-    width:auto!important;
-    height:36px!important;
-    padding:0 8px!important;
-    align-items:center!important;
-    justify-content:center!important;
-    text-decoration:none!important;
-    transform:none!important;
-    color:#ddd8d2!important;
-    font:800 9px "Rajdhani",sans-serif!important;
-    letter-spacing:.10em!important;
-    background:linear-gradient(180deg,#12181d,#090d11)!important;
-    border:1px solid #303941!important;
-    clip-path:polygon(5px 0,calc(100% - 5px) 0,100% 5px,100% calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,0 calc(100% - 5px),0 5px)!important;
-  }
-  .mobileMenuLinks>a:first-child{
-    color:#ffe1b8!important;
-    border-color:#b9672c!important;
-    background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
-  }
-
-  /* Account dropdown stays under avatar on the right */
-  .exactBrandBar .accountDropdown{
-    position:fixed!important;
-    top:72px!important;
-    right:8px!important;
-    left:auto!important;
-    width:190px!important;
-    min-width:190px!important;
-    z-index:16000!important;
-    padding:6px!important;
-  }
-}
-
-@media(max-width:360px){
-  .mobileMenuPanel{
-    width:min(220px,calc(100vw - 20px))!important;
-  }
-  .mobileMenuLinks{
-    grid-template-columns:1fr!important;
-  }
-}
-
-
-/* =========================================================
-   MOBILE V8 — visible standalone hamburger trigger
-   ========================================================= */
-@media(max-width:700px){
-  .exactBrandBar{
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) 38px 44px!important;
-    align-items:center!important;
-    gap:7px!important;
-    height:68px!important;
-    min-height:68px!important;
-    padding:7px 10px!important;
-  }
-
-  .liveBrandLockup{
-    width:auto!important;
-    min-width:0!important;
-    max-width:none!important;
-  }
-
-  .mobileMenuStrip,
-  .mobileHeaderControls{
-    display:none!important;
-  }
-
-  .mobileMenuButton{
     display:grid!important;
     place-items:center!important;
-    width:38px!important;
-    min-width:38px!important;
-    height:38px!important;
+    justify-content:center!important;
+    align-content:center!important;
+    width:44px!important;
+    min-width:44px!important;
+    height:44px!important;
     padding:0!important;
     margin:0!important;
-    border:1px solid #8f5429!important;
+    gap:0!important;
+    border:0!important;
     border-radius:0!important;
     appearance:none!important;
     -webkit-appearance:none!important;
-    background:linear-gradient(180deg,#21160f,#0b0d10)!important;
+    background:#a45d2c!important;
     color:#ffb36a!important;
+    cursor:pointer;
     clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;
-    box-shadow:inset 0 0 10px rgba(255,112,36,.08)!important;
-    position:relative!important;
-    z-index:17000!important;
+    box-shadow:none!important;
   }
-
+  .mobileMenuButton:before{
+    content:"";
+    position:absolute;
+    inset:1px;
+    background:linear-gradient(180deg,#21160f,#0b0d10);
+    clip-path:polygon(5px 0,calc(100% - 5px) 0,100% 5px,100% calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,0 calc(100% - 5px),0 5px);
+    pointer-events:none;
+  }
+  .mobileMenuButton:focus-visible{background:#ffd19d!important}
   .mobileMenuGlyph{
-    font-size:17px!important;
-    line-height:1!important;
-    color:#ffb36a!important;
+    position:relative;
+    width:22px;
+    height:22px;
+    display:block;
+    color:inherit!important;
+    pointer-events:none;
   }
-
-  .exactBrandBar .accountLinks{
-    width:44px!important;
-    min-width:44px!important;
-    max-width:44px!important;
-    margin:0!important;
-  }
-
   .mobileMenuPanel{
-    position:fixed!important;
-    top:150px!important;
+    display:none!important;
+    position:absolute!important;
+    top:calc(100% + 6px)!important;
     left:10px!important;
     right:10px!important;
     width:auto!important;
     max-width:none!important;
-    z-index:18000!important;
     padding:8px!important;
+    z-index:100!important;
     background:#070b0ff8!important;
     border:1px solid #704526!important;
     box-shadow:0 18px 38px #000e!important;
   }
-
-  .mobileMenuPanel[hidden]{
-    display:none!important;
-  }
-
+  .mobileMenuPanel.is-open{display:block!important}
   .mobileMenuLinks{
     display:grid!important;
     grid-template-columns:1fr 1fr!important;
     gap:7px!important;
   }
-
-  .mobileMenuLinks>a{
-    display:flex!important;
-    visibility:visible!important;
-    opacity:1!important;
-    height:40px!important;
-    min-width:0!important;
-    padding:0 10px!important;
-    align-items:center!important;
-    justify-content:center!important;
-    color:#ddd8d2!important;
-    text-decoration:none!important;
-    font:800 10px "Rajdhani",sans-serif!important;
-    letter-spacing:.10em!important;
-    background:linear-gradient(180deg,#12181d,#090d11)!important;
-    border:1px solid #303941!important;
-    transform:none!important;
-  }
-
-  .mobileMenuLinks>a:first-child{
-    color:#ffe1b8!important;
-    border-color:#bb682e!important;
-    background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
-  }
-}
-
-
-/* =========================================================
-   MOBILE V9 — class-driven menu, no legacy NAV inheritance
-   ========================================================= */
-@media(max-width:700px){
-  .mobileMenuPanel{
-    display:none!important;
-    position:fixed!important;
-    top:150px!important;
-    left:10px!important;
-    right:10px!important;
-    width:auto!important;
-    padding:8px!important;
-    z-index:18000!important;
-    background:#070b0ff8!important;
-    border:1px solid #704526!important;
-    box-shadow:0 18px 38px #000e!important;
-  }
-
-  .mobileMenuPanel.is-open{
-    display:block!important;
-  }
-
-  .mobileMenuLinks{
-    display:grid!important;
-    grid-template-columns:1fr 1fr!important;
-    gap:7px!important;
-  }
-
   .mobileMenuLinks>a{
     display:flex!important;
     visibility:visible!important;
     opacity:1!important;
     width:auto!important;
     min-width:0!important;
-    height:40px!important;
+    height:44px!important;
     margin:0!important;
     padding:0 10px!important;
     align-items:center!important;
@@ -4227,17 +3933,25 @@ main{
     background:linear-gradient(180deg,#12181d,#090d11)!important;
     border:1px solid #303941!important;
     box-shadow:none!important;
+    clip-path:polygon(5px 0,calc(100% - 5px) 0,100% 5px,100% calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,0 calc(100% - 5px),0 5px)!important;
   }
-
   .mobileMenuLinks>a:first-child{
     color:#ffe1b8!important;
     border-color:#bb682e!important;
     background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
   }
-}
-
-@media(max-width:360px){
-  .mobileMenuLinks{
-    grid-template-columns:1fr!important;
+  .exactBrandBar .accountDropdown{
+    position:absolute!important;
+    top:calc(100% + 12px)!important;
+    right:0!important;
+    left:auto!important;
+    width:min(220px,calc(100vw - 20px))!important;
+    min-width:0!important;
+    padding:6px!important;
+    z-index:100!important;
+  }
+  .exactBrandBar .accountDropdown a,
+  .exactBrandBar .accountDropdown button{
+    min-height:44px;
   }
 }

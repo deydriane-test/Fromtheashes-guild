@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="mobile.css?v=20261003-bars4">
+<link rel="stylesheet" href="mobile.css?v=20261003-menu10">
 <link rel="stylesheet" href="character-bars.css?v=20261003-bars4">
 </head>
 <body>
@@ -21,7 +21,7 @@
       </span>
     </a>
     <button class="mobileMenuButton" id="mobileMenuButton" type="button" aria-expanded="false" aria-controls="mobileMenuPanel" aria-label="Open navigation menu">
-      <span class="mobileMenuGlyph">☰</span>
+      <svg class="mobileMenuGlyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
     <div class="accountLinks" id="accountLinks">
       <span class="accountSignedOut"><a href="account/login.html">SIGN IN</a></span>
@@ -49,7 +49,6 @@
       </div>
     </div>
   </div>
-  </header>
 <div class="mobileMenuPanel" id="mobileMenuPanel" aria-hidden="true">
   <div class="mobileMenuLinks" role="navigation" aria-label="Primary">
     <a href="#">HOME</a>
@@ -60,6 +59,7 @@
     <a id="discordTop" href="#recruit">DISCORD</a>
   </div>
 </div>
+</header>
 <section class="exactHero">
   <div class="exactHeroBg" aria-hidden="true"></div>
   <div class="exactHeroLeft">
@@ -185,6 +185,7 @@
     menuPanel.classList.remove("is-open");
     menuPanel.setAttribute("aria-hidden","true");
     menuBtn.setAttribute("aria-expanded","false");
+    menuBtn.setAttribute("aria-label","Open navigation menu");
   }
 
   function openMobileMenu(){
@@ -194,6 +195,7 @@
     menuPanel.classList.add("is-open");
     menuPanel.setAttribute("aria-hidden","false");
     menuBtn.setAttribute("aria-expanded","true");
+    menuBtn.setAttribute("aria-label","Close navigation menu");
   }
 
   if(menuBtn&&menuPanel){
@@ -211,6 +213,10 @@
   if(accountBtn){
     accountBtn.addEventListener("click",closeMobileMenu,true);
   }
+
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape")closeMobileMenu();
+  });
 
   document.addEventListener("click",function(e){
     if(menuIsOpen()&&!menuPanel.contains(e.target)&&!menuBtn.contains(e.target)){
