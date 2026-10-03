@@ -37,6 +37,10 @@ async function establishSession(){
   const oauthError=url.searchParams.get("error_description")||url.searchParams.get("error");
   if(oauthError) throw new Error(oauthError);
 
+  const existing=await sb.auth.getSession();
+  if(existing.error) throw existing.error;
+  if(existing.data?.session?.user) return existing.data.session;
+
   const code=url.searchParams.get("code");
   if(code){
     status("CONNECTING YOUR DISCORD ACCOUNT…");
@@ -45,12 +49,26 @@ async function establishSession(){
     url.searchParams.delete("code");
     url.searchParams.delete("sb_flow_id");
     history.replaceState({},document.title,url.pathname+(url.search?url.search:""));
-    if(data?.session) return data.session;
+    if(data?.session?.user) return data.session;
   }
 
-  const {data,error}=await sb.auth.getSession();
-  if(error) throw error;
-  return data?.session||null;
+  return await new Promise(resolve=>{
+    let settled=false;
+    const finish=session=>{
+      if(settled)return;
+      settled=true;
+      clearTimeout(timer);
+      subscription?.unsubscribe();
+      resolve(session?.user?session:null);
+    };
+    const {data:{subscription}}=sb.auth.onAuthStateChange((event,session)=>{
+      if((event==="SIGNED_IN"||event==="INITIAL_SESSION"||event==="TOKEN_REFRESHED")&&session?.user) finish(session);
+    });
+    const timer=setTimeout(async()=>{
+      const last=await sb.auth.getSession();
+      finish(last.data?.session||null);
+    },1500);
+  });
 }
 
 async function boot(){
@@ -92,6 +110,10 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
   try{
     const character=$("character").value.trim();
     if(character.length<2){status("ENTER YOUR CHARACTER NAME.","error");return;}
+    if(!verifiedUser){
+      const current=await sb.auth.getSession();
+      verifiedUser=current.data?.session?.user||null;
+    }
     if(!verifiedUser){
       status("YOUR DISCORD SESSION COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
       return;
