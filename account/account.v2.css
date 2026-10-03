@@ -230,3 +230,27 @@
     background-color:#07090b!important;
   }
 }
+
+
+/* Discord application completion page — isolated website form layout */
+.portalCompletePage .portalAuthHero{width:min(760px,100%)!important}
+.portalCompletePage .portalAuthCopy>p{max-width:620px!important;margin:0 auto 22px!important;text-align:center!important;color:#f0e8e2!important;font:500 16px/1.55 "Space Grotesk",sans-serif!important}
+.portalCompletePage .portalAuthCard{width:min(560px,100%)!important;max-width:560px!important;margin:0 auto!important;display:block!important}
+.portalCompletePage .portalCardHead{width:100%!important;max-width:none!important;box-sizing:border-box!important}
+.portalCompletePage .portalIdentity{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;width:100%!important;box-sizing:border-box!important;padding:16px 0 13px!important;border-bottom:1px solid #30282b!important}
+.portalCompletePage .portalIdentity strong{color:#f4efe9!important;font:800 15px "Rajdhani",sans-serif!important;letter-spacing:.08em!important}
+.portalCompletePage .portalIdentity small{color:#8c8385!important;font:700 9px "Rajdhani",sans-serif!important;letter-spacing:.08em!important}
+.portalCompletePage .portalCharacterForm{display:grid!important;grid-template-columns:1fr!important;gap:13px!important;width:100%!important;margin-top:18px!important}
+.portalCompletePage .portalCharacterForm label{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;width:100%!important;color:#d9d0cb!important;font:800 11px "Rajdhani",sans-serif!important;letter-spacing:.1em!important}
+.portalCompletePage .portalCharacterForm input{appearance:none!important;width:100%!important;min-width:0!important;height:48px!important;box-sizing:border-box!important;margin:0!important;padding:0 14px!important;background:rgba(10,10,12,.92)!important;color:#f4efe9!important;border:1px solid #4a3a37!important;border-radius:2px!important;outline:none!important;font:500 16px "Space Grotesk",sans-serif!important}
+.portalCompletePage .portalCharacterForm input:focus{border-color:#ff6425!important;box-shadow:0 0 0 2px rgba(255,100,37,.14)!important}
+.portalCompletePage .portalSubmit{width:100%!important;min-height:50px!important;margin:0!important;box-sizing:border-box!important;cursor:pointer!important}
+.portalCompletePage .portalSubmit:disabled{opacity:.55!important;cursor:wait!important}
+.portalCompletePage .formStatus{min-height:18px!important;margin:2px 0 0!important;text-align:center!important;font:800 10px/1.4 "Rajdhani",sans-serif!important;letter-spacing:.07em!important}
+.portalCompletePage .formStatus.error{color:#ff8069!important}
+.portalCompletePage .formStatus.success{color:#d6efbd!important}
+@media(max-width:600px){
+ .portalCompletePage .portalAuthCopy>p{font-size:14px!important}
+ .portalCompletePage .portalAuthCard{width:100%!important}
+ .portalCompletePage .portalIdentity{align-items:flex-start!important;flex-direction:column!important;gap:5px!important}
+}
