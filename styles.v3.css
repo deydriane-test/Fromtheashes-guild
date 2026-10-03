@@ -1681,7 +1681,7 @@ main{padding-top:208px!important}
 .exactBrandBar{
   background:
     linear-gradient(90deg,rgba(4,7,10,.22),rgba(4,7,10,.02) 58%,rgba(4,7,10,.18)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
 }
 .exactBrandLockup{
   display:flex!important;align-items:center!important;text-decoration:none!important;
@@ -1713,7 +1713,7 @@ main{padding-top:208px!important}
 .exactHeroBg{
   background:
     linear-gradient(90deg,rgba(2,5,8,.08),rgba(2,5,8,.03) 55%,rgba(2,5,8,.52)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
   filter:none!important;
 }
 .assetHeroButton{
@@ -1724,9 +1724,9 @@ main{padding-top:208px!important}
 .assetHeroButton:hover{transform:none!important;box-shadow:none!important}
 .learnButton img{max-width:240px}
 
-.thumbRaid{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important}
-.thumbExpedition{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important}
-.thumbElysium{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important}
+.thumbRaid{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important}
+.thumbExpedition{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important}
+.thumbElysium{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important}
 
 .assetFeatureStrip{
   display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:14px!important;
@@ -2710,4 +2710,56 @@ main{
   align-self:center!important;
   margin-top:0!important;
   margin-bottom:0!important;
+}
+
+/* =========================================================
+   HEADER/HERO REPAIR — stacking, artwork paths, HOME alignment
+   ========================================================= */
+.siteHeader{
+  z-index:1000!important;
+  overflow:visible!important;
+}
+.exactBrandBar{
+  position:relative!important;
+  z-index:30!important;
+  overflow:visible!important;
+}
+.exactNavBar{
+  position:relative!important;
+  z-index:20!important;
+}
+.brandBar .accountLinks,
+.accountLinks,
+.accountMenu{
+  position:relative!important;
+  z-index:100!important;
+  overflow:visible!important;
+}
+.accountDropdown{
+  z-index:10000!important;
+}
+.templateTab.tabHome.active{
+  transform:translateY(-3px)!important;
+}
+
+/* Explicitly restore the approved site artwork. */
+.exactBrandBar{
+  background:
+    linear-gradient(90deg,rgba(4,7,10,.22),rgba(4,7,10,.02) 58%,rgba(4,7,10,.18)),
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
+}
+.exactHeroBg{
+  background:
+    linear-gradient(90deg,rgba(2,5,8,.08),rgba(2,5,8,.03) 55%,rgba(2,5,8,.52)),
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
+  filter:none!important;
+}
+.thumbRaid{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important;
+}
+.thumbExpedition{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important;
+}
+.thumbElysium{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important;
 }
