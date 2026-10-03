@@ -3371,3 +3371,16 @@ main{
     scroll-snap-align:start!important;
   }
 }
+
+
+/* Avatar files have their own frame; preserve the full portrait asset. */
+.characterAvatarSlot{
+  clip-path:none!important;
+  overflow:hidden!important;
+  background:transparent!important;
+}
+.characterAvatarSlot img{
+  object-fit:contain!important;
+  object-position:center!important;
+  background:transparent!important;
+}
