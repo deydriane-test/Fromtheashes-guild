@@ -133,7 +133,7 @@
   margin:24px 0;
   padding:15px 32px 15px 20px;
   background:
-    url("../assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png") center/100% 100% no-repeat;
+    url("../assets/ui/profile-account-frame.png") center/100% 100% no-repeat;
 }
 .avatarPreview>img{
   width:88px;
