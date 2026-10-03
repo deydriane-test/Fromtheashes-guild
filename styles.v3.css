@@ -1993,345 +1993,146 @@ main{
   .assetPanelLink img{transform:none!important}
 }
 
-
-/* Clean nav rebuild — replaces generated nav image assets */
-.exactNavBar{
-  min-height:66px!important;
-  height:66px!important;
-  padding:0 2.4vw!important;
-  display:flex!important;
-  align-items:stretch!important;
-  justify-content:space-between!important;
-  background:
-    linear-gradient(180deg,#0b0f13 0%,#070a0d 100%)!important;
-  border-top:1px solid #382316!important;
-  border-bottom:1px solid #432b1a!important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.02),
-    inset 0 -1px 0 #020304,
-    0 6px 18px rgba(0,0,0,.45)!important;
-}
-.cleanNav{
-  display:flex!important;
-  align-items:stretch!important;
-  height:66px!important;
-  gap:0!important;
-}
-.cleanNav a{
-  position:relative;
-  min-width:138px!important;
-  height:66px!important;
-  padding:0 22px!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:10px!important;
-  color:#c9cdd0!important;
-  text-decoration:none!important;
-  font:700 15px "Rajdhani",sans-serif!important;
-  letter-spacing:.075em!important;
-  border-left:1px solid #1a2025!important;
-  border-right:1px solid #050709!important;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,0))!important;
-  box-sizing:border-box!important;
-}
-.cleanNav a:before{
-  content:"";
-  position:absolute;
-  left:10px;right:10px;bottom:0;
-  height:1px;
-  background:transparent;
-}
-.cleanNav a:hover{
-  color:#f0e5d8!important;
-  background:linear-gradient(180deg,rgba(255,119,46,.055),rgba(255,119,46,.015))!important;
-}
-.cleanNav a.active{
-  color:#ffd29d!important;
-  background:
-    linear-gradient(180deg,rgba(255,125,47,.13),rgba(255,125,47,.035))!important;
-}
-.cleanNav a.active:before{
-  background:linear-gradient(90deg,transparent,#ff7a2e 30%,#ffb15f 50%,#ff7a2e 70%,transparent);
-  height:2px;
-  box-shadow:0 0 10px rgba(255,113,37,.75);
-}
-.cleanNavIcon{
-  color:#e1e4e6;
-  font-size:19px;
-  line-height:1;
-  opacity:.92;
-}
-.cleanNav a.active .cleanNavIcon{color:#ffd29d}
-
-.cleanDiscordCta{
-  align-self:center!important;
-  margin-left:20px!important;
-  min-width:250px!important;
-  height:48px!important;
-  padding:0 28px!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:11px!important;
-  color:#ffd5a6!important;
-  background:
-    linear-gradient(180deg,#1a120c 0%,#0e0a07 100%)!important;
-  border:1px solid #8b562b!important;
-  clip-path:polygon(6% 0,94% 0,100% 24%,100% 76%,94% 100%,6% 100%,0 76%,0 24%)!important;
-  box-shadow:
-    inset 0 0 0 1px #25140b,
-    0 0 14px rgba(255,112,35,.16)!important;
-  font:800 13px "Rajdhani",sans-serif!important;
-  letter-spacing:.08em!important;
-}
-.cleanDiscordCta:hover{
-  color:#ffe5c2!important;
-  box-shadow:
-    inset 0 0 0 1px #3a2113,
-    0 0 20px rgba(255,112,35,.28)!important;
-}
-.discordGlyph{font-size:18px}
-
-.assetNav,.assetDiscordNav{display:none!important}
-
-@media(max-width:1200px){
-  .cleanNav a{min-width:112px!important;padding:0 15px!important;font-size:13px!important}
-  .cleanDiscordCta{min-width:220px!important;padding:0 20px!important}
-}
-@media(max-width:900px){
-  .cleanNav a{display:none!important}
-  .cleanNav a.active{display:flex!important;min-width:110px!important}
-  .cleanDiscordCta{min-width:185px!important;height:44px!important;font-size:11px!important}
-}
-@media(max-width:560px){
-  .exactNavBar{padding:0 4vw!important}
-  .cleanNav a.active{min-width:92px!important;padding:0 10px!important}
-  .cleanNav a.active span:last-child{font-size:11px}
-  .cleanDiscordCta{min-width:150px!important;padding:0 14px!important}
-}
-
-
 /* =========================================================
-   UPLOADED NAV + DISCORD ASSET SYSTEM
+   FINAL NAVIGATION — single authoritative block
    ========================================================= */
 .exactNavBar{
-  position:relative!important;
+  height:64px!important;
+  min-height:64px!important;
+  padding:0 30px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:24px!important;
   background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png") center/100% 100% no-repeat!important;
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png") center/100% 100% no-repeat,
+    #080b0e!important;
   border:0!important;
-  box-shadow:none!important;
-  overflow:visible!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.45)!important;
+  overflow:hidden!important;
 }
 .cleanNav{
-  position:relative!important;
-  z-index:2!important;
-  gap:4px!important;
-  padding:3px 0!important;
+  height:64px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  padding:0!important;
+  flex:0 0 auto!important;
 }
 .cleanNav a{
-  min-width:145px!important;
-  height:60px!important;
-  padding:0 22px!important;
+  width:150px!important;
+  min-width:150px!important;
+  height:50px!important;
+  padding:0 20px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
   border:0!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
+  color:#d9dadd!important;
+  text-decoration:none!important;
+  font:700 14px "Rajdhani",sans-serif!important;
+  letter-spacing:.09em!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
   box-shadow:none!important;
-  color:#d8dde0!important;
+  clip-path:none!important;
+  white-space:nowrap!important;
 }
 .cleanNav a:before{display:none!important}
 .cleanNav a:hover{
-  color:#fff2df!important;
-  filter:brightness(1.08)!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
+  color:#fff0d8!important;
+  filter:brightness(1.12)!important;
 }
 .cleanNav a.active{
-  color:#ffe0af!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-active.png") center/100% 100% no-repeat!important;
+  color:#ffe0ae!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-active.png") center/100% 100% no-repeat!important;
   filter:none!important;
 }
 .cleanNavIcon{
   color:currentColor!important;
-  text-shadow:0 0 8px rgba(255,119,42,.25)!important;
+  font-size:17px!important;
+  line-height:1!important;
+  opacity:.95!important;
 }
-
-.cleanDiscordCta,
-.liveDiscordAssetBtn{
+.cleanDiscordCta{
+  flex:0 0 250px!important;
+  width:250px!important;
+  min-width:250px!important;
+  height:52px!important;
+  margin:0!important;
+  padding:0 26px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
   border:0!important;
   clip-path:none!important;
   box-shadow:none!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
   color:#ffe0b6!important;
   text-decoration:none!important;
+  font:800 13px "Rajdhani",sans-serif!important;
+  letter-spacing:.08em!important;
+  text-shadow:0 1px 4px #000!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
+}
+.cleanDiscordCta:hover{
+  color:#fff1d7!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
+}
+.cleanDiscordCta:active{
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
+}
+.discordGlyph{font-size:17px!important;color:currentColor!important}
+
+/* Hero Discord CTA uses same asset family */
+.liveDiscordAssetBtn{
+  width:290px!important;
+  min-width:290px!important;
+  height:64px!important;
+  padding:0 32px!important;
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
   gap:11px!important;
+  border:0!important;
+  clip-path:none!important;
+  box-shadow:none!important;
+  color:#ffe0b6!important;
+  text-decoration:none!important;
   font:800 13px "Rajdhani",sans-serif!important;
   letter-spacing:.08em!important;
-  text-shadow:0 1px 4px #000!important;
-}
-.cleanDiscordCta{
-  min-width:270px!important;
-  height:54px!important;
-  padding:0 30px!important;
-  margin:6px 0 6px 18px!important;
-  align-self:center!important;
-}
-.liveDiscordAssetBtn{
-  min-width:280px!important;
-  height:66px!important;
-  padding:0 34px!important;
-}
-.cleanDiscordCta:hover,
-.liveDiscordAssetBtn:hover{
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
-  color:#fff0d3!important;
-  filter:none!important;
-  transform:none!important;
-}
-.cleanDiscordCta:active,
-.liveDiscordAssetBtn:active{
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
-}
-.discordGlyph{font-size:18px!important}
-
-.heroButtons .liveDiscordAssetBtn{
-  margin:0!important;
-  background-color:transparent!important;
-}
-
-@media(max-width:1200px){
-  .cleanNav a{min-width:122px!important;padding:0 16px!important}
-  .cleanDiscordCta{min-width:230px!important}
-}
-@media(max-width:900px){
-  .cleanNav a{display:none!important}
-  .cleanNav a.active{
-    display:flex!important;
-    min-width:112px!important;
-  }
-  .cleanDiscordCta{
-    min-width:185px!important;
-    height:46px!important;
-    margin-left:auto!important;
-  }
-  .liveDiscordAssetBtn{
-    min-width:235px!important;
-    height:58px!important;
-  }
-}
-@media(max-width:560px){
-  .cleanNav a.active{min-width:96px!important;padding:0 10px!important}
-  .cleanDiscordCta{min-width:150px!important;padding:0 14px!important;font-size:11px!important}
-  .liveDiscordAssetBtn{min-width:210px!important;height:54px!important}
-}
-
-
-/* =========================================================
-   NAV ASSET SCALE CORRECTION — 2026-10-03
-   ========================================================= */
-.exactNavBar{
-  height:74px!important;
-  min-height:74px!important;
-  padding:0 22px!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png") center/100% 100% no-repeat!important;
-}
-.cleanNav{
-  height:74px!important;
-  gap:8px!important;
-  padding:7px 0!important;
-  align-items:center!important;
-}
-.cleanNav a{
-  min-width:170px!important;
-  height:58px!important;
-  padding:0 28px!important;
-  font-size:15px!important;
-  letter-spacing:.08em!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
-}
-.cleanNav a.active{
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-active.png") center/100% 100% no-repeat!important;
-}
-.cleanNavIcon{
-  font-size:18px!important;
-  margin-right:2px!important;
-}
-.cleanDiscordCta{
-  min-width:290px!important;
-  width:290px!important;
-  height:58px!important;
-  margin:8px 0 8px 18px!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
-  font-size:13px!important;
-}
-.cleanDiscordCta:hover{
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
-}
-.cleanDiscordCta:active{
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
-}
-
-/* hero Discord CTA uses the same button family, at a larger scale */
-.liveDiscordAssetBtn{
-  width:310px!important;
-  min-width:310px!important;
-  height:72px!important;
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
 }
 .liveDiscordAssetBtn:hover{
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
+  color:#fff1d7!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
 }
 .liveDiscordAssetBtn:active{
-  background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
 }
 
-/* stop clipping the feature cards */
-.assetFeatureStrip{
-  align-items:start!important;
-  padding-top:8px!important;
-}
-.assetFeatureStrip a{
-  height:auto!important;
-  min-height:0!important;
-  overflow:visible!important;
-}
-.assetFeatureStrip img{
-  width:100%!important;
-  height:auto!important;
-  min-height:0!important;
-  object-fit:contain!important;
-  transform:none!important;
-}
-
-/* give the hero buttons enough room so the large CTA is not clipped */
-.heroButtons{
-  align-items:center!important;
-  gap:18px!important;
-  overflow:visible!important;
-}
+/* Feature cards should never be cropped */
+.assetFeatureStrip{align-items:start!important;padding-top:8px!important}
+.assetFeatureStrip a{height:auto!important;min-height:0!important;overflow:visible!important}
+.assetFeatureStrip img{width:100%!important;height:auto!important;min-height:0!important;object-fit:contain!important;transform:none!important}
+.heroButtons{align-items:center!important;gap:18px!important;overflow:visible!important}
 
 @media(max-width:1450px){
-  .cleanNav a{min-width:145px!important;padding:0 20px!important}
-  .cleanDiscordCta{min-width:250px!important;width:250px!important}
+  .exactNavBar{padding:0 20px!important;gap:14px!important}
+  .cleanNav{gap:5px!important}
+  .cleanNav a{width:128px!important;min-width:128px!important;padding:0 12px!important;font-size:13px!important}
+  .cleanDiscordCta{flex-basis:220px!important;width:220px!important;min-width:220px!important}
 }
-@media(max-width:1200px){
-  .cleanNav a{min-width:120px!important;padding:0 14px!important;font-size:13px!important}
-  .cleanDiscordCta{min-width:215px!important;width:215px!important}
+@media(max-width:1120px){
+  .cleanNav a{width:108px!important;min-width:108px!important;font-size:12px!important}
+  .cleanDiscordCta{flex-basis:190px!important;width:190px!important;min-width:190px!important}
+}
+@media(max-width:900px){
+  .exactNavBar{height:58px!important;min-height:58px!important}
+  .cleanNav{height:58px!important}
+  .cleanNav a{display:none!important}
+  .cleanNav a.active{display:flex!important;width:118px!important;min-width:118px!important;height:46px!important}
+  .cleanDiscordCta{height:46px!important;flex-basis:180px!important;width:180px!important;min-width:180px!important;font-size:11px!important}
 }
