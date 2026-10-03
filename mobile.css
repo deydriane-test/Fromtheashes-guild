@@ -3371,3 +3371,138 @@ main{
     scroll-snap-align:start!important;
   }
 }
+
+
+/* =========================================================
+   MOBILE V2 — true phone navigation + spacing
+   Mobile-only. Desktop files are untouched.
+   ========================================================= */
+@media(max-width:700px){
+  /* Brand/header */
+  .exactBrandBar{
+    min-height:72px!important;
+    height:72px!important;
+    padding:7px 12px!important;
+  }
+  .liveBrandMark{
+    width:48px!important;
+    height:48px!important;
+    flex-basis:48px!important;
+  }
+  .liveBrandText strong{
+    font-size:19px!important;
+    line-height:.95!important;
+  }
+  .exactBrandBar .accountLinks{
+    flex-basis:48px!important;
+    width:48px!important;
+    min-width:48px!important;
+    max-width:48px!important;
+  }
+  .characterBarTrigger{
+    width:48px!important;
+    min-width:48px!important;
+    height:48px!important;
+  }
+  .characterAvatarSlot{
+    width:42px!important;
+    height:42px!important;
+    flex-basis:42px!important;
+  }
+
+  /* Six visible controls, no horizontal swipe required */
+  .exactNavBar{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,42px)!important;
+    gap:5px!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:7px 9px 9px!important;
+    overflow:visible!important;
+    background:
+      linear-gradient(180deg,rgba(10,14,18,.98),rgba(6,9,12,.98))!important;
+    border-top:1px solid #7d4a25!important;
+    border-bottom:1px solid #6d3f20!important;
+    box-shadow:0 8px 20px #0008!important;
+  }
+  .templateNav{
+    display:contents!important;
+  }
+  .templateTab,
+  .templateTab.tabHome.active{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    height:42px!important;
+    flex:none!important;
+    margin:0!important;
+    transform:none!important;
+    background-size:100% 100%!important;
+    background-position:center!important;
+  }
+  .templateDiscordCta{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    height:42px!important;
+    flex:none!important;
+    margin:0!important;
+    background-size:100% 100%!important;
+    background-position:center!important;
+  }
+
+  /* Hero top spacing */
+  .exactHero{
+    gap:12px!important;
+    padding:14px 12px 18px!important;
+  }
+  .exactHeroLeft h1{
+    font-size:clamp(44px,16.5vw,56px)!important;
+    margin-bottom:10px!important;
+  }
+  .exactHeroLeft p{
+    font-size:12px!important;
+    line-height:1.5!important;
+  }
+
+  /* Section rhythm */
+  .exactFeatureStrip{
+    padding-top:16px!important;
+    padding-bottom:14px!important;
+  }
+  .exactAnnouncement{
+    margin-top:0!important;
+    margin-bottom:14px!important;
+  }
+  .exactLowerGrid{
+    gap:9px!important;
+    padding-bottom:16px!important;
+  }
+
+  /* Avoid giant blank gaps from legacy long-form sections on phone.
+     They remain available as anchors/content on desktop. */
+  .leadership,
+  .rules,
+  .recruit{
+    padding-top:52px!important;
+    padding-bottom:52px!important;
+  }
+  footer{
+    padding:20px 14px!important;
+    gap:6px!important;
+    font-size:8px!important;
+  }
+}
+
+@media(max-width:360px){
+  .exactNavBar{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(3,40px)!important;
+  }
+  .templateTab,
+  .templateTab.tabHome.active,
+  .templateDiscordCta{
+    height:40px!important;
+  }
+}
