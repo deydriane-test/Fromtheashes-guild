@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "avatar_directory": "avatars",
+  "profile_frame": "ui/profile-account-frame.png",
+  "avatars": [
+    {
+      "id": "avatar-001",
+      "file": "avatars/avatar-001.webp"
+    },
+    {
+      "id": "avatar-002",
+      "file": "avatars/avatar-002.webp"
+    },
+    {
+      "id": "avatar-003",
+      "file": "avatars/avatar-003.webp"
+    },
+    {
+      "id": "avatar-004",
+      "file": "avatars/avatar-004.webp"
+    },
+    {
+      "id": "avatar-005",
+      "file": "avatars/avatar-005.webp"
+    },
+    {
+      "id": "avatar-006",
+      "file": "avatars/avatar-006.webp"
+    },
+    {
+      "id": "avatar-007",
+      "file": "avatars/avatar-007.webp"
+    },
+    {
+      "id": "avatar-008",
+      "file": "avatars/avatar-008.webp"
+    },
+    {
+      "id": "avatar-009",
+      "file": "avatars/avatar-009.webp"
+    },
+    {
+      "id": "avatar-010",
+      "file": "avatars/avatar-010.webp"
+    },
+    {
+      "id": "avatar-011",
+      "file": "avatars/avatar-011.webp"
+    },
+    {
+      "id": "avatar-012",
+      "file": "avatars/avatar-012.webp"
+    },
+    {
+      "id": "avatar-013",
+      "file": "avatars/avatar-013.webp"
+    },
+    {
+      "id": "avatar-014",
+      "file": "avatars/avatar-014.webp"
+    },
+    {
+      "id": "avatar-015",
+      "file": "avatars/avatar-015.webp"
+    },
+    {
+      "id": "avatar-016",
+      "file": "avatars/avatar-016.webp"
+    },
+    {
+      "id": "avatar-017",
+      "file": "avatars/avatar-017.webp"
+    },
+    {
+      "id": "avatar-018",
+      "file": "avatars/avatar-018.webp"
+    },
+    {
+      "id": "avatar-019",
+      "file": "avatars/avatar-019.webp"
+    },
+    {
+      "id": "avatar-020",
+      "file": "avatars/avatar-020.webp"
+    },
+    {
+      "id": "avatar-021",
+      "file": "avatars/avatar-021.webp"
+    },
+    {
+      "id": "avatar-022",
+      "file": "avatars/avatar-022.webp"
+    },
+    {
+      "id": "avatar-023",
+      "file": "avatars/avatar-023.webp"
+    },
+    {
+      "id": "avatar-024",
+      "file": "avatars/avatar-024.webp"
+    },
+    {
+      "id": "avatar-025",
+      "file": "avatars/avatar-025.webp"
+    },
+    {
+      "id": "avatar-026",
+      "file": "avatars/avatar-026.webp"
+    },
+    {
+      "id": "avatar-027",
+      "file": "avatars/avatar-027.webp"
+    },
+    {
+      "id": "avatar-028",
+      "file": "avatars/avatar-028.webp"
+    },
+    {
+      "id": "avatar-029",
+      "file": "avatars/avatar-029.webp"
+    },
+    {
+      "id": "avatar-030",
+      "file": "avatars/avatar-030.webp"
+    },
+    {
+      "id": "avatar-031",
+      "file": "avatars/avatar-031.webp"
+    },
+    {
+      "id": "avatar-032",
+      "file": "avatars/avatar-032.webp"
+    },
+    {
+      "id": "avatar-033",
+      "file": "avatars/avatar-033.webp"
+    },
+    {
+      "id": "avatar-034",
+      "file": "avatars/avatar-034.webp"
+    },
+    {
+      "id": "avatar-035",
+      "file": "avatars/avatar-035.webp"
+    },
+    {
+      "id": "avatar-036",
+      "file": "avatars/avatar-036.webp"
+    },
+    {
+      "id": "avatar-037",
+      "file": "avatars/avatar-037.webp"
+    },
+    {
+      "id": "avatar-038",
+      "file": "avatars/avatar-038.webp"
+    },
+    {
+      "id": "avatar-039",
+      "file": "avatars/avatar-039.webp"
+    },
+    {
+      "id": "avatar-040",
+      "file": "avatars/avatar-040.webp"
+    },
+    {
+      "id": "avatar-041",
+      "file": "avatars/avatar-041.webp"
+    },
+    {
+      "id": "avatar-042",
+      "file": "avatars/avatar-042.webp"
+    },
+    {
+      "id": "avatar-043",
+      "file": "avatars/avatar-043.webp"
+    },
+    {
+      "id": "avatar-044",
+      "file": "avatars/avatar-044.webp"
+    }
+  ]
+}
