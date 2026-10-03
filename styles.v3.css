@@ -1809,3 +1809,65 @@ main{padding-top:208px!important}
 @media(max-width:520px){
   .exactBrandBar .exactBrandLockup img.exactBrandImage{width:min(280px,66vw)!important;max-height:58px!important}
 }
+
+
+/* Live transparent header branding — matches approved reference */
+.liveBrandLockup{
+  display:flex!important;
+  align-items:center!important;
+  gap:18px!important;
+  width:auto!important;
+  max-width:none!important;
+  overflow:visible!important;
+  text-decoration:none!important;
+}
+.liveBrandMark{
+  width:132px!important;
+  height:118px!important;
+  max-width:none!important;
+  object-fit:contain!important;
+  display:block!important;
+  filter:drop-shadow(0 0 16px rgba(255,94,24,.5))!important;
+}
+.liveBrandText{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:8px!important;
+  min-width:0!important;
+}
+.liveBrandText strong{
+  display:block!important;
+  font-family:"Bodoni Moda",Georgia,serif!important;
+  font-size:clamp(48px,4.4vw,74px)!important;
+  line-height:.88!important;
+  font-weight:600!important;
+  color:#f3ece4!important;
+  letter-spacing:.015em!important;
+  white-space:nowrap!important;
+  text-shadow:
+    0 2px 0 #31170c,
+    0 0 16px rgba(255,104,35,.18)!important;
+}
+.liveBrandText small{
+  display:block!important;
+  font:700 13px "Rajdhani",sans-serif!important;
+  letter-spacing:.23em!important;
+  color:#ece2d7!important;
+  white-space:nowrap!important;
+}
+.exactBrandBar .exactBrandLockup img.exactBrandImage{display:none!important}
+@media(max-width:1200px){
+  .liveBrandMark{width:112px!important;height:100px!important}
+  .liveBrandText strong{font-size:44px!important}
+  .liveBrandText small{font-size:11px!important;letter-spacing:.19em!important}
+}
+@media(max-width:800px){
+  .liveBrandLockup{gap:10px!important}
+  .liveBrandMark{width:64px!important;height:58px!important}
+  .liveBrandText strong{font-size:25px!important}
+  .liveBrandText small{display:none!important}
+}
+@media(max-width:520px){
+  .liveBrandMark{width:54px!important;height:50px!important}
+  .liveBrandText strong{font-size:20px!important}
+}
