@@ -1681,7 +1681,7 @@ main{padding-top:208px!important}
 .exactBrandBar{
   background:
     linear-gradient(90deg,rgba(4,7,10,.22),rgba(4,7,10,.02) 58%,rgba(4,7,10,.18)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
 }
 .exactBrandLockup{
   display:flex!important;align-items:center!important;text-decoration:none!important;
@@ -1713,7 +1713,7 @@ main{padding-top:208px!important}
 .exactHeroBg{
   background:
     linear-gradient(90deg,rgba(2,5,8,.08),rgba(2,5,8,.03) 55%,rgba(2,5,8,.52)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
   filter:none!important;
 }
 .assetHeroButton{
@@ -1724,9 +1724,9 @@ main{padding-top:208px!important}
 .assetHeroButton:hover{transform:none!important;box-shadow:none!important}
 .learnButton img{max-width:240px}
 
-.thumbRaid{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important}
-.thumbExpedition{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important}
-.thumbElysium{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important}
+.thumbRaid{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important}
+.thumbExpedition{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important}
+.thumbElysium{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important}
 
 .assetFeatureStrip{
   display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:14px!important;
@@ -2005,7 +2005,7 @@ main{
   justify-content:space-between!important;
   gap:24px!important;
   background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png") center/100% 100% no-repeat,
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png") center/100% 100% no-repeat,
     #080b0e!important;
   border:0!important;
   box-shadow:0 5px 18px rgba(0,0,0,.45)!important;
@@ -2034,7 +2034,7 @@ main{
   text-decoration:none!important;
   font:700 14px "Rajdhani",sans-serif!important;
   letter-spacing:.09em!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
   box-shadow:none!important;
   clip-path:none!important;
   white-space:nowrap!important;
@@ -2046,7 +2046,7 @@ main{
 }
 .cleanNav a.active{
   color:#ffe0ae!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-active.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-active.png") center/100% 100% no-repeat!important;
   filter:none!important;
 }
 .cleanNavIcon{
@@ -2075,14 +2075,14 @@ main{
   font:800 13px "Rajdhani",sans-serif!important;
   letter-spacing:.08em!important;
   text-shadow:0 1px 4px #000!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
 }
 .cleanDiscordCta:hover{
   color:#fff1d7!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
 }
 .cleanDiscordCta:active{
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
 }
 .discordGlyph{font-size:17px!important;color:currentColor!important}
 
@@ -2103,14 +2103,14 @@ main{
   text-decoration:none!important;
   font:800 13px "Rajdhani",sans-serif!important;
   letter-spacing:.08em!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
 }
 .liveDiscordAssetBtn:hover{
   color:#fff1d7!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
 }
 .liveDiscordAssetBtn:active{
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
 }
 
 /* Feature cards should never be cropped */
