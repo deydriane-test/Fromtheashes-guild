@@ -2677,3 +2677,37 @@ main{
     padding-right:20px!important;
   }
 }
+
+
+/* =========================================================
+   NAV ROW CLEANUP — remove duplicate Discord + vertical alignment
+   ========================================================= */
+.templateDiscordTab{display:none!important}
+
+.exactNavBar{
+  align-items:center!important;
+}
+
+.templateNav{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+}
+
+.templateTab{
+  align-self:center!important;
+  margin-top:0!important;
+  margin-bottom:0!important;
+  background-position:center center!important;
+}
+
+/* Keep the active HOME artwork centered even though its glow/diamond is taller. */
+.templateTab.tabHome.active{
+  background-position:center center!important;
+}
+
+.templateDiscordCta{
+  align-self:center!important;
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
