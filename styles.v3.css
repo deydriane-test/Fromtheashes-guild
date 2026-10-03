@@ -2763,3 +2763,79 @@ main{
 .thumbElysium{
   background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important;
 }
+
+
+/* =========================================================
+   SINGLE TOP SCENE — header + nav + hero share image #2
+   ========================================================= */
+.topScene{
+  position:relative!important;
+  z-index:2!important;
+  background:
+    linear-gradient(90deg,rgba(3,6,9,.30) 0%,rgba(3,6,9,.08) 45%,rgba(3,6,9,.20) 100%),
+    linear-gradient(180deg,rgba(2,4,7,.08) 0%,rgba(2,4,7,.02) 58%,rgba(2,4,7,.28) 100%),
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 40%/cover no-repeat!important;
+  overflow:visible!important;
+}
+.topScene:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(circle at 16% 17%,rgba(255,111,35,.08),transparent 26%),
+    linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.10));
+}
+.topScene > .siteHeader,
+.topScene > .exactHero{
+  position:relative!important;
+  z-index:1!important;
+}
+
+.siteHeader{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  right:auto!important;
+  background:transparent!important;
+  backdrop-filter:none!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+.exactBrandBar{
+  background:transparent!important;
+  border-bottom:0!important;
+  overflow:visible!important;
+}
+.exactBrandBar:before{
+  background:linear-gradient(90deg,rgba(2,5,8,.20),rgba(2,5,8,.02) 58%,rgba(2,5,8,.13))!important;
+}
+.exactBrandBar:after{
+  opacity:.30!important;
+}
+.exactHero{
+  background:transparent!important;
+}
+.exactHeroBg{
+  display:none!important;
+}
+.exactHero:after{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.12),transparent 55%,rgba(0,0,0,.08)),
+    linear-gradient(180deg,rgba(0,0,0,.02),transparent 64%,rgba(0,0,0,.32))!important;
+}
+main{
+  padding-top:0!important;
+}
+
+/* account menu remains above the shared artwork */
+.siteHeader,
+.exactBrandBar,
+.accountLinks,
+.accountMenu{
+  overflow:visible!important;
+}
+.accountDropdown{
+  z-index:10000!important;
+}
