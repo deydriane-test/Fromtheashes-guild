@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="535" height="127" viewBox="0 0 535 127" fill="none">
+<defs>
+  <linearGradient id="edge" x1="30" y1="8" x2="505" y2="119" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#ffb24a"/>
+    <stop offset=".22" stop-color="#ff5a1f"/>
+    <stop offset=".55" stop-color="#ff2f12"/>
+    <stop offset=".82" stop-color="#ff8b32"/>
+    <stop offset="1" stop-color="#ff3b17"/>
+  </linearGradient>
+  <linearGradient id="inner" x1="40" y1="15" x2="495" y2="112" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#1b1513" stop-opacity=".96"/>
+    <stop offset=".5" stop-color="#090b0d" stop-opacity=".94"/>
+    <stop offset="1" stop-color="#17110f" stop-opacity=".96"/>
+  </linearGradient>
+  <linearGradient id="text" x1="300" y1="30" x2="300" y2="101" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#fff"/>
+    <stop offset="1" stop-color="#ff7a2c"/>
+  </linearGradient>
+  <filter id="glow" x="-30%" y="-60%" width="160%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft" x="-30%" y="-100%" width="160%" height="300%">
+    <feGaussianBlur stdDeviation="2.5"/>
+  </filter>
+</defs>
+<path d="M34 5H501Q530 5 530 34V93Q530 122 501 122H34Q5 122 5 93V34Q5 5 34 5Z" stroke="#ff4a18" stroke-opacity=".25" stroke-width="10" filter="url(#soft)"/>
+<path d="M34 5H501Q530 5 530 34V93Q530 122 501 122H34Q5 122 5 93V34Q5 5 34 5Z" fill="url(#inner)" stroke="url(#edge)" stroke-width="3"/>
+<path d="M38 12H497Q522 12 522 37V90Q522 115 497 115H38Q13 115 13 90V37Q13 12 38 12Z" stroke="#ff6a28" stroke-opacity=".28" stroke-width="1"/>
+<path d="M39 15H496" stroke="#fff" stroke-opacity=".13"/>
+<g filter="url(#glow)">
+  <path d="M64 38c-9 4-15 17-16 30 7 5 14 8 21 10l5-7c-6-2-10-4-14-7 1 1 3 2 5 3 10 5 21 7 32 7s22-2 32-7c2-1 4-2 5-3-4 3-8 5-14 7l5 7c7-2 14-5 21-10-1-13-7-26-16-30-5-2-10-4-15-5l-3 6c-5-1-10-1-15-1s-10 0-15 1l-3-6c-5 1-10 3-15 5Z" fill="#151719" stroke="#ff5a1f" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="75" cy="69" r="7" fill="#ff5a1f"/>
+  <circle cx="119" cy="69" r="7" fill="#ff5a1f"/>
+  <circle cx="75" cy="69" r="3" fill="#101214"/>
+  <circle cx="119" cy="69" r="3" fill="#101214"/>
+</g>
+<text x="164" y="52" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" letter-spacing="2.5" fill="#fff">SIGN IN WITH</text>
+<text x="164" y="87" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="800" letter-spacing="1.2" fill="url(#text)">DISCORD</text>
+<path d="M410 42L434 66M434 42L410 66" stroke="#fff" stroke-width="3" stroke-linecap="square"/>
+<path d="M425 42H434V51" stroke="#ff6a28" stroke-width="3" stroke-linecap="square"/>
+<circle cx="477" cy="31" r="1.8" fill="#ff9a43"/><circle cx="492" cy="96" r="1.5" fill="#ff5420"/><circle cx="45" cy="96" r="1.5" fill="#ff9a43"/>
+</svg>
