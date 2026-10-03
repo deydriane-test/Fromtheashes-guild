@@ -3807,3 +3807,127 @@ main{
     grid-template-columns:1fr!important;
   }
 }
+
+
+/* =========================================================
+   MOBILE V6 — compact header menu
+   ========================================================= */
+@media(max-width:700px){
+  .mobileNavDropdown,
+  .mobilePrimaryNav{
+    display:none!important;
+  }
+
+  .exactBrandBar{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto auto!important;
+    align-items:center!important;
+    gap:8px!important;
+    height:68px!important;
+    min-height:68px!important;
+    padding:7px 10px!important;
+  }
+
+  .liveBrandLockup{
+    min-width:0!important;
+    max-width:none!important;
+  }
+
+  .mobileHeaderControls{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .mobileMenuButton{
+    height:38px!important;
+    min-width:78px!important;
+    padding:0 10px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:6px!important;
+    appearance:none!important;
+    -webkit-appearance:none!important;
+    border:1px solid #8e5429!important;
+    border-radius:0!important;
+    background:linear-gradient(180deg,#21160f,#0b0d10)!important;
+    color:#efe8df!important;
+    font:800 9px "Rajdhani",sans-serif!important;
+    letter-spacing:.10em!important;
+    clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;
+    box-shadow:inset 0 0 10px rgba(255,112,36,.08)!important;
+  }
+
+  .mobileMenuGlyph{
+    color:#ffae64!important;
+    font-size:13px!important;
+    line-height:1!important;
+  }
+
+  .exactBrandBar .accountLinks{
+    width:44px!important;
+    min-width:44px!important;
+    max-width:44px!important;
+    flex-basis:44px!important;
+  }
+  .characterBarTrigger{
+    width:44px!important;
+    min-width:44px!important;
+    height:44px!important;
+  }
+  .characterAvatarSlot{
+    width:38px!important;
+    height:38px!important;
+    flex-basis:38px!important;
+  }
+
+  .mobileMenuPanel{
+    position:absolute!important;
+    top:68px!important;
+    left:10px!important;
+    right:10px!important;
+    z-index:1000!important;
+    padding:8px!important;
+    background:#070b0ff7!important;
+    border:1px solid #664126!important;
+    box-shadow:0 16px 32px #000d!important;
+  }
+  .mobileMenuPanel[hidden]{
+    display:none!important;
+  }
+  .mobileMenuPanel nav{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:7px!important;
+  }
+  .mobileMenuPanel a{
+    height:38px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-decoration:none!important;
+    color:#ddd8d2!important;
+    font:800 10px "Rajdhani",sans-serif!important;
+    letter-spacing:.10em!important;
+    background:linear-gradient(180deg,#12181d,#090d11)!important;
+    border:1px solid #303941!important;
+    clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;
+  }
+  .mobileMenuPanel a:first-child{
+    color:#ffe1b8!important;
+    border-color:#b9672c!important;
+    background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
+  }
+}
+
+@media(max-width:360px){
+  .liveBrandText strong{font-size:16px!important}
+  .mobileMenuButton{
+    min-width:70px!important;
+    padding:0 8px!important;
+  }
+  .mobileMenuPanel nav{
+    grid-template-columns:1fr!important;
+  }
+}
