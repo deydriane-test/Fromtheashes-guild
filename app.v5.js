@@ -3,119 +3,25 @@ document.documentElement.classList.toggle("device-phone",isPhone);
 document.documentElement.classList.toggle("device-computer",!isPhone);
 
 const c=window.GUILD_CONFIG||{};
-const SOURCE_TZ=c.timezone||"America/Chicago";
 
 for(const id of ["discordTop","discordHero","discordRecruit","discordRecruitBottom"]){
   const a=document.getElementById(id);
   if(a)a.href=c.discordUrl||"#recruit";
 }
 
-function partsInZone(date,timeZone){
-  const parts=new Intl.DateTimeFormat("en-US",{
-    timeZone,year:"numeric",month:"2-digit",day:"2-digit",
-    hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23",
-    weekday:"short"
-  }).formatToParts(date);
-  return Object.fromEntries(parts.filter(p=>p.type!=="literal").map(p=>[p.type,p.value]));
-}
-
-function zoneOffsetMs(date,timeZone){
-  const p=partsInZone(date,timeZone);
-  const asUTC=Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute,+p.second);
-  return asUTC-date.getTime();
-}
-
-function wallTimeToUtc(year,month,day,hour,minute,timeZone){
-  let guess=new Date(Date.UTC(year,month-1,day,hour,minute,0));
-  for(let i=0;i<3;i++){
-    const offset=zoneOffsetMs(guess,timeZone);
-    guess=new Date(Date.UTC(year,month-1,day,hour,minute,0)-offset);
+const eventTools=window.GuildEvents;
+let publicEvents=eventTools.read({},c.events||{});
+function renderAllEvents(){
+  const upcoming=eventTools.ordered(publicEvents);
+  for(const [id,limit] of [["upcomingEventList",3],["allEventList",Infinity]]){
+    const list=document.getElementById(id);if(!list)continue;
+    list.replaceChildren();
+    if(!upcoming.length){const empty=document.createElement("p");empty.className="eventsEmpty";empty.textContent="No upcoming events yet. Check back soon.";list.append(empty);}
+    else upcoming.slice(0,limit).forEach(({event,instant})=>list.append(eventTools.card(event,instant)));
   }
-  return guess;
+  const count=document.getElementById("allEventCount");if(count)count.textContent=upcoming.length+" UPCOMING";
 }
-
-const DAY_INDEX={Sunday:0,Monday:1,Tuesday:2,Wednesday:3,Thursday:4,Friday:5,Saturday:6};
-
-function nextEventInstant(event){
-  if(!event?.day||!event?.time)return null;
-  const [hour,minute]=String(event.time).split(":").map(Number);
-  if(!Number.isFinite(hour)||!Number.isFinite(minute))return null;
-
-  const now=new Date();
-  const src=partsInZone(now,SOURCE_TZ);
-  const currentY=+src.year,currentM=+src.month,currentD=+src.day;
-  const srcWeekday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(src.weekday);
-  const target=DAY_INDEX[event.day] ?? 0;
-  let delta=(target-srcWeekday+7)%7;
-
-  let candidateDate=new Date(Date.UTC(currentY,currentM-1,currentD+delta));
-  let y=candidateDate.getUTCFullYear(),m=candidateDate.getUTCMonth()+1,d=candidateDate.getUTCDate();
-  let instant=wallTimeToUtc(y,m,d,hour,minute,SOURCE_TZ);
-  if(instant<=now){
-    candidateDate=new Date(Date.UTC(y,m-1,d+7));
-    y=candidateDate.getUTCFullYear();m=candidateDate.getUTCMonth()+1;d=candidateDate.getUTCDate();
-    instant=wallTimeToUtc(y,m,d,hour,minute,SOURCE_TZ);
-  }
-  return instant;
-}
-
-function formatLocalEvent(event){
-  const instant=nextEventInstant(event);
-  if(!instant)return null;
-  const localZone=Intl.DateTimeFormat().resolvedOptions().timeZone||"UTC";
-  const weekday=new Intl.DateTimeFormat("en-US",{weekday:"long",timeZone:localZone}).format(instant);
-  const time=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:localZone}).format(instant);
-  const zone=new Intl.DateTimeFormat("en-US",{timeZoneName:"short",timeZone:localZone}).formatToParts(instant).find(p=>p.type==="timeZoneName")?.value||localZone;
-  return{weekday,time,zone,instant,localZone};
-}
-
-function renderEvent(prefix,event){
-  const meta=document.getElementById(prefix+"Meta");
-  const timeEl=document.getElementById(prefix);
-  if(!meta&&!timeEl)return;
-  if(!event?.enabled){
-    if(meta)meta.textContent="SCHEDULE COMING SOON";
-    if(timeEl)timeEl.textContent="TBD";
-    return;
-  }
-  const local=formatLocalEvent(event);
-  if(!local){
-    if(meta)meta.textContent=(event.day||"").toUpperCase()+" • "+(event.time||"");
-    if(timeEl)timeEl.textContent=event.time||"";
-    return;
-  }
-  if(meta)meta.textContent=`${local.weekday.toUpperCase()} • ${local.time} ${local.zone}`;
-  if(timeEl)timeEl.textContent=local.time.replace(" ","\u00a0");
-}
-
-function renderAllEvents(events){
-  renderEvent("raid",events?.raid);
-  renderEvent("expedition",events?.expedition);
-  renderEvent("elysium",events?.elysium);
-
-  const heroMap=[
-    ["heroRaidMeta",events?.raid],
-    ["heroExpeditionMeta",events?.expedition],
-    ["heroElysiumMeta",events?.elysium]
-  ];
-  heroMap.forEach(([id,event])=>{
-    const el=document.getElementById(id);
-    const local=formatLocalEvent(event);
-    if(el&&local)el.textContent=local.weekday.toUpperCase()+" • "+local.time+" "+local.zone;
-  });
-
-  const primary=formatLocalEvent(events?.raid||events?.expedition||events?.elysium);
-  const stickyDay=document.getElementById("stickyEventDay");
-  const stickyTime=document.getElementById("stickyEventTime");
-  const stickyZone=document.getElementById("stickyEventZone");
-  if(primary){
-    if(stickyDay)stickyDay.textContent=primary.weekday.toUpperCase()+" NIGHT";
-    if(stickyTime)stickyTime.textContent=primary.time;
-    if(stickyZone)stickyZone.textContent="Your local time • "+primary.zone;
-  }
-}
-
-renderAllEvents(c.events||{});
+renderAllEvents();
 
 const revealObserver=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
@@ -264,13 +170,8 @@ async function loadPublicContent(){
     ann.hidden=false;annText.textContent=guild.announcement;
   }
 
-  const dbEvents=sections.events||{};
-  const merged={
-    raid:{...(c.events?.raid||{}),...(dbEvents.raid||{}),enabled:true},
-    expedition:{...(c.events?.expedition||{}),...(dbEvents.expedition||{}),enabled:true},
-    elysium:{day:"Sunday",time:"20:55",enabled:true,...(dbEvents.elysium||{})}
-  };
-  renderAllEvents(merged);
+  publicEvents=eventTools.read(sections.events||{},c.events||{});
+  renderAllEvents();
 
   const leadership=sections.leadership||{};
   document.querySelectorAll(".leader").forEach(card=>{
@@ -289,3 +190,7 @@ if(appSupabase){
 window.addEventListener("beforeunload",()=>{try{presenceChannel?.untrack()}catch(_){}});
 syncHomeAuth();
 loadPublicContent();
+
+// Reorder at schedule boundaries and pick up newly published events while the page is open.
+setInterval(()=>{if(!document.hidden){renderAllEvents();loadPublicContent();}},60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderAllEvents();loadPublicContent();}});

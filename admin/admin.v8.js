@@ -23,7 +23,7 @@ async function getProfile(user){
 
 function switchTab(tab){
  document.querySelectorAll(".adminTab").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
- $("rosterTab").hidden=tab!=="roster";$("contentTabPanel").hidden=tab!=="content";
+ $("rosterTab").hidden=tab!=="roster";$("contentTabPanel").hidden=tab!=="content";$("eventsTabPanel").hidden=tab!=="events";
 }
 document.querySelectorAll(".adminTab").forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
 
@@ -58,24 +58,22 @@ async function addTag(rosterId,name){const tag=prompt("Tag for "+name+" (example
 function set(id,value){const x=$(id);if(x)x.value=value||""}
 function get(id){return $(id)?.value.trim()||""}
 function renderContent(){
- const g=content.guild||{},e=content.events||{},l=content.leadership||{};
+ const g=content.guild||{},l=content.leadership||{};
  set("announcement",g.announcement);set("activityRule",g.activity_rule);set("discordUrl",g.discord);
- set("raidDay",e.raid?.day);set("raidTime",e.raid?.time);set("expeditionDay",e.expedition?.day);set("expeditionTime",e.expedition?.time);set("elysiumDay",e.elysium?.day);set("elysiumTime",e.elysium?.time);
  const box=$("leaderEditors");box.innerHTML="";
  ["Deydriane","Aveo","KK779","SaintlyDevil","Draeconia"].forEach(name=>{const wrap=document.createElement("label");wrap.className="leaderEditor";const title=document.createElement("strong");title.textContent=name;const input=document.createElement("textarea");input.rows=3;input.dataset.leader=name;input.value=l[name]?.bio||"";wrap.append(title,input);box.append(wrap)})
 }
 async function loadContent(){
- const {data,error}=await client.from("site_content").select("section,content").in("section",["guild","events","leadership"]);
- if(error){$("contentStatus").textContent="COULDN’T LOAD SITE CONTENT.";$("contentStatus").className="formStatus error";console.error(error);return}
- content={guild:{},events:{},leadership:{}};(data||[]).forEach(row=>content[row.section]=row.content||{});renderContent();
+ const {data,error}=await client.from("site_content").select("section,content,updated_at").in("section",["guild","events","leadership"]);
+ if(error){window.AdminEvents.load(null);$("contentStatus").textContent="COULDN’T LOAD SITE CONTENT.";$("contentStatus").className="formStatus error";console.error(error);return}
+ content={guild:{},events:{},leadership:{}};(data||[]).forEach(row=>content[row.section]=row.content||{});renderContent();window.AdminEvents.load((data||[]).find(row=>row.section==="events"));
 }
 $("contentForm").onsubmit=async e=>{
  e.preventDefault();if(!canEditContent())return;const status=$("contentStatus");status.className="formStatus";status.textContent="SAVING…";
  const guild={...content.guild,announcement:get("announcement"),activity_rule:get("activityRule"),discord:get("discordUrl")};
- const events={...content.events,raid:{day:get("raidDay"),time:get("raidTime")},expedition:{day:get("expeditionDay"),time:get("expeditionTime")},elysium:{day:get("elysiumDay"),time:get("elysiumTime")}};
  const leadership={...content.leadership};document.querySelectorAll(".leaderEditor textarea").forEach(x=>leadership[x.dataset.leader]={...(leadership[x.dataset.leader]||{}),bio:x.value.trim()});
- for(const row of [{section:"guild",content:guild},{section:"events",content:events},{section:"leadership",content:leadership}]){const {error}=await client.from("site_content").update({content:row.content,updated_at:new Date().toISOString()}).eq("section",row.section);if(error){status.textContent="COULDN’T SAVE "+row.section.toUpperCase()+". CHECK YOUR PERMISSIONS.";status.className="formStatus error";return}}
- content={guild,events,leadership};status.textContent="SITE CONTENT SAVED.";status.className="formStatus success";
+ for(const row of [{section:"guild",content:guild},{section:"leadership",content:leadership}]){const {error}=await client.from("site_content").update({content:row.content,updated_at:new Date().toISOString()}).eq("section",row.section);if(error){status.textContent="COULDN’T SAVE "+row.section.toUpperCase()+". CHECK YOUR PERMISSIONS.";status.className="formStatus error";return}}
+ content={...content,guild,leadership};status.textContent="SITE CONTENT SAVED.";status.className="formStatus success";
 };
 
 $("logoutBtn").onclick=async()=>{try{await client.auth.signOut()}finally{window.location.replace("../")}};
@@ -98,7 +96,7 @@ async function boot(){
   if(!canAdmin()){show("accessPanel");setAccess("Your current guild role does not have administration access.");showAdminLogin(false);return}
   show("dashboard");
   showAdminLogin(false);
-  $("contentTab").hidden=!canEditContent();
+  $("contentTab").hidden=!canEditContent();$("eventsTab").hidden=!canEditContent();
   await loadRoster();
   if(canEditContent())await loadContent();
  }catch(error){
@@ -112,4 +110,5 @@ $("discordAdminLogin")?.addEventListener("click",signInAdmin);
 client.auth.onAuthStateChange((event)=>{
  if(event==="SIGNED_OUT")window.location.replace("../");
 });
+window.AdminEvents.init(client,canEditContent);
 boot();

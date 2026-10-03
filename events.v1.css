@@ -1,0 +1,31 @@
+/* Shared event cards override older fixed-event styles on desktop and phone. */
+.managedEventCard{display:grid;align-items:center;position:relative;border:1px solid #26343d;margin-top:8px;min-height:88px;--event-accent:#ff5d42;--event-wash:#261310;grid-template-columns:76px minmax(0,1fr) 145px!important;gap:12px!important;padding:10px!important;background:linear-gradient(100deg,var(--event-wash),#0a1015 68%)!important;min-width:0}
+.managedEventCard:before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:3px;background:var(--event-accent)!important}
+.managedEventCard .eventThumb{display:block;width:76px!important;height:76px!important;object-fit:cover;object-position:center;border:1px solid #3b464d;align-self:start}
+.managedEventCard .eventCopy{min-width:0}
+.managedEventCard .eventCopy small{display:block;font:800 11px "Rajdhani",sans-serif;letter-spacing:.1em;color:var(--event-accent)!important;line-height:1.4!important;overflow-wrap:anywhere}
+.managedEventCard .eventCopy strong{display:block;color:#f3eee8;font:600 19px "Bodoni Moda",Georgia,serif;font-size:19px!important;line-height:1.2!important;overflow-wrap:anywhere;margin:3px 0 6px!important}
+.managedEventCard .eventCopy span{display:block;color:#9fa9ae;font-size:12px!important;line-height:1.5!important;white-space:pre-wrap;overflow-wrap:anywhere}
+.managedEventCard .eventWhen b{display:block;color:#e6edf0;font:500 20px "Bodoni Moda",Georgia,serif;font-size:20px!important;line-height:1.25!important}
+.managedEventCard .eventWhen span{display:block;margin-top:5px;font:600 10px "Rajdhani",sans-serif;color:var(--event-accent)!important;font-size:10px!important;line-height:1.4!important;letter-spacing:.04em}
+.eventsEmpty{color:#aab3ba;font-size:13px;line-height:1.6;padding:15px 5px}
+.allEventsSection{scroll-margin-top:95px;max-width:1500px;margin:0 auto;padding:50px 5vw;background:#080d11}
+.allEventsHead{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.allEventsHead h2{font:600 clamp(24px,4vw,38px) 'Bodoni Moda',Georgia,serif;color:#f5efe7;margin:7px 0}
+#allEventCount{color:#9fa9ae;font:700 12px 'Rajdhani',sans-serif;white-space:nowrap}
+.eventsTimeNote{color:#aab3ba;font-size:12px;line-height:1.6;margin:10px 0 20px}
+.allEventList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.allEventList .managedEventCard{margin:0}
+@media(max-width:700px){
+ .managedEventCard{grid-template-columns:58px minmax(0,1fr)!important;gap:9px!important;padding:9px!important}
+ .managedEventCard .eventThumb{width:58px!important;height:58px!important}
+ .managedEventCard .eventCopy small{font-size:9px!important}
+ .managedEventCard .eventCopy strong{display:block;color:#f3eee8;font:600 19px "Bodoni Moda",Georgia,serif;font-size:16px!important;line-height:1.2!important}
+ .managedEventCard .eventCopy span{font-size:11px!important;line-height:1.45!important}
+ .managedEventCard .eventWhen{grid-column:2!important;margin-top:2px!important}
+ .managedEventCard .eventWhen b{display:block;color:#e6edf0;font:500 20px "Bodoni Moda",Georgia,serif;font-size:18px!important}
+ .managedEventCard .eventWhen span{font-size:9px!important}
+ .allEventsSection{padding:30px 5vw}
+ .allEventList{grid-template-columns:1fr}
+ .allEventsHead{align-items:start;flex-direction:column;gap:0}
+}

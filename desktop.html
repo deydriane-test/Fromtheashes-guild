@@ -6,6 +6,7 @@
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
 <link rel="stylesheet" href="desktop.css?v=20261003-bars5">
 <link rel="stylesheet" href="character-bars.css?v=20261003-bars5">
+<link rel="stylesheet" href="events.v1.css?v=20261003-events1">
 </head>
 <body>
 <div class="embers"></div>
@@ -68,39 +69,7 @@
   <aside class="exactUpcoming" id="events">
     <div class="exactPanelHead"><span>▣ &nbsp; UPCOMING EVENTS</span><a href="#eventsDetail">View All →</a></div>
 
-    <div class="exactEventCard raidEvent">
-      <div class="eventThumb thumbRaid"></div>
-      <div class="eventCopy">
-        <small>GUILD RAID</small>
-        <strong>RF Online Next</strong>
-        <span>Boss Progression • Guild Run</span>
-      </div>
-      <div class="eventWhen"><b id="raid">7:00 PM</b><span id="raidMeta">SUNDAY • LOCAL TIME</span></div>
-      <div class="eventArrow">›</div>
-    </div>
-
-    <div class="exactEventCard expeditionEvent">
-      <div class="eventThumb thumbExpedition"></div>
-      <div class="eventCopy">
-        <small>GUILD EXPEDITION</small>
-        <strong>RF Online Next</strong>
-        <span>Exploration • Objectives • Rewards</span>
-      </div>
-      <div class="eventWhen"><b id="expedition">7:00 PM</b><span id="expeditionMeta">SUNDAY • LOCAL TIME</span></div>
-      <div class="eventArrow">›</div>
-    </div>
-
-    <div class="exactEventCard elysiumEvent">
-      <div class="eventThumb thumbElysium"></div>
-      <div class="eventCopy">
-        <small>ELYSIUM</small>
-        <strong>RF Online Next</strong>
-        <span>Farming • Gear • Community</span>
-      </div>
-      <div class="eventWhen"><b id="elysium">8:55 PM</b><span id="elysiumMeta">SUNDAY • LOCAL TIME</span></div>
-      <div class="eventArrow">›</div>
-    </div>
-    <span id="heroRaidMeta" hidden></span><span id="heroExpeditionMeta" hidden></span><span id="heroElysiumMeta" hidden></span><span id="stickyEventZone" hidden></span>
+    <div id="upcomingEventList"><p class="eventsEmpty">Loading upcoming events…</p></div>
   </aside>
 </section>
 </div>
@@ -129,7 +98,11 @@
 
 <section id="about" class="exactAboutAnchor"></section>
 <section id="roster" class="exactRosterAnchor"></section>
-<section id="eventsDetail" class="exactEventsAnchor"></section>
+<section id="eventsDetail" class="allEventsSection">
+  <div class="allEventsHead"><div><span class="eyebrow">GUILD CALENDAR</span><h2>UPCOMING EVENTS</h2></div><span id="allEventCount"></span></div>
+  <p class="eventsTimeNote">Times are shown in your local time. Weekly events display their next occurrence.</p>
+  <div id="allEventList" class="allEventList"></div>
+</section>
 <section id="leadership" class="leadership reveal">
   <div class="eyebrow">LEADERSHIP</div>
   <div class="sectionHead">
@@ -165,6 +138,6 @@
 </main>
 
 <footer><span>FROM THE ASHES</span><span>RF ONLINE NEXT • MULTI-GAME COMMUNITY</span><span>© 2026</span></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-bars5"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="events.v1.js?v=20261003-events1"></script><script src="app.v5.js?v=20261003-events1"></script>
 </body>
 </html>
