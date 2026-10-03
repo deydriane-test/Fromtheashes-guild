@@ -2136,3 +2136,54 @@ main{
   .cleanNav a.active{display:flex!important;width:118px!important;min-width:118px!important;height:46px!important}
   .cleanDiscordCta{height:46px!important;flex-basis:180px!important;width:180px!important;min-width:180px!important;font-size:11px!important}
 }
+
+/* Hero Discord CTA fallback frame — visible even if raster skin fails */
+.heroButtons .liveDiscordAssetBtn{
+  position:relative!important;
+  width:290px!important;
+  min-width:290px!important;
+  height:64px!important;
+  padding:0 34px!important;
+  box-sizing:border-box!important;
+  overflow:visible!important;
+  background:
+    linear-gradient(180deg,rgba(43,25,13,.96),rgba(13,10,9,.98))!important;
+  border:1px solid #b96a2d!important;
+  outline:1px solid rgba(255,143,56,.18)!important;
+  clip-path:polygon(7% 0,93% 0,100% 24%,100% 76%,93% 100%,7% 100%,0 76%,0 24%)!important;
+  box-shadow:
+    inset 0 0 0 2px #21140d,
+    inset 0 0 18px rgba(255,103,28,.14),
+    0 0 0 1px #3b2112,
+    0 0 16px rgba(255,92,20,.22)!important;
+  color:#ffe0ad!important;
+}
+.heroButtons .liveDiscordAssetBtn:before,
+.heroButtons .liveDiscordAssetBtn:after{
+  content:""!important;
+  position:absolute!important;
+  left:18%!important;
+  right:18%!important;
+  height:2px!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,transparent,#ff6c20 25%,#ffc06a 50%,#ff6c20 75%,transparent)!important;
+  box-shadow:0 0 8px rgba(255,103,29,.85)!important;
+}
+.heroButtons .liveDiscordAssetBtn:before{top:-1px!important}
+.heroButtons .liveDiscordAssetBtn:after{bottom:-1px!important}
+.heroButtons .liveDiscordAssetBtn:hover{
+  color:#fff2d5!important;
+  background:linear-gradient(180deg,rgba(60,31,14,.98),rgba(18,11,8,.98))!important;
+  box-shadow:
+    inset 0 0 0 2px #2b170d,
+    inset 0 0 22px rgba(255,112,29,.2),
+    0 0 0 1px #70401f,
+    0 0 22px rgba(255,100,22,.32)!important;
+}
+.heroButtons .liveDiscordAssetBtn:active{
+  transform:translateY(1px)!important;
+}
+.heroButtons .liveDiscordAssetBtn .discordGlyph{
+  color:#ffd38d!important;
+  font-size:19px!important;
+}
