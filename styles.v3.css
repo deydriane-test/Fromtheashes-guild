@@ -1673,3 +1673,112 @@ main{padding-top:208px!important}
   .eventWhen{grid-column:2}.eventArrow{display:none}
   .exactFeatureStrip{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   EXACT INDIVIDUAL ASSET PACK WIRING
+   ========================================================= */
+.exactBrandBar{
+  background:
+    linear-gradient(90deg,rgba(4,7,10,.22),rgba(4,7,10,.02) 58%,rgba(4,7,10,.18)),
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
+}
+.exactBrandLockup{
+  display:flex!important;align-items:center!important;text-decoration:none!important;
+  max-width:min(780px,60vw)!important;
+}
+.exactBrandImage{
+  display:block!important;width:min(740px,58vw)!important;height:auto!important;
+  object-fit:contain!important;filter:drop-shadow(0 0 10px rgba(255,102,28,.28))!important;
+}
+.exactBrandLockup .brandWords,.brandEmblemCrop{display:none!important}
+
+.assetNav{
+  display:flex!important;align-items:stretch!important;gap:0!important;height:72px!important;
+}
+.assetNavLink{
+  min-width:0!important;padding:0!important;border:0!important;background:none!important;
+  display:flex!important;align-items:stretch!important;justify-content:center!important;
+}
+.assetNavLink img{
+  display:block;height:72px;width:auto;max-width:190px;object-fit:contain;
+}
+.assetNavLink:hover{transform:none!important;background:none!important}
+.assetDiscordNav{
+  background:none!important;border:0!important;box-shadow:none!important;clip-path:none!important;
+  padding:0!important;min-width:260px!important;height:58px!important;display:flex!important;align-items:center!important;
+}
+.assetDiscordNav img{width:100%;height:58px;object-fit:contain;display:block}
+
+.exactHeroBg{
+  background:
+    linear-gradient(90deg,rgba(2,5,8,.08),rgba(2,5,8,.03) 55%,rgba(2,5,8,.52)),
+    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
+  filter:none!important;
+}
+.assetHeroButton{
+  background:none!important;border:0!important;box-shadow:none!important;clip-path:none!important;
+  padding:0!important;min-width:0!important;
+}
+.assetHeroButton img{display:block;height:66px;width:auto;max-width:310px;object-fit:contain}
+.assetHeroButton:hover{transform:none!important;box-shadow:none!important}
+.learnButton img{max-width:240px}
+
+.thumbRaid{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important}
+.thumbExpedition{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important}
+.thumbElysium{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important}
+
+.assetFeatureStrip{
+  display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:14px!important;
+  padding:0 3vw 14px!important;background:#070a0d!important;
+}
+.assetFeatureStrip a{
+  display:block!important;padding:0!important;border:0!important;background:none!important;min-height:0!important;overflow:hidden;
+}
+.assetFeatureStrip img{
+  width:100%;height:auto;display:block;object-fit:contain;
+}
+.assetFeatureStrip a:hover{transform:translateY(-2px)}
+.assetFeatureStrip article{display:none!important}
+
+.assetLowerGrid{
+  display:grid!important;grid-template-columns:1.05fr .95fr .78fr!important;gap:14px!important;
+  padding:0 3vw 28px!important;background:#070a0d!important;
+}
+.assetPanelLink{
+  display:block;background:none!important;border:0!important;padding:0!important;box-shadow:none!important;overflow:hidden;
+}
+.assetPanelLink img{
+  display:block;width:100%;height:auto;object-fit:contain;
+}
+.assetPanelLink:hover{transform:translateY(-2px)}
+.assetLowerGrid .exactPanel{display:none!important}
+
+@media(max-width:1200px){
+  .exactBrandImage{width:min(620px,56vw)!important}
+  .assetNavLink img{height:64px;max-width:165px}
+  .assetNav{height:64px!important}
+  .assetDiscordNav{height:52px!important;min-width:225px!important}
+  .assetDiscordNav img{height:52px}
+  .assetLowerGrid{grid-template-columns:1fr 1fr!important}
+  .discordAssetPanel{grid-column:1/-1}
+}
+@media(max-width:800px){
+  .exactBrandImage{width:min(430px,66vw)!important}
+  .assetNavLink{display:none!important}
+  .assetNavLink:first-child{display:flex!important}
+  .assetNavLink:first-child img{height:48px;max-width:135px}
+  .assetNav{height:50px!important}
+  .assetDiscordNav{height:42px!important;min-width:170px!important}
+  .assetDiscordNav img{height:42px}
+  .assetHeroButton img{height:54px;max-width:245px}
+  .learnButton img{max-width:190px}
+  .assetFeatureStrip{grid-template-columns:1fr 1fr!important;padding-left:5vw!important;padding-right:5vw!important}
+  .assetLowerGrid{grid-template-columns:1fr!important;padding-left:5vw!important;padding-right:5vw!important}
+  .discordAssetPanel{grid-column:auto}
+}
+@media(max-width:520px){
+  .exactBrandImage{width:min(300px,68vw)!important}
+  .assetFeatureStrip{grid-template-columns:1fr!important}
+  .assetHeroButton img{height:48px}
+}
