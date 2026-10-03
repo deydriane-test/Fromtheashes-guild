@@ -2844,3 +2844,16 @@ main{
 .templateTab.tabHome.active{
   transform:translateY(4px)!important;
 }
+
+/* =========================================================
+   NAVBAR ALPHA-BLEED FIX
+   Keep the decorative PNG, but stop the shared hero scene from
+   showing through its semi-transparent internal panel regions.
+   ========================================================= */
+.exactNavBar{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png")!important;
+  background-color:#080b0e!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+}
