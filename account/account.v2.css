@@ -146,3 +146,32 @@
 .portalSecureLogin{width:min(500px,100%)!important;margin-top:2px!important}
 @media(max-width:900px){.portalHeader{height:84px!important}.portalNav{height:36px!important;padding:0 8px!important}.portalNav a{padding:0 11px!important}.portalNavDiscord{margin-left:8px!important}.portalMasthead{top:36px!important;height:48px!important}.portalLogo{width:min(260px,55vw)!important;height:44px!important}.portalAuthMain{padding-top:112px!important}.portalAuthCopy h1{font-size:clamp(60px,13vw,90px)!important}}
 @media(max-width:520px){.portalNavDiscord{display:none!important}.portalAuthCopy h1{font-size:56px!important;margin-bottom:22px!important}.portalAuthCard .discordAuthBtn{width:100%!important}}
+
+/* Ultrawide-safe sizing: UI stays human-sized while only the backdrop expands */
+@media (min-width:901px){
+  .portalHeader{height:112px!important}
+  .portalNav{height:42px!important;max-width:none!important}
+  .portalNav a{font-size:15px!important;padding:0 24px!important}
+  .portalNav a span{font-size:14px!important}
+  .portalMasthead{top:42px!important;height:70px!important}
+  .portalLogo{width:330px!important;height:64px!important}
+  .portalAuthMain{
+    min-height:100vh!important;
+    box-sizing:border-box!important;
+    padding:112px 32px 32px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    background-position:center center!important;
+  }
+  .portalAuthHero{width:720px!important;max-width:calc(100vw - 64px)!important;margin:0 auto!important;transform:translateY(-10px)}
+  .portalEyebrow{font-size:12px!important;margin:0 0 18px!important}
+  .portalAuthCopy{width:720px!important;max-width:100%!important}
+  .portalAuthCopy h1{font-size:112px!important;line-height:.88!important;margin:0 0 30px!important}
+  .portalAuthCard .discordAuthBtn{width:500px!important;max-width:100%!important}
+  .portalSecureLogin{width:500px!important;max-width:100%!important;font-size:10px!important}
+}
+@media (min-width:2200px){
+  .portalAuthMain{padding-left:48px!important;padding-right:48px!important}
+  .portalAuthHero{max-width:720px!important}
+}
