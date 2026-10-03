@@ -2,7 +2,7 @@ const c=window.GUILD_CONFIG||{};
 const sb=window.supabase?.createClient(c.supabase?.url||"",c.supabase?.publishableKey||"");
 const $=id=>document.getElementById(id);
 const AVATAR_COUNT=44;
-const AVATAR_ROOT="../assets/FromTheAshes_Exact_Site_Asset_Pack/";
+const AVATAR_ROOT="../assets/avatars/";
 let currentAvatar="avatar-001";
 let selectedAvatar="avatar-001";
 let currentUser=null;
