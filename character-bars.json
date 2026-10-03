@@ -14,13 +14,36 @@
         0.4331
       ],
       "avatar_source_inset": [
-        0.1,
-        0.1,
-        0.1,
-        0.1
+        0.04,
+        0.04,
+        0.04,
+        0.04
       ],
-      "avatar_focus_y": 0.42
+      "avatar_focus_y": 0.46,
+      "avatar_focus_x": 0.5
     }
   ],
-  "generator_version": 2
+  "generator_version": 3,
+  "avatar_overrides": {
+    "avatar-021": {
+      "source_inset": [
+        0.035,
+        0.035,
+        0.035,
+        0.035
+      ],
+      "focus_x": 0.52,
+      "focus_y": 0.46
+    },
+    "avatar-026": {
+      "source_inset": [
+        0.025,
+        0.025,
+        0.025,
+        0.025
+      ],
+      "focus_x": 0.54,
+      "focus_y": 0.48
+    }
+  }
 }
