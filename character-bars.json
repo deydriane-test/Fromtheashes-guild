@@ -1,11 +1,11 @@
 {
-  "avatar_directory": "assets/FromTheAshes_Exact_Site_Asset_Pack",
+  "avatar_directory": "assets/avatars",
   "output_directory": "assets/character-bars/generated",
   "webp_quality": 86,
   "styles": [
     {
       "id": "bar-001",
-      "frame": "assets/bar-001.webp",
+      "frame": "assets/character-bars/styles/bar-001.webp",
       "output_width": 1024,
       "avatar_slot": [
         0.0557,
