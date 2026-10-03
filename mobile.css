@@ -4070,3 +4070,111 @@ main{
     grid-template-columns:1fr!important;
   }
 }
+
+
+/* =========================================================
+   MOBILE V8 — visible standalone hamburger trigger
+   ========================================================= */
+@media(max-width:700px){
+  .exactBrandBar{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 38px 44px!important;
+    align-items:center!important;
+    gap:7px!important;
+    height:68px!important;
+    min-height:68px!important;
+    padding:7px 10px!important;
+  }
+
+  .liveBrandLockup{
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+  }
+
+  .mobileMenuStrip,
+  .mobileHeaderControls{
+    display:none!important;
+  }
+
+  .mobileMenuButton{
+    display:grid!important;
+    place-items:center!important;
+    width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    padding:0!important;
+    margin:0!important;
+    border:1px solid #8f5429!important;
+    border-radius:0!important;
+    appearance:none!important;
+    -webkit-appearance:none!important;
+    background:linear-gradient(180deg,#21160f,#0b0d10)!important;
+    color:#ffb36a!important;
+    clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;
+    box-shadow:inset 0 0 10px rgba(255,112,36,.08)!important;
+    position:relative!important;
+    z-index:17000!important;
+  }
+
+  .mobileMenuGlyph{
+    font-size:17px!important;
+    line-height:1!important;
+    color:#ffb36a!important;
+  }
+
+  .exactBrandBar .accountLinks{
+    width:44px!important;
+    min-width:44px!important;
+    max-width:44px!important;
+    margin:0!important;
+  }
+
+  .mobileMenuPanel{
+    position:fixed!important;
+    top:150px!important;
+    left:10px!important;
+    right:10px!important;
+    width:auto!important;
+    max-width:none!important;
+    z-index:18000!important;
+    padding:8px!important;
+    background:#070b0ff8!important;
+    border:1px solid #704526!important;
+    box-shadow:0 18px 38px #000e!important;
+  }
+
+  .mobileMenuPanel[hidden]{
+    display:none!important;
+  }
+
+  .mobileMenuLinks{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:7px!important;
+  }
+
+  .mobileMenuLinks>a{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    height:40px!important;
+    min-width:0!important;
+    padding:0 10px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    color:#ddd8d2!important;
+    text-decoration:none!important;
+    font:800 10px "Rajdhani",sans-serif!important;
+    letter-spacing:.10em!important;
+    background:linear-gradient(180deg,#12181d,#090d11)!important;
+    border:1px solid #303941!important;
+    transform:none!important;
+  }
+
+  .mobileMenuLinks>a:first-child{
+    color:#ffe1b8!important;
+    border-color:#bb682e!important;
+    background:linear-gradient(180deg,#2c1a10,#0d0c0c)!important;
+  }
+}
