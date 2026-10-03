@@ -157,20 +157,25 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
         target_height = round(frame.height * (target_width / frame.width))
         frame = frame.resize((target_width, target_height), RESAMPLE)
 
-    canvas = frame.copy()
-    slot = normalized_box(canvas.size, style["avatar_slot"])
+    canvas = Image.new("RGBA", frame.size, (0, 0, 0, 0))
+    slot = normalized_box(frame.size, style["avatar_slot"])
     x1, y1, x2, y2 = slot
     sw, sh = x2 - x1, y2 - y1
 
-    avatar = crop_avatar_source(avatar, style.get("avatar_source_inset", [0.12, 0.12, 0.12, 0.12]))
-    portrait = cover(avatar, (sw, sh), float(style.get("avatar_focus_y", 0.46)))
+    avatar = crop_avatar_source(
+        avatar,
+        style.get("avatar_source_inset", [0.10, 0.10, 0.10, 0.10])
+    )
+    portrait = cover(
+        avatar,
+        (sw, sh),
+        float(style.get("avatar_focus_y", 0.42))
+    )
 
-    mask = octagon_mask((sw, sh), float(style.get("slot_corner_cut", 0.14)))
-    portrait.putalpha(ImageChops.multiply(portrait.getchannel("A"), mask))
-
-    # Put portrait on TOP of the bar base; then redraw a consistent slot border.
+    # Portrait sits BEHIND the transparent frame. The frame itself becomes
+    # the mask/border, which guarantees identical alignment for every avatar.
     canvas.alpha_composite(portrait, (x1, y1))
-    draw_slot_border(canvas, slot, style)
+    canvas.alpha_composite(frame)
 
     out_dir = output_root / style["id"]
     out_dir.mkdir(parents=True, exist_ok=True)
