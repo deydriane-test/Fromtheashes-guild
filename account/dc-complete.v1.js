@@ -1,6 +1,6 @@
 const c=window.GUILD_CONFIG||{};
 const sb=window.supabase?.createClient(c.supabase?.url||"",c.supabase?.publishableKey||"",{
-  auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}
+  auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false,flowType:"pkce"}
 });
 const $=id=>document.getElementById(id);
 let verifiedUser=null;
@@ -32,22 +32,34 @@ async function getDiscordIdentity(user){
   };
 }
 
-async function resolveSession(){
-  let {data,error}=await sb.auth.getSession();
+async function establishSession(){
+  const url=new URL(window.location.href);
+  const oauthError=url.searchParams.get("error_description")||url.searchParams.get("error");
+  if(oauthError) throw new Error(oauthError);
+
+  const code=url.searchParams.get("code");
+  if(code){
+    status("CONNECTING YOUR DISCORD ACCOUNT…");
+    const {data,error}=await sb.auth.exchangeCodeForSession(code);
+    if(error) throw error;
+    url.searchParams.delete("code");
+    url.searchParams.delete("sb_flow_id");
+    history.replaceState({},document.title,url.pathname+(url.search?url.search:""));
+    if(data?.session) return data.session;
+  }
+
+  const {data,error}=await sb.auth.getSession();
   if(error) throw error;
-  if(data?.session?.user) return data.session;
-  const refreshed=await sb.auth.refreshSession();
-  if(refreshed.error) return null;
-  return refreshed.data?.session||null;
+  return data?.session||null;
 }
 
 async function boot(){
   try{
     if(!sb){window.location.replace("login.html");return;}
     status("VERIFYING DISCORD SESSION…");
-    const session=await resolveSession();
+    const session=await establishSession();
     if(!session?.user){
-      status("DISCORD SESSION WAS NOT FOUND. SIGN IN AGAIN.","error");
+      status("YOUR DISCORD SESSION COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
       return;
     }
 
@@ -60,7 +72,6 @@ async function boot(){
       .select("id,character_name,approved,active")
       .eq("user_id",verifiedUser.id)
       .maybeSingle();
-
     if(rosterError) console.warn("Roster lookup:",rosterError);
     if(existing){
       $("character").value=existing.character_name||"";
@@ -70,8 +81,8 @@ async function boot(){
     }
     status("");
   }catch(error){
-    console.error(error);
-    status(error?.message||"SIGN-IN COULD NOT BE COMPLETED. PLEASE SIGN IN AGAIN.","error");
+    console.error("Discord callback:",error);
+    status(error?.message||"DISCORD SIGN-IN COULD NOT BE COMPLETED. PLEASE SIGN IN AGAIN.","error");
   }
 }
 
@@ -82,10 +93,6 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
     const character=$("character").value.trim();
     if(character.length<2){status("ENTER YOUR CHARACTER NAME.","error");return;}
     if(!verifiedUser){
-      const session=await resolveSession();
-      verifiedUser=session?.user||null;
-    }
-    if(!verifiedUser){
       status("YOUR DISCORD SESSION COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
       return;
     }
@@ -93,11 +100,7 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
     submit.disabled=true;
     status("SUBMITTING YOUR APPLICATION…");
     verifiedDiscord=verifiedDiscord||await getDiscordIdentity(verifiedUser);
-    if(!verifiedDiscord?.discordId){
-      status("DISCORD ID COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
-      submit.disabled=false;
-      return;
-    }
+    if(!verifiedDiscord?.discordId) throw new Error("DISCORD ID COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.");
 
     const {data:existing,error:existingError}=await sb.from("roster")
       .select("id,user_id")
@@ -123,7 +126,7 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
     status("APPLICATION SUBMITTED. WELCOME TO FROM THE ASHES.","success");
     setTimeout(()=>window.location.replace("../"),1200);
   }catch(error){
-    console.error(error);
+    console.error("Guild application:",error);
     status(error?.message||"APPLICATION COULD NOT BE SUBMITTED. PLEASE TRY AGAIN.","error");
     if(submit) submit.disabled=false;
   }
