@@ -5,47 +5,22 @@
   "styles": [
     {
       "id": "bar-001",
-      "frame": "assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png",
+      "frame": "assets/character-bars/styles/bar-001.webp",
       "output_width": 1024,
       "avatar_slot": [
-        0.02,
-        0.105,
-        0.185,
-        0.79
+        0.0557,
+        0.2404,
+        0.1681,
+        0.4331
       ],
       "avatar_source_inset": [
-        0.105,
-        0.105,
-        0.105,
-        0.105
+        0.1,
+        0.1,
+        0.1,
+        0.1
       ],
-      "avatar_focus_y": 0.42,
-      "slot_corner_cut": 0.145,
-      "slot_border_width": 0.03,
-      "slot_border_outer": [
-        255,
-        103,
-        18,
-        255
-      ],
-      "slot_border_inner": [
-        255,
-        190,
-        76,
-        255
-      ],
-      "slot_glow": {
-        "enabled": true,
-        "width": 0.06,
-        "blur": 0.055,
-        "color": [
-          255,
-          87,
-          10,
-          175
-        ]
-      }
+      "avatar_focus_y": 0.42
     }
   ],
-  "generator_version": 1
+  "generator_version": 2
 }
