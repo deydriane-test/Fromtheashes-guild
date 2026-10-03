@@ -4,28 +4,43 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="styles.v3.css">
+<link rel="stylesheet" href="styles.v3.css?v=20261003-sci1">
 </head>
 <body>
 <div class="embers"></div>
 <div class="scrollGlow"></div>
 
-<header>
-  <a class="logo" href="#" aria-label="FromTheAshes"><img src="assets/Ashes.png?v=14" alt="FromTheAshes guild logo"></a>
-  <nav><a href="#about">ABOUT</a><a href="#events">EVENTS</a><a href="#leadership">LEADERSHIP</a><a href="#rules">RULES</a><a href="account/">ACCOUNT</a></nav>
-  <div class="accountLinks" id="accountLinks">
-    <span class="accountSignedOut"><a href="account/register.html">SIGN UP</a><a href="account/login.html">SIGN IN</a></span>
-    <div class="accountMenu" id="accountMenu" hidden>
-      <button class="accountMenuTrigger" id="accountMenuTrigger" type="button" aria-expanded="false" aria-haspopup="true">
-        <span id="accountMenuName">MEMBER</span><span class="accountMenuRole" id="accountMenuRole"></span><span class="accountMenuChevron">⌄</span>
-      </button>
-      <div class="accountDropdown" id="accountDropdown" hidden>
-        <a href="account/">ACCOUNT</a>
-        <a href="admin/" id="adminMenuLink" hidden>ADMIN</a>
-        <button id="headerLogout" type="button">LOG OUT</button>
+<header class="siteHeader">
+  <div class="brandBar">
+    <a class="logo brandLockup" href="#" aria-label="From The Ashes">
+      <img src="assets/Ashes.png?v=14" alt="From The Ashes guild logo">
+      <span class="brandWords"><strong>FROM THE ASHES</strong><small>RF ONLINE NEXT • MULTI-GAME COMMUNITY</small></span>
+    </a>
+    <div class="accountLinks" id="accountLinks">
+      <span class="accountSignedOut"><a href="account/login.html">SIGN IN</a></span>
+      <div class="accountMenu" id="accountMenu" hidden>
+        <button class="accountMenuTrigger" id="accountMenuTrigger" type="button" aria-expanded="false" aria-haspopup="true">
+          <span id="accountMenuName">MEMBER</span><span class="accountMenuRole" id="accountMenuRole"></span><span class="accountMenuChevron">⌄</span>
+        </button>
+        <div class="accountDropdown" id="accountDropdown" hidden>
+          <a href="account/">ACCOUNT</a>
+          <a href="admin/" id="adminMenuLink" hidden>ADMIN</a>
+          <button id="headerLogout" type="button">LOG OUT</button>
+        </div>
       </div>
     </div>
-  </div><a class="discord" id="discordTop" href="#recruit">DISCORD ↗</a>
+  </div>
+  <div class="navBar">
+    <nav>
+      <a class="active" href="#">⌂ <span>HOME</span></a>
+      <a href="#about">◈ <span>ABOUT</span></a>
+      <a href="#events">▣ <span>EVENTS</span></a>
+      <a href="#leadership">♜ <span>LEADERSHIP</span></a>
+      <a href="#rules">☷ <span>RULES</span></a>
+      <a href="account/">◎ <span>ACCOUNT</span></a>
+    </nav>
+    <a class="discord" id="discordTop" href="#recruit">JOIN OUR DISCORD</a>
+  </div>
 </header>
 
 <main>
@@ -34,14 +49,21 @@
     <div class="phoenixHalo"></div>
     <img src="https://raw.githubusercontent.com/deydriane-test/Fromtheashes-guild/main/phoenix.jpeg" alt="" class="phoenix" onerror="this.style.display='none';this.parentElement.classList.add('noPhoenix')">
   </div>
+  <div class="heroGrid">
     <div class="heroText">
-    <div class="eyebrow">FROMTHEASHES • RF ONLINE NEXT</div>
-    <h1>FROM<br><i>THE ASHES</i></h1>
-    <h2>A GUILD THAT'S HERE TO PLAY.</h2>
-    <p>We came out of a guild that didn't work. So we kept the people, left the nonsense behind, and built something better together.</p>
-    <div class="heroButtons">
-      <a class="btn" id="discordHero" href="#recruit">JOIN THE DISCORD</a>
-      <a class="ghost" href="#about">LOOK AROUND ↓</a>
+      <div class="eyebrow">FOUNDED IN RF ONLINE NEXT</div>
+      <h1>RISE TOGETHER.<br><i>FROM THE ASHES.</i></h1>
+      <p>From The Ashes is a multi-game community built on teamwork, progression, and good people. RF Online Next is where we started — but the community goes wherever the games take us.</p>
+      <div class="heroButtons">
+        <a class="btn" id="discordHero" href="#recruit">JOIN OUR DISCORD</a>
+        <a class="ghost" href="#about">LEARN MORE →</a>
+      </div>
+    </div>
+    <div class="heroEventPanel" aria-label="Upcoming guild events">
+      <div class="panelTitle"><span>▣ UPCOMING EVENTS</span><a href="#events">VIEW ALL →</a></div>
+      <div class="heroEventRow raidRow"><span class="eventDot"></span><div><small>GUILD RAID</small><strong>RF ONLINE NEXT</strong><em id="heroRaidMeta">SUNDAY • LOCAL TIME</em></div></div>
+      <div class="heroEventRow expeditionRow"><span class="eventDot"></span><div><small>GUILD EXPEDITION</small><strong>RF ONLINE NEXT</strong><em id="heroExpeditionMeta">SUNDAY • LOCAL TIME</em></div></div>
+      <div class="heroEventRow elysiumRow"><span class="eventDot"></span><div><small>ELYSIUM</small><strong>RF ONLINE NEXT</strong><em id="heroElysiumMeta">SUNDAY • LOCAL TIME</em></div></div>
     </div>
   </div>
 </section>
@@ -58,11 +80,11 @@
       <p>Play hard. Help your people. Communicate. Don't be a jerk. Pretty simple.</p>
     </div>
   </div>
-  <div class="vibes">
-    <div class="interactive"><span>🔥</span><strong>PLAY TOGETHER</strong><small>Guild content is better with a crew.</small></div>
-    <div class="interactive"><span>🤝</span><strong>HELP EACH OTHER</strong><small>New player? Stuck on something? Ask.</small></div>
-    <div class="interactive"><span>💬</span><strong>STAY CONNECTED</strong><small>Discord is where the guild lives.</small></div>
-    <div class="interactive"><span>🍻</span><strong>HAVE FUN</strong><small>It's a game. Act accordingly.</small></div>
+  <div class="vibes featureStrip">
+    <div class="interactive"><span>⚔</span><strong>RAIDING</strong><small>Progress together.</small></div>
+    <div class="interactive"><span>◉</span><strong>COMMUNITY</strong><small>More than just a game.</small></div>
+    <div class="interactive"><span>▣</span><strong>EVENTS</strong><small>Always something to do.</small></div>
+    <div class="interactive"><span>✦</span><strong>MULTI-GAME</strong><small>Different worlds. Same community.</small></div>
   </div>
 </section>
 
@@ -146,7 +168,7 @@
 </section>
 </main>
 
-<footer><span>🔥 FROM<span>THE</span>ASHES</span><span>RF ONLINE NEXT • COMMUNITY GUILD</span><span>© 2026</span></footer>
+<footer><span>FROM THE ASHES</span><span>RF ONLINE NEXT • MULTI-GAME COMMUNITY</span><span>© 2026</span></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-localtime1"></script>
 </body>
 </html>
