@@ -4,17 +4,20 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FromTheAshes - RF Online Next</title>
 <meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
-<link rel="stylesheet" href="styles.v3.css?v=20261003-sci4">
+<link rel="stylesheet" href="styles.v3.css?v=20261003-exact1">
 </head>
 <body>
 <div class="embers"></div>
 <div class="scrollGlow"></div>
 
-<header class="siteHeader">
-  <div class="brandBar">
-    <a class="logo brandLockup" href="#" aria-label="From The Ashes">
-      <img src="assets/Ashes.png?v=14" alt="From The Ashes guild logo">
-      <span class="brandWords"><strong>FROM THE ASHES</strong><small>RF ONLINE NEXT • MULTI-GAME COMMUNITY</small></span>
+<header class="siteHeader exactHeader">
+  <div class="brandBar exactBrandBar">
+    <a class="brandLockup exactBrandLockup" href="#" aria-label="From The Ashes">
+      <span class="brandEmblemCrop"><img src="assets/Ashes.png?v=14" alt=""></span>
+      <span class="brandWords">
+        <strong>FROM THE ASHES</strong>
+        <small>RF ONLINE NEXT • MULTI-GAME COMMUNITY</small>
+      </span>
     </a>
     <div class="accountLinks" id="accountLinks">
       <span class="accountSignedOut"><a href="account/login.html">SIGN IN</a></span>
@@ -30,100 +33,108 @@
       </div>
     </div>
   </div>
-  <div class="navBar">
+  <div class="navBar exactNavBar">
     <nav>
-      <a class="active" href="#">⌂ <span>HOME</span></a>
-      <a href="#about">◈ <span>ABOUT</span></a>
-      <a href="#events">▣ <span>EVENTS</span></a>
-      <a href="#leadership">♜ <span>LEADERSHIP</span></a>
-      <a href="#rules">☷ <span>RULES</span></a>
-      <a href="account/">◎ <span>ACCOUNT</span></a>
+      <a class="active" href="#"><span class="navIcon">⌂</span><span>HOME</span></a>
+      <a href="#roster"><span class="navIcon">♟</span><span>ROSTER</span></a>
+      <a href="#events"><span class="navIcon">▣</span><span>EVENTS</span></a>
+      <a href="#gallery"><span class="navIcon">▧</span><span>GALLERY</span></a>
+      <a href="#about"><span class="navIcon">◈</span><span>ABOUT</span></a>
+      <a href="#discordCommunity"><span class="navIcon">☁</span><span>DISCORD</span></a>
     </nav>
-    <a class="discord" id="discordTop" href="#recruit">JOIN OUR DISCORD</a>
+    <a class="discord exactDiscordCta" id="discordTop" href="#recruit">☁ &nbsp; JOIN OUR DISCORD</a>
   </div>
 </header>
 
 <main>
-<section class="hero mockHero">
-  <div class="heroArt" aria-hidden="true">
-    <img src="https://raw.githubusercontent.com/deydriane-test/Fromtheashes-guild/main/phoenix.jpeg" alt="" class="phoenix">
+<section class="exactHero">
+  <div class="exactHeroBg" aria-hidden="true"></div>
+  <div class="exactHeroLeft">
+    <div class="eyebrow">FOUNDED IN RF ONLINE NEXT</div>
+    <h1>RISE TOGETHER.<br><i>FROM THE ASHES.</i></h1>
+    <p>Founded in RF Online Next, From The Ashes is a multi-game community built on teamwork, progression, and great people. We raid, explore, and take on new games together.</p>
+    <div class="heroButtons">
+      <a class="btn exactHeroDiscord" id="discordHero" href="#recruit">☁ &nbsp; JOIN OUR DISCORD</a>
+      <a class="ghost exactLearn" href="#about">LEARN MORE &nbsp; ›</a>
+    </div>
   </div>
-  <div class="heroGrid">
-    <div class="heroText">
-      <div class="eyebrow">FOUNDED IN RF ONLINE NEXT</div>
-      <h1>RISE TOGETHER.<br><i>FROM THE ASHES.</i></h1>
-      <p>From The Ashes is a multi-game community built on teamwork, progression, and good people. RF Online Next is where we started — but the community goes wherever the games take us.</p>
-      <div class="heroButtons">
-        <a class="btn" id="discordHero" href="#recruit">JOIN OUR DISCORD</a>
-        <a class="ghost" href="#about">LEARN MORE →</a>
+
+  <aside class="exactUpcoming" id="events">
+    <div class="exactPanelHead"><span>▣ &nbsp; UPCOMING EVENTS</span><a href="#eventsDetail">View All →</a></div>
+
+    <div class="exactEventCard raidEvent">
+      <div class="eventThumb thumbRaid"></div>
+      <div class="eventCopy">
+        <small>GUILD RAID</small>
+        <strong>RF Online Next</strong>
+        <span>Boss Progression • Guild Run</span>
       </div>
+      <div class="eventWhen"><b id="raid">7:00 PM</b><span id="raidMeta">SUNDAY • LOCAL TIME</span></div>
+      <div class="eventArrow">›</div>
     </div>
 
-    <aside class="heroEventPanel">
-      <div class="panelTitle"><span>▣ UPCOMING EVENTS</span><a href="#events">VIEW ALL →</a></div>
-      <div class="heroEventRow raidRow">
-        <span class="eventDot"></span>
-        <div><small>GUILD RAID</small><strong>RF ONLINE NEXT</strong><em id="heroRaidMeta">SUNDAY • LOCAL TIME</em></div>
+    <div class="exactEventCard expeditionEvent">
+      <div class="eventThumb thumbExpedition"></div>
+      <div class="eventCopy">
+        <small>GUILD EXPEDITION</small>
+        <strong>RF Online Next</strong>
+        <span>Exploration • Objectives • Rewards</span>
       </div>
-      <div class="heroEventRow expeditionRow">
-        <span class="eventDot"></span>
-        <div><small>GUILD EXPEDITION</small><strong>RF ONLINE NEXT</strong><em id="heroExpeditionMeta">SUNDAY • LOCAL TIME</em></div>
+      <div class="eventWhen"><b id="expedition">7:00 PM</b><span id="expeditionMeta">SUNDAY • LOCAL TIME</span></div>
+      <div class="eventArrow">›</div>
+    </div>
+
+    <div class="exactEventCard elysiumEvent">
+      <div class="eventThumb thumbElysium"></div>
+      <div class="eventCopy">
+        <small>ELYSIUM</small>
+        <strong>RF Online Next</strong>
+        <span>Farming • Gear • Community</span>
       </div>
-      <div class="heroEventRow elysiumRow">
-        <span class="eventDot"></span>
-        <div><small>ELYSIUM</small><strong>RF ONLINE NEXT</strong><em id="heroElysiumMeta">SUNDAY • LOCAL TIME</em></div>
-      </div>
-    </aside>
-  </div>
+      <div class="eventWhen"><b id="elysium">8:55 PM</b><span id="elysiumMeta">SUNDAY • LOCAL TIME</span></div>
+      <div class="eventArrow">›</div>
+    </div>
+    <span id="heroRaidMeta" hidden></span><span id="heroExpeditionMeta" hidden></span><span id="heroElysiumMeta" hidden></span><span id="stickyEventZone" hidden></span>
+  </aside>
 </section>
 
-<section class="homeFeatureStrip">
-  <article><span>⚔</span><div><strong>RAIDING</strong><small>Progress together</small></div></article>
-  <article><span>◉</span><div><strong>COMMUNITY</strong><small>More than just a game</small></div></article>
-  <article><span>▣</span><div><strong>EVENTS</strong><small>Always something to do</small></div></article>
-  <article><span>✦</span><div><strong>MULTI-GAME</strong><small>Different worlds, same community</small></div></article>
+<section class="exactFeatureStrip">
+  <article class="featureRaid"><span class="featureRound">⚔</span><div><strong>RAIDING</strong><small>Progress together</small></div></article>
+  <article class="featureCommunity"><span class="featureRound">●●●</span><div><strong>COMMUNITY</strong><small>More than just a game</small></div></article>
+  <article class="featureEvents"><span class="featureRound">▣</span><div><strong>EVENTS</strong><small>Always something to do</small></div></article>
+  <article class="featureGrowth"><span class="featureRound">🎮</span><div><strong>GROWTH</strong><small>Multiple games, one community</small></div></article>
 </section>
 
-<section id="announcement" class="siteAnnouncement homeNotice" hidden>
-  <div class="eyebrow">GUILD ANNOUNCEMENT</div>
-  <p id="announcementText"></p>
+<section id="announcement" class="siteAnnouncement exactAnnouncement" hidden>
+  <div class="eyebrow">GUILD ANNOUNCEMENT</div><p id="announcementText"></p>
 </section>
 
-<section class="homePanels">
-  <article class="homePanel" id="about">
-    <div class="homePanelHead"><span>◈ WHO WE ARE</span></div>
-    <h2>NO THRONES.<br><i>JUST PEOPLE.</i></h2>
-    <p>From The Ashes was built by players who wanted a guild that actually felt like a community.</p>
-    <p>Leadership is here to organize, help, and take responsibility when something goes wrong. We take the guild seriously without pretending a game is a corporation.</p>
+<section class="exactLowerGrid">
+  <article class="exactPanel newsPanel">
+    <div class="exactPanelHead"><span>▤ &nbsp; GUILD NEWS</span><a href="#about">View All →</a></div>
+    <div class="newsRow"><div class="newsThumb news1"></div><div><strong>Raid Prep This Weekend</strong><p>Get ready for Sunday’s guild raid. Strategy, roles, and time info inside.</p></div><time>Oct 2</time></div>
+    <div class="newsRow"><div class="newsThumb news2"></div><div><strong>Guild Expedition</strong><p>Join us this Saturday for a full run. Maps, objectives, and group info posted.</p></div><time>Sep 29</time></div>
+    <div class="newsRow"><div class="newsThumb news3"></div><div><strong>Welcome New Members</strong><p>A huge welcome to our newest members! Glad to have you with us.</p></div><time>Sep 27</time></div>
   </article>
 
-  <article class="homePanel eventsPanel" id="events">
-    <div class="homePanelHead"><span>▣ GUILD EVENTS</span><small id="stickyEventZone">YOUR LOCAL TIME</small></div>
-    <div class="compactEvent">
-      <span class="compactType raidType">RAID</span>
-      <div><strong>GUILD RAID</strong><small id="raidMeta">SUNDAY • 7:00 PM CT</small></div>
-      <b id="raid">7:00 PM</b>
-    </div>
-    <div class="compactEvent">
-      <span class="compactType expeditionType">EXPEDITION</span>
-      <div><strong>GUILD EXPEDITION</strong><small id="expeditionMeta">SUNDAY • 7:00 PM CT</small></div>
-      <b id="expedition">7:00 PM</b>
-    </div>
-    <div class="compactEvent">
-      <span class="compactType elysiumType">ELYSIUM</span>
-      <div><strong>ELYSIUM</strong><small id="elysiumMeta">SUNDAY • 8:55 PM CT</small></div>
-      <b id="elysium">8:55 PM</b>
-    </div>
+  <article class="exactPanel galleryPanel" id="gallery">
+    <div class="exactPanelHead"><span>▧ &nbsp; FEATURED GALLERY</span><a href="#gallery">View More →</a></div>
+    <div class="galleryHero"><button>‹</button><button>›</button></div>
+    <div class="galleryDots"><i></i><i></i><i></i><i></i><i></i></div>
   </article>
 
-  <article class="homePanel discordPanel">
-    <div class="homePanelHead"><span>☁ DISCORD</span></div>
-    <h3>THE GUILD LIVES HERE.</h3>
-    <p>Announcements, event coordination, memes, build help, and the day-to-day community all happen in Discord.</p>
-    <a class="panelDiscordBtn" id="discordRecruit" href="#recruit">JOIN THE COMMUNITY →</a>
+  <article class="exactPanel discordFeed" id="discordCommunity">
+    <div class="exactPanelHead"><span>☁ &nbsp; DISCORD</span><a id="discordRecruit" href="#recruit">Join the Community →</a></div>
+    <div class="discordMessage"><span class="avatar a1">N</span><div><strong>Nyx <small>Today at 7:14 PM</small></strong><p>Raid prep is looking solid! 🔥</p></div></div>
+    <div class="discordMessage"><span class="avatar a2">K</span><div><strong>Kairo <small>Today at 6:58 PM</small></strong><p>Anyone need a squad for Elysium later?</p></div></div>
+    <div class="discordMessage"><span class="avatar a3">L</span><div><strong>Luna <small>Today at 6:42 PM</small></strong><p>New members welcome! 🎉</p></div></div>
+    <div class="discordMessage"><span class="avatar a4">D</span><div><strong>Draco <small>Today at 6:31 PM</small></strong><p>Can’t wait for Sunday’s raid!</p></div></div>
   </article>
 </section>
 
+<section id="about" class="exactAboutAnchor"></section>
+<section id="roster" class="exactRosterAnchor"></section>
+<section id="eventsDetail" class="exactEventsAnchor"></section>
 <section id="leadership" class="leadership reveal">
   <div class="eyebrow">LEADERSHIP</div>
   <div class="sectionHead">
@@ -159,6 +170,6 @@
 </main>
 
 <footer><span>FROM THE ASHES</span><span>RF ONLINE NEXT • MULTI-GAME COMMUNITY</span><span>© 2026</span></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-sci4"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-exact1"></script>
 </body>
 </html>
