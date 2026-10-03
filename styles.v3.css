@@ -1081,3 +1081,266 @@ section h2,.recruit h2{font-size:clamp(56px,7vw,104px)!important;line-height:.88
     opacity:1!important;
   }
 }
+
+
+/* =========================================================
+   2026 SCI-FI HOMEPAGE PASS — approved From The Ashes direction
+   ========================================================= */
+:root{
+  --fta-bg:#06090c;
+  --fta-panel:#0b1015;
+  --fta-panel2:#10171d;
+  --fta-edge:#29333b;
+  --fta-edge-hot:#8b532c;
+  --fta-amber:#ffb35c;
+  --fta-orange:#ff6d27;
+  --fta-text:#eee8df;
+  --fta-muted:#9ba4aa;
+}
+body{background:#05080b!important;color:var(--fta-text)!important}
+body:before{
+  background:
+    radial-gradient(circle at 50% 4%,rgba(255,105,35,.10),transparent 24%),
+    linear-gradient(180deg,#070b0f 0%,#05080b 46%,#07090b 100%)!important;
+}
+.siteHeader{
+  position:fixed!important;top:0;left:0;right:0;height:auto!important;
+  padding:0!important;background:#06090cf2!important;border:0!important;
+  backdrop-filter:blur(14px)!important;display:block!important;z-index:20!important;
+  box-shadow:0 14px 45px rgba(0,0,0,.36);
+}
+.brandBar{
+  min-height:106px;display:flex;align-items:center;justify-content:space-between;
+  padding:12px 4vw 10px;border-bottom:1px solid #263139;
+  background:
+    linear-gradient(90deg,rgba(255,101,35,.05),transparent 28%,transparent 72%,rgba(255,101,35,.04)),
+    linear-gradient(180deg,#0b1015,#080c10);
+  position:relative;overflow:hidden;
+}
+.brandBar:after{
+  content:"";position:absolute;inset:auto 0 0;height:1px;
+  background:linear-gradient(90deg,transparent,#ff7b32 18%,#72523a 50%,#ff7b32 82%,transparent);
+  opacity:.55;
+}
+.brandLockup{display:flex!important;align-items:center!important;gap:18px;text-decoration:none!important}
+.brandLockup img{width:86px!important;height:86px!important;object-fit:contain!important;filter:drop-shadow(0 0 18px rgba(255,91,27,.38))!important}
+.brandWords{display:flex;flex-direction:column;gap:5px}
+.brandWords strong{
+  font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(28px,3.2vw,54px);
+  letter-spacing:.025em;color:#f3eee8;line-height:.92;font-weight:600;
+  text-shadow:0 0 22px rgba(255,109,39,.18);
+}
+.brandWords small{
+  font:700 11px "Rajdhani",sans-serif;letter-spacing:.24em;color:#d4c4b6
+}
+.brandBar .accountLinks{margin-left:auto!important}
+.brandBar .accountSignedOut a,
+.brandBar .accountMenuTrigger{
+  border:1px solid #3a4248;background:#0a0f13;padding:11px 15px!important;
+  color:#eee!important;box-shadow:inset 0 0 0 1px #111820,0 8px 24px #0007;
+}
+
+.navBar{
+  min-height:68px;display:flex;align-items:stretch;justify-content:space-between;
+  border-bottom:1px solid #3a2b21;background:linear-gradient(180deg,#0b1014,#080b0e);
+  padding:0 4vw;
+}
+.navBar nav{display:flex;gap:0;align-items:stretch}
+.navBar nav a{
+  min-width:122px;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:0 20px;color:#aeb5b9!important;border-left:1px solid #1c252b;
+  border-right:1px solid #050709;position:relative;
+  font:800 12px "Rajdhani",sans-serif;letter-spacing:.12em!important;
+  text-decoration:none;
+}
+.navBar nav a:hover,.navBar nav a.active{
+  color:#ffd39b!important;background:
+    linear-gradient(180deg,rgba(255,126,47,.08),rgba(255,126,47,.02));
+}
+.navBar nav a.active:after{
+  content:"";position:absolute;left:13%;right:13%;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--fta-orange),transparent);
+  box-shadow:0 0 10px var(--fta-orange);
+}
+.navBar .discord{
+  align-self:center;margin-left:22px;min-width:230px;text-align:center;
+  background:linear-gradient(180deg,#1b1510,#100d0a)!important;
+  border:1px solid #9a6436!important;color:#ffd39b!important;padding:14px 24px!important;
+  clip-path:polygon(7% 0,93% 0,100% 22%,100% 78%,93% 100%,7% 100%,0 78%,0 22%);
+  box-shadow:inset 0 0 0 2px #24170f,0 0 18px rgba(255,123,47,.12)!important;
+}
+.navBar .discord:hover{transform:none!important;box-shadow:inset 0 0 0 2px #3a2114,0 0 22px rgba(255,123,47,.28)!important}
+
+main{padding-top:174px}
+.hero{
+  min-height:650px!important;padding:44px 4vw 28px!important;display:block!important;
+  border-top:0!important;overflow:hidden!important;position:relative;
+  background:
+    linear-gradient(90deg,rgba(4,7,10,.95) 0%,rgba(4,7,10,.77) 35%,rgba(4,7,10,.35) 62%,rgba(4,7,10,.78) 100%)!important;
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 35% 38%,rgba(255,91,24,.15),transparent 28%),
+    linear-gradient(180deg,transparent 72%,#05080b 100%);
+}
+.heroArt{
+  inset:0!important;width:100%!important;height:100%!important;right:auto!important;top:auto!important;
+  opacity:.72!important;mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 82%,transparent 100%)!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 82%,transparent 100%)!important;
+}
+.heroArt .phoenix{
+  width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 34%!important;
+  opacity:.52!important;filter:saturate(1.2) contrast(1.08) brightness(.58) drop-shadow(0 0 26px rgba(255,83,20,.22))!important;
+}
+.heroGrid{
+  position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(430px,.8fr);
+  gap:34px;align-items:center;min-height:560px;max-width:1500px;margin:0 auto;
+}
+.heroText{max-width:760px!important;padding:28px 0}
+.hero .eyebrow{color:#ff8a43!important}
+.hero h1{
+  font-size:clamp(58px,6.4vw,105px)!important;line-height:.86!important;margin:18px 0 24px!important;
+  text-shadow:0 2px 24px rgba(0,0,0,.7)!important;
+}
+.hero h1 i{color:#ffb15b!important;-webkit-text-fill-color:#ffb15b!important}
+.heroText>p{
+  max-width:700px!important;color:#d3d5d4!important;font-size:17px!important;line-height:1.65!important;
+  text-shadow:0 2px 10px #000!important;
+}
+.heroButtons .btn,.recruit .btn{
+  background:linear-gradient(180deg,#1b1510,#100d0a)!important;color:#ffd39b!important;
+  border:1px solid #a36938!important;box-shadow:inset 0 0 0 2px #24170f,0 0 20px rgba(255,106,31,.12)!important;
+  clip-path:polygon(7% 0,93% 0,100% 24%,100% 76%,93% 100%,7% 100%,0 76%,0 24%);
+  padding:15px 28px!important;
+}
+.heroButtons .btn:hover,.recruit .btn:hover{transform:none!important;box-shadow:inset 0 0 0 2px #3a2114,0 0 26px rgba(255,106,31,.3)!important}
+.ghost{
+  border:1px solid #3a454d!important;background:linear-gradient(180deg,#11171c,#0a0f13)!important;
+  color:#e8ebed!important;padding:14px 24px!important;
+  box-shadow:inset 0 0 0 1px #070a0c!important;
+}
+
+.heroEventPanel{
+  background:linear-gradient(180deg,rgba(12,18,23,.95),rgba(7,11,15,.96));
+  border:1px solid #364149;box-shadow:0 22px 60px #0008,inset 0 0 0 1px #0c1115;
+  padding:14px;position:relative;
+}
+.heroEventPanel:before,.eventCard:before,.leader:before,.ruleCards article:before,.siteAnnouncement:before{
+  content:"";position:absolute;left:-1px;top:-1px;width:34px;height:2px;background:var(--fta-orange);
+  box-shadow:0 0 8px rgba(255,109,39,.55);
+}
+.panelTitle{display:flex;justify-content:space-between;align-items:center;padding:5px 4px 13px;border-bottom:1px solid #27323a}
+.panelTitle span{font:800 16px "Rajdhani",sans-serif;letter-spacing:.11em;color:#f2eee8}
+.panelTitle a{font:700 10px "Rajdhani",sans-serif;letter-spacing:.1em;color:#929da3;text-decoration:none}
+.heroEventRow{
+  display:grid;grid-template-columns:4px 1fr;gap:14px;padding:16px 10px;margin-top:9px;
+  background:linear-gradient(90deg,#10171d,#0b1116);border:1px solid #253039;
+}
+.heroEventRow .eventDot{width:3px;background:var(--fta-orange);box-shadow:0 0 8px rgba(255,109,39,.55)}
+.heroEventRow small{display:block;color:#ff8240;font:800 10px "Rajdhani",sans-serif;letter-spacing:.18em}
+.heroEventRow strong{display:block;margin:4px 0 5px;color:#f0ece6;font:600 16px "Bodoni Moda",Georgia,serif}
+.heroEventRow em{display:block;color:#8dd9a3;font:600 11px "Rajdhani",sans-serif;font-style:normal}
+.expeditionRow .eventDot{background:#46b4ff;box-shadow:0 0 8px rgba(70,180,255,.5)}
+.expeditionRow small{color:#67c3ff}
+.elysiumRow .eventDot{background:#69d593;box-shadow:0 0 8px rgba(105,213,147,.5)}
+.elysiumRow small{color:#82e6a7}
+
+section{border-top:1px solid #202b32!important}
+.about,.eventsSection,.leadership,.rules,.recruit,.siteAnnouncement{
+  max-width:1500px;margin:0 auto;padding-left:4vw!important;padding-right:4vw!important;
+}
+.eyebrow{color:#ff7c37!important}
+
+.featureStrip{
+  border:1px solid #2d3840!important;background:#090d11!important;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+}
+.featureStrip>div{
+  background:
+    linear-gradient(135deg,rgba(31,46,58,.68),rgba(10,14,18,.88))!important;
+  min-height:112px;display:grid;grid-template-columns:52px 1fr;grid-template-rows:auto auto;
+  column-gap:15px;align-content:center;border-color:#26323a!important;
+}
+.featureStrip span{
+  grid-row:1/3;font-size:32px!important;width:46px;height:46px;border-radius:50%;
+  display:grid!important;place-items:center;background:#0c1820;border:1px solid #2c5064;
+  color:#dbe9ef;
+}
+.featureStrip strong{font-family:"Bodoni Moda",Georgia,serif!important;font-size:22px!important;font-weight:600!important}
+.featureStrip small{color:#a8afb3!important}
+
+.eventsSection .sectionHead,.leadership .sectionHead,.about .intro{
+  background:linear-gradient(180deg,rgba(13,19,24,.76),rgba(7,11,15,.35));
+  border:1px solid #273139;padding:28px 30px;position:relative;
+}
+.eventsSection .stickyNote{
+  background:linear-gradient(180deg,#17130f,#0f0d0a)!important;color:#ffd39b!important;
+  border:1px solid #8c5c32!important;box-shadow:inset 0 0 0 2px #21160e,0 12px 30px #0007!important;
+  transform:none!important;clip-path:polygon(6% 0,94% 0,100% 18%,100% 82%,94% 100%,6% 100%,0 82%,0 18%);
+}
+.eventsSection .stickyNote span,.eventsSection .stickyNote small{color:#d6b58f!important}
+.eventsSection .stickyNote strong{color:#ffd39b!important}
+
+.eventCards{grid-template-columns:repeat(3,1fr)!important}
+.eventCard,.leader,.ruleCards article,.rosterMember{
+  position:relative;background:linear-gradient(180deg,#10171d,#090e12)!important;
+  border:1px solid #2c3740!important;box-shadow:0 14px 32px rgba(0,0,0,.22);
+}
+.eventCard{grid-template-columns:34px 42px 1fr!important;min-height:160px!important}
+.eventCard>b{grid-column:3;justify-self:start!important;text-align:left!important;color:#ffd39b!important;font-size:22px!important}
+.eventInfo>span{color:#ff8240!important}
+.eventInfo p{color:#9fa8ad!important}
+.leader.boss{border-top:1px solid #754527!important;background:linear-gradient(180deg,#181713,#0b1014)!important}
+.leader:hover,.eventCard:hover,.ruleCards article:hover{border-color:#8a5330!important;box-shadow:0 18px 44px rgba(0,0,0,.28),0 0 22px rgba(255,100,35,.06)!important}
+
+.ruleBanner{
+  background:#0a0e12!important;border:1px solid #2c3740!important;color:#9da5aa!important;
+}
+.recruit{
+  border:1px solid #343f47!important;margin-top:60px;margin-bottom:70px!important;
+  background:
+    linear-gradient(90deg,rgba(11,16,21,.98),rgba(11,16,21,.85)),
+    radial-gradient(circle at 80% 40%,rgba(255,100,35,.13),transparent 35%)!important;
+}
+footer{
+  background:#06090c;border-top:1px solid #3b2c22!important;color:#8e989e!important;
+  padding:30px 4vw!important;
+}
+footer span:first-child{color:#e8e1d8;font-family:"Bodoni Moda",Georgia,serif;font-size:18px}
+
+@media(max-width:1100px){
+  .brandWords strong{font-size:34px}
+  .navBar nav a{min-width:auto;padding:0 14px}
+  .heroGrid{grid-template-columns:1fr}
+  .heroEventPanel{max-width:720px}
+  .hero{min-height:auto!important}
+  .eventCards{grid-template-columns:1fr!important}
+}
+@media(max-width:800px){
+  main{padding-top:122px}
+  .brandBar{min-height:72px;padding:8px 5vw}
+  .brandLockup img{width:56px!important;height:56px!important}
+  .brandWords strong{font-size:24px}
+  .brandWords small{font-size:8px;letter-spacing:.14em}
+  .navBar{min-height:50px;padding:0 5vw}
+  .navBar nav a{display:none}
+  .navBar nav a.active{display:flex;min-width:auto;padding:0 14px}
+  .navBar .discord{min-width:0;margin-left:auto;padding:10px 16px!important;font-size:10px!important}
+  .hero{padding-top:28px!important}
+  .heroGrid{min-height:0;gap:22px}
+  .hero h1{font-size:clamp(45px,12vw,68px)!important}
+  .heroText>p{font-size:15px!important}
+  .featureStrip{grid-template-columns:1fr 1fr!important}
+  .eventsSection .sectionHead,.leadership .sectionHead,.about .intro{padding:22px 18px}
+}
+@media(max-width:520px){
+  .brandWords small{display:none}
+  .brandWords strong{font-size:20px}
+  .brandLockup{gap:9px}
+  .brandBar .accountLinks{margin-right:0!important}
+  .heroEventPanel{padding:10px}
+  .panelTitle span{font-size:13px}
+  .featureStrip{grid-template-columns:1fr!important}
+  .featureStrip>div{min-height:94px}
+}
