@@ -6,7 +6,8 @@ on:
     paths:
       - "tools/generate_character_bars.py"
       - "character-bars.json"
-      - "assets/FromTheAshes_Exact_Site_Asset_Pack/avatar-*.webp"
+      - "assets/avatars/avatar-*.webp"
+      - "assets/character-bars/styles/*.webp"
       - "assets/character-bars/styles/**"
       - ".github/workflows/generate-character-bars.yml"
 
