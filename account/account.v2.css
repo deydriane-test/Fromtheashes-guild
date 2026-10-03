@@ -871,3 +871,8 @@
 @media(max-width:520px){
   .portalAuthCard .discordAuthBtn{width:100%!important}
 }
+
+/* ---------- REMOVE OUTER IMAGE CANVAS ---------- */
+.portalAuthCard .discordAuthBtn img{
+  clip-path:inset(3px 4px 3px 4px round 18px)!important;
+}
