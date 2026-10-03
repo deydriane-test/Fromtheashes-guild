@@ -11,9 +11,22 @@
     options($('eventGame'),values);const other=document.createElement('option');other.value='__custom';other.textContent='Add another game…';$('eventGame').append(other);
     $('eventGame').value=values.includes(selected)?selected:'__custom';$('eventCustomGame').value=values.includes(selected)?'':selected;
   }
+  function timeZones(selected=E.TIME_ZONE){
+    const select=$('eventTimeZone');select.replaceChildren();
+    const common=document.createElement('optgroup');common.label='Common time zones';
+    const commonIds=new Set(E.COMMON_ZONES.map(x=>x.id));
+    E.COMMON_ZONES.forEach(zone=>{if(E.validZone(zone.id)){const option=document.createElement('option');option.value=zone.id;option.textContent=zone.label+' — '+zone.id.replace(/_/g,' ');common.append(option);}});
+    select.append(common);
+    const groups=new Map();
+    E.zones([selected]).filter(zone=>!commonIds.has(zone)).sort().forEach(zone=>{
+      const region=zone.split('/')[0];if(!groups.has(region)){const group=document.createElement('optgroup');group.label=region;groups.set(region,group);select.append(group);}
+      const option=document.createElement('option');option.value=zone;option.textContent=zone.replace(/_/g,' ');groups.get(region).append(option);
+    });
+    select.value=E.validZone(selected)?selected:E.TIME_ZONE;
+  }
   function scheduleFields(){
     const weekly=$('eventSchedule').value==='weekly';$('eventDaysField').hidden=!weekly;$('eventDateField').hidden=weekly;
-    $('eventDate').required=!weekly;
+    $('eventDate').required=!weekly;$('eventDate').min=E.dateString(new Date(),$('eventTimeZone').value||E.TIME_ZONE);
     const custom=$('eventGame').value==='__custom';$('customGameField').hidden=!custom;$('eventCustomGame').required=custom;
   }
   function readForm(){
@@ -21,18 +34,18 @@
     return {id:editingId||crypto.randomUUID(),title:$('eventTitle').value.trim(),game:$('eventGame').value==='__custom'?$('eventCustomGame').value.trim():$('eventGame').value,
       description:$('eventDescription').value.trim(),image:form.querySelector('[name="eventImage"]:checked')?.value,
       color:form.querySelector('[name="eventColor"]:checked')?.value,enabled:$('eventEnabled').checked,
-      schedule:{kind:$('eventSchedule').value,time:String(hour).padStart(2,'0')+':'+$('eventMinute').value,
+      schedule:{kind:$('eventSchedule').value,timeZone:$('eventTimeZone').value,time:String(hour).padStart(2,'0')+':'+$('eventMinute').value,
         ...($('eventSchedule').value==='weekly'?{days:[...form.querySelectorAll('[name="eventDay"]:checked')].map(x=>Number(x.value))}:{date:$('eventDate').value})}};
   }
-  function preview(){scheduleFields();const event=readForm();$('eventPreview').replaceChildren(E.card(event,E.nextInstant(event),{assetPrefix:'../',zone:E.TIME_ZONE}));}
+  function preview(){scheduleFields();const event=readForm();$('eventPreviewZone').textContent='CARD PREVIEW · '+E.zoneLabel(event.schedule.timeZone).toUpperCase();$('eventPreview').replaceChildren(E.card(event,E.nextInstant(event),{assetPrefix:'../',zone:event.schedule.timeZone}));}
   function close(){form.hidden=true;editingId=null;status('eventFormStatus','');}
   function open(event=null){
     if(!ready||busy||!canEdit())return;
-    editingId=event?.id||null;form.reset();games(event?.game);
+    editingId=event?.id||null;form.reset();form.dataset.dateTouched='false';games(event?.game);timeZones(event?.schedule?.timeZone);
     $('eventEditorTitle').textContent=event?'EDIT EVENT':'NEW EVENT';$('saveEvent').textContent=event?'SAVE CHANGES ↗':'ADD EVENT ↗';
     $('eventTitle').value=event?.title||'';$('eventDescription').value=event?.description||'';$('eventEnabled').checked=event?.enabled!==false;
     const s=event?.schedule||{kind:'weekly',days:[0],time:'19:00'};
-    $('eventSchedule').value=s.kind;$('eventDate').value=s.date||E.dateString();$('eventDate').min=E.dateString();
+    $('eventSchedule').value=s.kind;$('eventDate').value=s.date||E.dateString(new Date(),$('eventTimeZone').value);
     const [hour,minute]=(E.parseTime(s.time)||'19:00').split(':').map(Number);
     $('eventHour').value=String(hour%12||12);$('eventMinute').value=String(minute).padStart(2,'0');$('eventPeriod').value=hour>=12?'PM':'AM';
     form.querySelectorAll('[name="eventDay"]').forEach(x=>x.checked=(s.days||[]).includes(Number(x.value)));
@@ -45,11 +58,11 @@
     if(!items.length){const empty=document.createElement('p');empty.className='adminEmpty';empty.textContent='No events yet. Add an event to start the guild calendar.';list.append(empty);return;}
     E.ordered(items,now,true).forEach(({event,instant})=>{
       const wrap=document.createElement('article');wrap.className='adminEventItem'+(event.enabled===false?' eventHidden':'');
-      wrap.append(E.card(event,instant,{assetPrefix:'../',zone:E.TIME_ZONE}));
+      wrap.append(E.card(event,instant,{assetPrefix:'../'}));
       const footer=document.createElement('div');footer.className='adminEventFooter';
       const label=document.createElement('span');label.className='adminEventState';
       const days=event.schedule?.kind==='weekly'?(event.schedule.days||[]).map(d=>E.DAYS[d]).join(', '):'One-time event';
-      label.textContent=(event.enabled===false?'HIDDEN':instant&&instant>=now?'PUBLISHED':'PAST EVENT')+' • '+days;
+      label.textContent=(event.enabled===false?'HIDDEN':instant&&instant>=now?'PUBLISHED':'PAST EVENT')+' • SCHEDULE: '+days+' • '+E.zoneLabel(event.schedule?.timeZone||E.TIME_ZONE);
       const actions=document.createElement('div');actions.className='adminActions';
       for(const [text,action,danger] of [
         ['EDIT',()=>open(event),false],
@@ -94,6 +107,8 @@
     E.IMAGES.forEach(image=>{const label=document.createElement('label');label.className='eventImageChoice';const input=document.createElement('input');input.type='radio';input.name='eventImage';input.value=image.id;input.required=true;const img=document.createElement('img');img.src='../'+image.path;img.alt='';const text=document.createElement('span');text.textContent=image.label;label.append(input,img,text);$('eventImages').append(label);});
     E.COLORS.forEach(color=>{const label=document.createElement('label');label.className='eventColorChoice';label.style.setProperty('--swatch',color.accent);const input=document.createElement('input');input.type='radio';input.name='eventColor';input.value=color.id;input.required=true;const text=document.createElement('span');text.textContent=color.label;label.append(input,text);$('eventColors').append(label);});
     $('addEvent').onclick=()=>open();$('closeEventEditor').onclick=close;$('reloadEvents').onclick=reload;
+    $('eventDate').addEventListener('change',()=>{form.dataset.dateTouched='true';});
+    $('eventTimeZone').addEventListener('change',()=>{if(!editingId&&form.dataset.dateTouched!=='true')$('eventDate').value=E.dateString(new Date(),$('eventTimeZone').value);});
     form.addEventListener('input',preview);form.addEventListener('change',preview);
     form.onsubmit=async e=>{
       e.preventDefault();if(busy)return;

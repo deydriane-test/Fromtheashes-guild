@@ -3,7 +3,8 @@
 Staff with the `owner` or `site_mod` role manage events in **Admin → Events**.
 The form supports a title, game (including a custom game), description, image,
 color, visibility, and either a single date or one or more weekly days. Time
-controls always represent `America/Chicago`; public cards use the visitor's zone.
+controls use the event’s selected IANA time zone; public and admin list cards use
+the viewer’s zone. The editor preview uses the selected schedule zone.
 
 The existing `public.site_content` row with `section = 'events'` stores:
 
@@ -19,14 +20,17 @@ The existing `public.site_content` row with `section = 'events'` stores:
       "image": "raid",
       "color": "red",
       "enabled": true,
-      "schedule": {"kind": "weekly", "days": [0], "time": "19:00"}
+      "schedule": {"kind": "weekly", "days": [0], "time": "19:00", "timeZone": "America/Chicago"}
     }
   ]
 }
 ```
 
-A one-time schedule uses `{"kind":"once","date":"2026-10-04","time":"19:00"}`.
-Weekday values are Sunday 0 through Saturday 6. Legacy `raid`, `expedition`, and
+A one-time schedule uses `{"kind":"once","date":"2026-10-04","time":"19:00","timeZone":"Asia/Manila"}`.
+Weekday values are Sunday 0 through Saturday 6 in the selected schedule zone.
+Schedules without a `timeZone` retain `America/Chicago`. Time-zone choices include
+common regions and the browser’s supported IANA zone list; named zones follow
+daylight-saving rules for the event date rather than a fixed UTC offset. Legacy `raid`, `expedition`, and
 `elysium` schedules, including strings such as `7:00 PM CT`, are read without a
 migration. The first event save writes `items` while retaining legacy properties.
 An empty `items` array is authoritative and never restores default events.

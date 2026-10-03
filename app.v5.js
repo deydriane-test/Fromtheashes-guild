@@ -13,6 +13,9 @@ const eventTools=window.GuildEvents;
 let publicEvents=eventTools.read({},c.events||{});
 function renderAllEvents(){
   const upcoming=eventTools.ordered(publicEvents);
+  const localZone=Intl.DateTimeFormat().resolvedOptions().timeZone||eventTools.TIME_ZONE;
+  const note=document.getElementById("eventLocalTimeNote");
+  if(note)note.textContent="Times shown in your local time ("+eventTools.zoneLabel(localZone)+"). Weekly events display their next occurrence.";
   for(const [id,limit] of [["upcomingEventList",3],["allEventList",Infinity]]){
     const list=document.getElementById(id);if(!list)continue;
     list.replaceChildren();

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FromTheAshes — Guild Admin</title><link rel="stylesheet" href="../styles.v1.css?v=20261002-portal"><link rel="stylesheet" href="admin.v4.css?v=20261002-3"><link rel="stylesheet" href="../events.v1.css?v=20261003-events1"><link rel="stylesheet" href="events.v1.css?v=20261003-events1"></head>
+<title>FromTheAshes — Guild Admin</title><link rel="stylesheet" href="../styles.v1.css?v=20261002-portal"><link rel="stylesheet" href="admin.v4.css?v=20261002-3"><link rel="stylesheet" href="../events.v1.css?v=20261003-events2"><link rel="stylesheet" href="events.v1.css?v=20261003-events2"></head>
 <body class="adminPage"><div class="embers"></div><div class="scrollGlow"></div>
 <header class="adminHeader"><a class="logo" href="../" aria-label="FromTheAshes"><img src="../assets/brand/ashes-logo.png?v=15" alt="FromTheAshes guild logo"></a>
 <div class="adminHeaderRight">
@@ -26,8 +26,8 @@
 <nav class="adminTabs"><button class="adminTab active" data-tab="roster">ROSTER</button><button class="adminTab" data-tab="events" id="eventsTab" hidden>EVENTS</button><button class="adminTab" data-tab="content" id="contentTab" hidden>SITE CONTENT</button></nav>
 <section id="rosterTab" class="adminTabPanel"><p id="adminIntro" class="adminIntro"></p><div id="rosterAdminList" class="rosterAdminList"></div></section>
 <section id="eventsTabPanel" class="adminTabPanel" hidden>
-  <div class="eventManagerHead"><div><div class="eyebrow">GUILD CALENDAR</div><h2>MANAGE EVENTS</h2><p>Add a one-time gathering or a weekly event. All schedules use Central Time.</p></div><button type="button" class="btn" id="addEvent" disabled>ADD EVENT +</button></div>
-  <div class="eventManagerToolbar"><span>Sorted by next occurrence. Hidden and past events appear last.</span><button type="button" class="adminAction" id="reloadEvents">REFRESH LIST</button></div>
+  <div class="eventManagerHead"><div><div class="eyebrow">GUILD CALENDAR</div><h2>MANAGE EVENTS</h2><p>Add a one-time gathering or a weekly event. Choose a time zone for each event. Dates and times on the calendar adjust to each viewer’s local time.</p></div><button type="button" class="btn" id="addEvent" disabled>ADD EVENT +</button></div>
+  <div class="eventManagerToolbar"><span>Sorted by next occurrence. Card times are local to you; schedule zones are listed below.</span><button type="button" class="adminAction" id="reloadEvents">REFRESH LIST</button></div>
   <p id="eventManagerStatus" class="formStatus" role="status" aria-live="polite"></p>
   <form id="eventForm" class="eventEditor contentGroup" hidden>
     <div class="eventEditorHead"><h3 id="eventEditorTitle">NEW EVENT</h3><button type="button" id="closeEventEditor" class="adminAction">CANCEL</button></div>
@@ -37,15 +37,16 @@
         <label>GAME<select id="eventGame" required></select></label>
         <label id="customGameField" hidden>GAME NAME<input id="eventCustomGame" maxlength="80" placeholder="Enter a game name"></label>
         <label>SCHEDULE<select id="eventSchedule"><option value="weekly">Weekly recurring</option><option value="once">One-time event</option></select></label>
-        <label id="eventDateField" hidden>DATE · CENTRAL TIME<input id="eventDate" type="date"></label>
-        <div class="eventTimeField"><span>TIME · CENTRAL TIME</span><div class="eventTimeSelects"><label class="srOnly" for="eventHour">Hour</label><select id="eventHour" aria-label="Hour"></select><span>:</span><label class="srOnly" for="eventMinute">Minute</label><select id="eventMinute" aria-label="Minute"></select><label class="srOnly" for="eventPeriod">AM or PM</label><select id="eventPeriod" aria-label="AM or PM"><option>AM</option><option>PM</option></select></div></div>
+        <label class="eventWide">TIME ZONE<select id="eventTimeZone" required></select><span class="eventZoneHelp">Dates and weekly days follow this time zone. Visitors see their local time.</span></label>
+        <label id="eventDateField" hidden>DATE IN SELECTED TIME ZONE<input id="eventDate" type="date"></label>
+        <div class="eventTimeField"><span>TIME IN SELECTED TIME ZONE</span><div class="eventTimeSelects"><label class="srOnly" for="eventHour">Hour</label><select id="eventHour" aria-label="Hour"></select><span>:</span><label class="srOnly" for="eventMinute">Minute</label><select id="eventMinute" aria-label="Minute"></select><label class="srOnly" for="eventPeriod">AM or PM</label><select id="eventPeriod" aria-label="AM or PM"><option>AM</option><option>PM</option></select></div></div>
         <fieldset id="eventDaysField" class="eventWide eventDayField"><legend>REPEATS EACH WEEK ON</legend><div id="eventDays" class="eventDayChoices"></div></fieldset>
         <label class="eventWide">DESCRIPTION<textarea id="eventDescription" maxlength="400" rows="3" placeholder="What are we doing? Any requirements or meeting details?"></textarea></label>
         <fieldset class="eventWide eventAssetField"><legend>EVENT IMAGE</legend><div id="eventImages" class="eventImageChoices"></div></fieldset>
         <fieldset class="eventWide eventColorField"><legend>COLOR SCHEME</legend><div id="eventColors" class="eventColorChoices"></div></fieldset>
         <label class="eventWide eventVisibility"><input type="checkbox" id="eventEnabled" checked> Show on the public event calendar</label>
       </div>
-      <div class="eventPreviewLabel">CARD PREVIEW · CENTRAL TIME</div><div id="eventPreview"></div>
+      <div class="eventPreviewLabel" id="eventPreviewZone">CARD PREVIEW · SELECTED TIME ZONE</div><div id="eventPreview"></div>
       <div class="contentActions"><button class="btn" id="saveEvent" type="submit">ADD EVENT ↗</button><span id="eventFormStatus" class="formStatus" role="status" aria-live="polite"></span></div>
     </fieldset>
   </form>
@@ -61,4 +62,4 @@
 </section>
 </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="../events.v1.js?v=20261003-events1"></script><script src="events.v1.js?v=20261003-events1"></script><script src="admin.v8.js?v=20261003-events1"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.v1.js"></script><script src="../events.v1.js?v=20261003-events2"></script><script src="events.v1.js?v=20261003-events2"></script><script src="admin.v8.js?v=20261003-events2"></script></body></html>

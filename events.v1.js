@@ -1,7 +1,37 @@
-/* Shared event catalog, Central Time scheduling, and public/admin card rendering. */
+/* Shared event catalog, time-zone scheduling, and public/admin card rendering. */
 (function(root){
   'use strict';
   const TIME_ZONE='America/Chicago';
+  const COMMON_ZONES=[
+    {id:'America/Chicago',label:'Central Time'},
+    {id:'America/New_York',label:'Eastern Time'},
+    {id:'America/Denver',label:'Mountain Time'},
+    {id:'America/Los_Angeles',label:'Pacific Time'},
+    {id:'America/Phoenix',label:'Arizona'},
+    {id:'America/Anchorage',label:'Alaska'},
+    {id:'Pacific/Honolulu',label:'Hawaii'},
+    {id:'UTC',label:'UTC'},
+    {id:'Europe/London',label:'London'},
+    {id:'Europe/Paris',label:'Paris'},
+    {id:'Europe/Berlin',label:'Berlin'},
+    {id:'Asia/Manila',label:'Philippines'},
+    {id:'Asia/Seoul',label:'Korea'},
+    {id:'Asia/Tokyo',label:'Japan'},
+    {id:'Asia/Singapore',label:'Singapore'},
+    {id:'Asia/Kolkata',label:'India'},
+    {id:'Australia/Sydney',label:'Sydney'},
+    {id:'Australia/Perth',label:'Perth'},
+    {id:'Pacific/Auckland',label:'New Zealand'}
+  ];
+  function validZone(zone){
+    if(typeof zone!=='string'||(zone!=='UTC'&&!zone.includes('/')))return false;
+    try{new Intl.DateTimeFormat('en-US',{timeZone:zone});return true;}catch(_){return false;}
+  }
+  function zoneLabel(zone){return COMMON_ZONES.find(x=>x.id===zone)?.label||String(zone).replace(/_/g,' ');}
+  function zones(extra=[]){
+    let supported=[];try{supported=Intl.supportedValuesOf?.('timeZone')||[];}catch(_){}
+    return [...new Set([...COMMON_ZONES.map(x=>x.id),...supported,...extra])].filter(validZone);
+  }
   const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const GAMES=['RF Online Next','Dune: Awakening','Path of Exile','Path of Exile 2','Community / Other'];
   const IMAGES=[
@@ -44,7 +74,7 @@
     return y>=2000&&y<=2100&&date.getUTCFullYear()===y&&date.getUTCMonth()+1===m&&date.getUTCDate()===d;
   }
   function wallTimeToUtc(date,time,zone=TIME_ZONE){
-    time=parseTime(time);if(!validDate(date)||!time)return null;
+    time=parseTime(time);if(!validDate(date)||!time||!validZone(zone))return null;
     const [year,month,day]=date.split('-').map(Number),[hour,minute]=time.split(':').map(Number);
     const base=Date.UTC(year,month-1,day,hour,minute);
     const offsets=new Set([-86400000,0,86400000].map(delta=>{
@@ -58,23 +88,23 @@
     return candidates[0]||null;
   }
   function read(content={},fallback={}){
-    if(Array.isArray(content.items))return content.items.map(item=>({...item,schedule:{...item.schedule}}));
+    if(Array.isArray(content.items))return content.items.map(item=>({...item,schedule:{...item.schedule,timeZone:item.schedule?.timeZone||TIME_ZONE}}));
     return LEGACY.map(def=>{
       const old={...(fallback[def.id]||{}),...(content[def.id]||{})};
       const day=DAYS.findIndex(d=>d.toLowerCase()===String(old.day||'Sunday').toLowerCase());
-      return {...def,game:'RF Online Next',enabled:old.enabled!==false,schedule:{kind:'weekly',days:[day<0?0:day],time:parseTime(old.time)||def.time}};
+      return {...def,game:'RF Online Next',enabled:old.enabled!==false,schedule:{kind:'weekly',days:[day<0?0:day],time:parseTime(old.time)||def.time,timeZone:TIME_ZONE}};
     });
   }
   function nextInstant(event,now=new Date()){
-    const s=event.schedule||{};const time=parseTime(s.time);if(!time)return null;
-    if(s.kind==='once')return wallTimeToUtc(s.date,time);
+    const s=event.schedule||{},zone=s.timeZone||TIME_ZONE;const time=parseTime(s.time);if(!time||!validZone(zone))return null;
+    if(s.kind==='once')return wallTimeToUtc(s.date,time,zone);
     if(s.kind!=='weekly'||!Array.isArray(s.days)||!s.days.length)return null;
-    const p=dateParts(now),today=Date.UTC(p.year,p.month-1,p.day);
+    const p=dateParts(now,zone),today=Date.UTC(p.year,p.month-1,p.day);
     for(let delta=0;delta<14;delta++){
       const day=new Date(today+delta*86400000);
       if(!s.days.includes(day.getUTCDay()))continue;
       const date=`${day.getUTCFullYear()}-${pad(day.getUTCMonth()+1)}-${pad(day.getUTCDate())}`;
-      const instant=wallTimeToUtc(date,time);
+      const instant=wallTimeToUtc(date,time,zone);
       if(instant&&instant>=now)return instant;
     }
     return null;
@@ -100,12 +130,13 @@
     if((event.description||'').length>400)return 'Keep the description under 400 characters.';
     if(!IMAGES.some(x=>x.id===event.image)||!COLORS.some(x=>x.id===event.color))return 'Choose an image and color scheme.';
     const s=event.schedule||{};
+    if(!validZone(s.timeZone||TIME_ZONE))return 'Choose a valid time zone.';
     if(!parseTime(s.time))return 'Choose a valid time.';
     if(s.kind==='weekly'){
       if(!Array.isArray(s.days)||!s.days.length||s.days.some(d=>!Number.isInteger(d)||d<0||d>6))return 'Select at least one day of the week.';
     }else if(s.kind==='once'){
-      const instant=wallTimeToUtc(s.date,s.time);
-      if(!instant)return 'Choose a valid date and time in Central Time. That time may fall in a daylight-saving gap.';
+      const instant=wallTimeToUtc(s.date,s.time,s.timeZone||TIME_ZONE);
+      if(!instant)return 'Choose a valid date and time in the selected time zone. That time may fall in a daylight-saving gap.';
       if(instant<now)return 'Choose a future date and time for a one-time event.';
     }else return 'Choose a one-time or weekly schedule.';
     return '';
@@ -122,9 +153,9 @@
     const description=document.createElement('span');description.textContent=event.description||'';copy.append(game,title,description);
     const when=document.createElement('div');when.className='eventWhen';const time=document.createElement('b'),meta=document.createElement('span');
     if(instant){const formatted=format(instant,zone);time.textContent=formatted.time;meta.textContent=formatted.date.toUpperCase()+(event.schedule?.kind==='weekly'?' • WEEKLY':'');}
-    else {time.textContent='Pick a schedule';meta.textContent='CENTRAL TIME';}
+    else {time.textContent='Pick a schedule';meta.textContent=zoneLabel(zone||event.schedule?.timeZone||TIME_ZONE).toUpperCase();}
     when.append(time,meta);el.append(thumb,copy,when);return el;
   }
-  const api={TIME_ZONE,DAYS,GAMES,IMAGES,COLORS,read,parseTime,dateString,validDate,wallTimeToUtc,nextInstant,ordered,format,validate,card};
+  const api={TIME_ZONE,COMMON_ZONES,validZone,zoneLabel,zones,DAYS,GAMES,IMAGES,COLORS,read,parseTime,dateString,validDate,wallTimeToUtc,nextInstant,ordered,format,validate,card};
   root.GuildEvents=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window==='undefined'?globalThis:window);
