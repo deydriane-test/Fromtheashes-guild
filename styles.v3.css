@@ -2317,3 +2317,154 @@ main{
   .cleanNav a{display:none!important}
   .cleanNav a.active{display:flex!important;min-width:115px!important}
 }
+
+
+/* =========================================================
+   APPROVED TEMPLATE NAV ASSETS — production use
+   ========================================================= */
+.exactNavBar{
+  height:72px!important;
+  min-height:72px!important;
+  padding:0 26px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:20px!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png") center/100% 100% no-repeat!important;
+  border:0!important;
+  box-shadow:0 6px 18px rgba(0,0,0,.42)!important;
+  overflow:visible!important;
+}
+
+.templateNav{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  height:72px!important;
+  flex:0 0 auto!important;
+}
+
+.templateTab{
+  display:block!important;
+  width:152px!important;
+  height:60px!important;
+  flex:0 0 152px!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:contain!important;
+  text-decoration:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.tabHome{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-default.png")!important}
+.tabHome:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-hover.png")!important}
+.tabHome.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-active.png")!important}
+
+.tabRoster{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-default.png")!important}
+.tabRoster:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-hover.png")!important}
+.tabRoster.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-active.png")!important}
+
+.tabEvents{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-default.png")!important}
+.tabEvents:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-hover.png")!important}
+.tabEvents.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-active.png")!important}
+
+.tabGallery{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-default.png")!important}
+.tabGallery:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-hover.png")!important}
+.tabGallery.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-active.png")!important}
+
+.tabAbout{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-default.png")!important}
+.tabAbout:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-hover.png")!important}
+.tabAbout.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-active.png")!important}
+
+/* Discord nav item stays live text, but uses the matching icon asset */
+.templateDiscordLink{
+  width:152px!important;
+  height:60px!important;
+  flex:0 0 152px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
+  color:#ece6de!important;
+  text-decoration:none!important;
+  font:600 15px "Bodoni Moda",Georgia,serif!important;
+  letter-spacing:.02em!important;
+  background:linear-gradient(180deg,#11171b,#090d10)!important;
+  border:1px solid #45311e!important;
+  clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px)!important;
+  box-shadow:inset 0 0 0 1px #090b0d!important;
+}
+.templateDiscordLink:hover{
+  color:#ffe3b7!important;
+  border-color:#99602f!important;
+  background:linear-gradient(180deg,#21160f,#0e0b09)!important;
+}
+.templateDiscordIcon{
+  width:30px!important;
+  height:30px!important;
+  display:block!important;
+  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-default.png") center/contain no-repeat!important;
+}
+.templateDiscordLink:hover .templateDiscordIcon{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-active.png")!important;
+}
+
+.templateDiscordCta,
+.templateHeroDiscordCta{
+  display:block!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:contain!important;
+  border:0!important;
+  box-shadow:none!important;
+  text-decoration:none!important;
+  transform:none!important;
+}
+.templateDiscordCta{
+  width:236px!important;
+  height:65px!important;
+  flex:0 0 236px!important;
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-default.png")!important;
+}
+.templateDiscordCta:hover{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-hover.png")!important;
+}
+.templateDiscordCta:active{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-active.png")!important;
+}
+.templateHeroDiscordCta{
+  width:290px!important;
+  height:80px!important;
+  flex:0 0 290px!important;
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-default.png")!important;
+}
+.templateHeroDiscordCta:hover{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-hover.png")!important;
+}
+.templateHeroDiscordCta:active{
+  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-active.png")!important;
+}
+
+/* Retire all previous nav systems */
+.cleanNav,.cleanDiscordCta,.assetNav,.assetDiscordNav{display:none!important}
+
+@media(max-width:1450px){
+  .exactNavBar{padding:0 18px!important;gap:12px!important}
+  .templateNav{gap:5px!important}
+  .templateTab,.templateDiscordLink{width:132px!important;flex-basis:132px!important;height:53px!important}
+  .templateDiscordCta{width:210px!important;flex-basis:210px!important;height:58px!important}
+}
+@media(max-width:1180px){
+  .templateTab,.templateDiscordLink{width:112px!important;flex-basis:112px!important;height:45px!important}
+  .templateDiscordLink{font-size:12px!important}
+  .templateDiscordIcon{width:24px!important;height:24px!important}
+  .templateDiscordCta{width:185px!important;flex-basis:185px!important;height:51px!important}
+}
+@media(max-width:900px){
+  .exactNavBar{height:60px!important;min-height:60px!important}
+  .templateNav{height:60px!important}
+  .templateTab,.templateDiscordLink{display:none!important}
+  .templateTab.tabHome{display:block!important;width:120px!important;flex-basis:120px!important;height:48px!important}
+  .templateDiscordCta{width:175px!important;flex-basis:175px!important;height:48px!important}
+}
