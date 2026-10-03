@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FromTheAshes - RF Online Next</title>
+<meta name="description" content="FromTheAshes — a community-first RF Online Next guild built from the ashes.">
+<link rel="stylesheet" href="desktop.css?v=20261003-split1">
+</head>
+<body>
+<div class="embers"></div>
+<div class="scrollGlow"></div>
+<div class="topScene">
+<header class="siteHeader exactHeader">
+  <div class="brandBar exactBrandBar">
+    <a class="brandLockup exactBrandLockup liveBrandLockup" href="#" aria-label="From The Ashes">
+      <img class="liveBrandMark" src="assets/Ashes.png?v=14" alt="">
+      <span class="liveBrandText">
+        <strong>FROM THE ASHES</strong>
+        <small>RF ONLINE NEXT • MULTI-GAME COMMUNITY</small>
+      </span>
+    </a>
+    <div class="accountLinks" id="accountLinks">
+      <span class="accountSignedOut"><a href="account/login.html">SIGN IN</a></span>
+      <div class="accountMenu" id="accountMenu" hidden>
+        <button class="accountMenuTrigger characterBarTrigger" id="accountMenuTrigger" type="button" aria-expanded="false" aria-haspopup="true">
+          <span class="characterAvatarSlot">
+            <img id="accountAvatar" src="assets/FromTheAshes_Exact_Site_Asset_Pack/avatar-001.webp" alt="">
+          </span>
+          <span class="characterBarCopy">
+            <strong id="accountMenuName">MEMBER</strong>
+            <span class="characterBarMeta">
+              <span class="presenceDot" id="accountPresenceDot"></span>
+              <span id="accountPresenceText">CONNECTING</span>
+              <span class="accountMenuRole" id="accountMenuRole"></span>
+            </span>
+          </span>
+          <span class="accountMenuChevron">⌄</span>
+        </button>
+        <div class="accountDropdown" id="accountDropdown" hidden>
+          <a href="account/">ACCOUNT</a>
+          <a href="admin/" id="adminMenuLink" hidden>ADMIN</a>
+          <button id="headerLogout" type="button">LOG OUT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navBar exactNavBar">
+    <nav class="templateNav" aria-label="Primary">
+      <a class="templateTab tabHome active" href="#" aria-label="Home"></a>
+      <a class="templateTab tabRoster" href="#roster" aria-label="Roster"></a>
+      <a class="templateTab tabEvents" href="#events" aria-label="Events"></a>
+      <a class="templateTab tabGallery" href="#gallery" aria-label="Gallery"></a>
+      <a class="templateTab tabAbout" href="#about" aria-label="About"></a>
+</nav>
+    <a class="templateDiscordCta" id="discordTop" href="#recruit" aria-label="Join our Discord"></a>
+  </div>
+</header>
+<section class="exactHero">
+  <div class="exactHeroBg" aria-hidden="true"></div>
+  <div class="exactHeroLeft">
+    <div class="eyebrow">FOUNDED IN RF ONLINE NEXT</div>
+    <h1>RISE TOGETHER.<br><i>FROM THE ASHES.</i></h1>
+    <p>Founded in RF Online Next, From The Ashes is a multi-game community built on teamwork, progression, and great people. We raid, explore, and take on new games together.</p>
+</div>
+
+  <aside class="exactUpcoming" id="events">
+    <div class="exactPanelHead"><span>▣ &nbsp; UPCOMING EVENTS</span><a href="#eventsDetail">View All →</a></div>
+
+    <div class="exactEventCard raidEvent">
+      <div class="eventThumb thumbRaid"></div>
+      <div class="eventCopy">
+        <small>GUILD RAID</small>
+        <strong>RF Online Next</strong>
+        <span>Boss Progression • Guild Run</span>
+      </div>
+      <div class="eventWhen"><b id="raid">7:00 PM</b><span id="raidMeta">SUNDAY • LOCAL TIME</span></div>
+      <div class="eventArrow">›</div>
+    </div>
+
+    <div class="exactEventCard expeditionEvent">
+      <div class="eventThumb thumbExpedition"></div>
+      <div class="eventCopy">
+        <small>GUILD EXPEDITION</small>
+        <strong>RF Online Next</strong>
+        <span>Exploration • Objectives • Rewards</span>
+      </div>
+      <div class="eventWhen"><b id="expedition">7:00 PM</b><span id="expeditionMeta">SUNDAY • LOCAL TIME</span></div>
+      <div class="eventArrow">›</div>
+    </div>
+
+    <div class="exactEventCard elysiumEvent">
+      <div class="eventThumb thumbElysium"></div>
+      <div class="eventCopy">
+        <small>ELYSIUM</small>
+        <strong>RF Online Next</strong>
+        <span>Farming • Gear • Community</span>
+      </div>
+      <div class="eventWhen"><b id="elysium">8:55 PM</b><span id="elysiumMeta">SUNDAY • LOCAL TIME</span></div>
+      <div class="eventArrow">›</div>
+    </div>
+    <span id="heroRaidMeta" hidden></span><span id="heroExpeditionMeta" hidden></span><span id="heroElysiumMeta" hidden></span><span id="stickyEventZone" hidden></span>
+  </aside>
+</section>
+</div>
+
+
+
+<main>
+
+
+<section class="exactFeatureStrip assetFeatureStrip">
+    <a href="#events"><img src="assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/features/raiding.webp" alt="Raiding — Progress together"></a>
+    <a href="#about"><img src="assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/features/community.webp" alt="Community — More than just a game"></a>
+    <a href="#events"><img src="assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/features/events.webp" alt="Events — Always something to do"></a>
+    <a href="#roster"><img src="assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/features/growth.webp" alt="Growth — Multiple games, one community"></a>
+  </section>
+
+<section id="announcement" class="siteAnnouncement exactAnnouncement" hidden>
+  <div class="eyebrow">GUILD ANNOUNCEMENT</div><p id="announcementText"></p>
+</section>
+
+<section class="exactLowerGrid assetLowerGrid">
+    <a class="assetPanelLink newsAssetPanel" href="#about"><img src="assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/panels/guild-news.webp" alt="Guild News"></a>
+    <a class="assetPanelLink galleryAssetPanel" id="gallery" href="#gallery"><img src="assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/panels/featured-gallery.webp" alt="Featured Gallery"></a>
+    <a class="assetPanelLink discordAssetPanel" id="discordCommunity" href="#recruit"><img src="assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/panels/discord-community.webp" alt="Discord community"></a>
+  </section>
+
+<section id="about" class="exactAboutAnchor"></section>
+<section id="roster" class="exactRosterAnchor"></section>
+<section id="eventsDetail" class="exactEventsAnchor"></section>
+<section id="leadership" class="leadership reveal">
+  <div class="eyebrow">LEADERSHIP</div>
+  <div class="sectionHead">
+    <h2>THE<br><i>CREW.</i></h2>
+    <p class="copy">Approachable leadership, shared responsibility, and people who actually play with the guild.</p>
+  </div>
+  <div class="leaders">
+    <article class="leader boss interactive"><span class="leaderRole"><img class="rankCrown gmCrown" src="assets/crown-gm.svg" alt=""> GUILD MASTER</span><h3>Deydriane</h3><p>Best leader. Definitely not biased. Questionable memory, surprisingly early bedtime.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>Aveo</h3><p>First to join this experiment. Quiet enough that we’re not entirely sure he knows he’s leadership.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>KK779</h3><p>Knows everyone, talks to everyone, and can probably convince you that joining the guild was your idea.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>SaintlyDevil</h3><p>Back hurts. Memory fails. Still shows up for raid.</p></article>
+    <article class="leader interactive"><span class="leaderRole"><img class="rankCrown viceCrown" src="assets/crown-vice.svg" alt=""> VICE GUILD MASTER</span><h3>Draeconia</h3><p>Professional meme dealer, amateur gamer. Never misses a chance to drop a GIF.</p></article>
+  </div>
+</section>
+
+<section id="rules" class="rules reveal">
+  <div class="eyebrow">GROUND RULES</div>
+  <h2>KEEP IT<br><i>SIMPLE.</i></h2>
+  <div class="ruleCards">
+    <article><span>01</span><strong>BE ACTIVE</strong><p>If life happens, communicate. Otherwise stay involved.</p></article>
+    <article><span>02</span><strong>USE DISCORD</strong><p>Guild communication and event coordination live there.</p></article>
+    <article><span>03</span><strong>SHOW UP</strong><p>Join guild content when you can and support the group.</p></article>
+    <article><span>04</span><strong>DON'T BE A DICK</strong><p>Respect the people you play with and leave drama at the door.</p></article>
+  </div>
+</section>
+
+<section id="recruit" class="recruit reveal">
+  <div class="eyebrow">COME HANG OUT</div>
+  <h2>YOU LOOK LIKE<br><i>OUR KIND OF TROUBLE.</i></h2>
+  <p>Play, progress, help each other, and have a good time without turning a game into a second job.</p>
+  <a class="btn" id="discordRecruitBottom" href="#">ENTER THE DISCORD →</a>
+</section>
+</main>
+
+<footer><span>FROM THE ASHES</span><span>RF ONLINE NEXT • MULTI-GAME COMMUNITY</span><span>© 2026</span></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.v1.js"></script><script src="app.v5.js?v=20261003-characterbar1"></script>
+</body>
+</html>
