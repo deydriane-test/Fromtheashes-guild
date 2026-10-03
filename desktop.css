@@ -3529,3 +3529,46 @@ main{
     transform:scale(1.24)!important;
   }
 }
+
+
+/* =========================================================
+   FEATURE CARD CANVAS CLEANUP
+   The raster feature assets contain a thin opaque black canvas.
+   Crop only that dead edge and clip to the beveled card silhouette.
+   ========================================================= */
+.assetFeatureStrip{
+  background:transparent!important;
+  overflow:visible!important;
+}
+.assetFeatureStrip a{
+  position:relative!important;
+  display:block!important;
+  overflow:hidden!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  clip-path:polygon(
+    3.2% 0,
+    96.8% 0,
+    100% 11%,
+    100% 89%,
+    96.8% 100%,
+    3.2% 100%,
+    0 89%,
+    0 11%
+  )!important;
+}
+.assetFeatureStrip img{
+  display:block!important;
+  width:104%!important;
+  max-width:none!important;
+  height:auto!important;
+  margin-left:-2%!important;
+  margin-top:-1.2%!important;
+  margin-bottom:-1.2%!important;
+  object-fit:cover!important;
+  transform:none!important;
+  background:transparent!important;
+}
+.assetFeatureStrip a:hover{
+  transform:translateY(-2px)!important;
+}
