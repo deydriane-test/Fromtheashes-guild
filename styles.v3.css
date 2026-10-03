@@ -2643,3 +2643,37 @@ main{
   .templateDiscordTab:after{left:64px!important;font-size:14px!important}
   .templateDiscordCta{width:225px!important;height:62px!important;flex-basis:225px!important}
 }
+
+
+/* =========================================================
+   NAV SAFE INSET — match annotated green marks
+   ========================================================= */
+.exactNavBar{
+  padding-left:92px!important;
+  padding-right:92px!important;
+}
+.templateNav{
+  margin-left:0!important;
+}
+.templateDiscordCta{
+  margin-right:0!important;
+}
+
+@media(max-width:1600px){
+  .exactNavBar{
+    padding-left:72px!important;
+    padding-right:72px!important;
+  }
+}
+@media(max-width:1300px){
+  .exactNavBar{
+    padding-left:48px!important;
+    padding-right:48px!important;
+  }
+}
+@media(max-width:900px){
+  .exactNavBar{
+    padding-left:20px!important;
+    padding-right:20px!important;
+  }
+}
