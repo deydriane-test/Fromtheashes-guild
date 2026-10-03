@@ -1683,7 +1683,7 @@ main{padding-top:208px!important}
 .exactBrandBar{
   background:
     linear-gradient(90deg,rgba(4,7,10,.22),rgba(4,7,10,.02) 58%,rgba(4,7,10,.18)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
 }
 .exactBrandLockup{
   display:flex!important;align-items:center!important;text-decoration:none!important;
@@ -1715,7 +1715,7 @@ main{padding-top:208px!important}
 .exactHeroBg{
   background:
     linear-gradient(90deg,rgba(2,5,8,.08),rgba(2,5,8,.03) 55%,rgba(2,5,8,.52)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
   filter:none!important;
 }
 .assetHeroButton{
@@ -1726,9 +1726,9 @@ main{padding-top:208px!important}
 .assetHeroButton:hover{transform:none!important;box-shadow:none!important}
 .learnButton img{max-width:240px}
 
-.thumbRaid{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important}
-.thumbExpedition{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important}
-.thumbElysium{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important}
+.thumbRaid{background-image:url("assets/thumbnails/raid-boss.webp")!important}
+.thumbExpedition{background-image:url("assets/thumbnails/expedition.webp")!important}
+.thumbElysium{background-image:url("assets/thumbnails/elysium-blue.webp")!important}
 
 .assetFeatureStrip{
   display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:14px!important;
@@ -2007,7 +2007,7 @@ main{
   justify-content:space-between!important;
   gap:24px!important;
   background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg.png") center/100% 100% no-repeat,
+    url("assets/navigation/navbar-bg.png") center/100% 100% no-repeat,
     #080b0e!important;
   border:0!important;
   box-shadow:0 5px 18px rgba(0,0,0,.45)!important;
@@ -2036,7 +2036,7 @@ main{
   text-decoration:none!important;
   font:700 14px "Rajdhani",sans-serif!important;
   letter-spacing:.09em!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/nav-tab-default.png") center/100% 100% no-repeat!important;
   box-shadow:none!important;
   clip-path:none!important;
   white-space:nowrap!important;
@@ -2048,7 +2048,7 @@ main{
 }
 .cleanNav a.active{
   color:#ffe0ae!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-active.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/nav-tab-active.png") center/100% 100% no-repeat!important;
   filter:none!important;
 }
 .cleanNavIcon{
@@ -2077,14 +2077,14 @@ main{
   font:800 13px "Rajdhani",sans-serif!important;
   letter-spacing:.08em!important;
   text-shadow:0 1px 4px #000!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/discord-button-default.png") center/100% 100% no-repeat!important;
 }
 .cleanDiscordCta:hover{
   color:#fff1d7!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/discord-button-hover.png") center/100% 100% no-repeat!important;
 }
 .cleanDiscordCta:active{
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/discord-button-active.png") center/100% 100% no-repeat!important;
 }
 .discordGlyph{font-size:17px!important;color:currentColor!important}
 
@@ -2105,14 +2105,14 @@ main{
   text-decoration:none!important;
   font:800 13px "Rajdhani",sans-serif!important;
   letter-spacing:.08em!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-default.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/discord-button-default.png") center/100% 100% no-repeat!important;
 }
 .liveDiscordAssetBtn:hover{
   color:#fff1d7!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-hover.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/discord-button-hover.png") center/100% 100% no-repeat!important;
 }
 .liveDiscordAssetBtn:active{
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/discord-button-active.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/discord-button-active.png") center/100% 100% no-repeat!important;
 }
 
 /* Feature cards should never be cropped */
@@ -2332,7 +2332,7 @@ main{
   align-items:center!important;
   justify-content:space-between!important;
   gap:20px!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg-web.png") center/100% 100% no-repeat!important;
+  background:url("assets/navigation/navbar-bg-web.png") center/100% 100% no-repeat!important;
   border:0!important;
   box-shadow:0 6px 18px rgba(0,0,0,.42)!important;
   overflow:visible!important;
@@ -2359,25 +2359,25 @@ main{
   box-shadow:none!important;
   transform:none!important;
 }
-.tabHome{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-default.png")!important}
-.tabHome:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-hover.png")!important}
-.tabHome.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-active.png")!important}
+.tabHome{background-image:url("assets/navigation/home-default.png")!important}
+.tabHome:hover{background-image:url("assets/navigation/home-hover.png")!important}
+.tabHome.active{background-image:url("assets/navigation/home-active.png")!important}
 
-.tabRoster{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-default.png")!important}
-.tabRoster:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-hover.png")!important}
-.tabRoster.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-active.png")!important}
+.tabRoster{background-image:url("assets/navigation/roster-default.png")!important}
+.tabRoster:hover{background-image:url("assets/navigation/roster-hover.png")!important}
+.tabRoster.active{background-image:url("assets/navigation/roster-active.png")!important}
 
-.tabEvents{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-default.png")!important}
-.tabEvents:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-hover.png")!important}
-.tabEvents.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-active.png")!important}
+.tabEvents{background-image:url("assets/navigation/events-default.png")!important}
+.tabEvents:hover{background-image:url("assets/navigation/events-hover.png")!important}
+.tabEvents.active{background-image:url("assets/navigation/events-active.png")!important}
 
-.tabGallery{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-default.png")!important}
-.tabGallery:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-hover.png")!important}
-.tabGallery.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-active.png")!important}
+.tabGallery{background-image:url("assets/navigation/gallery-default.png")!important}
+.tabGallery:hover{background-image:url("assets/navigation/gallery-hover.png")!important}
+.tabGallery.active{background-image:url("assets/navigation/gallery-active.png")!important}
 
-.tabAbout{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-default.png")!important}
-.tabAbout:hover{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-hover.png")!important}
-.tabAbout.active{background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-active.png")!important}
+.tabAbout{background-image:url("assets/navigation/about-default.png")!important}
+.tabAbout:hover{background-image:url("assets/navigation/about-hover.png")!important}
+.tabAbout.active{background-image:url("assets/navigation/about-active.png")!important}
 
 /* Discord nav item stays live text, but uses the matching icon asset */
 .templateDiscordLink{
@@ -2406,10 +2406,10 @@ main{
   width:30px!important;
   height:30px!important;
   display:block!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-default.png") center/contain no-repeat!important;
+  background:url("assets/navigation/discord-default.png") center/contain no-repeat!important;
 }
 .templateDiscordLink:hover .templateDiscordIcon{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-active.png")!important;
+  background-image:url("assets/navigation/discord-active.png")!important;
 }
 
 .templateDiscordCta,
@@ -2427,25 +2427,25 @@ main{
   width:236px!important;
   height:65px!important;
   flex:0 0 236px!important;
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-default.png")!important;
+  background-image:url("assets/navigation/join-discord-default.png")!important;
 }
 .templateDiscordCta:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-hover.png")!important;
+  background-image:url("assets/navigation/join-discord-hover.png")!important;
 }
 .templateDiscordCta:active{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-active.png")!important;
+  background-image:url("assets/navigation/join-discord-active.png")!important;
 }
 .templateHeroDiscordCta{
   width:290px!important;
   height:80px!important;
   flex:0 0 290px!important;
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-default.png")!important;
+  background-image:url("assets/navigation/join-discord-default.png")!important;
 }
 .templateHeroDiscordCta:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-hover.png")!important;
+  background-image:url("assets/navigation/join-discord-hover.png")!important;
 }
 .templateHeroDiscordCta:active{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/join-discord-active.png")!important;
+  background-image:url("assets/navigation/join-discord-active.png")!important;
 }
 
 /* Retire all previous nav systems */
@@ -2484,53 +2484,53 @@ main{
   background-size:contain!important;
 }
 .tabHome{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-default%20%287%29.png")!important;
+  background-image:url("assets/navigation/home-default-wide.png")!important;
 }
 .tabHome:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-hover.png")!important;
+  background-image:url("assets/navigation/home-hover.png")!important;
 }
 .tabHome.active{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/home-active%20%283%29.png")!important;
+  background-image:url("assets/navigation/home-active-wide.png")!important;
 }
 
 .tabRoster{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-default%20%2810%29.png")!important;
+  background-image:url("assets/navigation/roster-default-wide.png")!important;
 }
 .tabRoster:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-hover.png")!important;
+  background-image:url("assets/navigation/roster-hover.png")!important;
 }
 .tabRoster.active{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/roster-active%20%288%29.png")!important;
+  background-image:url("assets/navigation/roster-active-wide.png")!important;
 }
 
 .tabEvents{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-default%20%281%29.png")!important;
+  background-image:url("assets/navigation/events-default-wide.png")!important;
 }
 .tabEvents:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-hover.png")!important;
+  background-image:url("assets/navigation/events-hover.png")!important;
 }
 .tabEvents.active{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/events-active%20%284%29.png")!important;
+  background-image:url("assets/navigation/events-active-wide.png")!important;
 }
 
 .tabGallery{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-default%20%286%29.png")!important;
+  background-image:url("assets/navigation/gallery-default-wide.png")!important;
 }
 .tabGallery:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-hover.png")!important;
+  background-image:url("assets/navigation/gallery-hover.png")!important;
 }
 .tabGallery.active{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/gallery-active%20%285%29.png")!important;
+  background-image:url("assets/navigation/gallery-active-wide.png")!important;
 }
 
 .tabAbout{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-default%20%282%29.png")!important;
+  background-image:url("assets/navigation/about-default-wide.png")!important;
 }
 .tabAbout:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-hover.png")!important;
+  background-image:url("assets/navigation/about-hover.png")!important;
 }
 .tabAbout.active{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/about-active%20%289%29.png")!important;
+  background-image:url("assets/navigation/about-active-wide.png")!important;
 }
 
 .exactNavBar{
@@ -2592,7 +2592,7 @@ main{
   flex:0 0 184px!important;
   text-decoration:none!important;
   background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-default.png") center/100% 100% no-repeat!important;
+    url("assets/navigation/nav-tab-default.png") center/100% 100% no-repeat!important;
 }
 .templateDiscordTab:before{
   content:""!important;
@@ -2602,7 +2602,7 @@ main{
   width:31px!important;
   height:31px!important;
   transform:translateY(-50%)!important;
-  background:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-default.png") center/contain no-repeat!important;
+  background:url("assets/navigation/discord-default.png") center/contain no-repeat!important;
 }
 .templateDiscordTab:after{
   content:"DISCORD"!important;
@@ -2616,10 +2616,10 @@ main{
   white-space:nowrap!important;
 }
 .templateDiscordTab:hover{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/nav-tab-active.png")!important;
+  background-image:url("assets/navigation/nav-tab-active.png")!important;
 }
 .templateDiscordTab:hover:before{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/discord-active.png")!important;
+  background-image:url("assets/navigation/discord-active.png")!important;
 }
 .templateDiscordTab:hover:after{color:#ffe2ad!important}
 
@@ -2748,22 +2748,22 @@ main{
 .exactBrandBar{
   background:
     linear-gradient(90deg,rgba(4,7,10,.22),rgba(4,7,10,.02) 58%,rgba(4,7,10,.18)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/backgrounds/header-city-bg.webp") center 48%/cover no-repeat!important;
 }
 .exactHeroBg{
   background:
     linear-gradient(90deg,rgba(2,5,8,.08),rgba(2,5,8,.03) 55%,rgba(2,5,8,.52)),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
+    url("assets/backgrounds/hero-rf-battle-bg.webp") center 48%/cover no-repeat!important;
   filter:none!important;
 }
 .thumbRaid{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/raid-boss.webp")!important;
+  background-image:url("assets/thumbnails/raid-boss.webp")!important;
 }
 .thumbExpedition{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/expedition.webp")!important;
+  background-image:url("assets/thumbnails/expedition.webp")!important;
 }
 .thumbElysium{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/thumbnails/elysium-blue.webp")!important;
+  background-image:url("assets/thumbnails/elysium-blue.webp")!important;
 }
 
 
@@ -2776,7 +2776,7 @@ main{
   background:
     linear-gradient(90deg,rgba(3,6,9,.30) 0%,rgba(3,6,9,.08) 45%,rgba(3,6,9,.20) 100%),
     linear-gradient(180deg,rgba(2,4,7,.08) 0%,rgba(2,4,7,.02) 58%,rgba(2,4,7,.28) 100%),
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/FromTheAshes_Exact_Site_Asset_Pack/web/backgrounds/hero-rf-battle-bg.webp") center 40%/cover no-repeat!important;
+    url("assets/backgrounds/hero-rf-battle-bg.webp") center 40%/cover no-repeat!important;
   overflow:visible!important;
 }
 .topScene:before{
@@ -2853,7 +2853,7 @@ main{
    showing through its semi-transparent internal panel regions.
    ========================================================= */
 .exactNavBar{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg-web.png")!important;
+  background-image:url("assets/navigation/navbar-bg-web.png")!important;
   background-color:#080b0e!important;
   background-position:center!important;
   background-repeat:no-repeat!important;
@@ -2862,7 +2862,7 @@ main{
 
 /* FINAL WEB-READY NAVBAR BACKGROUND */
 .exactNavBar{
-  background-image:url("assets/FromTheAshes_Exact_Site_Asset_Pack/navbar-bg-web.png")!important;
+  background-image:url("assets/navigation/navbar-bg-web.png")!important;
   background-color:transparent!important;
   background-position:center!important;
   background-repeat:no-repeat!important;
@@ -2910,7 +2910,7 @@ main{
   gap:16px!important;
   border:0!important;
   background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png") center/100% 100% no-repeat!important;
+    url("assets/ui/profile-account-frame.png") center/100% 100% no-repeat!important;
   box-shadow:none!important;
   color:#f0ebe5!important;
   text-transform:none!important;
@@ -2920,7 +2920,7 @@ main{
 .characterBarTrigger:hover{
   filter:brightness(1.08)!important;
   background:
-    url("assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png") center/100% 100% no-repeat!important;
+    url("assets/ui/profile-account-frame.png") center/100% 100% no-repeat!important;
 }
 .characterAvatarSlot{
   width:76px!important;
