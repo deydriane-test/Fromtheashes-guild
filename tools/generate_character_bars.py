@@ -169,9 +169,7 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
     x1, y1, x2, y2 = slot
     sw, sh = x2 - x1, y2 - y1
 
-    # Avatar crop metadata is independent from the bar style so one adjustment
-    # fixes that portrait across every current/future character bar.
-    avatar_rules = config_avatar_rules = style.get("_avatar_rules", {})
+    avatar_rules = style.get("_avatar_rules", {})
     override = avatar_rules.get(avatar_path.stem, {})
     source_inset = override.get(
         "source_inset",
@@ -185,8 +183,6 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
         float(override.get("focus_y", style.get("avatar_focus_y", 0.46))),
     )
 
-    # Portrait sits BEHIND the transparent frame. The frame itself becomes
-    # the mask/border, which guarantees identical alignment for every avatar.
     canvas.alpha_composite(portrait, (x1, y1))
     canvas.alpha_composite(frame)
 
@@ -203,7 +199,6 @@ def build_one(avatar_path: Path, style: dict, output_root: Path, quality: int):
     return out_path
 
 
-# Pillow import kept here so startup errors name the missing dependency clearly.
 from PIL import ImageChops
 
 
