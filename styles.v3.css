@@ -3307,3 +3307,65 @@ main{
   }
   .exactHeroLeft h1{font-size:40px!important}
 }
+
+/* =========================================================
+   PHONE NAV — restore all navigation items
+   Horizontal scroll preserves readable button proportions.
+   ========================================================= */
+@media(max-width:600px){
+  .exactNavBar{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    align-items:center!important;
+    gap:4px!important;
+    height:56px!important;
+    min-height:56px!important;
+    padding:4px 8px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:none!important;
+    scroll-snap-type:x proximity!important;
+  }
+  .exactNavBar::-webkit-scrollbar{display:none!important}
+
+  .templateNav{
+    display:flex!important;
+    flex:0 0 auto!important;
+    align-items:center!important;
+    gap:3px!important;
+    height:48px!important;
+    min-height:48px!important;
+    overflow:visible!important;
+  }
+
+  .templateTab{
+    display:block!important;
+    width:108px!important;
+    height:43px!important;
+    flex:0 0 108px!important;
+    margin:0!important;
+    transform:none!important;
+    background-size:100% 100%!important;
+    scroll-snap-align:start!important;
+  }
+  .templateTab.tabHome.active{
+    display:block!important;
+    width:108px!important;
+    height:43px!important;
+    flex:0 0 108px!important;
+    transform:none!important;
+  }
+
+  .templateDiscordCta{
+    display:block!important;
+    width:132px!important;
+    min-width:132px!important;
+    height:39px!important;
+    flex:0 0 132px!important;
+    margin:0 3px 0 2px!important;
+    background-size:100% 100%!important;
+    scroll-snap-align:start!important;
+  }
+}
