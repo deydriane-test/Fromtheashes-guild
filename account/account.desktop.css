@@ -265,3 +265,50 @@
 .avatarPreview{
   overflow:visible!important;
 }
+
+
+/* =========================================================
+   AVATAR FIT V2
+   Grid = full framed asset.
+   Preview = portrait crop inside the separate profile frame.
+   ========================================================= */
+.avatarChoice{
+  aspect-ratio:1/1!important;
+  padding:0!important;
+  border:0!important;
+  background:#070a0d!important;
+  overflow:hidden!important;
+  clip-path:none!important;
+}
+.avatarChoice img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+}
+
+.avatarPreview{
+  position:relative!important;
+  overflow:visible!important;
+}
+.avatarPreview>img{
+  width:88px!important;
+  height:88px!important;
+  flex:0 0 88px!important;
+  object-fit:cover!important;
+  object-position:center 40%!important;
+  transform:scale(1.14)!important;
+  transform-origin:center!important;
+  clip-path:polygon(14% 0,86% 0,100% 14%,100% 86%,86% 100%,14% 100%,0 86%,0 14%)!important;
+  background:#070a0d!important;
+}
+
+@media(max-width:600px){
+  .avatarPreview>img{
+    width:68px!important;
+    height:68px!important;
+    flex-basis:68px!important;
+    transform:scale(1.14)!important;
+  }
+}
