@@ -1,4 +1,4 @@
-const c=window.GUILD_CONFIG||{};const sb=window.supabase?.createClient(c.supabase?.url||"",c.supabase?.publishableKey||"",{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false,flowType:"pkce"}});const $=id=>document.getElementById(id);function status(id,msg,type=""){const x=$(id);if(!x)return;x.className="formStatus"+(type?" "+type:"");x.textContent=msg}
+const c=window.GUILD_CONFIG||{};const sb=window.supabase?.createClient(c.supabase?.url||"",c.supabase?.publishableKey||"",{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});const $=id=>document.getElementById(id);function status(id,msg,type=""){const x=$(id);if(!x)return;x.className="formStatus"+(type?" "+type:"");x.textContent=msg}
 const discordButton=$("discordLogin");let discordStateTimer;
 discordButton?.addEventListener("pointerdown",()=>{discordButton.classList.add("discordStateActive");clearTimeout(discordStateTimer);discordStateTimer=setTimeout(()=>discordButton.classList.remove("discordStateActive"),420)});
 discordButton?.addEventListener("mouseenter",()=>discordButton.classList.add("discordStateHover"));
