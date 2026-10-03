@@ -1992,3 +1992,122 @@ main{
   .assetFeatureStrip img{min-height:0!important;transform:none!important}
   .assetPanelLink img{transform:none!important}
 }
+
+
+/* Clean nav rebuild — replaces generated nav image assets */
+.exactNavBar{
+  min-height:66px!important;
+  height:66px!important;
+  padding:0 2.4vw!important;
+  display:flex!important;
+  align-items:stretch!important;
+  justify-content:space-between!important;
+  background:
+    linear-gradient(180deg,#0b0f13 0%,#070a0d 100%)!important;
+  border-top:1px solid #382316!important;
+  border-bottom:1px solid #432b1a!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.02),
+    inset 0 -1px 0 #020304,
+    0 6px 18px rgba(0,0,0,.45)!important;
+}
+.cleanNav{
+  display:flex!important;
+  align-items:stretch!important;
+  height:66px!important;
+  gap:0!important;
+}
+.cleanNav a{
+  position:relative;
+  min-width:138px!important;
+  height:66px!important;
+  padding:0 22px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  color:#c9cdd0!important;
+  text-decoration:none!important;
+  font:700 15px "Rajdhani",sans-serif!important;
+  letter-spacing:.075em!important;
+  border-left:1px solid #1a2025!important;
+  border-right:1px solid #050709!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,0))!important;
+  box-sizing:border-box!important;
+}
+.cleanNav a:before{
+  content:"";
+  position:absolute;
+  left:10px;right:10px;bottom:0;
+  height:1px;
+  background:transparent;
+}
+.cleanNav a:hover{
+  color:#f0e5d8!important;
+  background:linear-gradient(180deg,rgba(255,119,46,.055),rgba(255,119,46,.015))!important;
+}
+.cleanNav a.active{
+  color:#ffd29d!important;
+  background:
+    linear-gradient(180deg,rgba(255,125,47,.13),rgba(255,125,47,.035))!important;
+}
+.cleanNav a.active:before{
+  background:linear-gradient(90deg,transparent,#ff7a2e 30%,#ffb15f 50%,#ff7a2e 70%,transparent);
+  height:2px;
+  box-shadow:0 0 10px rgba(255,113,37,.75);
+}
+.cleanNavIcon{
+  color:#e1e4e6;
+  font-size:19px;
+  line-height:1;
+  opacity:.92;
+}
+.cleanNav a.active .cleanNavIcon{color:#ffd29d}
+
+.cleanDiscordCta{
+  align-self:center!important;
+  margin-left:20px!important;
+  min-width:250px!important;
+  height:48px!important;
+  padding:0 28px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:11px!important;
+  color:#ffd5a6!important;
+  background:
+    linear-gradient(180deg,#1a120c 0%,#0e0a07 100%)!important;
+  border:1px solid #8b562b!important;
+  clip-path:polygon(6% 0,94% 0,100% 24%,100% 76%,94% 100%,6% 100%,0 76%,0 24%)!important;
+  box-shadow:
+    inset 0 0 0 1px #25140b,
+    0 0 14px rgba(255,112,35,.16)!important;
+  font:800 13px "Rajdhani",sans-serif!important;
+  letter-spacing:.08em!important;
+}
+.cleanDiscordCta:hover{
+  color:#ffe5c2!important;
+  box-shadow:
+    inset 0 0 0 1px #3a2113,
+    0 0 20px rgba(255,112,35,.28)!important;
+}
+.discordGlyph{font-size:18px}
+
+.assetNav,.assetDiscordNav{display:none!important}
+
+@media(max-width:1200px){
+  .cleanNav a{min-width:112px!important;padding:0 15px!important;font-size:13px!important}
+  .cleanDiscordCta{min-width:220px!important;padding:0 20px!important}
+}
+@media(max-width:900px){
+  .cleanNav a{display:none!important}
+  .cleanNav a.active{display:flex!important;min-width:110px!important}
+  .cleanDiscordCta{min-width:185px!important;height:44px!important;font-size:11px!important}
+}
+@media(max-width:560px){
+  .exactNavBar{padding:0 4vw!important}
+  .cleanNav a.active{min-width:92px!important;padding:0 10px!important}
+  .cleanNav a.active span:last-child{font-size:11px}
+  .cleanDiscordCta{min-width:150px!important;padding:0 14px!important}
+}
