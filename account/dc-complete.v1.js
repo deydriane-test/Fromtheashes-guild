@@ -1,6 +1,6 @@
 const c=window.GUILD_CONFIG||{};
 const sb=window.supabase?.createClient(c.supabase?.url||"",c.supabase?.publishableKey||"",{
-  auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false,flowType:"pkce"}
+  auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}
 });
 const $=id=>document.getElementById(id);
 let verifiedUser=null;
@@ -13,61 +13,45 @@ function status(msg,type=""){
   x.textContent=msg;
 }
 
+async function currentUser(){
+  const {data,error}=await sb.auth.getUser();
+  if(error) return null;
+  return data?.user||null;
+}
+
 async function getDiscordIdentity(user){
-  const r=await sb.auth.getUserIdentities();
-  if(!r.error){
-    const i=(r.data?.identities||[]).find(x=>x.provider==="discord");
-    if(i){
-      const d=i.identity_data||{};
-      return{
-        discordId:i.identity_id||i.provider_id||d.provider_id||d.sub||d.id||null,
-        discordName:d.global_name||d.username||d.user_name||d.preferred_username||d.full_name||d.name||"DISCORD MEMBER"
-      };
-    }
+  const {data}=await sb.auth.getUserIdentities();
+  const i=(data?.identities||[]).find(x=>x.provider==="discord");
+  if(i){
+    const d=i.identity_data||{};
+    return{
+      discordId:i.identity_id||i.provider_id||d.provider_id||d.sub||d.id||null,
+      discordName:d.global_name||d.username||d.user_name||d.preferred_username||d.full_name||d.name||user?.email||"DISCORD MEMBER"
+    };
   }
   const m=user?.user_metadata||{};
   return{
     discordId:m.provider_id||m.sub||m.user_id||m.discord_id||null,
-    discordName:m.global_name||m.username||m.user_name||m.preferred_username||m.full_name||m.name||"DISCORD MEMBER"
+    discordName:m.global_name||m.username||m.user_name||m.preferred_username||m.full_name||m.name||user?.email||"DISCORD MEMBER"
   };
 }
 
-async function establishSession(){
-  const url=new URL(window.location.href);
-  const oauthError=url.searchParams.get("error_description")||url.searchParams.get("error");
-  if(oauthError) throw new Error(oauthError);
-
-  const existing=await sb.auth.getSession();
-  if(existing.error) throw existing.error;
-  if(existing.data?.session?.user) return existing.data.session;
-
-  const code=url.searchParams.get("code");
-  if(code){
-    status("CONNECTING YOUR DISCORD ACCOUNT…");
-    const {data,error}=await sb.auth.exchangeCodeForSession(code);
-    if(error) throw error;
-    url.searchParams.delete("code");
-    url.searchParams.delete("sb_flow_id");
-    history.replaceState({},document.title,url.pathname+(url.search?url.search:""));
-    if(data?.session?.user) return data.session;
-  }
-
+async function waitForUser(){
+  let user=await currentUser();
+  if(user)return user;
   return await new Promise(resolve=>{
-    let settled=false;
-    const finish=session=>{
-      if(settled)return;
-      settled=true;
+    let done=false;
+    const finish=u=>{
+      if(done)return;
+      done=true;
       clearTimeout(timer);
-      subscription?.unsubscribe();
-      resolve(session?.user?session:null);
+      subscription.unsubscribe();
+      resolve(u||null);
     };
-    const {data:{subscription}}=sb.auth.onAuthStateChange((event,session)=>{
-      if((event==="SIGNED_IN"||event==="INITIAL_SESSION"||event==="TOKEN_REFRESHED")&&session?.user) finish(session);
+    const {data:{subscription}}=sb.auth.onAuthStateChange(async(event,session)=>{
+      if(session?.user) finish(session.user);
     });
-    const timer=setTimeout(async()=>{
-      const last=await sb.auth.getSession();
-      finish(last.data?.session||null);
-    },1500);
+    const timer=setTimeout(async()=>finish(await currentUser()),2500);
   });
 }
 
@@ -75,22 +59,20 @@ async function boot(){
   try{
     if(!sb){window.location.replace("login.html");return;}
     status("VERIFYING DISCORD SESSION…");
-    const session=await establishSession();
-    if(!session?.user){
+    verifiedUser=await waitForUser();
+    if(!verifiedUser){
       status("YOUR DISCORD SESSION COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
       return;
     }
-
-    verifiedUser=session.user;
     verifiedDiscord=await getDiscordIdentity(verifiedUser);
     $("discordName").textContent=(verifiedDiscord.discordName||"DISCORD MEMBER").toUpperCase();
     $("discordId").textContent=verifiedDiscord.discordId?"DISCORD ID • "+verifiedDiscord.discordId:"DISCORD CONNECTED";
 
-    const {data:existing,error:rosterError}=await sb.from("roster")
+    const {data:existing,error}=await sb.from("roster")
       .select("id,character_name,approved,active")
       .eq("user_id",verifiedUser.id)
       .maybeSingle();
-    if(rosterError) console.warn("Roster lookup:",rosterError);
+    if(error) throw error;
     if(existing){
       $("character").value=existing.character_name||"";
       status("YOUR GUILD APPLICATION ALREADY EXISTS. REDIRECTING…","success");
@@ -110,23 +92,21 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
   try{
     const character=$("character").value.trim();
     if(character.length<2){status("ENTER YOUR CHARACTER NAME.","error");return;}
-    if(!verifiedUser){
-      const current=await sb.auth.getSession();
-      verifiedUser=current.data?.session?.user||null;
-    }
-    if(!verifiedUser){
+
+    const user=await currentUser();
+    if(!user){
       status("YOUR DISCORD SESSION COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
       return;
     }
 
     submit.disabled=true;
     status("SUBMITTING YOUR APPLICATION…");
-    verifiedDiscord=verifiedDiscord||await getDiscordIdentity(verifiedUser);
-    if(!verifiedDiscord?.discordId) throw new Error("DISCORD ID COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.");
+    const discord=await getDiscordIdentity(user);
+    if(!discord?.discordId) throw new Error("DISCORD ID COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.");
 
     const {data:existing,error:existingError}=await sb.from("roster")
       .select("id,user_id")
-      .eq("discord_id",verifiedDiscord.discordId)
+      .eq("discord_id",discord.discordId)
       .maybeSingle();
     if(existingError) throw existingError;
     if(existing){
@@ -136,10 +116,10 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
     }
 
     const {error}=await sb.from("roster").insert({
-      user_id:verifiedUser.id,
+      user_id:user.id,
       character_name:character,
-      discord_id:verifiedDiscord.discordId,
-      discord_name:verifiedDiscord.discordName,
+      discord_id:discord.discordId,
+      discord_name:discord.discordName,
       approved:false,
       active:true
     });
@@ -150,8 +130,7 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
   }catch(error){
     console.error("Guild application:",error);
     status(error?.message||"APPLICATION COULD NOT BE SUBMITTED. PLEASE TRY AGAIN.","error");
-    if(submit) submit.disabled=false;
+    if(submit)submit.disabled=false;
   }
 });
-
 boot();
