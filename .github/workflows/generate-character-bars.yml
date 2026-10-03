@@ -7,7 +7,7 @@ on:
       - "tools/generate_character_bars.py"
       - "character-bars.json"
       - "assets/FromTheAshes_Exact_Site_Asset_Pack/avatar-*.webp"
-      - "assets/FromTheAshes_Exact_Site_Asset_Pack/profile-account-frame.png"
+      - "assets/character-bars/styles/**"
       - ".github/workflows/generate-character-bars.yml"
 
 permissions:
