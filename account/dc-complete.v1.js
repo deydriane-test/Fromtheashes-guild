@@ -1,22 +1,19 @@
 const c=window.GUILD_CONFIG||{};
 const sb=window.supabase?.createClient(c.supabase?.url||"",c.supabase?.publishableKey||"",{
-  auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}
+  auth:{
+    persistSession:true,
+    autoRefreshToken:true,
+    detectSessionInUrl:true,
+    flowType:"implicit"
+  }
 });
 const $=id=>document.getElementById(id);
-let verifiedUser=null;
-let verifiedDiscord=null;
 
 function status(msg,type=""){
   const x=$("completeStatus");
   if(!x)return;
   x.className="formStatus"+(type?" "+type:"");
   x.textContent=msg;
-}
-
-async function currentUser(){
-  const {data,error}=await sb.auth.getUser();
-  if(error)return null;
-  return data?.user||null;
 }
 
 async function getDiscordIdentity(user){
@@ -36,45 +33,27 @@ async function getDiscordIdentity(user){
   };
 }
 
-async function establishReturnedSession(){
-  const url=new URL(window.location.href);
-  const oauthError=url.searchParams.get("error_description")||url.searchParams.get("error");
-  if(oauthError)throw new Error(oauthError);
+async function waitForSession(){
+  const first=await sb.auth.getSession();
+  if(first.data?.session?.user)return first.data.session;
 
-  // Supabase implicit-flow callback: tokens arrive in the URL hash.
-  const hash=new URLSearchParams(window.location.hash.replace(/^#/,""));
-  const accessToken=hash.get("access_token");
-  const refreshToken=hash.get("refresh_token");
-  if(accessToken&&refreshToken){
-    status("CONNECTING YOUR DISCORD ACCOUNT…");
-    const {data,error}=await sb.auth.setSession({
-      access_token:accessToken,
-      refresh_token:refreshToken
+  return await new Promise(resolve=>{
+    let done=false;
+    const finish=session=>{
+      if(done)return;
+      done=true;
+      clearTimeout(timer);
+      subscription.unsubscribe();
+      resolve(session?.user?session:null);
+    };
+    const {data:{subscription}}=sb.auth.onAuthStateChange((event,session)=>{
+      if((event==="SIGNED_IN"||event==="INITIAL_SESSION")&&session?.user)finish(session);
     });
-    if(error)throw error;
-    history.replaceState({},document.title,url.pathname+url.search);
-    if(data?.session?.user)return data.session.user;
-  }
-
-  // Supabase PKCE callback: authorization code arrives in the query string.
-  const code=url.searchParams.get("code");
-  if(code){
-    status("CONNECTING YOUR DISCORD ACCOUNT…");
-    const {data,error}=await sb.auth.exchangeCodeForSession(code);
-    if(!error&&data?.session?.user){
-      url.searchParams.delete("code");
-      url.searchParams.delete("sb_flow_id");
-      history.replaceState({},document.title,url.pathname+(url.search?url.search:""));
-      return data.session.user;
-    }
-    if(error)console.warn("OAuth code exchange:",error);
-  }
-
-  // Existing persisted browser session.
-  const {data:sessionData}=await sb.auth.getSession();
-  if(sessionData?.session?.user)return sessionData.session.user;
-
-  return await currentUser();
+    const timer=setTimeout(async()=>{
+      const last=await sb.auth.getSession();
+      finish(last.data?.session||null);
+    },3000);
+  });
 }
 
 async function boot(){
@@ -82,26 +61,20 @@ async function boot(){
     if(!sb){window.location.replace("login.html");return;}
     status("VERIFYING DISCORD SESSION…");
 
-    verifiedUser=await establishReturnedSession();
-
-    if(!verifiedUser){
-      // Give the auth client one final moment to persist an async callback session.
-      await new Promise(r=>setTimeout(r,700));
-      verifiedUser=await currentUser();
-    }
-
-    if(!verifiedUser){
+    const session=await waitForSession();
+    const user=session?.user||null;
+    if(!user){
       status("YOUR DISCORD SESSION COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
       return;
     }
 
-    verifiedDiscord=await getDiscordIdentity(verifiedUser);
-    $("discordName").textContent=(verifiedDiscord.discordName||"DISCORD MEMBER").toUpperCase();
-    $("discordId").textContent=verifiedDiscord.discordId?"DISCORD ID • "+verifiedDiscord.discordId:"DISCORD CONNECTED";
+    const discord=await getDiscordIdentity(user);
+    $("discordName").textContent=(discord.discordName||"DISCORD MEMBER").toUpperCase();
+    $("discordId").textContent=discord.discordId?"DISCORD ID • "+discord.discordId:"DISCORD CONNECTED";
 
     const {data:existing,error}=await sb.from("roster")
       .select("id,character_name,approved,active")
-      .eq("user_id",verifiedUser.id)
+      .eq("user_id",user.id)
       .maybeSingle();
     if(error)throw error;
 
@@ -111,7 +84,6 @@ async function boot(){
       setTimeout(()=>window.location.replace("../"),800);
       return;
     }
-
     status("");
   }catch(error){
     console.error("Discord callback:",error);
@@ -126,15 +98,14 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
     const character=$("character").value.trim();
     if(character.length<2){status("ENTER YOUR CHARACTER NAME.","error");return;}
 
-    const user=(await currentUser())||verifiedUser;
-    if(!user){
+    const {data:{user},error:userError}=await sb.auth.getUser();
+    if(userError||!user){
       status("YOUR DISCORD SESSION COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.","error");
       return;
     }
 
     submit.disabled=true;
     status("SUBMITTING YOUR APPLICATION…");
-
     const discord=await getDiscordIdentity(user);
     if(!discord?.discordId)throw new Error("DISCORD ID COULD NOT BE VERIFIED. PLEASE SIGN IN AGAIN.");
 
@@ -167,5 +138,4 @@ $("discordCompleteForm")?.addEventListener("submit",async e=>{
     if(submit)submit.disabled=false;
   }
 });
-
 boot();
